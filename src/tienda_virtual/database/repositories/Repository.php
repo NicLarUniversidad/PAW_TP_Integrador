@@ -23,7 +23,7 @@ class Repository
         $this->setConnection($connection);
         $this->queryBuilder = new QueryBuilder($connection, $logger);
         $this->tabla = $tabla;
-        $this->modelo = "src\\clinical\\database\\models\\" . $modelo;
+        $this->modelo = "src\\tienda_virtual\\database\\models\\" . $modelo;
     }
     public function findAll() : array {
         $model = new $this->modelo();

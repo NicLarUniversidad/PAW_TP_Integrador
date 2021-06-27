@@ -60,7 +60,7 @@ class RouterService{
     }
 
     public function call($controller, $method) {
-        $controller_name = "src\\clinical\\controllers\\{$controller}";
+        $controller_name = "src\\tienda_virtual\\controllers\\{$controller}";
         $objController = new $controller_name;
         $objController->setSession($this->session);
         $objController->setConnection($this->connection);

@@ -23,7 +23,7 @@ class Model
     }
 
     public static function factory(String $className) {
-        $path = "src\\clinical\\database\\models\\{$className}";
+        $path = "src\\tienda_virtual\\database\\models\\{$className}";
         $model = new $path();
         $model->setLogger(Model::$log);
         $model->setConnection(Model::$pdo);

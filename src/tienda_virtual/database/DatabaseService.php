@@ -13,7 +13,7 @@ class DatabaseService
 
     public function __construct(PDO $PDO, Logger $logger, string $repositoryName)
     {
-        $repositoryClass = "src\\clinical\\database\\repositories\\" . $repositoryName;
+        $repositoryClass = "src\\tienda_virtual\\database\\repositories\\" . $repositoryName;
         $this->repository = new $repositoryClass($logger, $PDO);
     }
 
