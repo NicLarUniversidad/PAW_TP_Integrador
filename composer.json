@@ -1,0 +1,19 @@
+{
+    "name": "paw/tienda_virtual",
+    "description": "TP integrador",
+    "require": {
+        "monolog/monolog": "^2.2",
+        "vlucas/phpdotenv": "^5.3",
+        "filp/whoops": "^2.12",
+        "faapz/pdo": "^2.1",
+        "robmorgan/phinx": "^0.12.6",
+      "ext-pdo": "*",
+      "ext-json": "*",
+        "twig/twig": "^3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "src\\": "src"
+        }
+    }
+}
