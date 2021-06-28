@@ -1,25 +1,28 @@
 # Tienda virtual
 
-## Funcionalidades
+Proponemos desarrollar una aplicación web para un local de electrodomésticos. La motivación del trabajo es que nos puede ser útil como un inicio para poder generar algún ingreso en el futuro.
 
-* Permitir publicar productos en un catálogo web, accesible por el público en general.
+Se apunta a que un usuario pueda buscar un producto a través de su nombre o descripción y que luego pueda comprarlo. Se puede usar una API como Mercado Pago para procesar los pagos.
+_____________________________
+Se definen dos tipos de usuarios:
+* Usuario externo: puede comprar.
 
-* Categorizar productos de forma administrable. O sea, debe poder crearse categorías, relacionar productos con categorías y poder buscar productos por categorías.
+* Usuario backoffice o administrativo: tareas gestión.
+_____________________________
+Se podría tener una misma aplicación en el back, pero con diferentes clientes que accedan a diferentes endpoints.
+De modo que un usuario tenga logearse de forma independiente en cada cliente.
 
-    * Las categorías tienen que tener la siguiente estructura jerárquica o una similar.
-        1. Categoría.
-        2. SubCategoría.
-        3. Tipo.
+_____________________________
+Tenemos que tener una vista para listar los paquetes que se deben enviar. O sea, las compras de los `usuario externos`.
 
-    Donde por ejemplo, categoría puede ser "Computación", subcategoría "Monitores" y tipo "LG".
-    
-    * Se debe poder configurar arbitrariamente esta jerarquía por los usuarios administrativos.
+_____________________________
+Se propone una sección para poder armar una PC seleccionando todos sus componentes.  Basada en la siguiente [página](https://compragamer.com/armatupc/?listado_prod=undefined&nro_max=50).
 
-* Permitir ingresar como usuarios (loggear).
+_____________________________
+Los `usuarios externos` podrán buscar productos a través de una serie de categorías asociadas a los mismos. También, abrán una serie de características por las que también se podrán buscar.
 
-* Permitir la compra de productos a usuarios registrados.
+_____________________________
+Habrá una vista de categoría para poder buscar de otra forma un producto.
 
-* Sección "arma tu PC" basada en la siguiente [página](https://compragamer.com/armatupc/?listado_prod=undefined&nro_max=50).
-
-## Comentarios
-
+_____________________________
+Las categorías y características podrán ser definidas por los `usuarios de backoffice`.
