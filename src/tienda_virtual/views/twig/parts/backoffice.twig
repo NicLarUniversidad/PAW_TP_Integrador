@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title> {{ Title }}</title>
+    {% if cssImports %}
+        {% for import in cssImports %}
+            <link rel="stylesheet" type="text/css" href="css/{{ import }}.css" />
+        {% endfor %}
+    {% endif %}
+    {% if jsImports %}
+        {% for import in jsImports %}
+            <script src="/js/scripts/{{ import }}.js" ></script>
+        {% endfor %}
+    {% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block head %}
+
+    {% endblock %}
+</head>
+<body>
+<header>
+    {% if user %}
+
+    {% else %}
+        <a href="/backoffice-login" class="login_anchor">Login</a>
+    {% endif %}
+</header>
+<nav>
+    <ul>
+        <li><a href="/backoffice">Inicio</a></li>
+        <li><a href="/backoffice-categorías">ABM Categorías</a></li>
+        <li><a href="/backoffice-productos">ABM Productos</a></li>
+        <li><a href="/backoffice-ofertas">Admin. Ofertas</a></li>
+        <li><a href="/backoffice-armar-pc">Admin. Armá tu PC</a></li>
+        <li><a href="/backoffice-envíos">Envíos</a></li>
+        <li><a href="/backoffice-informes">Informes</a></li>
+        <li><a href="/backoffice-logout">Cerrar sesión</a></li>
+    </ul>
+</nav>
+<main>
+    {% block main %}
+
+    {% endblock %}
+
+</main>
+<footer>
+    <small>Legal</small>
+    <small>Copyright</small>
+    <address>Dirección: Ruta 5</address>
+</footer>
+</body>
+</html>

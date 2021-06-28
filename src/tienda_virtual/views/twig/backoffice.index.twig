@@ -1,0 +1,23 @@
+{% extends "parts/backoffice.twig" %}
+
+{% block head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% endblock %}
+
+{% block main %}
+
+    {% if user %}
+
+    {% else %}
+        <form action="/backoffice-login">
+            <label> Usuario
+                <input>
+            </label>
+            <label> Contraseña
+                <input>
+            </label>
+            <button type="submit">Continuar</button>
+        </form>
+    {% endif %}
+
+{% endblock %}

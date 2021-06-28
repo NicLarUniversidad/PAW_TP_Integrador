@@ -18,11 +18,11 @@ class TwigPageFinderService extends PageFinderService
      */
     public function findFileRute(string $name, string $folder = "html", string $type = "html",
                                  Array $cssImports = [], Array $data = [], string $title = "Clinical", $jsImports = []) : void {
-        $user = $this->session->get(UserService::$USER_SESSION_NAME);
+        //$user = $this->session->get(UserService::$USER_SESSION_NAME);
         //require __DIR__ . "\\..\\views\\" . $folder . "\\" . $name . "." . $type;
         $loader = new FilesystemLoader( __DIR__ . '/../views/twig');
         $twig = new Environment($loader, array('auto_reload' => true));
         echo $twig->render($name . ".twig", compact("data", "cssImports",
-            "jsImports", "user", "title"));
+            "jsImports", "title"));
     }
 }

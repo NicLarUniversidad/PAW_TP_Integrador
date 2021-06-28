@@ -56,3 +56,4 @@ $routerService->setConnection($pdo);
 $routerService->setRequest($request);
 $routerService->setSession($session);
 $routerService->get('/','IndexController@get');
+$routerService->get('/backoffice','BackofficeIndexController@get');
