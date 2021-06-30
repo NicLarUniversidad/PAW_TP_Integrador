@@ -26,19 +26,26 @@
         <a href="/backoffice-login" class="login_anchor">Login</a>
     {% endif %}
 </header>
-<nav>
-    <ul>
-        <li><a href="/backoffice">Inicio</a></li>
-        <li><a href="/backoffice-categorías">ABM Categorías</a></li>
-        <li><a href="/backoffice-productos">ABM Productos</a></li>
-        <li><a href="/backoffice-ofertas">Admin. Ofertas</a></li>
-        <li><a href="/backoffice-armar-pc">Admin. Armá tu PC</a></li>
-        <li><a href="/backoffice-envíos">Envíos</a></li>
-        <li><a href="/backoffice-informes">Informes</a></li>
-        <li><a href="/backoffice-logout">Cerrar sesión</a></li>
-    </ul>
-</nav>
 <main>
+    <nav>
+        <ul>
+            <li><a href="/backoffice">Inicio</a></li>
+            <li>ABM Categorías
+                <ul>
+                    <li><a href="/backoffice-grupo-categoria">ABM Grupos de Categorías</a></li>
+                    <li><a href="/backoffice-categoria">ABM Categorías</a></li>
+                    <li><a href="/backoffice-sub-categoria">ABM Sub-Categorías</a></li>
+                    <li><a href="/backoffice-caracteristica">ABM Características</a></li>
+                </ul>
+            </li>
+            <li><a href="/backoffice-productos">ABM Productos</a></li>
+            <li><a href="/backoffice-ofertas">Admin. Ofertas</a></li>
+            <li><a href="/backoffice-armar-pc">Admin. Armá tu PC</a></li>
+            <li><a href="/backoffice-envíos">Envíos</a></li>
+            <li><a href="/backoffice-informes">Informes</a></li>
+            <li><a href="/backoffice-logout">Cerrar sesión</a></li>
+        </ul>
+    </nav>
     {% block main %}
 
     {% endblock %}

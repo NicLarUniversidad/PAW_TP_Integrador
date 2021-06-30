@@ -1,11 +1,11 @@
 <?php
 
-namespace src\tienda_virtual\database;
+namespace src\tienda_virtual\database\services;
 
 use Monolog\Logger;
 use PDO;
-use src\tienda_virtual\database\models\Model;
-use src\tienda_virtual\database\repositories\Repository;
+use src\tienda_virtual\database\services\models\Model;
+use src\tienda_virtual\database\services\repositories\Repository;
 
 class DatabaseService
 {

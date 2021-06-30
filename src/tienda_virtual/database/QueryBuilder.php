@@ -1,6 +1,6 @@
 <?php
 
-namespace src\tienda_virtual\database;
+namespace src\tienda_virtual\database\services;
 
 use Monolog\Logger;
 use PDO;
