@@ -20,13 +20,6 @@
 </head>
 <body>
 <header>
-    {% if user %}
-
-    {% else %}
-        <a href="/backoffice-login" class="login_anchor">Login</a>
-    {% endif %}
-</header>
-<main>
     <nav>
         <ul>
             <li><a href="/backoffice">Inicio</a></li>
@@ -46,6 +39,8 @@
             <li><a href="/backoffice-logout">Cerrar sesión</a></li>
         </ul>
     </nav>
+</header>
+<main>
     {% block main %}
 
     {% endblock %}

@@ -4,8 +4,8 @@ namespace src\tienda_virtual\database\services\repositories;
 
 use Monolog\Logger;
 use PDO;
-use src\tienda_virtual\database\services\models\Model;
-use src\tienda_virtual\database\services\QueryBuilder;
+use src\tienda_virtual\database\models\Model;
+use src\tienda_virtual\database\QueryBuilder;
 use src\tienda_virtual\traits\TConnection;
 use src\tienda_virtual\traits\TLogger;
 

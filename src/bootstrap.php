@@ -6,12 +6,12 @@ use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Dotenv\Dotenv;
 use src\tienda_virtual\config\Config;
-use src\tienda_virtual\database\services\ConnectionBuilder;
-use src\tienda_virtual\database\services\QueryBuilder;
+use src\tienda_virtual\database\ConnectionBuilder;
+use src\tienda_virtual\database\QueryBuilder;
 use src\tienda_virtual\services\RequestService;
 use src\tienda_virtual\services\RouterService;
 use src\tienda_virtual\services\SessionService;
-use src\tienda_virtual\database\services\models\Model;
+use src\tienda_virtual\database\models\Model;
 use \Whoops\Run;
 use Whoops\Handler\PrettyPageHandler;
 

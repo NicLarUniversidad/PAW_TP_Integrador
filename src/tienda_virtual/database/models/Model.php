@@ -1,10 +1,10 @@
 <?php
 
-namespace src\tienda_virtual\database\services\models;
+namespace src\tienda_virtual\database\models;
 
 use Monolog\Logger;
 use PDO;
-use src\tienda_virtual\database\services\QueryBuilder;
+use src\tienda_virtual\database\QueryBuilder;
 use src\tienda_virtual\exceptions\IndexNotFoundException;
 use src\tienda_virtual\traits\TConnection;
 use src\tienda_virtual\traits\TLogger;

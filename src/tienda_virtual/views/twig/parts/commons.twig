@@ -20,13 +20,12 @@
 </head>
 <body>
 <header>
-    {% if user %}
-    <p>{{ user["nombre"] }}</p>
-    {% else %}
-    <a href="/login" class="login_anchor">Login</a>
-    {% endif %}
-</header>
-<main>
+    <form action="/buscar">
+        <label>Buscar:
+            <input type="text">
+        </label>
+        <button type="submit">Buscar</button>
+    </form>
     <!--Agregar comprobación para mostrar sólo si el usuario está logeado, o si no mostrar botón de login-->
     <nav>
         <ul>
@@ -39,6 +38,8 @@
             <li><a href="/logout">Cerrar sesión</a></li>
         </ul>
     </nav>
+</header>
+<main>
     {% block main %}
 
     {% endblock %}
