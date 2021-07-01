@@ -42,6 +42,14 @@ class RouterService{
         $this->loadRoutes($path,$action,"DELETE");
     }
 
+    public function abm($path, $controllerName) {
+        $action = "$controllerName@";
+        $this->loadRoutes($path,$action . "delete","DELETE");
+        $this->loadRoutes($path,$action . "get");
+        $this->loadRoutes($path . "-insert",$action . "put");
+        $this->loadRoutes($path,$action . "post","POST");
+    }
+
     public function exist ($path,$method) {
         return array_key_exists($path,$this->routes[$method]);
 

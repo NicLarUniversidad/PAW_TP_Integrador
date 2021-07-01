@@ -12,6 +12,7 @@ class QueryBuilder
     private Logger $logger;
     private string $query;
     private array $values;
+    private array $updateValues = [];
 
     public function __construct(PDO $pdo, Logger $logger)
     {
@@ -72,16 +73,20 @@ class QueryBuilder
         $primero = true;
         $dummy = "(";
         foreach ($this->values as $field => $value) {
-            if (! $primero) {
-                $this->query .= ",";
-                $postQuery .= ",";
-                $dummy .= ",";
+            if ($field<>"id") {
+                if (!$primero) {
+                    $this->query .= ",";
+                    $postQuery .= ",";
+                    $dummy .= ",";
+                } else {
+                    $primero = false;
+                }
+                $this->query .= " $field";
+                $postQuery .= " :$field";
+                $dummy .= " $value";
             } else {
-                $primero = false;
+                unset($this->values[$field]);
             }
-            $this->query .= " $field";
-            $postQuery .= " :$field";
-            $dummy .= " $value";
         }
         $this->logger->info("Prepared: $this->query) VALUES  $dummy)");
         $this->query .= ") VALUES " . $postQuery . ")";
@@ -89,22 +94,22 @@ class QueryBuilder
     }
 
     public function update(string $table, array $values) : QueryBuilder {
-        $this->query = "UPDATE $table SET ";
-        $this->values = $values;
+        $this->query = "UPDATE  " . QueryBuilder::$DATABASE_NAME . ".$table SET ";
+        $this->updateValues = $values;
         $primero = true;
-        foreach ($this->values as $field => $value) {
+        foreach ($this->updateValues as $field => $value) {
             if (! $primero) {
                 $this->query .= ",";
             } else {
                 $primero = false;
             }
-            $this->query = " $field=:$field";
+            $this->query .= " $field=:$field";
         }
         return $this;
     }
 
     public function delete(string $table) : QueryBuilder {
-        $this->query = "DELETE $table";
+        $this->query = "DELETE FROM `" . QueryBuilder::$DATABASE_NAME . "`.`$table`";
         return $this;
     }
 
@@ -118,6 +123,10 @@ class QueryBuilder
         foreach ($this->values as $field => $value) {
             $sentencia->bindValue(":$field",$value);
         }
+        foreach ($this->updateValues as $field => $value) {
+            $sentencia->bindValue(":$field",$value);
+        }
+        $this->updateValues = [];
         $sentencia->setFetchMode(PDO::FETCH_ASSOC);
         $sentencia->execute();
         return $sentencia->fetchAll();

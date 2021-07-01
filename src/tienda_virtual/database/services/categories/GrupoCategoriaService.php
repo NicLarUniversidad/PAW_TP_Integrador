@@ -1,10 +1,12 @@
 <?php
 
-namespace src\tienda_virtual\database\services;
+namespace src\tienda_virtual\database\services\categories;
 
 use Exception;
 use Monolog\Logger;
 use PDO;
+use src\tienda_virtual\database\services\DatabaseService;
+use src\tienda_virtual\services\RequestService;
 
 class GrupoCategoriaService extends DatabaseService
 {
@@ -25,5 +27,26 @@ class GrupoCategoriaService extends DatabaseService
         } catch (Exception $e) {
             return false;
         }
+    }
+
+    public function attachData(string $data = null): array
+    {
+        return $this->attachMetadata(parent::attachData($data));
+    }
+
+    public function attachInsertData(string $data = null) : array {
+        return $this->attachMetadata(parent::attachInsertData($data));
+    }
+
+    public function attachMetadata(array $data) : array {
+        $data["table-title"] = "Grupos de Categorías";
+        $data["table-title"] = "Grupos de Categorías";
+        $data["register-url"] = "backoffice-grupo-categoria";
+        $data["insert-url"] = "backoffice-grupo-categoria-insert";
+        $data["register"]["title"] = "Agregar Grupo de Categorías";
+        return $this->dataSetSelect($data,"activo",[
+            "SI"=>"Sí",
+            "NO"=>"No"
+        ]);
     }
 }

@@ -2,12 +2,15 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> {{ Title }}</title>
     {% if cssImports %}
         {% for import in cssImports %}
             <link rel="stylesheet" type="text/css" href="css/{{ import }}.css" />
         {% endfor %}
     {% endif %}
+    <script src="js/app.js" type="application/javascript"></script>
+    <script src="js/abm.js" type="application/javascript"></script>
     {% if jsImports %}
         {% for import in jsImports %}
             <script src="/js/scripts/{{ import }}.js" ></script>
@@ -53,3 +56,6 @@
 </footer>
 </body>
 </html>
+{% block outerHtml %}
+
+{% endblock %}

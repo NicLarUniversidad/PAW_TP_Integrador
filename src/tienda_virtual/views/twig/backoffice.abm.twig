@@ -1,0 +1,51 @@
+{% extends "parts/backoffice.twig" %}
+
+{% block head %}
+{% endblock %}
+
+{% block main %}
+
+    <section>
+        {% if data %}
+{#            {{ dump(data) }}#}
+            {{ attribute(data, "table-title") }}
+        <a>Agregar</a>
+        <table>
+            <thead>
+            <tr>
+                {% for field in data.fields %}
+                <th scope="col">{{ field.name |capitalize }}</th>
+                {% endfor %}
+                <th scope="col">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for tuple in data.tuples %}
+                <tr>
+                    {% for field in data.fields %}
+                    <th scope="col">{{ attribute(attribute(tuple, attribute(field, "name")),"value")|capitalize   }}</th>
+                    {% endfor %}
+                    <th scope="col">
+                        <button id="editar-{{ attribute(attribute(tuple, "id"),"value") }}">Editar</button>
+                        <button id="eliminar-{{ attribute(attribute(tuple, "id"),"value") }}">Eliminar</button>
+                    </th>
+                </tr>
+                <script>
+                    abm.agregarLinks('{{ attribute(data, "register-url") }}?id={{ attribute(attribute(tuple, "id"),"value") }}', '{{ attribute(attribute(tuple, "id"),"value") }}');
+                </script>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </section>
+
+{% endblock %}
+
+
+{% block outerHtml %}
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        abm.agregarBotonAgregar('{{ attribute(data, "register-url") }}');
+    });
+    </script>
+{% endblock %}

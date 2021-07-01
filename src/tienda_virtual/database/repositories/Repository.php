@@ -1,6 +1,6 @@
 <?php
 
-namespace src\tienda_virtual\database\services\repositories;
+namespace src\tienda_virtual\database\repositories;
 
 use Monolog\Logger;
 use PDO;
@@ -46,7 +46,9 @@ class Repository
     }
 
     public function update(Model $model) : void {
-        $this->queryBuilder->update($this->tabla, $model->getTableFields())
+        $fields = $model->getTableFields();
+        unset($fields["id"]);
+        $this->queryBuilder->update($this->tabla, $fields)
             ->where(["id"=>$model->getTableFields()["id"]])
             ->execute();
     }
@@ -56,6 +58,14 @@ class Repository
             ->where(["id"=>$model->getTableFields()["id"]])
             ->execute();
     }
+
+    public function deleteById($id) : void {
+        $this->queryBuilder->delete($this->tabla)
+            ->where(["id"=>$id])
+            ->execute();
+    }
+
+
 
     public function getModelo() : ?string {
         return $this->modelo;
@@ -68,5 +78,10 @@ class Repository
             $model->setFields($fields);
         }
         return $model;
+    }
+
+    public function getModelInstance() : Model
+    {
+        return new $this->modelo();
     }
 }

@@ -1,0 +1,50 @@
+{% extends "parts/backoffice.twig" %}
+
+{% block head %}
+{% endblock %}
+
+{% block main %}
+
+    <section>
+        {% if data %}
+            {{ attribute(data, "table-title") }}
+
+            <form action='{{ attribute(data, "insert-url") }}'>
+                <h3>{{ attribute(attribute(data, "register"),"title") |capitalize }}</h3>
+                {% for field in attribute(data, "fields") %}
+                    {% if attribute(field, "name") != "id" %}
+                <label for="{{ field.name }}">{{ attribute(field, "name") |capitalize }}:
+                        {% if attribute(field, "type") == "text" %}
+                        <input type="text" name="abm-{{ field.name }}" id="abm-{{ field.name }}" value="{{ attribute(attribute(data, "tuple"), attribute(field, "name")) }}"{% if field.required == true %} required {% endif %}>
+                        {% elseif attribute(field, "type") == "select" %}
+                        <select name="abm-{{ field.name }}" id="abm-{{ field.name }}">
+                            <option></option>
+                            {% for option in attribute(field, "options") %}
+                                <option value="{{ option.value }}" {% if attribute(attribute(data, "tuple"), attribute(field, "name")) == option.value %} selected {% endif %}>{{ option.description }}</option>
+                            {% endfor %}
+                        </select>
+                        {% else %}
+                        <input type="text" name="abm-{{ field.name }}" id="abm-{{ field.name }}" {% if field.required == true %} required {% endif %}>
+                        {% endif %}
+                    {% else %}
+                        {% if attribute(attribute(data, "tuple"), attribute(field, "name")) is defined and attribute(attribute(data, "tuple"), attribute(field, "name")) is not null %}
+                            <input type="hidden" name="abm-{{ field.name }}" id="abm-{{ field.name }}" value="{{ attribute(attribute(data, "tuple"), attribute(field, "name")) }}" readonly>
+                        {% endif %}
+                    {% endif %}
+                </label>
+                {% endfor %}
+                <button id="btn-alta" type="submit">Registrar</button>
+            </form>
+        {% endif %}
+    </section>
+
+{% endblock %}
+
+
+{% block outerHtml %}
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            //abm.agregarActionFormAltas('{{ attribute(data, "register-url") }}');
+        });
+    </script>
+{% endblock %}

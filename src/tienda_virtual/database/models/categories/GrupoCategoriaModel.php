@@ -1,10 +1,10 @@
 <?php
 
-namespace src\tienda_virtual\database\services\models\categories;
+namespace src\tienda_virtual\database\models\categories;
 
 use src\tienda_virtual\database\models\Model;
 
-class GrupoCategorialModel extends Model
+class GrupoCategoriaModel extends Model
 {
     public function __construct()
     {
