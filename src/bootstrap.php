@@ -59,3 +59,4 @@ $routerService->get('/','IndexController@get');
 $routerService->get('/backoffice','BackofficeIndexController@get');
 $routerService->abm('/backoffice-grupo-categoria','backoffice\\categories\\GrupoCategoriaController');
 $routerService->abm('/backoffice-categoria','backoffice\\categories\\CategoriaController');
+$routerService->abm('/backoffice-sub-categoria','backoffice\\categories\\SubCategoriaController');
