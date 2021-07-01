@@ -1,0 +1,19 @@
+main>section {
+    padding: 0 10vw;
+    width: 80%;
+    background-color: white;
+    position: relative;
+}
+
+main>section>a {
+    font-size: 0;
+    position: absolute;
+    top: 0;
+    left: 3vw;
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    background-image: url("../img/plus-sign-in-a-black-circle.png");
+    background-size: 5vw;
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
+}

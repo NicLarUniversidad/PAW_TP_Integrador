@@ -6,7 +6,6 @@ use Exception;
 use Monolog\Logger;
 use PDO;
 use src\tienda_virtual\database\services\DatabaseService;
-use src\tienda_virtual\services\RequestService;
 
 class GrupoCategoriaService extends DatabaseService
 {
@@ -19,7 +18,7 @@ class GrupoCategoriaService extends DatabaseService
     {
         try {
             $grupoCategoria = $this->repository->createInstance([
-                "nombre"=>$nombre,
+                "descripcion"=>$nombre,
                 "activo"=>$activo
             ]);
             $this->repository->save($grupoCategoria);
@@ -42,6 +41,7 @@ class GrupoCategoriaService extends DatabaseService
         $data["table-title"] = "Grupos de Categorías";
         $data["table-title"] = "Grupos de Categorías";
         $data["register-url"] = "backoffice-grupo-categoria";
+        $data["item-url"] = "backoffice-grupo-categoria-item";
         $data["insert-url"] = "backoffice-grupo-categoria-insert";
         $data["register"]["title"] = "Agregar Grupo de Categorías";
         return $this->dataSetSelect($data,"activo",[

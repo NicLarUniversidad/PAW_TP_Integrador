@@ -7,6 +7,7 @@ use Monolog\Logger;
 use PDO;
 use src\tienda_virtual\database\models\Model;
 use src\tienda_virtual\database\repositories\Repository;
+use src\tienda_virtual\exceptions\IndexNotFoundException;
 use src\tienda_virtual\services\RequestService;
 
 class DatabaseService
@@ -115,6 +116,9 @@ class DatabaseService
         $this->repository->deleteById($id);
     }
 
+    /**
+     * @throws IndexNotFoundException
+     */
     public function completeFormValues($id, RequestService $request) : array
     {
         $values = [];
@@ -131,7 +135,7 @@ class DatabaseService
             $model = $this->repository->getModelInstance();
             foreach ($model->getTableFields() as $field => $value) {
                 if (is_null($request->get("abm-" . $field))) {
-                    $values[$field] = $model[0][$field] ?? "";
+                    $values[$field] = $model->getField($field) ?? "";
                 } else {
                     $values[$field] = $request->get("abm-" . $field);
                 }

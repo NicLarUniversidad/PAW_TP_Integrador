@@ -1,6 +1,7 @@
 {% extends "parts/backoffice.twig" %}
 
 {% block head %}
+    <link rel="stylesheet" type="text/css" href="/styles/backoffice.grid.css" />
 {% endblock %}
 
 {% block main %}
@@ -31,7 +32,7 @@
                     </th>
                 </tr>
                 <script>
-                    abm.agregarLinks('{{ attribute(data, "register-url") }}?id={{ attribute(attribute(tuple, "id"),"value") }}', '{{ attribute(attribute(tuple, "id"),"value") }}');
+                    abm.agregarLinks('{{ attribute(data, "item-url") }}?id={{ attribute(attribute(tuple, "id"),"value") }}', '{{ attribute(attribute(tuple, "id"),"value") }}');
                 </script>
                 {% endfor %}
             </tbody>
@@ -45,7 +46,7 @@
 {% block outerHtml %}
     <script>
     document.addEventListener("DOMContentLoaded", () => {
-        abm.agregarBotonAgregar('{{ attribute(data, "register-url") }}');
+        abm.agregarBotonAgregar('{{ attribute(data, "item-url") }}');
     });
     </script>
 {% endblock %}

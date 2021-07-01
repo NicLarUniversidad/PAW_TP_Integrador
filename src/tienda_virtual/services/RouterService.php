@@ -44,10 +44,10 @@ class RouterService{
 
     public function abm($path, $controllerName) {
         $action = "$controllerName@";
-        $this->loadRoutes($path,$action . "delete","DELETE");
+        $this->loadRoutes($path . "-item",$action . "delete","DELETE");
         $this->loadRoutes($path,$action . "get");
         $this->loadRoutes($path . "-insert",$action . "put");
-        $this->loadRoutes($path,$action . "post","POST");
+        $this->loadRoutes($path . "-item",$action . "post");
     }
 
     public function exist ($path,$method) {

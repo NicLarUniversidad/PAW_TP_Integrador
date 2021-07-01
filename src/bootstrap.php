@@ -58,4 +58,4 @@ $routerService->setSession($session);
 $routerService->get('/','IndexController@get');
 $routerService->get('/backoffice','BackofficeIndexController@get');
 $routerService->abm('/backoffice-grupo-categoria','backoffice\\categories\\GrupoCategoriaController');
-$routerService->post('/backoffice-grupo-categoria','backoffice\\categories\\GrupoCategoriaController@post');
+$routerService->abm('/backoffice-categoria','backoffice\\categories\\CategoriaController');

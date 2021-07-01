@@ -8,8 +8,8 @@
     <section>
         {% if data %}
             {{ attribute(data, "table-title") }}
-
-            <form action='{{ attribute(data, "insert-url") }}'>
+{#            {{ dump(data) }}#}
+            <form action='{{ attribute(data, "insert-url") }}' method="GET">
                 <h3>{{ attribute(attribute(data, "register"),"title") |capitalize }}</h3>
                 {% for field in attribute(data, "fields") %}
                     {% if attribute(field, "name") != "id" %}
@@ -27,7 +27,7 @@
                         <input type="text" name="abm-{{ field.name }}" id="abm-{{ field.name }}" {% if field.required == true %} required {% endif %}>
                         {% endif %}
                     {% else %}
-                        {% if attribute(attribute(data, "tuple"), attribute(field, "name")) is defined and attribute(attribute(data, "tuple"), attribute(field, "name")) is not null %}
+                        {% if attribute(attribute(data, "tuple"), attribute(field, "name")) is defined and attribute(attribute(data, "tuple"), attribute(field, "name")) is not null and attribute(attribute(data, "tuple"), attribute(field, "name")) != "" %}
                             <input type="hidden" name="abm-{{ field.name }}" id="abm-{{ field.name }}" value="{{ attribute(attribute(data, "tuple"), attribute(field, "name")) }}" readonly>
                         {% endif %}
                     {% endif %}

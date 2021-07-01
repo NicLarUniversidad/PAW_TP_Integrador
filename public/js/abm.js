@@ -51,15 +51,16 @@ class Amb
         const anchor = document.querySelector("main>section>a")
         anchor.addEventListener("click", (e) =>{
             e.preventDefault();
-            fetch(url, {method:"POST"}).then((response)=>{
+            window.location.replace(url);
+            /*fetch(url, {method:"POST"}).then((response)=>{
                 return response.text();
             }).then(function (html) {
                 //console.log(html)
-                //document.getElementsByTagName("html")[0].innerHTML = html
+                document.getElementsByTagName("html")[0].innerHTML = html
             })
                 .catch(()=>{
                     alert("Ocurrió un error inesperado, contacte con un administrador...")
-                })
+                })*/
         })
     }
 
@@ -98,7 +99,7 @@ class Amb
         })
         btnEdit.addEventListener("click", (e) =>{
             e.preventDefault();
-            fetch(url, {method:"POST"}).then((response)=>{
+            fetch(url, {method:"GET"}).then((response)=>{
                 return response.text();
             }).then(function (html) {
                 //console.log(html)
