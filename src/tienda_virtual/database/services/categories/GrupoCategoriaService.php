@@ -28,12 +28,13 @@ class GrupoCategoriaService extends DatabaseService
         }
     }
 
-    public function attachData(string $data = null): array
+    public function attachData(array $data = []): array
     {
-        return $this->attachMetadata(parent::attachData($data));
+        $data = $this->attachMetadata(parent::attachData($data));
+        return $this->addAnchor($data, "id_categoria","Agregar Categoría", "backoffice-categoria-item", "id","abm-id_grupo_categoria");
     }
 
-    public function attachInsertData(string $data = null) : array {
+    public function attachInsertData(array $data = []) : array {
         return $this->attachMetadata(parent::attachInsertData($data));
     }
 

@@ -34,14 +34,16 @@ class CategoriaService extends DatabaseService
         }
     }
 
-    public function attachData(string $data = null): array
+    public function attachData(array $data = []): array
     {
-        return $this->formatFieldName($this->attachMetadata(parent::attachData($data)),
+        $data = $this->formatFieldName($this->attachMetadata(parent::attachData($data)),
             "id_grupo_categoria","Grupo Categoría","descripcion",$this->grupoCategoriaService->findAll());
+        return $this->addAnchor($data, "id_sub_categoria","Agregar Sub Categoría", "backoffice-sub-categoria-item", "id");
     }
 
-    public function attachInsertData(string $data = null) : array {
-        return $this->attachMetadata(parent::attachInsertData($data));
+    public function attachInsertData(array $data = []) : array {
+        $data = $this->attachMetadata(parent::attachInsertData($data));
+        return $this->formatFieldNameInsert($data, "id_grupo_categoria", "Grupo Categoría");
     }
 
     public function attachMetadata(array $data) : array {

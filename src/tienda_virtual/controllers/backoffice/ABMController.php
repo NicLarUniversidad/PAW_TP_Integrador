@@ -4,6 +4,7 @@ namespace src\tienda_virtual\controllers\backoffice;
 
 use src\tienda_virtual\controllers\Controller;
 use src\tienda_virtual\database\services\DatabaseService;
+use src\tienda_virtual\exceptions\IndexNotFoundException;
 use src\tienda_virtual\services\TwigPageFinderService;
 
 class ABMController extends Controller
@@ -34,6 +35,9 @@ class ABMController extends Controller
             $data,"ABM Sub Categorías", $jsImports);
     }
 
+    /**
+     * @throws IndexNotFoundException
+     */
     public function post(String $notification = null, array $cssImports = [], array $jsImports = [], String $title = "Tienda virtual") : void
     {
         $data = $this->service->attachInsertData();

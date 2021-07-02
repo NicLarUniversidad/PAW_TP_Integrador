@@ -34,13 +34,14 @@ class SubCategoriaService extends DatabaseService
         }
     }
 
-    public function attachData(string $data = null): array
+    public function attachData(array $data = []): array
     {
         return $this->formatFieldName($this->attachMetadata(parent::attachData($data)),
             "id_categoria","Categoría","descripcion",$this->categoriaService->findAll());
     }
 
-    public function attachInsertData(string $data = null) : array {
+    public function attachInsertData(array $data = []) : array {
+        $data = $this->formatFieldNameInsert($data, "id_categoria", "Categoría");
         return $this->attachMetadata(parent::attachInsertData($data));
     }
 

@@ -2,7 +2,6 @@
 
 namespace src\tienda_virtual\database\services;
 
-use http\Params;
 use Monolog\Logger;
 use PDO;
 use src\tienda_virtual\database\models\Model;
@@ -45,7 +44,7 @@ class DatabaseService
         $this->repository->delete($model);
     }
 
-    public function attachData(string $data = null): array
+    public function attachData(array $data = []): array
     {
         $data = $this->attachInsertData($data);
         $model = $this->repository->getModelInstance();
@@ -72,7 +71,7 @@ class DatabaseService
         return $data;
     }
 
-    public function attachInsertData(string $data = null): array
+    public function attachInsertData(array $data = []): array
     {
         if (is_null($data)) {
             $data = [];
@@ -81,6 +80,7 @@ class DatabaseService
         $newField = [];
         foreach ($model->getTableFields() as $field => $value) {
             $newField["name"] = $field;
+            $newField["id"] = $field;
             $newField["required"] = "true";
             $newField["type"] = "text";
             $data["fields"][$field] = $newField;
@@ -154,9 +154,15 @@ class DatabaseService
         return $values;
     }
 
-    public function formatFieldName(array $data, string $field, string $name, String $modelDesc = "nombre", array $mapValues = []): array
+    public function formatFieldNameInsert(array $data, string $field, string $name): array
     {
         $data["fields"][$field]["name"] = $name;
+        return $data;
+    }
+
+    public function formatFieldName(array $data, string $field, string $name, String $modelDesc = "nombre", array $mapValues = []): array
+    {
+        $data = $this->formatFieldNameInsert($data, $field, $name);
         $tuples = [];
         foreach ($data["tuples"] as $tuple) {
             foreach ($mapValues as $model) {
@@ -164,6 +170,21 @@ class DatabaseService
                     $tuple[$field]["description"] = $model[$modelDesc];
                 }
             }
+            $tuples[] = $tuple;
+        }
+        $data["tuples"] = $tuples;
+        return $data;
+    }
+
+    public function addAnchor(array $data, String $columnId, String $columnName, String $url, String $idKey, String $paramId = "parent_id") : array {
+        $field["name"] = $columnName;
+        $field["id"] = $columnId;
+        $field["type"] = "button-add";
+        $data["fields"][$columnId] = $field;
+        $tuples = [];
+        foreach ($data["tuples"] as $tuple) {
+            $tuple[$columnId]["type"] = "button-add";
+            $tuple[$columnId]["href"] = $url . "?$paramId=" . $tuple[$idKey]["value"];
             $tuples[] = $tuple;
         }
         $data["tuples"] = $tuples;

@@ -21,10 +21,17 @@
             </tr>
             </thead>
             <tbody>
+{#                {{ dump(data.tuples) }}#}
                 {% for tuple in data.tuples %}
                 <tr>
                     {% for field in data.fields %}
+                        {% if field.type == "text" %}
                     <th scope="col">{{ attribute(attribute(tuple, attribute(field, "id")),"description")|capitalize   }}</th>
+                        {% elseif field.type == "button-add" %}
+                    <th><a href=" {{ attribute(tuple, field.id).href }} " class="button-add">Agregar</a></th>
+                        {% else %}
+                    <th scope="col">{{ attribute(attribute(tuple, attribute(field, "id")),"description")|capitalize   }}</th>
+                        {% endif %}
                     {% endfor %}
                     <th scope="col">
                         <button id="editar-{{ attribute(attribute(tuple, "id"),"value") }}">Editar</button>

@@ -31,18 +31,19 @@ class CaracteristicaService extends DatabaseService
         }
     }
 
-    public function attachData(string $data = null): array
+    public function attachData(array $data = []): array
     {
-        return $this->attachMetadata(parent::attachData($data));
+        $data = $this->attachMetadata(parent::attachData($data));
+        return $this->addAnchor($data, "id_sub_categoria","Agregar Categoría", "backoffice-sub-categoria-item","id","id_sub_categoria");
     }
 
-    public function attachInsertData(string $data = null) : array {
+    public function attachInsertData(array $data = []) : array {
         return $this->attachMetadata(parent::attachInsertData($data));
     }
 
     public function attachMetadata(array $data) : array {
-        $data["table-title"] = "Categorías";
-        $data["table-title"] = "Categorías";
+        $data["table-title"] = "Característica";
+        $data["table-title"] = "Característica";
         $data["register-url"] = "backoffice-caracteristica";
         $data["item-url"] = "backoffice-caracteristica-item";
         $data["insert-url"] = "backoffice-caracteristica-insert";

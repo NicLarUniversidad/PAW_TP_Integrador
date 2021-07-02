@@ -9,12 +9,12 @@
     <section>
         {% if data %}
             <h1>{{ attribute(data, "table-title") }}</h1>
-{#            {{ dump(data) }}#}
+{#            {{ dump(attribute(data, "fields")) }}#}
             <form action='{{ attribute(data, "insert-url") }}' method="GET">
                 <h3>{{ attribute(attribute(data, "register"),"title") |capitalize }}</h3>
                 {% for field in attribute(data, "fields") %}
                     {% if attribute(field, "name") != "id" %}
-                <label for="{{ field.name }}">{{ attribute(field, "name") |capitalize }}:
+                <label for="{{ field.id }}">{{ attribute(field, "name") |capitalize }}:
                         {% if attribute(field, "type") == "text" %}
                         <input type="text" name="abm-{{ field.id }}" id="abm-{{ field.id }}" value="{{ attribute(attribute(data, "tuple"), attribute(field, "name")) }}"{% if field.required == true %} required {% endif %}>
                         {% elseif attribute(field, "type") == "select" %}
