@@ -85,6 +85,8 @@ class Amb
     agregarLinks(url, id) {
         const btnDelete = document.getElementById("eliminar-" + id)
         const btnEdit= document.getElementById("editar-" + id)
+        btnDelete.classList.add("button-delete")
+        btnEdit.classList.add("button-edit")
         btnDelete.addEventListener("click", (e) =>{
             e.preventDefault();
             fetch(url, {method:"DELETE"}).then((response)=>{

@@ -61,3 +61,4 @@ $routerService->abm('/backoffice-grupo-categoria','backoffice\\categories\\Grupo
 $routerService->abm('/backoffice-categoria','backoffice\\categories\\CategoriaController');
 $routerService->abm('/backoffice-sub-categoria','backoffice\\categories\\SubCategoriaController');
 $routerService->abm('/backoffice-caracteristica','backoffice\\categories\\CaracteristicaController');
+$routerService->abm('/backoffice-valor-caracteristica','backoffice\\categories\\ValorCaracteristicaController');

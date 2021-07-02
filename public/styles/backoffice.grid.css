@@ -1,5 +1,5 @@
 main>section {
-    padding: 0 10vw;
+    padding: 4vh 10vw;
     width: 80%;
     background-color: white;
     position: relative;
@@ -9,11 +9,61 @@ main>section>a {
     font-size: 0;
     position: absolute;
     top: 0;
-    left: 3vw;
+    right: 20vw;
     width: 5vw;
     height: 5vw;
     border-radius: 50%;
     background-image: url("../img/plus-sign-in-a-black-circle.png");
     background-size: 5vw;
     box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
+}
+
+table {
+    background: lightgray;
+    width: 80%;
+    border-collapse: collapse;
+}
+
+.button-edit{
+    font-size: 0;
+    width: 24px;
+    height: 24px;
+    background-image: url("../img/icons8-edit-48.png");
+    background-size: 20px;
+}
+
+.button-delete{
+    font-size: 0;
+    width: 24px;
+    height: 24px;
+    background-image: url("../img/trash.png");
+    background-size: 20px;
+}
+
+thead {
+    background-color: black;
+    color: white;
+}
+
+td:first-child, th:first-child {
+    border-left: none;
+}
+
+td:nth-child(2), th:nth-child(2) {
+     border-left: solid 2px black;
+ }
+th {
+    border-left: solid 2px black;
+}
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+}
+
+form {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: lightgray;
 }

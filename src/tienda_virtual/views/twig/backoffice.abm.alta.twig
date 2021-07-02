@@ -1,13 +1,14 @@
 {% extends "parts/backoffice.twig" %}
 
 {% block head %}
+    <link rel="stylesheet" type="text/css" href="/styles/backoffice.grid.css" />
 {% endblock %}
 
 {% block main %}
 
     <section>
         {% if data %}
-            {{ attribute(data, "table-title") }}
+            <h1>{{ attribute(data, "table-title") }}</h1>
 {#            {{ dump(data) }}#}
             <form action='{{ attribute(data, "insert-url") }}' method="GET">
                 <h3>{{ attribute(attribute(data, "register"),"title") |capitalize }}</h3>
@@ -15,20 +16,20 @@
                     {% if attribute(field, "name") != "id" %}
                 <label for="{{ field.name }}">{{ attribute(field, "name") |capitalize }}:
                         {% if attribute(field, "type") == "text" %}
-                        <input type="text" name="abm-{{ field.name }}" id="abm-{{ field.name }}" value="{{ attribute(attribute(data, "tuple"), attribute(field, "name")) }}"{% if field.required == true %} required {% endif %}>
+                        <input type="text" name="abm-{{ field.id }}" id="abm-{{ field.id }}" value="{{ attribute(attribute(data, "tuple"), attribute(field, "name")) }}"{% if field.required == true %} required {% endif %}>
                         {% elseif attribute(field, "type") == "select" %}
-                        <select name="abm-{{ field.name }}" id="abm-{{ field.name }}">
+                        <select name="abm-{{ field.id }}" id="abm-{{ field.id }}">
                             <option></option>
                             {% for option in attribute(field, "options") %}
                                 <option value="{{ option.value }}" {% if attribute(attribute(data, "tuple"), attribute(field, "name")) == option.value %} selected {% endif %}>{{ option.description }}</option>
                             {% endfor %}
                         </select>
                         {% else %}
-                        <input type="text" name="abm-{{ field.name }}" id="abm-{{ field.name }}" {% if field.required == true %} required {% endif %}>
+                        <input type="text" name="abm-{{ field.id }}" id="abm-{{ field.id }}" {% if field.required == true %} required {% endif %}>
                         {% endif %}
                     {% else %}
                         {% if attribute(attribute(data, "tuple"), attribute(field, "name")) is defined and attribute(attribute(data, "tuple"), attribute(field, "name")) is not null and attribute(attribute(data, "tuple"), attribute(field, "name")) != "" %}
-                            <input type="hidden" name="abm-{{ field.name }}" id="abm-{{ field.name }}" value="{{ attribute(attribute(data, "tuple"), attribute(field, "name")) }}" readonly>
+                            <input type="hidden" name="abm-{{ field.id }}" id="abm-{{ field.id }}" value="{{ attribute(attribute(data, "tuple"), attribute(field, "name")) }}" readonly>
                         {% endif %}
                     {% endif %}
                 </label>

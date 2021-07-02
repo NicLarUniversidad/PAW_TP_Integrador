@@ -37,6 +37,7 @@ final class MigracionInicial extends AbstractMigration
         $table = $this->table('valor_caracteristica');
         $table->addColumn('descripcion', 'string')
             ->addColumn('tipo', 'string')
+            ->addColumn('activo', 'string')
             ->addColumn('id_caracteristica', 'integer')
             ->addForeignKey('id_caracteristica', 'caracteristica', 'id', ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'])
             ->create();

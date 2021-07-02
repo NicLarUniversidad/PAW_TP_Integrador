@@ -9,7 +9,7 @@
     <section>
         {% if data %}
 {#            {{ dump(data) }}#}
-            {{ attribute(data, "table-title") }}
+            <h1>{{ attribute(data, "table-title") }}</h1>
         <a>Agregar</a>
         <table>
             <thead>
@@ -24,7 +24,7 @@
                 {% for tuple in data.tuples %}
                 <tr>
                     {% for field in data.fields %}
-                    <th scope="col">{{ attribute(attribute(tuple, attribute(field, "name")),"value")|capitalize   }}</th>
+                    <th scope="col">{{ attribute(attribute(tuple, attribute(field, "id")),"description")|capitalize   }}</th>
                     {% endfor %}
                     <th scope="col">
                         <button id="editar-{{ attribute(attribute(tuple, "id"),"value") }}">Editar</button>

@@ -20,32 +20,38 @@ class DatabaseService
         $this->repository = new $repositoryClass($logger, $PDO);
     }
 
-    public function findAll() : array {
+    public function findAll(): array
+    {
         return $this->repository->findAll();
     }
 
-    public function find($id) : array {
+    public function find($id): array
+    {
         return $this->repository->find($id);
     }
 
-    public function save(Model $model) : void {
+    public function save(Model $model): void
+    {
         $this->repository->save($model);
     }
 
-    public function update(Model $model) : void {
+    public function update(Model $model): void
+    {
         $this->repository->update($model);
     }
 
-    public function delete(Model $model) : void {
+    public function delete(Model $model): void
+    {
         $this->repository->delete($model);
     }
 
-    public function attachData(String $data = null) : array
+    public function attachData(string $data = null): array
     {
         $data = $this->attachInsertData($data);
         $model = $this->repository->getModelInstance();
         foreach ($model->getTableFields() as $field => $value) {
             $newField["name"] = $field;
+            $newField["id"] = $field;
             $newField["required"] = "true";
             $newField["type"] = "text";
             $data["fields"][$field] = $newField;
@@ -57,6 +63,7 @@ class DatabaseService
             foreach ($model->getTableFields() as $field => $value) {
                 $tupleData[$field] = [];
                 $tupleData[$field]["value"] = $m[$field];
+                $tupleData[$field]["description"] = $m[$field];
                 $tupleData[$field]["required"] = "true";
                 $tupleData[$field]["type"] = "text";
             }
@@ -65,7 +72,7 @@ class DatabaseService
         return $data;
     }
 
-    public function attachInsertData(String $data = null) : array
+    public function attachInsertData(string $data = null): array
     {
         if (is_null($data)) {
             $data = [];
@@ -81,10 +88,11 @@ class DatabaseService
         return $data;
     }
 
-    public function saveByDefaultABMForm(RequestService $requestService) : void {
+    public function saveByDefaultABMForm(RequestService $requestService): void
+    {
         $model = $this->repository->getModelInstance();
         foreach ($model->getTableFields() as $field => $value) {
-            $key = "abm-". $field;
+            $key = "abm-" . $field;
             $model->setField($field, $requestService->get($key) ?? "");
         }
         $this->save($model);
@@ -94,13 +102,14 @@ class DatabaseService
     {
         $model = $this->repository->getModelInstance();
         foreach ($model->getTableFields() as $field => $value) {
-            $key = "abm-". $field;
+            $key = "abm-" . $field;
             $model->setField($field, $requestService->get($key) ?? "");
         }
         $this->update($model);
     }
 
-    public function dataSetSelect(array $data, String $field, array $options) : array {
+    public function dataSetSelect(array $data, string $field, array $options): array
+    {
         $data["fields"][$field]["type"] = "select";
         $data["fields"][$field]["options"] = [];
         foreach ($options as $value => $description) {
@@ -112,14 +121,15 @@ class DatabaseService
         return $data;
     }
 
-    public function deleteById($id) : void {
+    public function deleteById($id): void
+    {
         $this->repository->deleteById($id);
     }
 
     /**
      * @throws IndexNotFoundException
      */
-    public function completeFormValues($id, RequestService $request) : array
+    public function completeFormValues($id, RequestService $request): array
     {
         $values = [];
         $model = $this->repository->find($id);
@@ -142,5 +152,21 @@ class DatabaseService
             }
         }
         return $values;
+    }
+
+    public function formatFieldName(array $data, string $field, string $name, String $modelDesc = "nombre", array $mapValues = []): array
+    {
+        $data["fields"][$field]["name"] = $name;
+        $tuples = [];
+        foreach ($data["tuples"] as $tuple) {
+            foreach ($mapValues as $model) {
+                if ($tuple[$field]["value"] == $model["id"]) {
+                    $tuple[$field]["description"] = $model[$modelDesc];
+                }
+            }
+            $tuples[] = $tuple;
+        }
+        $data["tuples"] = $tuples;
+        return $data;
     }
 }
