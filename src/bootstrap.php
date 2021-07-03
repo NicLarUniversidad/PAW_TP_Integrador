@@ -62,3 +62,4 @@ $routerService->abm('/backoffice-categoria','backoffice\\categories\\CategoriaCo
 $routerService->abm('/backoffice-sub-categoria','backoffice\\categories\\SubCategoriaController');
 $routerService->abm('/backoffice-caracteristica','backoffice\\categories\\CaracteristicaController');
 $routerService->abm('/backoffice-valor-caracteristica','backoffice\\categories\\ValorCaracteristicaController');
+$routerService->abm('/backoffice-moneda','backoffice\\categories\\MonedaController');
