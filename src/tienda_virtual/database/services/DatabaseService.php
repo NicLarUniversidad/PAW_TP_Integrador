@@ -128,6 +128,12 @@ class DatabaseService
         return $data;
     }
 
+    public function ignoreField(array $data, string $field): array
+    {
+        $data["fields"][$field]["type"] = "ignore";
+        return $data;
+    }
+
     public function deleteById($id): void
     {
         $this->repository->deleteById($id);

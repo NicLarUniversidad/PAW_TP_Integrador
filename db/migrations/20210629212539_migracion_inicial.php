@@ -57,7 +57,6 @@ final class MigracionInicial extends AbstractMigration
         $table->addColumn('fecha_entrada', 'date')
             ->addColumn('cantidad_inicial', 'integer')
             ->addColumn('costo_unidad', 'float')
-            ->addColumn('precio_unidad', 'float')
             ->addColumn('id_producto', 'integer')
             ->addColumn('id_moneda', 'integer')
             ->addForeignKey('id_producto', 'producto', 'id', ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'])
