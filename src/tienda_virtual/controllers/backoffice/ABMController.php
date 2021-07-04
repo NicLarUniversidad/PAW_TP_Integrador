@@ -9,9 +9,9 @@ use src\tienda_virtual\services\TwigPageFinderService;
 
 class ABMController extends Controller
 {
-    private DatabaseService $service;
-    private String $serviceName;
-    private String $url;
+    protected DatabaseService $service;
+    protected String $serviceName;
+    protected String $url;
 
     public function __construct(String $databaseServiceName, String $url)
     {

@@ -10,4 +10,9 @@ class SessionService
     public function put($key, $value) {
         $_SESSION[$key] = $value;
     }
+
+    public function delete(string $key) :void
+    {
+        unset($_SESSION[$key]);
+    }
 }

@@ -49,6 +49,7 @@ final class MigracionInicial extends AbstractMigration
         $table->addColumn('descripcion', 'string')
             ->addColumn('activo', 'string')
             ->addColumn('precio_tentativo', 'float')
+            ->addColumn('carpeta', 'string')
             ->addColumn('id_moneda', 'integer')
             ->addForeignKey('id_moneda', 'moneda', 'id', ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'])
             ->create();
@@ -199,6 +200,11 @@ final class MigracionInicial extends AbstractMigration
             ->addColumn('id_permiso', 'integer')
             ->addForeignKey('id_rol', 'rol', 'id', ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'])
             ->addForeignKey('id_permiso', 'permiso', 'id', ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'])
+            ->create();
+        $table = $this->table('fotografia_producto');
+        $table->addColumn('id_producto', 'integer')
+            ->addColumn('url', 'string')
+            ->addForeignKey('id_producto', 'producto', 'id', ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'])
             ->create();
     }
 }
