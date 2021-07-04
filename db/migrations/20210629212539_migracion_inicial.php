@@ -67,7 +67,7 @@ final class MigracionInicial extends AbstractMigration
             ->addColumn('id_pruducto', 'integer')
             ->addColumn('activo', 'string')
             ->addForeignKey('id_sub_categoria', 'sub_categoria', 'id', ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'])
-            ->addForeignKey('id_pruducto', 'producto', 'id', ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'])
+            ->addForeignKey('id_producto', 'producto', 'id', ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'])
             ->create();
         $table = $this->table('caracteristica_producto');
         $table->addColumn('id_caracteristica', 'integer')

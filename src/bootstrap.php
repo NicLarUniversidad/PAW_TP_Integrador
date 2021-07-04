@@ -60,6 +60,7 @@ $routerService->get('/backoffice','BackofficeIndexController@get');
 $routerService->abm('/backoffice-grupo-categoria','backoffice\\categories\\GrupoCategoriaController');
 $routerService->abm('/backoffice-categoria','backoffice\\categories\\CategoriaController');
 $routerService->abm('/backoffice-producto','backoffice\\products\\ProductoController');
+$routerService->abm('/backoffice-producto-sub-categoria','backoffice\\products\\ProductoSubCategoriaController');
 $routerService->abm('/backoffice-sub-categoria','backoffice\\categories\\SubCategoriaController');
 $routerService->abm('/backoffice-caracteristica','backoffice\\categories\\CaracteristicaController');
 $routerService->abm('/backoffice-valor-caracteristica','backoffice\\categories\\ValorCaracteristicaController');
