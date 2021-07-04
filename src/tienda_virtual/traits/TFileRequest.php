@@ -8,9 +8,9 @@ use src\tienda_virtual\services\FileRequestService;
 
 trait TFileRequest
 {
-    public FileRequestService $request;
+    public FileRequestService $fileRequest;
 
     public  function  setFileRequest(FileRequestService $request){
-        $this->request = $request;
+        $this->fileRequest = $request;
     }
 }

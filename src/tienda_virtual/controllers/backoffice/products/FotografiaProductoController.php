@@ -15,19 +15,4 @@ class FotografiaProductoController extends ABMController
     {
         parent::__construct("products\\FotografiaProductoService", "backoffice.abm");
     }
-
-    public function put() : void
-    {
-        $archivo = $_FILES['url'];
-        $this->session->put("photograph_url", $archivo);
-        if (! is_null($this->request->get("abm-id"))) {
-            //update
-            $this->service->updateByDefaultABMForm($this->request);
-        } else {
-            //insert
-            $this->service->saveByABMForm($this->request, $archivo);
-        }
-        $this->get();
-        $this->session->delete("photograph_url");
-    }
 }

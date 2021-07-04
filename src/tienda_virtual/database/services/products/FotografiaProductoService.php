@@ -56,20 +56,4 @@ class FotografiaProductoService extends DatabaseService
         }
         return $options;
     }
-
-    public function saveByABMForm(RequestService $requestService, $archivo): void
-    {
-        $model = $this->repository->getModelInstance();
-        foreach ($model->getTableFields() as $field => $value) {
-            if ($field != "url") {
-                $key = "abm-" . $field;
-                $model->setField($field, $requestService->get($key) ?? "");
-            } else {
-                $producto = $this->productoService->find($requestService->get("id_producto"));
-                $photographs = $this->repository->findByProducto($producto);
-                $this->fileService->save($producto["url"], (count($photographs) + 1) .".jpg", $archivo, file_get_contents($archivo['tmp_name']));
-            }
-        }
-        $this->save($model);
-    }
 }

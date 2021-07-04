@@ -10,7 +10,7 @@
         {% if data %}
             <h1>{{ attribute(data, "table-title") }}</h1>
 {#            {{ dump(attribute(data, "fields")) }}#}
-            <form action='{{ attribute(data, "insert-url") }}' method="GET">
+            <form action='{{ attribute(data, "insert-url") }}' enctype="multipart/form-data" method="POST">
                 <h3>{{ attribute(attribute(data, "register"),"title") |capitalize }}</h3>
                 {% for field in attribute(data, "fields") %}
                     {% if attribute(field, "name") != "id" %}
@@ -25,7 +25,7 @@
                             {% endfor %}
                         </select>
                         {% elseif attribute(field, "type") == "file" %}
-                        <input type="file" name="abm-{{ field.id }}" id="abm-{{ field.id }}" {% if field.required == true %} required {% endif %}>
+                        <input type="file" name="abm-{{ field.id }}" id="abm-{{ field.id }}" accept="image/png, image/jpeg" {% if field.required == true %} required {% endif %}>
                         {% else %}
                         <input type="text" name="abm-{{ field.id }}" id="abm-{{ field.id }}" {% if field.required == true %} required {% endif %}>
                         {% endif %}
