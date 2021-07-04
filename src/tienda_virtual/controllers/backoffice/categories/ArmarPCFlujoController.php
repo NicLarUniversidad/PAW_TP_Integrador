@@ -11,6 +11,6 @@ class ArmarPCFlujoController extends ABMController
 {
     public function __construct()
     {
-        parent::__construct("ArmarPCFlujoService", "backoffice.abm");
+        parent::__construct("categories\\ArmarPCFlujoService", "backoffice.abm");
     }
 }
