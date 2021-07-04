@@ -10,6 +10,6 @@ class ValorCaracteristicaController extends ABMController
 {
     public function __construct()
     {
-        parent::__construct("ValorCaracteristicaService", "backoffice.abm");
+        parent::__construct("categories\\ValorCaracteristicaService", "backoffice.abm");
     }
 }
