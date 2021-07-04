@@ -121,6 +121,19 @@ class DatabaseService
         return $data;
     }
 
+    public function dataSetFile(array $data, string $field): array
+    {
+        //$data["fields"][$field]["name"] = "Archivo";
+        $data["fields"][$field]["type"] = "file";
+        return $data;
+    }
+
+    public function ignoreField(array $data, string $field): array
+    {
+        $data["fields"][$field]["type"] = "ignore";
+        return $data;
+    }
+
     public function deleteById($id): void
     {
         $this->repository->deleteById($id);

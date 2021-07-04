@@ -6,13 +6,19 @@ use Monolog\Logger;
 use PDO;
 use src\tienda_virtual\database\models\Model;
 use src\tienda_virtual\database\QueryBuilder;
+use src\tienda_virtual\services\FileRequestService;
+use src\tienda_virtual\services\RequestService;
 use src\tienda_virtual\traits\TConnection;
+use src\tienda_virtual\traits\TFileRequest;
 use src\tienda_virtual\traits\TLogger;
+use src\tienda_virtual\traits\tRequest;
 
 class Repository
 {
     use TLogger;
     use TConnection;
+    use TRequest;
+    use TFileRequest;
     protected QueryBuilder $queryBuilder;
     protected string $tabla;
     protected string $modelo;
@@ -24,6 +30,8 @@ class Repository
         $this->queryBuilder = new QueryBuilder($connection, $logger);
         $this->tabla = $tabla;
         $this->modelo = "src\\tienda_virtual\\database\\models\\" . $modelo;
+        $this->setRequest(new RequestService());
+        $this->setFileRequest(new FileRequestService());
     }
     public function findAll() : array {
         $model = new $this->modelo();

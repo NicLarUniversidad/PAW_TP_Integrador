@@ -34,7 +34,6 @@ class GrupoCategoriaController extends Controller
 
     public function post(String $notification = null) : void
     {
-        var_dump($_REQUEST);
         $cssImports = Array();
         $jsImports = Array();
         $data = $this->service->attachInsertData();

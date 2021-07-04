@@ -10,10 +10,10 @@
         {% if data %}
             <h1>{{ attribute(data, "table-title") }}</h1>
 {#            {{ dump(attribute(data, "fields")) }}#}
-            <form action='{{ attribute(data, "insert-url") }}' method="GET">
+            <form action='{{ attribute(data, "insert-url") }}' enctype="multipart/form-data" method="POST">
                 <h3>{{ attribute(attribute(data, "register"),"title") |capitalize }}</h3>
                 {% for field in attribute(data, "fields") %}
-                    {% if attribute(field, "name") != "id" %}
+                    {% if attribute(field, "name") != "id" and attribute(field, "type") != "ignore" %}
                 <label for="{{ field.id }}">{{ attribute(field, "name") |capitalize }}:
                         {% if attribute(field, "type") == "text" %}
                         <input type="text" name="abm-{{ field.id }}" id="abm-{{ field.id }}" value="{{ attribute(attribute(data, "tuple"), attribute(field, "name")) }}"{% if field.required == true %} required {% endif %}>
@@ -24,6 +24,10 @@
                                 <option value="{{ option.value }}" {% if attribute(attribute(data, "tuple"), attribute(field, "name")) == option.value %} selected {% endif %}>{{ option.description }}</option>
                             {% endfor %}
                         </select>
+                        {% elseif attribute(field, "type") == "file" %}
+                        <input type="file" name="abm-{{ field.id }}" id="abm-{{ field.id }}" accept="image/png, image/jpeg" {% if field.required == true %} required {% endif %}>
+                        {% elseif attribute(field, "type") == "ignore" %}
+                            {# ignore #}
                         {% else %}
                         <input type="text" name="abm-{{ field.id }}" id="abm-{{ field.id }}" {% if field.required == true %} required {% endif %}>
                         {% endif %}

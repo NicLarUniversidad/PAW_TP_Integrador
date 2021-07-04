@@ -10,6 +10,6 @@ class SubCategoriaController extends ABMController
 {
     public function __construct()
     {
-        parent::__construct("SubCategoriaService", "backoffice.abm");
+        parent::__construct("categories\\SubCategoriaService", "backoffice.abm");
     }
 }
