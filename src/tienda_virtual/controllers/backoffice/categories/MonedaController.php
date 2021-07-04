@@ -10,6 +10,6 @@ class MonedaController extends ABMController
 {
     public function __construct()
     {
-        parent::__construct("MonedaService", "backoffice.abm");
+        parent::__construct("categories\\MonedaService", "backoffice.abm");
     }
 }

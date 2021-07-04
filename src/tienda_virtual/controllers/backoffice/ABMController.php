@@ -16,7 +16,7 @@ class ABMController extends Controller
     public function __construct(String $databaseServiceName, String $url)
     {
         parent::__construct();
-        $this->serviceName = "src\\tienda_virtual\\database\\services\\categories\\".$databaseServiceName;
+        $this->serviceName = "src\\tienda_virtual\\database\\services\\".$databaseServiceName;
         $this->url = $url;
     }
 
