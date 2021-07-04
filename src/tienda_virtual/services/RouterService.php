@@ -46,7 +46,7 @@ class RouterService{
         $action = "$controllerName@";
         $this->loadRoutes($path . "-item",$action . "delete","DELETE");
         $this->loadRoutes($path,$action . "get");
-        $this->loadRoutes($path . "-insert",$action . "put");
+        $this->loadRoutes($path . "-insert",$action . "put","POST");
         $this->loadRoutes($path . "-item",$action . "post");
     }
 

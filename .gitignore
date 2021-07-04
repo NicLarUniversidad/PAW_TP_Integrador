@@ -2,3 +2,4 @@
 .env
 /vendor
 /log/app.log
+/public/documentos

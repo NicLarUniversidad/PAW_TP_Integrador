@@ -123,7 +123,7 @@ class DatabaseService
 
     public function dataSetFile(array $data, string $field): array
     {
-        $data["fields"][$field]["name"] = "Archivo";
+        //$data["fields"][$field]["name"] = "Archivo";
         $data["fields"][$field]["type"] = "file";
         return $data;
     }
