@@ -24,6 +24,8 @@
                                 <option value="{{ option.value }}" {% if attribute(attribute(data, "tuple"), attribute(field, "name")) == option.value %} selected {% endif %}>{{ option.description }}</option>
                             {% endfor %}
                         </select>
+                        {% elseif attribute(field, "type") == "file" %}
+                        <input type="file" name="abm-{{ field.id }}" id="abm-{{ field.id }}" {% if field.required == true %} required {% endif %}>
                         {% else %}
                         <input type="text" name="abm-{{ field.id }}" id="abm-{{ field.id }}" {% if field.required == true %} required {% endif %}>
                         {% endif %}

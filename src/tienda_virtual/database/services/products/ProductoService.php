@@ -22,7 +22,9 @@ class ProductoService extends DatabaseService
     {
         $data = $this->formatFieldName($this->attachMetadata(parent::attachData($data)),
             "precio_tentativo","Precio tentativo");
-        return $this->formatFieldName($data,"id_moneda","Moneda","nombre", $this->monedaService->findAll());
+        $data = $this->formatFieldName($data,"id_moneda","Moneda","nombre", $this->monedaService->findAll());
+        $data = $this->addAnchor($data, "id_fotografia_producto","Agregar Fotografia", "backoffice-fotografia-producto-item", "id","abm-id_producto");
+        return $this->addAnchor($data, "id_sub_categoria","Agregar Sub Categoría", "backoffice-producto-sub-categoria-item", "id","abm-id_producto");
     }
 
     public function attachInsertData(array $data = []) : array {
