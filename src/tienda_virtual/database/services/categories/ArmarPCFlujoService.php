@@ -7,29 +7,40 @@ namespace src\tienda_virtual\database\services\categories;
 use Monolog\Logger;
 use PDO;
 use src\tienda_virtual\database\services\DatabaseService;
+use Exception;
 
 class ArmarPCFlujoService extends DatabaseService
 {
-    private SubCategoriaService $subCategoriaService;
 
     public function __construct(PDO $PDO, Logger $logger)
     {
         parent::__construct($PDO, $logger, "categories\\ArmarPCFlujoRepository");
-        $this->subCategoriaService = new SubCategoriaService($PDO, $logger);
+        
     }
 
+    public function create($nombre, $activo) : bool
+    {
+        try {
+            $armarPCFlujo = $this->repository->createInstance([
+                "descripcion"=>$nombre,
+                "activo"=>$activo
+            ]);
+            $this->repository->save($armarPCFlujo);
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+  
     public function attachData(array $data = []): array
     {
-        $data = $this->attachMetadata(parent::attachData($data));
-        $data = $this->formatFieldName($data, "id_sub_categoria", "Sub Categoría");
-        return $this->formatFieldName($data, "numero_paso", "Número de paso");
+        return $this->attachMetadata(parent::attachData($data));
     }
 
     public function attachInsertData(array $data = []) : array {
-        $data = $this->attachMetadata(parent::attachInsertData($data));
-        $data = $this->formatFieldNameInsert($data, "id_sub_categoria", "Sub Categoría");
-        return $this->formatFieldNameInsert($data, "numero_paso", "Número de paso");
+        return $this->attachMetadata(parent::attachInsertData($data));
     }
+
 
     public function attachMetadata(array $data) : array {
         $data["table-title"] = "Flujo de Sección Armá tu PC";
@@ -37,20 +48,9 @@ class ArmarPCFlujoService extends DatabaseService
         $data["item-url"] = "backoffice-armar-pc-flujo-item";
         $data["insert-url"] = "backoffice-armar-pc-flujo-insert";
         $data["register"]["title"] = "Agregar pasos para armar PC";
-        $data = $this->dataSetSelect($data, "id_sub_categoria", $this->buildOptionsSubCategorias());
         return $this->dataSetSelect($data,"activo",[
             "SI"=>"Sí",
             "NO"=>"No"
         ]);
-    }
-
-    private function buildOptionsSubCategorias(): array
-    {
-        $options = [];
-        $categorias = $this->subCategoriaService->findAll();
-        foreach ($categorias as $categoria) {
-            $options[(string)$categoria["id"]] = $categoria["descripcion"];
-        }
-        return $options;
     }
 }
