@@ -64,18 +64,18 @@ final class MigracionInicial extends AbstractMigration
             ->create();
         $table = $this->table('producto_sub_categoria');
         $table->addColumn('id_sub_categoria', 'integer')
-            ->addColumn('id_pruducto', 'integer')
+            ->addColumn('id_producto', 'integer')
             ->addColumn('activo', 'string')
             ->addForeignKey('id_sub_categoria', 'sub_categoria', 'id', ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'])
             ->addForeignKey('id_producto', 'producto', 'id', ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'])
             ->create();
         $table = $this->table('caracteristica_producto');
         $table->addColumn('id_caracteristica', 'integer')
-            ->addColumn('id_pruducto', 'integer')
+            ->addColumn('id_producto', 'integer')
             ->addColumn('id_valor_caracteristica', 'integer')
             ->addColumn('activo', 'string')
             ->addForeignKey('id_caracteristica', 'caracteristica', 'id', ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'])
-            ->addForeignKey('id_pruducto', 'producto', 'id', ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'])
+            ->addForeignKey('id_producto', 'producto', 'id', ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'])
             ->addForeignKey('id_valor_caracteristica', 'valor_caracteristica', 'id', ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'])
             ->create();
         $table = $this->table('publicacion');
