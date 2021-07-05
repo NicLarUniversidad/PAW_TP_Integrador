@@ -37,7 +37,7 @@ class Repository
         $model = new $this->modelo();
         return $this->queryBuilder->select($model->getTableFields())
             ->from($this->tabla)
-            ->execute($model->getTableFields());
+            ->execute();
     }
 
     public function find($id): array {
