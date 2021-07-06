@@ -32,7 +32,7 @@ class PublicacionService extends DatabaseService
 
     public function attachInsertData(array $data = []) : array {
         $data = $this->attachMetadata(parent::attachInsertData($data));
-        $data = $this->ignoreField($data,"fecha_entrada","Fecha de entrada");
+        $data = $this->ignoreField($data,"fecha_entrada");
         $data = $this->formatFieldNameInsert($data, "precio_unidad", "Precio unidad");
         $data = $this->formatFieldNameInsert($data,"cantidad_inicial","Cantidad inicial");
         $data = $this->formatFieldNameInsert($data,"id_producto","Producto","descripcion", $this->productoService->findAll());
@@ -71,5 +71,10 @@ class PublicacionService extends DatabaseService
             $options[(string)$tuple["id"]] = $tuple["descripcion"];
         }
         return $options;
+    }
+
+    public function buscar($parametros)
+    {
+        return $this->repository->buscar($parametros);
     }
 }
