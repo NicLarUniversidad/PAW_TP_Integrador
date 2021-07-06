@@ -11,7 +11,7 @@ class QueryBuilder
     private PDO $pdo;
     private Logger $logger;
     private string $query;
-    private array $values;
+    private array $values = [];
     private array $updateValues = [];
 
     public function __construct(PDO $pdo, Logger $logger)
@@ -113,9 +113,9 @@ class QueryBuilder
         return $this;
     }
 
-    public function execute(array $values = null): array
+    public function execute(array $values = []): array
     {
-        if (!is_null($values)) {
+        if (count($values) > 0) {
             $this->values = $values;
         }
         $this->logger->info("Query: ".  $this->query);

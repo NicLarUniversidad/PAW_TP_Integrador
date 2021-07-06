@@ -38,6 +38,14 @@ class FotografiaProductoRepository extends Repository
         }
     }
 
+    public function findByProductoId(String $id_producto = "") : array {
+        $model = new $this->modelo();
+        return $this->queryBuilder->select($model->getTableFields())
+            ->from($this->tabla)
+            ->where(["id_producto" => $id_producto])
+            ->execute();
+    }
+
     /**
      * @throws IndexNotFoundException
      * @throws PageNotFoundException
