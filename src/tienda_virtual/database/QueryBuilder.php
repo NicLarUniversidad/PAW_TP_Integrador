@@ -113,7 +113,7 @@ class QueryBuilder
         return $this;
     }
 
-    public function execute(array $values = null): array
+    public function execute(array $values = []): array
     {
         if (!is_null($values)) {
             $this->values = $values;
