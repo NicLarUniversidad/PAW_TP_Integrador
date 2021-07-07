@@ -17,16 +17,16 @@ class ItemCarritoService extends DatabaseService
 
     public function findByCarritoId(string $carrito) : array
     {
-        $this->repository->findByCarritoId($carrito);
+        return $this->repository->findByCarritoId($carrito);
     }
 
-    public function create($id_carrito, string $id_publicacion, String $precioUnidad, String $moneda, String $cantidad = "1") : Model
+    public function create($id_carrito, string $id_publicacion, String $precioUnidad, String $id_moneda, String $cantidad = "1") : Model
     {
         $item = $this->repository->createInstance();
         $item->setField("id_carrito", $id_carrito);
         $item->setField("id_publicacion", $id_publicacion);
         $item->setField("precio_unidad", $precioUnidad);
-        $item->setField("moneda", $moneda);
+        $item->setField("id_moneda", $id_moneda);
         $item->setField("cantidad", $cantidad);
         $item->setField("activo", "SI");
         return $item;
