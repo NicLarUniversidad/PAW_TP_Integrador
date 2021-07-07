@@ -55,4 +55,15 @@ class ProductoService extends DatabaseService
         }
         return $options;
     }
+
+    public function findBySubCategoriaId($id_sub_categoria): array
+    {
+        $productoSubCategoriaService = new ProductoSubCategoriaService($this->connection, $this->logger);
+        $relaciones = $productoSubCategoriaService->findBySubCategoriaId($id_sub_categoria);
+        $productos = [];
+        foreach ($relaciones as $relacion) {
+            $productos[] = $this->find($relacion["id_producto"]);
+        }
+        return $productos;
+    }
 }
