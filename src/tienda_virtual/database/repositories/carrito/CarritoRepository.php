@@ -14,4 +14,14 @@ class CarritoRepository extends Repository
     {
         parent::__construct($logger, $connection, "carrito", "carrito\\CarritoModel");
     }
+
+    public function findActiveByUserId(String $id_user) : array {
+        $model = new $this->modelo();
+        return $this->queryBuilder->select($model->getTableFields())
+            ->from($this->tabla)
+            ->where([
+                "id_usuario"=>$id_user,
+                "activo"=>"SI"])
+            ->execute();
+    }
 }

@@ -46,7 +46,7 @@ class QueryBuilder
         $primero = true;
         foreach ($this->values as $field => $value) {
             if (! $primero) {
-                $this->query .= ",";
+                $this->query .= " AND ";
             } else {
                 $primero = false;
             }
