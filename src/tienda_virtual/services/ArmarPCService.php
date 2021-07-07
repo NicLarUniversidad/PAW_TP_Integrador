@@ -4,6 +4,7 @@
 namespace src\tienda_virtual\services;
 
 
+use src\tienda_virtual\database\services\carrito\CarritoService;
 use src\tienda_virtual\database\services\categories\ArmarPCFlujoService;
 use src\tienda_virtual\database\services\products\ProductoService;
 use src\tienda_virtual\database\services\products\PublicacionService;
@@ -20,14 +21,17 @@ class ArmarPCService
     protected ArmarPCFlujoService $flujoService;
     protected ProductoService $productoService;
     protected PublicacionService $publicacionService;
+    protected CarritoService $carritoService;
 
     public function init() {
         $this->flujoService = new ArmarPCFlujoService($this->connection, $this->logger);
         $this->productoService = new ProductoService($this->connection, $this->logger);
         $this->publicacionService = new PublicacionService($this->connection, $this->logger);
+        $this->carritoService = new CarritoService($this->connection, $this->logger);
+        $this->carritoService->setSession($this->session);
     }
 
-    public function procesarPaso(String $paso, String $id_producto, array $data = []) : array
+    public function procesarPaso(String $paso, String $id_publicacion, array $data = []) : array
     {
         $data["fin"] = "NO";
         $pasos = $this->flujoService->findAll();
@@ -37,7 +41,8 @@ class ArmarPCService
         $actual = null;
         if (isset($paso)) {
             $actual = $this->flujoService->find($paso)[0];
-            if ($id_producto != "") {
+            if ($id_publicacion != "") {
+                $this->carritoService->addItem($id_publicacion);
                 $siguientePaso = "";
                 foreach ($pasos as $p) {
                     if (($p["numero_paso"] > $actual["numero_paso"]) && ($siguientePaso=="")) {
