@@ -80,4 +80,15 @@ class CarritoService extends DatabaseService
             $this->logger->error("Se ingresó un ID de Publicación inválido: $id_publicacion");
         }
     }
+
+    public function setInactice($idCarrito)
+    {
+        $carrrito = $this->repository->createInstance();
+        $campos = $this->repository->find($idCarrito);
+        if (count($campos)>0) {
+            $carrrito->setFields($campos[0]);
+            $carrrito->setField("activo", "NO");
+        }
+        $this->repository->update($carrrito);
+    }
 }
