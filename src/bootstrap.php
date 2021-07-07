@@ -27,7 +27,8 @@ $dotenv = Dotenv::createUnsafeImmutable(__DIR__.'/../');
 $dotenv->load();
 
 $config = new Config();
-
+//MercadoPago\SDK::setAccessToken($config->get("MP_ACCESS_TOKEN"));
+//MercadoPago\SDK::setIntegratorId($config->get("MP_INTEGRATOR_ID"));
 $log = new Logger('Clinical');
 try {
     $handler = new StreamHandler($config->get("LOG_PATH"));

@@ -1,6 +1,7 @@
 {% extends "parts/commons.twig" %}
 
 {% block head %}
+    <script src="https://www.mercadopago.com/v2/security.js" view="item"></script>
 {% endblock %}
 
 {% block main %}
@@ -9,7 +10,7 @@
         <a href="">Cancelar compra</a>
 {#        TODO: Agregar backurl#}
         <form action="" method="POST">
-            <script src="https://www.mercado.pago.com.ar/integrations/v1/web-payment-checkout.js" data-preference-id="{{ data.preferenceId }}"></script>
+            <script src="https://www.mercado.pago.com.ar/integrations/v1/web-payment-checkout.js" data-preference-id="{{ data.preference.id }}"></script>
         </form>
         <h1>Carrito</h1>
         {% for publicacion in data.publicaciones %}
