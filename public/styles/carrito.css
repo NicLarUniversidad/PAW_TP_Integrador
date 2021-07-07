@@ -1,0 +1,29 @@
+section {
+    background-color: lightgray;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+article {
+    flex-shrink: 0; /* shrinks to 0 to apply 70% width*/
+    flex-basis: 45%; /* sets initial width to 70% */
+}
+
+section>a {
+    position: absolute;
+}
+
+.btn-cancelar {
+    left: 0;
+    width: 10%;
+    height: 50px;
+}
+
+.btn-pagar {
+    right: 0;
+    width: 10%;
+    height: 50px;
+}
+
