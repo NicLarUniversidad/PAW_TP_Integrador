@@ -6,6 +6,7 @@ namespace src\tienda_virtual\services;
 
 use src\tienda_virtual\database\services\categories\ArmarPCFlujoService;
 use src\tienda_virtual\database\services\products\ProductoService;
+use src\tienda_virtual\database\services\products\PublicacionService;
 use src\tienda_virtual\traits\TConnection;
 use src\tienda_virtual\traits\TLogger;
 use src\tienda_virtual\traits\TSession;
@@ -18,10 +19,12 @@ class ArmarPCService
 
     protected ArmarPCFlujoService $flujoService;
     protected ProductoService $productoService;
+    protected PublicacionService $publicacionService;
 
     public function init() {
         $this->flujoService = new ArmarPCFlujoService($this->connection, $this->logger);
         $this->productoService = new ProductoService($this->connection, $this->logger);
+        $this->publicacionService = new PublicacionService($this->connection, $this->logger);
     }
 
     public function procesarPaso(String $paso, String $id_producto, array $data = []) : array
@@ -52,7 +55,14 @@ class ArmarPCService
             }
             $productos = $this->productoService->findBySubCategoriaId($actual["id_sub_categoria"]);
             if (count($productos) > 0) {
-                $data["productos"] = $productos[0];
+                $publicaciones = [];
+                foreach ($productos[0] as $producto) {
+                    $item = $this->publicacionService->findByProduct($producto);
+                    if (count($item) > 0) {
+                        $publicaciones[] = $item;
+                    }
+                }
+                $data["productos"] = $publicaciones;
             } else {
                 $data["productos"] = [];
             }
