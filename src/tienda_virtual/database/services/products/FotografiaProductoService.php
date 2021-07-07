@@ -56,4 +56,9 @@ class FotografiaProductoService extends DatabaseService
         }
         return $options;
     }
+
+    public function findByProductoId($id_producto)
+    {
+        return $this->repository->findByProductoId($id_producto);
+    }
 }

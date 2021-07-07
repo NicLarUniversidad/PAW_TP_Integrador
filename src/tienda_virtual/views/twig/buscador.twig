@@ -1,0 +1,25 @@
+{% extends "parts/commons.twig" %}
+
+{% block head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% endblock %}
+
+{% block main %}
+
+    <section>
+        <h1>Resultados de la búsqueda</h1>
+        <p>Parámetro de búsqueda</p>
+    {% for publicacion in data.publicaciones %}
+        <article>
+            <h2>{{ publicacion.producto.descripcion }}</h2>
+            <p>$ {{ publicacion.precio_unidad }}</p>
+            {% for foto in publicacion.fotografias %}
+            <picture>
+                <img src="{{ foto.url }}" alt="{{ publicacion.producto.descripcion }}">
+            </picture>
+            {% endfor %}
+        </article>
+    {% endfor %}
+    </section>
+
+{% endblock %}
