@@ -8,7 +8,19 @@
 
     <section>
         <h1>Armar tu PC</h1>
-
+        {{ dump(data.actual) }}
+        <section>
+            <aside>
+                {% for paso in data.pasos %}
+                <a href="/arma-tu-pc?paso={{ paso.id }}">{{ paso.descripcion }}</a>
+                {% endfor %}
+            </aside>
+            <section>
+                {% for producto in data.productos %}
+                    <a href="/arma-tu-pc?paso={{ data.actual.id }}&producto={{ producto.id }}">{{ producto.descripcion }}</a>
+                {% endfor %}
+            </section>
+        </section>
     </section>
 
 {% endblock %}

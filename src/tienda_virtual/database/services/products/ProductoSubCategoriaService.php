@@ -67,4 +67,9 @@ class ProductoSubCategoriaService extends DatabaseService
         }
         return $options;
     }
+
+    public function findBySubCategoriaId($id_sub_categoria) : array
+    {
+        return $this->repository->findBySubCategoriaId($id_sub_categoria);
+    }
 }

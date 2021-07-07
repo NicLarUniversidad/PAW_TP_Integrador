@@ -8,15 +8,21 @@ use src\tienda_virtual\database\models\Model;
 use src\tienda_virtual\database\repositories\Repository;
 use src\tienda_virtual\exceptions\IndexNotFoundException;
 use src\tienda_virtual\services\RequestService;
+use src\tienda_virtual\traits\TConnection;
+use src\tienda_virtual\traits\TLogger;
 
 class DatabaseService
 {
+    use TConnection;
+    use TLogger;
     protected Repository $repository;
 
     public function __construct(PDO $PDO, Logger $logger, string $repositoryName)
     {
         $repositoryClass = "src\\tienda_virtual\\database\\repositories\\" . $repositoryName;
         $this->repository = new $repositoryClass($logger, $PDO);
+        $this->setConnection($PDO);
+        $this->setLogger($logger);
     }
 
     public function findAll(): array
