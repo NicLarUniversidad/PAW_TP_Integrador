@@ -6,12 +6,21 @@
 {% block main %}
 
     <section>
-        {{ dump(data) }}
+        <a href="">Cancelar compra</a>
+{#        TODO: Agregar backurl#}
+        <form action="" method="POST">
+            <script src="https://www.mercado.pago.com.ar/integrations/v1/web-payment-checkout.js" data-preference-id="{{ data.preferenceId }}"></script>
+        </form>
         <h1>Carrito</h1>
-
+        {% for publicacion in data.publicaciones %}
         <article>
-
+            <h2>{{ publicacion.nombre }}</h2>
+            <picture>
+                <img alt="{{ publicacion.nombre }}" src="{{ publicacion.foto }}">
+            </picture>
         </article>
+        {% endfor %}
+
     </section>
 
 {% endblock %}

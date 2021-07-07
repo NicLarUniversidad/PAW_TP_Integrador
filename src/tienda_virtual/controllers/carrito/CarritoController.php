@@ -20,10 +20,11 @@ class CarritoController extends Controller
         $this->carritoService = new CarritoService($this->connection, $this->logger);
         $this->carritoService->setSession($this->session);
         $this->carritoService->init();
+
     }
 
     public function mostrarTemplate(String $notificacion = "", array $data = [], String $titulo = "Carrito") {
-        $data = $this->carritoService->findItems($data, $this->request->get("carrito") ?? "");
+        $data = $this->carritoService->findItems($data);
         $this->pageFinderService->findFileRute("carrito","twig","twig", [],
             $data,$titulo, []);
     }
