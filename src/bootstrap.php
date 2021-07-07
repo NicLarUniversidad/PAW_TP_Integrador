@@ -77,3 +77,4 @@ $routerService->abm('/backoffice-restriccion','backoffice\\categories\\Restricci
 $routerService->get('/buscar','buscador\\BuscadorController@buscar');
 $routerService->get('/arma-tu-pc','armartupc\\ArmarTuPcController@mostrarTemplate');
 $routerService->get('/carrito','carrito\\CarritoController@mostrarTemplate');
+$routerService->get('/carrito-cancelar','carrito\\CarritoController@cancelar');

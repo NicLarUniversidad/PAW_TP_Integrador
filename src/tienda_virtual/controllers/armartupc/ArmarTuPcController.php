@@ -26,7 +26,7 @@ class ArmarTuPcController extends \src\tienda_virtual\controllers\Controller
     }
     public function mostrarTemplate(String $notificacion = "", array $data = [], String $titulo = "Armá tu PC") {
         $procesado = $this->request->get("procesado") ?? "";
-        if ($procesado!="") {
+        if ($procesado=="") {
             $paso = $this->request->get("paso") ?? "";
             $idProducto = $this->request->get("producto") ?? "";
             $data = $this->service->procesarPaso($paso, $idProducto, $data);
