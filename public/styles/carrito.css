@@ -7,8 +7,8 @@ section {
 }
 
 article {
-    flex-shrink: 0; /* shrinks to 0 to apply 70% width*/
-    flex-basis: 45%; /* sets initial width to 70% */
+    flex-shrink: 0;
+    flex-basis: 45%;
 }
 
 section>a {
