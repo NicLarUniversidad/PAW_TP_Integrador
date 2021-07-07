@@ -8,6 +8,7 @@
 
     <section>
         <h1>Armar tu PC</h1>
+        {{ dump(data) }}
         <section>
             <aside>
                 {% for paso in data.pasos %}
@@ -21,8 +22,8 @@
             <section>
                 {% for producto in data.productos %}
                     <article>
-                        <h2>{{ producto.descripcion }}</h2>
-                        <p>$ {{ producto.precio_tentativo }}</p>
+                        <h2>{{ producto.producto.descripcion }}</h2>
+                        <p>$ {{ producto.precio_unidad }}</p>
                         <a href="/arma-tu-pc?paso={{ data.actual.id }}&producto={{ producto.id }}">Seleccionar</a>
                     </article>
                 {% endfor %}

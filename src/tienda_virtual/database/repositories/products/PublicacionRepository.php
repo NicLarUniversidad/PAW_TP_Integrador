@@ -21,6 +21,14 @@ class PublicacionRepository extends \src\tienda_virtual\database\repositories\Re
         $model->setField("fecha_entrada", date("Y-m-d"));
         parent::save($model);
     }
+    public function findByProductId($id_producto) : array
+    {
+        $model = new $this->modelo();
+        return $this->queryBuilder->select($model->getTableFields())
+            ->from($this->tabla)
+            ->where(["id_producto"=>$id_producto])
+            ->execute();
+    }
 
     public function buscar(String $parametros) : array
     {

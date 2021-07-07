@@ -77,4 +77,15 @@ class PublicacionService extends DatabaseService
     {
         return $this->repository->buscar($parametros);
     }
+
+    public function findByProduct($producto) : array
+    {
+        $publicaciones = $this->repository->findByProductId($producto["id"]);
+        $publicacion = [];
+        if (count($publicaciones) > 0) {
+            $publicacion = $publicaciones[0];
+            $publicacion["producto"] = $producto;
+        }
+        return $publicacion;
+    }
 }
