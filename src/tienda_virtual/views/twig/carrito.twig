@@ -9,9 +9,7 @@
     <section>
         <a href="">Cancelar compra</a>
 {#        TODO: Agregar backurl#}
-        <form action="" method="POST">
-            <script src="https://www.mercado.pago.com.ar/integrations/v1/web-payment-checkout.js" data-preference-id="{{ data.preference.id }}"></script>
-        </form>
+        <a href="{{ attribute(data.preference, "sandbox_init_point") }}"> Pagar </a>
         <h1>Carrito</h1>
         {% for publicacion in data.publicaciones %}
         <article>
