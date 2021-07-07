@@ -2,18 +2,20 @@
 
 {% block head %}
     <script src="https://www.mercadopago.com/v2/security.js" view="item"></script>
+    <link rel="stylesheet" type="text/css" href="/styles/carrito.css" />
 {% endblock %}
 
 {% block main %}
 
     <section>
-        <a href="/carrito-cancelar">Cancelar compra</a>
+        <a href="/carrito-cancelar" class="btn-cancelar">Cancelar compra</a>
 {#        TODO: Agregar backurl#}
-        <a href="{{ attribute(data.preference, "sandbox_init_point") }}"> Pagar </a>
+        <a href="{{ attribute(data.preference, "sandbox_init_point") }}" class="btn-pagar"> Pagar </a>
         <h1>Carrito</h1>
         {% for publicacion in data.publicaciones %}
         <article>
             <h2>{{ publicacion.nombre }}</h2>
+            <p>${{ publicacion.precio_unidad }}</p>
             <picture>
                 <img alt="{{ publicacion.nombre }}" src="{{ publicacion.foto }}">
             </picture>
