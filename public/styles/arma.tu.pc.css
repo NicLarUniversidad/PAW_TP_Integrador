@@ -1,0 +1,40 @@
+main>section>section {
+    background-color: lightgray;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+main>section>section>aside {
+    background-color: gray;
+    flex-basis: 10%;
+    position: relative;
+}
+
+main>section>section>section {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 80%;
+    background-color: lightgray;
+}
+
+aside>a {
+    display: block;
+    width: 100%;
+    min-height: 1rem;
+    background-color: white;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+aside>p {
+    display: block;
+    width: 100%;
+    min-height: 1rem;
+    background-color: gray;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}

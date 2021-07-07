@@ -1,23 +1,30 @@
 {% extends "parts/commons.twig" %}
 
 {% block head %}
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/styles/arma.tu.pc.css" />
 {% endblock %}
 
 {% block main %}
 
     <section>
         <h1>Armar tu PC</h1>
-        {{ dump(data.actual) }}
         <section>
             <aside>
                 {% for paso in data.pasos %}
+                    {% if paso.id != data.actual.id %}
                 <a href="/arma-tu-pc?paso={{ paso.id }}">{{ paso.descripcion }}</a>
+                    {% else %}
+                <p>{{ paso.descripcion }}</p>
+                    {% endif %}
                 {% endfor %}
             </aside>
             <section>
                 {% for producto in data.productos %}
-                    <a href="/arma-tu-pc?paso={{ data.actual.id }}&producto={{ producto.id }}">{{ producto.descripcion }}</a>
+                    <article>
+                        <h2>{{ producto.descripcion }}</h2>
+                        <p>$ {{ producto.precio_tentativo }}</p>
+                        <a href="/arma-tu-pc?paso={{ data.actual.id }}&producto={{ producto.id }}">Seleccionar</a>
+                    </article>
                 {% endfor %}
             </section>
         </section>
