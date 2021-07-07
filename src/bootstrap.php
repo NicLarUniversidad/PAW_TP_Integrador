@@ -66,6 +66,7 @@ $routerService->abm('/backoffice-stock','backoffice\\products\\StockController')
 $routerService->abm('/backoffice-publicacion','backoffice\\products\\PublicacionController');
 $routerService->abm('/backoffice-sub-categoria','backoffice\\categories\\SubCategoriaController');
 $routerService->abm('/backoffice-caracteristica','backoffice\\categories\\CaracteristicaController');
+$routerService->abm('/backoffice-sub-categoria-caracteristica','backoffice\\categories\\SubCategoriaCaracteristicaController');
 $routerService->abm('/backoffice-valor-caracteristica','backoffice\\categories\\ValorCaracteristicaController');
 $routerService->abm('/backoffice-moneda','backoffice\\categories\\MonedaController');
 $routerService->abm('/backoffice-armar-pc-flujo','backoffice\\categories\\ArmarPCFlujoController');
