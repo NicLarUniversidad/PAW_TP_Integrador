@@ -27,6 +27,7 @@ class ArmarTuPcController extends \src\tienda_virtual\controllers\Controller
     public function mostrarTemplate(String $notificacion = "", array $data = [], String $titulo = "Armá tu PC") {
         $cssImports = [];
         $cssImports[] = "main";
+        $cssImports[] = "arma.tu.pc";
         $jsImports = [];
         $jsImports[]="app";
         $jsImports[]="paw";
