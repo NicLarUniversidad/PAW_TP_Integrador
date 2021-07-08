@@ -1,0 +1,116 @@
+.PAW-Menu {
+	background-color: var(--paw-rojo);
+	color: white;
+	width: 100%;
+	overflow: hidden;
+}
+
+.PAW-Menu.PAW-MenuCerrado {
+	width: 100%;
+	height: 0;
+	transition-duration: 1s;
+	transition-property: height;
+}
+
+.PAW-Menu.PAW-MenuCerrado ul {
+	opacity: 0;
+	transition: 1s all;
+}
+
+.PAW-Menu.PAW-MenuAbierto {
+	width: 100%;
+	height: 25em;
+	transition-duration: 1s;
+	transition-property: height;
+}
+.PAW-Menu.PAW-MenuAbierto ul {
+	opacity: 1;
+	transition: 1s all;
+}
+
+.PAW-Menu ul {
+	background-color: var(--rojo-secundario);
+	padding-left: 2rem;
+	cursor: pointer;
+	clear: both;
+}
+
+.PAW-Menu ul li ul {
+	max-height: 0;
+	overflow: hidden;
+	transition: 1s all;
+}
+
+.PAW-Menu ul li:hover ul {
+	max-height: 100vh;
+	transition: 1s all;
+}
+
+.PAW-Menu ul li {
+	display: block;
+	padding: 0.5rem;
+}
+
+.PAW-Menu p {
+	display: block;
+	padding: 0.5rem;
+	border-bottom: 2ps solid black;
+}
+
+.PAW-Menu > ul > li:hover {
+	border: black solid 3px;
+	border-width: 3px 0;
+}
+
+.PAW-Menu > ul > li {
+	background-color: var(--rojo-secundario);
+}
+
+header button.PAW-Button-Menu {
+	float: right;
+	border: 0;
+	width: 2rem;
+	height: 2rem;
+	margin: 0.5rem;
+	padding: 0;
+	cursor: pointer;
+	background-color: transparent;
+	position: relative;
+	overflow: hidden;
+}
+
+header button.PAW-Button-Menu:hover,
+header button.PAW-Button-Menu:focus {
+	margin-left: 0;
+}
+
+header button.PAW-Button-Menu::before,
+header button.PAW-Button-Menu::after {
+	display: block;
+	position: absolute;
+	content: " ";
+	width: 2rem;
+	height: 0.2rem;
+	background-color: white;
+	transition-property: all;
+	transition-duration: 1s;
+	border-radius: 0.2rem;
+}
+
+header button.PAW-MenuAbrir::before {
+	transform: translateY(-1rem) rotate(0);
+	box-shadow: 0 0.6rem 0 white;
+}
+
+header button.PAW-MenuAbrir::after {
+	transform: translateY(0.2rem) rotate(0);
+}
+
+header button.PAW-MenuCerrar::before {
+	transform: translateY(0) rotate(45deg);
+	box-shadow: 0 0.6rem 0 transparent;
+}
+
+header button.PAW-MenuCerrar::after {
+	transform: translateY(0) rotate(-45deg);
+}
