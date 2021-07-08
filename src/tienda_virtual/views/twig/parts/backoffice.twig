@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> {{ Title }}</title>
-    <link rel="stylesheet" type="text/css" href="/styles/main.css" />
+
     {% if cssImports %}
         {% for import in cssImports %}
             <link rel="stylesheet" type="text/css" href="css/{{ import }}.css" />
         {% endfor %}
     {% endif %}
-    <script src="js/app.js" type="application/javascript"></script>
-    <script src="js/abm.js" type="application/javascript"></script>
+  <!--  <script src="js/app.js" type="application/javascript"></script>
+    <script src="js/abm.js" type="application/javascript"></script>-->
     {% if jsImports %}
         {% for import in jsImports %}
             <script src="/js/scripts/{{ import }}.js" ></script>
@@ -24,6 +24,7 @@
 </head>
 <body>
 <header>
+    <button id="button-menu" class="PAW-Menu-Abrir"></button> 
     <nav>
         <ul>
             <li><a href="/backoffice">Inicio</a></li>
