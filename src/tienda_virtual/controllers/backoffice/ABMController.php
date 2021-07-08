@@ -32,7 +32,9 @@ class ABMController extends Controller
     {
         $cssImports[] = "main";
         $cssImports[] = "backoffice.grid";
+        $jsImports[]="paw";
         $jsImports[]="app";
+        $jsImports[]="abm";
         array_push($jsImports, "paw");
         $data = $this->service->attachData();
         $this->pageFinderService->findFileRute($this->url,"twig","twig", $cssImports,
@@ -44,6 +46,11 @@ class ABMController extends Controller
      */
     public function post(String $notification = null, array $cssImports = [], array $jsImports = [], String $title = "Tienda virtual") : void
     {
+        $cssImports[] = "main";
+        $cssImports[] = "backoffice.grid";
+        $jsImports[]="paw";
+        $jsImports[]="app";
+        $jsImports[]="abm";
         $data = $this->service->attachInsertData();
         $data["notification"] = $notification ?? "";
         if (!is_null($this->request->get("id"))) {
