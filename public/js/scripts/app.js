@@ -1,5 +1,11 @@
 class appPAW{
     constructor(){
+        //Inicializar la funcionalidad menu
+        document.addEventListener("DOMContentLoaded",()=>{
+        PAW.cargarScript("PAW-Menu", "js/components/paw-menu.js", () => {            
+                let menu = new PAWMenu("nav");
+            });
+        });
 
     }
 

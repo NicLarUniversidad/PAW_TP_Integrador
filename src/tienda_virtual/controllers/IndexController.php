@@ -21,6 +21,11 @@ class IndexController extends Controller
      * @throws LoaderError
      */
     public function get() {
-        $this->pageFinderService->findFileRute("index");
+        $cssImports = Array();
+        $cssImports[] = "main";
+        $jsImports[]="app";
+        array_push($jsImports, "paw");
+        $this->pageFinderService->findFileRute("index","html","html", $cssImports,[],"tienda virtual",$jsImports);
+        //$this->pageFinderService->findFileRute("index");
     }
 }
