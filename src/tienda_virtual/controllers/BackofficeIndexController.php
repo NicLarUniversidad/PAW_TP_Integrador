@@ -23,6 +23,11 @@ class BackofficeIndexController extends Controller
      * @throws LoaderError
      */
     public function get() {
-        $this->pageFinderService->findFileRute("backoffice.index");
+        //$this->pageFinderService->findFileRute("backoffice.index");
+        $cssImports = Array();
+        $cssImports[] = "main";
+        $jsImports[]="app";
+        array_push($jsImports, "paw");
+        $this->pageFinderService->findFileRute("backoffice.index","html","html", $cssImports,[],"tienda virtual",$jsImports);
     }
 }
