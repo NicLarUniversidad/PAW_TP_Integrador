@@ -61,8 +61,8 @@ class ArmarPCService
             $productos = $this->productoService->findBySubCategoriaId($actual["id_sub_categoria"]);
             if (count($productos) > 0) {
                 $publicaciones = [];
-                foreach ($productos[0] as $producto) {
-                    $item = $this->publicacionService->findByProduct($producto);
+                foreach ($productos as $producto) {
+                    $item = $this->publicacionService->findByProduct($producto[0]);
                     if (count($item) > 0) {
                         $publicaciones[] = $item;
                     }
