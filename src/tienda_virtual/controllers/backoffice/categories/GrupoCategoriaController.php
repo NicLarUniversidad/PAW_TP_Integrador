@@ -27,6 +27,11 @@ class GrupoCategoriaController extends Controller
     {
         $cssImports = Array();
         $jsImports = Array();
+        $cssImports[] = "main";
+        $cssImports[] = "backoffice.grid";
+        $jsImports[]="paw";
+        $jsImports[]="app";
+        $jsImports[]="abm";
         $data = $this->service->attachData();
         $this->pageFinderService->findFileRute("backoffice.abm","twig","twig", $cssImports,
             $data,"ABM Sub Categorías", $jsImports);
@@ -36,6 +41,11 @@ class GrupoCategoriaController extends Controller
     {
         $cssImports = Array();
         $jsImports = Array();
+        $cssImports[] = "main";
+        $cssImports[] = "backoffice.grid";
+        $jsImports[]="paw";
+        $jsImports[]="app";
+        $jsImports[]="abm";
         $data = $this->service->attachInsertData();
         $data["notification"] = $notification ?? "";
         if (!is_null($this->request->get("id"))) {
