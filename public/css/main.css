@@ -238,7 +238,7 @@ footer {
 /*-----------------------------------------------------*/
 
 
-@media (max-width: 768px) {
+/*@media (max-width: 768px) {*/
     :root{
         --button-font-size: 15px;
     }  
@@ -281,4 +281,4 @@ footer {
     header>form>button{
         height: 1.8em;
     }
-}
+/*}*/

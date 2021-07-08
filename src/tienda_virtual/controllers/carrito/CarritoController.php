@@ -30,11 +30,16 @@ class CarritoController extends Controller
      * @throws Exception
      */
     public function mostrarTemplate(String $notificacion = "", array $data = [], String $titulo = "Carrito") {
+        $cssImports = [];
+        $cssImports[] = "main";
+        $jsImports = [];
+        $jsImports[]="app";
+        $jsImports[]="paw";
         $data = $this->carritoService->findItems($data);
         //$this->preference->save();
         $data["preference"] = $this->preference ?? [];
-        $this->pageFinderService->findFileRute("carrito","twig","twig", [],
-            $data,$titulo, []);
+        $this->pageFinderService->findFileRute("carrito","twig","twig", $cssImports,
+            $data,$titulo, $jsImports);
     }
 
     /**

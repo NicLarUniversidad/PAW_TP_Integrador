@@ -30,6 +30,10 @@ class ABMController extends Controller
 
     public function get(array $cssImports = [], array $jsImports = []) : void
     {
+        $cssImports[] = "main";
+        $cssImports[] = "backoffice.grid";
+        $jsImports[]="app";
+        array_push($jsImports, "paw");
         $data = $this->service->attachData();
         $this->pageFinderService->findFileRute($this->url,"twig","twig", $cssImports,
             $data,"ABM Sub Categorías", $jsImports);

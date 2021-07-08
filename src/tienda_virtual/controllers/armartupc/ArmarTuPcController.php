@@ -25,14 +25,19 @@ class ArmarTuPcController extends \src\tienda_virtual\controllers\Controller
         $this->service->init();
     }
     public function mostrarTemplate(String $notificacion = "", array $data = [], String $titulo = "Armá tu PC") {
+        $cssImports = [];
+        $cssImports[] = "main";
+        $jsImports = [];
+        $jsImports[]="app";
+        $jsImports[]="paw";
         $procesado = $this->request->get("procesado") ?? "";
         if ($procesado=="") {
             $paso = $this->request->get("paso") ?? "";
             $idProducto = $this->request->get("producto") ?? "";
             $data = $this->service->procesarPaso($paso, $idProducto, $data);
             if ($data["fin"] != "SI") {
-                $this->pageFinderService->findFileRute("armar.tu.pc", "twig", "twig", [],
-                    $data, $titulo, []);
+                $this->pageFinderService->findFileRute("armar.tu.pc", "twig", "twig", $cssImports,
+                    $data, $titulo, $jsImports);
                 return;
             }
         }
