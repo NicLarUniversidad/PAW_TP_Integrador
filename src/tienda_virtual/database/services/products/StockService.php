@@ -26,8 +26,8 @@ class StockService extends DatabaseService
             "fecha_entrada","Fecha de entrada");
         $data = $this->formatFieldName($data,"cantidad_inicial","Cantidad inicial");
         $data = $this->formatFieldName($data,"costo_unidad","Costo unidad");
-        $data = $this->formatFieldName($data,"id_producto","Producto","descripcion", $this->monedaService->findAll());
-        return $this->formatFieldName($data,"id_moneda","Moneda","nombre", $this->productoService->findAll());
+        $data = $this->formatFieldName($data,"id_producto","Producto","descripcion", $this->productoService->findAll());
+        return $this->formatFieldName($data,"id_moneda","Moneda","nombre", $this->monedaService->findAll());
     }
 
     public function attachInsertData(array $data = []) : array {
