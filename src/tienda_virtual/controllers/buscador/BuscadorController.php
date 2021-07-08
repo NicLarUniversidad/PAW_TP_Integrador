@@ -20,9 +20,14 @@ class BuscadorController extends Controller
 
     public function buscar() : void
     {
+        $cssImports = [];
+        $cssImports[] = "main";
+        $jsImports = [];
+        $jsImports[]="app";
+        $jsImports[]="paw";
         $publicaciones = $this->publicacionService->buscar($this->request->get("buscar") ?? "");
         $data = ["publicaciones" => $publicaciones];
-        $this->pageFinderService->findFileRute("buscador","twig","twig", [],
-            $data,"ABM Sub Categorías", []);
+        $this->pageFinderService->findFileRute("buscador","twig","twig", $cssImports,
+            $data,"ABM Sub Categorías", $jsImports);
     }
 }
