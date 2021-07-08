@@ -32,9 +32,10 @@ class CarritoController extends Controller
     public function mostrarTemplate(String $notificacion = "", array $data = [], String $titulo = "Carrito") {
         $cssImports = [];
         $cssImports[] = "main";
+        $cssImports[] = "carrito";
         $jsImports = [];
-        $jsImports[]="app";
         $jsImports[]="paw";
+        $jsImports[]="app";
         $data = $this->carritoService->findItems($data);
         //$this->preference->save();
         $data["preference"] = $this->preference ?? [];
