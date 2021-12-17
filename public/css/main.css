@@ -79,6 +79,7 @@ header>nav>ul {
 
 header>nav>ul>li {
     display: inline;
+    text-align: center;
 }
 
 header>nav a {
@@ -233,6 +234,10 @@ footer {
     left: 200%;
     bottom: 0;
 }
+
+
+
+
 
 
 /*-----------------------------------------------------*/

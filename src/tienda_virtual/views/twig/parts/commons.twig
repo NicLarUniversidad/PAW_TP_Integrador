@@ -6,11 +6,13 @@
        {% if cssImports %}
             {% for import in cssImports %}
     <link rel="stylesheet" type="text/css" href="css/{{ import }}.css" />
+    <link rel="stylesheet" type="text/css" href="css/portada.css" />
             {% endfor %}
        {% endif %}
     {% if jsImports %}
         {% for import in jsImports %}
             <script src="/js/scripts/{{ import }}.js" ></script>
+            <script src="/js/scripts/carrusel.js" ></script>
         {% endfor %}
     {% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -52,6 +54,19 @@
     {% endblock %}
 
 </main>
+<div id="slideshow-principal">
+        <div id="progress-bar-container">
+            <div id="progress-bar"></div>
+        </div>
+        <div id="slideshow">
+            <img src="" alt="" id="img1" class="imgportada">
+            <img src="" alt="" id="img2" class="imgportada">
+        </div>
+
+
+        <div id="indicadores"></div>
+    </div>
+
 <footer>
     <small>Legal</small>
     <small>Copyright</small>
