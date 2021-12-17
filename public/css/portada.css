@@ -1,0 +1,76 @@
+/*---------------------IMAGENES DE PORTADA-----------------*/
+
+
+
+#progress-bar-container{
+	position: absolute;
+	height: 1%;
+	background-color: rgba(0, 0, 0, 2);
+	width: 100%;
+	top:0;
+	z-index: 1000;
+}
+
+#progress-bar{
+	height: 100%;
+	background-color:#FF3D3D;
+	border-radius: 0 3px 3px 0;
+	transition: width 0.8;
+}
+
+#slideshow{
+	position: relative;
+	z-index: 998;
+	height: 500px;
+}
+
+
+.imgportada{
+	position: absolute;
+	height: inherit;
+	width:-webkit-fill-available;
+	top: 0;
+	left: 0;
+	object-fit: fill;
+}
+
+#img2{
+	/*left: 100%;*/
+	opacity: 0;
+}
+
+
+.active{
+	/*left: 0 !important;*/
+	opacity: 1 !important;
+    /*transition: all 1s;*/
+    z-index: 2000;
+} 
+
+
+#indicadores{
+	width: 100%;
+	text-align: center;
+	bottom: 10%;
+	z-index: 999;
+    background-color: red;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: ridge;
+}
+
+.circles{
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+	margin: 0 1% 0 1%;
+	background-color: transparent;
+	border-radius: 50%;
+}
+
+
+.resaltado{
+	background-color: black;
+	transition: background-color .8s;
+	border: white 2px solid;
+}
