@@ -124,7 +124,6 @@ footer {
     display: block;
 } */
 
-
 /*Icono carrito*/
 
 .icon-cart {
@@ -136,7 +135,7 @@ footer {
 	margin-bottom: 25px;
 	background: none;
 	border: none;
-	padding: 0;
+	padding-top: 0.5%;
 	margin: 0;
     float: right;
 }
@@ -236,14 +235,8 @@ footer {
 }
 
 
-
-
-
-
 /*-----------------------------------------------------*/
 
-
-/*@media (max-width: 768px) {*/
     :root{
         --button-font-size: 15px;
     }  
@@ -286,4 +279,284 @@ footer {
     header>form>button{
         height: 1.8em;
     }
-/*}*/
+
+    /*---------------------IMAGENES DE PORTADA-----------------*/
+#progress-bar-container{
+	position: absolute;
+	height: 1%;
+	background-color: rgba(0, 0, 0, 2);
+	width: 100%;
+	top:0;
+	z-index: 1000;
+}
+
+#progress-bar{
+	height: 100%;
+	background-color:#FF3D3D;
+	transition: width 0.8;
+}
+
+#slideshow{
+	position: relative;
+	z-index: 998;
+	height: 500px;
+}
+
+
+.imgportada{
+	position: absolute;
+	height: inherit;
+	width:-webkit-fill-available;
+	top: 0;
+	left: 0;
+	object-fit: fill;
+}
+
+#img2{
+	/*left: 100%;*/
+	opacity: 0;
+}
+
+
+.active{
+	/*left: 0 !important;*/
+	opacity: 1 !important;
+    /*transition: all 1s;*/
+    z-index: 2000;
+} 
+
+
+#indicadores{
+	width: 100%;
+	text-align: center;
+	bottom: 10%;
+	z-index: 999;
+    background-color: red;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: ridge;
+}
+
+.circles{
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+	margin: 0 1% 0 1%;
+	background-color: transparent;
+	border-radius: 50%;
+}
+
+
+.resaltado{
+	background-color: black;
+	transition: background-color .8s;
+	border: white 2px solid;
+}
+
+
+.informacion{
+    margin: 0 auto;
+    font-family: "Roboto-Light" !important;
+    display: flex;
+    text-decoration-style: dashed;
+    text-align: center;
+    place-content: space-evenly;  
+    font-size: smaller;
+}
+
+.columnas{
+    background-color: rgba(228, 69, 69, 1);
+    color: black;
+    border: 1px solid black;
+    margin: 2%;
+    padding: 2%;
+    border-radius: 10px;
+    box-shadow: 20px 20px 2px 2px rgb(204 204 204);
+}
+
+
+.columnas h3{
+    font-size: 20px;
+	display: block;
+	text-transform: capitalize;
+}
+
+
+#iconosPortada{
+    display: inline;
+    height: 3vw;
+    width: 3vw;
+    top: 1vw;
+	position: relative;
+}
+
+.redes{
+display: inline-block;
+}
+
+/*-------------------RESPONSIVE---------------------*/
+
+@media (max-width: 768px){
+    
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto-Light" !important;
+    font-size: x-large;
+}
+
+/*---------------------IMAGENES DE PORTADA-----------------*/
+#progress-bar-container{
+	position: absolute;
+	height: 1%;
+	background-color: rgba(0, 0, 0, 2);
+	width: 100%;
+	top:0;
+	z-index: 1000;
+}
+
+#progress-bar{
+	height: 100%;
+	background-color: #FF3D3D;
+	transition: width 0.8;
+}
+
+#slideshow{
+	position: relative;
+	z-index: 998;
+	height: 42vw;
+}
+
+
+.imgportada{
+	position: absolute;
+	top: 0;
+	left: 0;
+	object-fit: fill;
+    height: auto;
+}
+
+#img2{
+	/*left: 100%;*/
+	opacity: 0;
+}
+
+
+.active{
+	/*left: 0 !important;*/
+	opacity: 1 !important;
+    /*transition: all 1s;*/
+    z-index: 2000;
+} 
+
+
+#indicadores{
+	width: 100%;
+	text-align: center;
+	bottom: 10%;
+	z-index: 999;
+    background-color: red;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border: ridge;
+    position: relative;
+}
+
+.circles{
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+	margin: 0 1% 0 1%;
+	background-color: transparent;
+	border-radius: 50%;
+}
+
+
+.resaltado{
+	background-color: black;
+	transition: background-color .8s;
+	border: white 2px solid;
+}
+
+
+.informacion{
+    margin: 0 auto;
+    font-family: "Roboto-Light" !important;
+    display: inherit;
+    text-decoration-style: dashed;
+    text-align: center;
+    place-content: space-evenly;  
+    font-size: smaller;
+}
+
+.columnas{
+    background-color: rgba(228, 69, 69, 1);
+    color: black;
+    border: 1px solid black;
+    margin-left: 2%;
+    padding: 2%;
+    border-radius: 10px;
+    box-shadow: none;
+    display: block;
+}
+
+
+.columnas h3{
+    font-size: 20px;
+	display: block;
+	text-transform: capitalize;
+}
+
+
+#iconosPortada{
+    display: inline;
+    height: 10%;
+    width: 10%;
+    top: 1vw;
+	position: relative;
+    margin-right: 3%;
+    margin-left: 5%;
+}
+
+.redes{
+    display: flex;
+    text-align: left;
+}
+
+p{
+    margin: 0px;
+    padding-top: 2%;
+}
+
+h3{
+    margin: 0 auto;
+}
+
+.PAW-Menu.PAW-MenuAbierto {
+    height: auto;
+}
+.icon-cart {
+    margin-top: 10%;
+    float: left;
+    margin-left: 2%;
+    padding-top: 0.5%;
+}
+
+
+body>header {
+    width: 100%;
+    background: var(--navegation-color);
+    height: var(--navegation-widh);
+    position: inherit;
+    display: table;
+}
+body>footer {
+    position: relative;
+    display: table;
+}
+
+label{
+    font-size: medium;
+}
+
+}

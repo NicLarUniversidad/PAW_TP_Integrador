@@ -6,7 +6,6 @@
        {% if cssImports %}
             {% for import in cssImports %}
     <link rel="stylesheet" type="text/css" href="css/{{ import }}.css" />
-    <link rel="stylesheet" type="text/css" href="css/portada.css" />
             {% endfor %}
        {% endif %}
     {% if jsImports %}
@@ -66,6 +65,35 @@
 
         <div id="indicadores"></div>
     </div>
+
+<section class="informacion">
+    <div class="columnas">
+    <img src="img/ubicacion.png"  id="iconosPortada" title="Ubicación">
+        <h3>Ubicación</h3>
+        <p>Av. Mitre 1600</p>
+    </div>
+    <div class="columnas">
+    <img src="img/phone-call.png" id="iconosPortada" title="Números de contacto">
+        <h3>Teléfonos de contacto</h3>
+        <p>1124563258</p>
+        <p>1132654297</p>
+    </div>
+    <div class="columnas">
+        <h3>Redes Sociales</h3>
+            <div class="redes">
+                <img src="img/facebook.png"  id="iconosPortada" title="Facebook">
+                <p id="redes">Tiendavirtual</p>
+            </div>
+            <div class="redes">
+                <img src="img/instagram.png"  id="iconosPortada" title="Instagram">
+                <p id="redes">Tiendavirtual</p>
+            </div>
+            <div class="redes">
+                <img src="img/twitter.png"  id="iconosPortada" title="Twitter">
+                <p id="redes">TiendaVirtual</p>
+            </div>
+    </div>
+</section>
 
 <footer>
     <small>Legal</small>
