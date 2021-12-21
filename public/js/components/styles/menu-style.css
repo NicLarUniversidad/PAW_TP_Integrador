@@ -19,7 +19,7 @@
 
 .PAW-Menu.PAW-MenuAbierto {
 	width: 100%;
-	height: 25em;
+	height: auto;
 	transition-duration: 1s;
 	transition-property: height;
 }
