@@ -1,0 +1,36 @@
+h2{
+    text-align: center;
+    margin: 5%;
+    font-size: xxx-large;
+}
+
+img{
+    background-repeat: no-repeat;
+
+}
+
+section{
+    display: flex;
+    position: fixed;
+    padding-top: 5%;
+    padding-left: 6%;
+}
+
+body{
+    background-color: rgb(234, 242, 242);
+}
+
+/*-------------------RESPONSIVE---------------------*/
+
+@media (max-width: 768px){
+    img{
+    width: -webkit-fill-available;
+}
+
+section {
+    display: contents;
+    padding-top: 5%;
+    padding-left: 6%;
+}
+
+}
