@@ -1,0 +1,32 @@
+{% extends "parts/commons.twig" %}
+
+{% block head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% endblock %}
+
+{% block main %}
+<h1 id="ofertas">Ofertas</h1>
+
+  <div>
+    {% for publicaciones in publicacion %}
+    
+    <div>  
+        {% for foto in fotografia_producto %}
+             <td>{{foto.url}}</td>
+        {% endblock %}
+
+        {% if publicaciones.precio_unidad is not empty %}
+            <td>{{publicaciones.precio_unidad}} </td>
+        {% endif %}
+
+      <th><a href="/publicacion/Ver?id={{publicaciones.id_producto}}" id="verMas">Ver en Detalle</a></th><br>
+  
+    </div>
+
+    {% else %}
+
+        <span>No hay resultados en la busqueda</span>
+    {% endfor %}
+    
+</div>
+{% endblock %}
