@@ -1,0 +1,32 @@
+{% extends "parts/commons.twig" %}
+
+{% block head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% endblock %}
+
+{% block main %}
+{{ dump(data)}}
+
+
+    <h1 id="tituloP">Categorias</h1>
+
+  <div id="divv">
+    {% for propiedad in propiedades %}
+      <div id="primeraParte">  
+        <img src="/Images/sitio.svg" id="iconosProp">
+        <p>{{propiedad.direccion}}</p> 
+      </div>
+      <th><a href="/publicacion/Ver?id={{grupo_categoria.id_grupo_categoria}}" id="verMas"></a></th><br>
+
+    <p class="espaciado"></p>
+
+    {% else %}
+
+        <span>En este momento no hay categorías para mostrar</span>
+    {% endfor %}
+    
+</div>
+
+{% endblock %}
+
+
