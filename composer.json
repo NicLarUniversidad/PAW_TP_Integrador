@@ -9,7 +9,7 @@
         "robmorgan/phinx": "^0.12.6",
       "ext-pdo": "*",
       "ext-json": "*",
-        "twig/twig": "^3.3",
+        "twig/twig": "^3.0",
         "mercadopago/dx-php": "^2.3"
     },
     "autoload": {
