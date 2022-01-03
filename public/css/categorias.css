@@ -1,219 +1,47 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    box-sizing: border-box;
-    
-}
-
-.flecha-back{ 
-    top: 8vw;
-    width: 15%;
-    height: 3vw;
-    margin-left: 2vw;
-}
-
-#flecha:hover{
-    cursor: pointer;
-    transform: transla;
-    box-shadow: 4px 30px 6px 0px rgba(50, 50, 50, 0.45);
-}
-
-
-#divv{
-    font-size: 2em;  
-    margin-top: 5%; 
+h1{
     text-align: center;
-}
-
-#primeraParte, #segundaParte{
-    display: block;
-    font-size: x-large;
-    padding-top: 1%;
-    padding-bottom: 2%;
-}
-
-
-#terceraParte{
-    display: block;
-    width: 100%;
-    text-align: center;
-    background-color: darkgray;
-    padding-top: 1%;
-    padding-bottom: 1%;
+    margin-bottom: 5%;
+    font-size: xxx-large;
+    background: rgba(228, 69, 69, 1);
+    color: aliceblue;
+    border: dotted;
+    padding: 0.5%;
 }
 
 
-#verMas{
-    padding-left: 2vw;
-    float: right;
-    margin-right: 2%;
-    font-size: smaller;
-    margin-top: 2%;
+body{
+    background-color: rgb(234, 242, 242);
 }
 
-#iconosProp{
-    display: inline;
-    height: 2vw;
-    width: 2vw;
-    top: 1vw;
-    margin-left: 1vw;
-    
-}
-
-#seleccionar{
-    text-align-last: right;
-    margin-right: 20vw;
-    margin-bottom: 5vw;
-    display: inline;
-}
-
-
-#ordenar{
-    height: 2vw;
-    width: 10vw;
-    font-size: 1.2vw;
-    text-align-last: left;
-}
-
-
-#ordenarpor{
-    text-align-last: center;
-    margin-left: 5%;
-    padding-left: 10%; 
-    display: inline;
-}
-
-
-#dormit{
-    padding-left: 2%;
-}
-
-img{
-    width: 6%;
-}
-
-div#div{
-    border:solid;
-    margin-left:10%;
-    margin-right:10%;
-    margin-top: 4%;
-    margin-bottom: 4%;
+a{    
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
     padding: 2%;
-    border-radius: 15px 15px ;
-    background-color: gainsboro;
-    text-align: left;
+    font-size: xx-large;
+    margin-left: 5%;
+    margin-top: 5%;
+    border: solid;
+    font-family: "Roboto-Light" !important;
+    border-radius: 10px;
+    width: 22%;
+    text-transform: capitalize;
+    border: dotted;
+    color: aliceblue;
+    background: rgba(228, 69, 69, 1);
 }
 
 
-body {
-    background-image: url('img/portada1.jpg');
-    background-size: 100% 100%;
-}
 
-/*------------RESPONSIVE-------------------------------------*/
+/*-------------------RESPONSIVE---------------------*/
 
-@media screen and (max-width: 950px){
+@media (max-width: 768px){
 
-header label{
+
+section {
     display: contents;
-}
-
-.flecha-back{ 
-    top: 8vw;
-    width: 7vw;
-    height: 3vw;
-    margin-left: 2vw;
-}
-
-#flecha:hover{
-    cursor: pointer;
-    transform: transla;
-    box-shadow: 4px 30px 6px 0px rgba(50, 50, 50, 0.45);
-}
-
-#div{
-    border-style: inset;
-    border-color: crimson;
-    font-family: initial;
-    padding-left: 0vw;
-    padding-right: 0vw;
-    padding-top: 2vw;
-    padding-bottom: 9vw;
-    margin-top: 4vw;
-
-}
-
-#divv{
-    font-size: 1em;  
-    margin-top: 5%; 
-    text-align: center;    
-}
-
-#contactar{
-    float: right;
-    height:8vw; 
-    width:28vw;
-    font-size: 4vw;
-    text-align-last: center;
-    font-weight: bold;
-    margin-right: 2vw;
-}
-
-#primeraParte{
-    display: block;
-    font-size: 4vw;
-
-}
-
-#segundaParte{
-    display: block;
-    font-size: 4vw;
-}
-
-#terceraParte{
-    display: block;
-    font-size: 4vw;
-}
-
-
-#verMas{
-    padding-left: 2vw;
-    display: block;
-}
-
-#iconosProp{
-    display: inline;
-    height: 4vw;
-    width: 5vw;
-    top: 1vw;
-    padding-top: 0.5vw;
-}
-
-#seleccionar{
-    text-align-last: right;
-    margin-right: 20vw;
-    margin-bottom: 5vw;
-    display: inline;
-}
-
-
-#ordenar{
-    height: 5%;
-    width: 30%;
-    font-size: 90%;
-    text-align-last: left;
-    padding: 0px;
-}
-
-#ordenarpor{
-    text-align-last: center;
-    display: inline;
-    margin-left: 0px;
-}
-
-body {
-    background-size: 100% 100%;
+    padding-top: 5%;
+    padding-left: 6%;
 }
 
 }
