@@ -1,0 +1,17 @@
+{% block head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/categorias.css" />
+{% endblock %}
+
+{% block main %}
+<h1>Sub-Categorias</h1>
+
+      {% for sub_categoria in data.subcategorias %} 
+       
+        <a href="#" title="{{sub_categoria.descripcion}}">{{sub_categoria.descripcion}}</a>
+    {% else %}
+
+        <span>No hay resultados en la busqueda</span>
+    {% endfor %}
+    
+{% endblock %}
