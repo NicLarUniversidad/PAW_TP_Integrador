@@ -114,3 +114,13 @@ header button.PAW-MenuCerrar::before {
 header button.PAW-MenuCerrar::after {
 	transform: translateY(0) rotate(-45deg);
 }
+
+form{
+	margin-top: 3%;
+	margin-left: 1%;
+}
+
+h1{
+	text-align: center;
+	font-size: xxx-large;
+}
