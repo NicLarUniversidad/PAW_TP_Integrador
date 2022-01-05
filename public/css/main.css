@@ -62,6 +62,7 @@ body>main {
 
 body>footer {
     position: inherit;
+    margin-top: 50%;
 }
 
 header>nav {
@@ -256,6 +257,7 @@ footer {
         background: var(--navegation-color);
         height: var(--navegation-widh);
         position: inherit;
+        padding-top: 1%;
     }
 
     body>header>a {

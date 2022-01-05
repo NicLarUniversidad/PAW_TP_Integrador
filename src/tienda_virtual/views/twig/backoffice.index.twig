@@ -9,12 +9,13 @@
     {% if user %}
 
     {% else %}
+        <h1> Inicio de sesión</h1>
         <form action="/backoffice-login">
             <label> Usuario
-                <input>
+                <input placeholder="&#128100; Usuario" required>
             </label>
             <label> Contraseña
-                <input>
+                <input placeholder="&#128274; Contraseña" required>
             </label>
             <button type="submit">Continuar</button>
         </form>
