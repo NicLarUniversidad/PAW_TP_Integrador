@@ -60,8 +60,10 @@ body>main {
     overflow: auto;
 }
 
+/*TODO: Se podría mejorar ya que así está siempre visible, se suele ver que los footers sólo son visibles al llegar abajo de toda la página*/
 body>footer {
-    position: inherit;
+    position: fixed;
+    bottom: 0;
 }
 
 header>nav {
