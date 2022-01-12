@@ -1,7 +1,7 @@
 <?php
 
 
-namespace src\tienda_virtual\controllers\categoria;
+namespace src\tienda_virtual\controllers\oferta;
 
 
 use Exception;
@@ -9,11 +9,11 @@ use MercadoPago\Preference;
 use src\tienda_virtual\controllers\Controller;
 use src\tienda_virtual\database\services\carrito\CarritoService;
 use src\tienda_virtual\services\TwigPageFinderService;
-use src\tienda_virtual\services\SubCategoriasService;
+use src\tienda_virtual\services\OfertasService;
 
-class SubCategoriaController extends Controller
+class OfertaController extends Controller
 {
-    protected SubCategoriasService $subcategoriaService;
+    protected OfertasService $ofertaService;
     protected Preference $preference;
 
     public function init()
@@ -21,24 +21,24 @@ class SubCategoriaController extends Controller
         parent::init();
         $this->pageFinderService = new TwigPageFinderService();
         $this->pageFinderService->session = $this->session;
-        $this->subcategoriaService = new SubCategoriasService($this->connection, $this->logger);
+        $this->ofertaService = new OfertasService($this->connection, $this->logger);
         //$this->preference = new Preference();
     }
 
     /**
      * @throws Exception
      */
-    public function mostrarSubCategorias(String $notificacion = "", array $data = [], String $titulo = "Carrito") {
+    public function mostrarOfertas(String $notificacion = "", array $data = [], String $titulo = "Carrito") {
         $cssImports = [];
         $cssImports[] = "main";
         $cssImports[] = "carrito";
         $jsImports = [];
         $jsImports[]="paw";
         $jsImports[]="app";
-        $data = ["sub-categorias"=>$this->subcategoriaService->RecuperarSubCategorias ()];
+        $data = ["ofertas"=>$this->ofertaService->RecuperarOfertas ()];
         //$this->preference->save();
         $data["preference"] = $this->preference ?? [];
-        $this->pageFinderService->findFileRute("sub-categorias","twig","twig", $cssImports,
+        $this->pageFinderService->findFileRute("ofertas","twig","twig", $cssImports,
             $data,$titulo, $jsImports);
     }
 
