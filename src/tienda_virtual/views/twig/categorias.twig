@@ -8,7 +8,7 @@
 
       {% for categoria in data.categorias %} 
        
-        <a href="#" title="{{categoria.descripcion}}">{{categoria.descripcion}}</a>
+        <a href="/publicacion/Ver?id={{categoria.id}}" title="{{categoria.descripcion}}">{{categoria.descripcion}}</a>
     {% else %}
 
         <span>No hay resultados en la busqueda</span>

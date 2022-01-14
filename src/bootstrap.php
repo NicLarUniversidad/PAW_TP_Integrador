@@ -81,3 +81,7 @@ $routerService->get('/carrito-cancelar','carrito\\CarritoController@cancelar');
 $routerService->get('/categoria','categoria\\CategoriaController@mostrarCategorias');
 $routerService->get('/subcategoria','subcategoria\\SubCategoriaController@mostrarSubCategorias');
 $routerService->get('/oferta','oferta\\OfertaController@mostrarOfertas');
+
+//Errores
+$routerService->get('/not_found', 'error\\ErroresController@notFound');
+$routerService->get('/internal_error', 'error\\ErroresController@internalError');
