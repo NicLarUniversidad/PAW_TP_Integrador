@@ -78,9 +78,10 @@ $routerService->get('/buscar','buscador\\BuscadorController@buscar');
 $routerService->get('/arma-tu-pc','armartupc\\ArmarTuPcController@mostrarTemplate');
 $routerService->get('/carrito','carrito\\CarritoController@mostrarTemplate');
 $routerService->get('/carrito-cancelar','carrito\\CarritoController@cancelar');
-$routerService->get('/categoria','categoria\\CategoriaController@mostrarCategorias');
+$routerService->get('/categorias','categoria\\CategoriaController@mostrarCategorias');
 $routerService->get('/subcategoria','subcategoria\\SubCategoriaController@mostrarSubCategorias');
-$routerService->get('/oferta','oferta\\OfertaController@mostrarOfertas');
+$routerService->get('/ofertas','oferta\\OfertaController@mostrarOfertas');
+$routerService->get('/detalleproducto','detalleProducto\\DetalleProductoController@mostrarDetalles');
 
 //Errores
 $routerService->get('/not_found', 'error\\ErroresController@notFound');
