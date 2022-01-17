@@ -7,10 +7,10 @@ use Monolog\Logger;
 use PDO;
 use src\tienda_virtual\database\repositories\Repository;
 
-class OfertaRepository extends Repository
+class DetalleProductoRepository extends Repository
 {
     public function __construct(Logger $logger, PDO $connection)
     {
-        parent::__construct($logger, $connection, "ofertas", "categories\\CategoriaModel");
+        parent::__construct($logger, $connection, "detalleproducto", "categories\\CategoriaModel");
     }
 }
