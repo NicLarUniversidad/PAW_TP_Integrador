@@ -1,12 +1,12 @@
-{% extends "parts/commons.twig" %}
-
 {% block head %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/buscador.css" />
 {% endblock %}
 
 {% block main %}
 
     <section>
+    <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" border="0" onclick="history.back();">
         <h1>Resultados de la búsqueda</h1>
         <p>Parámetro de búsqueda</p>
     {% for publicacion in data.publicaciones %}

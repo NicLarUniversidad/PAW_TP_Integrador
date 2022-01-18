@@ -1,0 +1,32 @@
+h1 {
+    text-align: center;
+    font-size: xxx-large;
+    background: rgba(228, 69, 69, 1);
+    color: aliceblue;
+}
+
+.flecha-back{ 
+    height: 3vw;
+    margin: inherit;
+    position: fixed;
+}
+
+#flecha:hover{
+    cursor: pointer;
+    transform: transla;
+    box-shadow: 4px 30px 6px 0px rgba(50, 50, 50, 0.45);
+    border: dotted;  
+    border: solid;
+}
+
+/*-------------------RESPONSIVE---------------------*/
+
+@media (max-width: 768px){
+
+    h1{
+        font-size:x-large;
+    }
+    
+  
+    
+}
