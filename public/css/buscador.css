@@ -5,6 +5,17 @@ h1 {
     color: aliceblue;
 }
 
+h3{
+    font-weight: normal;
+    text-align: left;
+}
+
+p{
+    display: inline-flex;
+    text-align: end;
+    font-size: x-large;
+}
+
 .flecha-back{ 
     height: 3vw;
     margin: inherit;
@@ -17,6 +28,14 @@ h1 {
     box-shadow: 4px 30px 6px 0px rgba(50, 50, 50, 0.45);
     border: dotted;  
     border: solid;
+}
+
+article{
+    margin: 2%;
+    padding: 2%;
+    border-radius: 10px;
+    border: ridge;
+    text-align: right;
 }
 
 /*-------------------RESPONSIVE---------------------*/
