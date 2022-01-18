@@ -8,11 +8,11 @@
     <section>
     <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" border="0" onclick="history.back();">
         <h1>Resultados de la búsqueda</h1>
-        <p>Parámetro de búsqueda</p>
     {% for publicacion in data.publicaciones %}
         <article>
-            <h2>{{ publicacion.producto.descripcion }}</h2>
-            <p>$ {{ publicacion.precio_unidad }}</p>
+            <h2>{{ publicacion.producto.nombre }}</h2>
+            <h3>{{ publicacion.producto.descripcion }}</h3>
+            <p>${{ publicacion.precio_unidad }}</p>
             {% for foto in publicacion.fotografias %}
             <picture>
                 <img src="{{ foto.url }}" alt="{{ publicacion.producto.descripcion }}">
