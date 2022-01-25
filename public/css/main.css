@@ -87,7 +87,7 @@ header>nav a {
     text-decoration: none;
     border: none;
     font-size: var(--button-font-size);
-    padding: 6vh;
+    padding: 2vh;
     padding-inline: 1vw;
     color: #ffffff;
 }
