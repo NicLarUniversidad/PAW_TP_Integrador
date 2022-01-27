@@ -65,7 +65,6 @@ class CarritoService extends DatabaseService
             $carrito->setField("activo", "SI");
             $carrito->setField("precio_total", "1");
             $carrito->setField("id_moneda", "1");
-            $carrito->setField("id_direccion", "1");
             $this->repository->save($carrito);
             $instance = $this->repository->findActiveByUserId(LogginService::$userId)[0];
             $id = $instance["id"];
