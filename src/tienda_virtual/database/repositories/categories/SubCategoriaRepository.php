@@ -12,6 +12,6 @@ class SubCategoriaRepository extends Repository
 {
     public function __construct(Logger $logger, PDO $connection)
     {
-        parent::__construct($logger, $connection, "subcategoria", "categories\\CategoriaModel");
+        parent::__construct($logger, $connection, "sub_categoria", "categories\\CategoriaModel");
     }
 }
