@@ -11,6 +11,7 @@ class ProductoModel extends Model
     public function __construct()
     {
         parent::__construct();
+        $this->setField("nombre", "");
         $this->setField("descripcion", "");
         $this->setField("activo", "");
         $this->setField("precio_tentativo", "");
