@@ -2,9 +2,9 @@ h1{
     text-align: center;
     margin-bottom: 5%;
     font-size: xxx-large;
-    background: rgba(228, 69, 69, 1);
+    background: #212D63;
     color: aliceblue;
-    border: dotted;
+    border: double;
     padding: 0.5%;
 }
 
@@ -26,9 +26,9 @@ a{
     border-radius: 10px;
     width: 22%;
     text-transform: capitalize;
-    border: dotted;
     color: aliceblue;
-    background: rgba(228, 69, 69, 1);
+    background: #212D63;
+    text-decoration: none;
 }
 
 
@@ -38,13 +38,14 @@ a{
     position: fixed;
 }
 
-#flecha:hover{
+a:hover, #flecha:hover{
     cursor: pointer;
     transform: transla;
     box-shadow: 4px 30px 6px 0px rgba(50, 50, 50, 0.45);
     border: dotted;  
     border: solid;
 }
+
 
 
 /*-------------------RESPONSIVE---------------------*/
