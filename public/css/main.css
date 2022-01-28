@@ -4,13 +4,13 @@
     --header-widh: 20vh;
     --logo-size: 15vh;
     --logo-size-movile: 7vh;
-    --navegation-color: #FF3D3D;
+    --navegation-color: #212D63;
     --navegation-widh: 10vh;
     --button-font-size: 1.5vw;
-    --base-color: #FF3D3D;
+    --base-color: #2A497E;
     --base-color-title:#000000;
     --button-sucess-color: #7FFFD4FF;
-    --input-color: #5B76FF;
+    --input-color: #2A497E;
     --input-fonder-color: #ffffff;
     font-size: 20px;
     	/*Variables PAW */
@@ -20,14 +20,15 @@
 	--paw-verde-claro: #84bf51;
 	--paw-amarillo: #fbc808;
 	--paw-amarillo-oscuro: orange;
-	--paw-rojo: #b0291e;
-    --paw-rojo-secundario: #ff4737;
+	--paw-rojo:#2A497EF;
+    --paw-rojo-secundario: #2A497E;
 }
 
 body {
     padding: 0;
     margin: 0;    
     font-family:"Roboto-Light" !important;
+    color:aliceblue;
 }
 
 body>header>h1 {
@@ -57,13 +58,17 @@ body>main {
     left: 0;
     width: 100%;
     height: 100vh - var(--header-widh);
-    overflow: auto;
+    overflow: hidden;
 }
 
 body>footer {
     position: inherit;
     margin-top: 50%;
+    background-color: #212D63;
+    width: 100%;
+    height: 10vh;
 }
+
 
 header>nav {
     background-color: var(--navegation-color);
@@ -73,6 +78,8 @@ header>nav {
     padding: 0;
     top: 0;
     right: 0;
+    z-index: 9500;
+    position: relative;
 }
 header>nav>ul {
     list-style: none;
@@ -90,7 +97,9 @@ header>nav a {
     padding: 2vh;
     padding-inline: 1vw;
     color: #ffffff;
+    padding-bottom: 1%;
 }
+
 
 .sub-menu-turno {
     position: absolute;
@@ -115,11 +124,21 @@ iframe{
     width: 100%;
 }
 
-footer {
-    background-color: var(--navegation-color);
-    position: relative;
-    width: 100%;
-    height: 10vh;
+
+.nombrePagina{
+    font-size: xxx-large;
+    text-transform: capitalize;
+}
+
+.buscadorMenu{
+    width: 38vw;
+    margin: initial;
+    font-size: x-large;
+}
+
+.lupa{
+    width: 1rem;
+    height: 1rem;
 }
 /* .site-nav-open{
     display: block;
@@ -241,9 +260,7 @@ footer {
     :root{
         --button-font-size: 15px;
     }  
-    header>nav{
-        float: right;
-    }
+
     body {
         position: relative;
     }
@@ -254,10 +271,11 @@ footer {
 
     body>header {
         width: 100%;
-        background: var(--navegation-color);
+        background: #212D63;
         height: var(--navegation-widh);
         position: inherit;
         padding-top: 1%;
+        padding-bottom: 1%;
     }
 
     body>header>a {
@@ -272,14 +290,21 @@ footer {
     header>form{
         position: absolute;
         margin-left: 0.5em;
-        margin-top: 0.5em;
         height: 1.8em;
+        margin-top: 0px;
     }
     header>form>label>input{
         height: 1.8em;
     }
     header>form>button{
-        height: 1.8em;
+        height: 2.5em;
+        width: 4em;
+    }
+
+    header>form>button:hover{
+        cursor: pointer;
+        transform: transla;
+        box-shadow: 4px 10px 6px 0px rgb(223, 220, 220);
     }
 
     /*---------------------IMAGENES DE PORTADA-----------------*/
@@ -288,13 +313,11 @@ footer {
 	height: 1%;
 	background-color: rgba(0, 0, 0, 2);
 	width: 100%;
-	top:0;
-	z-index: 1000;
 }
 
 #progress-bar{
 	height: 100%;
-	background-color:#FF3D3D;
+	background-color:#F97224;
 	transition: width 0.8;
 }
 
@@ -333,10 +356,11 @@ footer {
 	text-align: center;
 	bottom: 10%;
 	z-index: 999;
-    background-color: red;
+    background-color: #F97224;
     padding-top: 10px;
     padding-bottom: 10px;
-    border: ridge;
+    border-top: ridge;
+    border-bottom: ridge;
 }
 
 .circles{
@@ -367,7 +391,7 @@ footer {
 }
 
 .columnas{
-    background-color: rgba(228, 69, 69, 1);
+    background-color: #F97224;
     color: black;
     border: 1px solid black;
     margin: 2%;
@@ -407,6 +431,26 @@ body {
     font-size: x-large;
 }
 
+header>form {
+    margin-top: 2.5%;
+}
+
+header>form>button{
+    height: 2.5em;
+    width: 3em;
+}
+
+
+
+body>header {
+    display: table;
+}
+
+body>footer {
+    position: relative;
+    display: table;
+}
+
 /*---------------------IMAGENES DE PORTADA-----------------*/
 #progress-bar-container{
 	position: absolute;
@@ -414,12 +458,12 @@ body {
 	background-color: rgba(0, 0, 0, 2);
 	width: 100%;
 	top:0;
-	z-index: 1000;
+	z-index: 900;
 }
 
 #progress-bar{
 	height: 100%;
-	background-color: #FF3D3D;
+	background-color: #212D63;
 	transition: width 0.8;
 }
 
@@ -457,10 +501,11 @@ body {
 	text-align: center;
 	bottom: 10%;
 	z-index: 999;
-    background-color: red;
+    background-color: #F97224;
     padding-top: 1%;
     padding-bottom: 1%;
-    border: ridge;
+    border-top: ridge;
+    border-bottom: ridge;
     position: relative;
 }
 
@@ -492,7 +537,7 @@ body {
 }
 
 .columnas{
-    background-color: rgba(228, 69, 69, 1);
+    background-color: #F97224;
     color: black;
     border: 1px solid black;
     margin-left: 2%;
@@ -535,27 +580,26 @@ h3{
 }
 
 .icon-cart {
-    margin-top: 10%;
+    margin-top: 17%;
     float: left;
     margin-left: 2%;
     padding-top: 0.5%;
 }
 
 
-body>header {
-    width: 100%;
-    background: var(--navegation-color);
-    height: var(--navegation-widh);
-    position: inherit;
-    display: table;
-}
-body>footer {
-    position: relative;
-    display: table;
-}
-
 label{
     font-size: medium;
+}
+
+.buscadorMenu {
+    width: 25vw;
+    margin: initial;
+    font-size: x-large;
+}
+
+.nombrePagina {
+    font-size: x-large;
+    text-transform: capitalize;
 }
 
 }

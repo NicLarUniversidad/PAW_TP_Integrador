@@ -21,10 +21,9 @@
 <body>
 <header>
     <form action="/buscar">
-        <label>Buscar:
-            <input type="text">
-        </label>
-        <button type="submit">Buscar</button>
+        <label class="nombrePagina">TiendaVirtual</label>
+        <input class="buscadorMenu" type="text">
+        <button type="submit"><img class="lupa" src="img/lupa.png"/></button>
     </form>
     <!--Agregar comprobación para mostrar sólo si el usuario está logeado, o si no mostrar botón de login-->
     <button id="button-menu" class="PAW-Menu-Abrir"></button> 
@@ -49,7 +48,7 @@
 <main>
     {% block main %}
 
-    {% endblock %}
+    {% endblock %}    
 
 </main>
 <div id="slideshow-principal">
@@ -93,11 +92,15 @@
             </div>
     </div>
 </section>
+</body>
 
+
+    {% block footer %}
 <footer>
     <small>Legal</small>
     <small>Copyright</small>
     <address>Dirección: Ruta 5</address>
 </footer>
-</body>
+
 </html>
+{% endblock %}
