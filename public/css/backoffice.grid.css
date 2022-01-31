@@ -68,3 +68,17 @@ form {
     flex-direction: column;
     background-color: lightgray;
 }
+
+#abm-id_producto{
+    width: 70%;
+}
+
+#abm-id_caracteristica{
+    width: 40%;
+    position: absolute;
+}
+
+#abm-activo{
+    width: 8%;
+    position: absolute;
+}
