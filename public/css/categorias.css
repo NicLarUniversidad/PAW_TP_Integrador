@@ -20,7 +20,10 @@ body{
     align-items: center;
     padding: 2%;
     font-size: xx-large;
-    margin: 5%;
+    margin-top: 4%;
+    margin-bottom: 4.5%;
+    margin-right: 2%;
+    margin-left: 3%;
     border: solid;
     font-family: "Roboto-Light" !important;
     border-radius: 10px;
