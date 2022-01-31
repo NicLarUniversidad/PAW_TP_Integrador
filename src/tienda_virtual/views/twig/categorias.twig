@@ -1,6 +1,9 @@
+{% extends "parts/commons.twig" %}
+
 {% block head %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/categorias.css" />
+    <link rel="stylesheet" type="text/css" href="css/menu.css" />
 {% endblock %}
 
 {% block main %}
@@ -9,7 +12,7 @@
 
       {% for categoria in data.categorias %} 
        
-        <a href="#" title="{{categoria.descripcion}}">{{categoria.descripcion}}</a>
+        <a class="categorias" href="#" title="{{categoria.descripcion}}">{{categoria.descripcion}}</a>
     {% else %}
 
         <span>No hay resultados en la busqueda</span>

@@ -1,3 +1,5 @@
+{% extends "parts/commons.twig" %}
+
 {% block head %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/categorias.css" />
@@ -7,8 +9,16 @@
 <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" border="0" onclick="history.back();">
 <h1>Detalles del producto</h1>
 
-      {% for publicacion in data.public %} 
-       
+    {% for publicacion in data.public %} 
+
+        {% for foto in publicacion.fotografias %}
+            <picture>
+                <img src="{{ foto.url }}" alt="{{ publicacion.producto.descripcion }}">
+            </picture>
+        {% endfor %}
+        
+        <h2>{{ publicacion.producto.nombre }}</h2>
+        <p>${{ publicacion.precio_unidad }}</p>
         <a href="#" title="{{publicacion.descripcion}}">{{publicacion.descripcion}}</a>
     {% else %}
 

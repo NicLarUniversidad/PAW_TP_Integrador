@@ -1,8 +1,8 @@
 h1{
     text-align: center;
-    margin-bottom: 5%;
+    margin:auto;
     font-size: xxx-large;
-    background: #212D63;
+    background: #F97224;;
     color: aliceblue;
     border: double;
     padding: 0.5%;
@@ -13,14 +13,14 @@ body{
     background-color: rgb(234, 242, 242);
 }
 
-a{    
-    display: inline-flex;
+.categorias{    
+    display: inline-table;
+    text-align: center;
     flex-direction: column;
     align-items: center;
     padding: 2%;
     font-size: xx-large;
-    margin-left: 5%;
-    margin-top: 5%;
+    margin: 5%;
     border: solid;
     font-family: "Roboto-Light" !important;
     border-radius: 10px;
@@ -33,12 +33,12 @@ a{
 
 
 .flecha-back{ 
-    height: 3vw;
+    height: 2em;
     margin: inherit;
-    position: fixed;
+    position: absolute;
 }
 
-a:hover, #flecha:hover{
+.categorias:hover, #flecha:hover{
     cursor: pointer;
     transform: transla;
     box-shadow: 4px 30px 6px 0px rgba(50, 50, 50, 0.45);
@@ -46,7 +46,17 @@ a:hover, #flecha:hover{
     border: solid;
 }
 
+span{
+    text-align: center;
+    font-size: xxx-large;
+    display: block;
+    color: black;
+    margin: 5%;
+}
 
+.cuerpo{
+    visibility: collapse;
+}
 
 /*-------------------RESPONSIVE---------------------*/
 
