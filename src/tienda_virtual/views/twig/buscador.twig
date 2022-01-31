@@ -11,8 +11,8 @@
     {% for publicacion in data.publicaciones %}
         <article>
             <h2>{{ publicacion.producto.nombre }}</h2>
-            <h3>{{ publicacion.producto.descripcion }}</h3>
             <p>${{ publicacion.precio_unidad }}</p>
+            <th><a href="src/tienda_virtual/views/twig/detalle.producto.twig" id="verMas">Ver en Detalle</a></th><br>
             {% for foto in publicacion.fotografias %}
             <picture>
                 <img src="{{ foto.url }}" alt="{{ publicacion.producto.descripcion }}">

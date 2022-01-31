@@ -14,12 +14,14 @@ p{
     display: inline-flex;
     text-align: end;
     font-size: x-large;
+    margin: auto;
+    font-style: oblique;
 }
 
 .flecha-back{ 
     height: 3vw;
     margin: inherit;
-    position: fixed;
+    position: absolute;
 }
 
 #flecha:hover{
@@ -36,6 +38,10 @@ article{
     border-radius: 10px;
     border: ridge;
     text-align: right;
+}
+
+#verMas{
+    display: flex;
 }
 
 /*-------------------RESPONSIVE---------------------*/
