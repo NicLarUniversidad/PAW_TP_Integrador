@@ -10,6 +10,7 @@
         <h1>Resultados de la búsqueda</h1>
     {% for publicacion in data.publicaciones %}
         <article>
+            <h2>${{ publicacion.producto.nombre }}</h2>
             <p>${{ publicacion.precio_unidad }}</p>
             <th><a href="src/tienda_virtual/views/twig/detalle.producto.twig" id="verMas">Ver en Detalle</a></th><br>
             {% for foto in publicacion.fotografias %}
