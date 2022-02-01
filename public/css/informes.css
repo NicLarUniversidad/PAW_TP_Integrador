@@ -1,0 +1,38 @@
+
+#tituloP{
+    text-align: center;
+    border: double;
+    background: #212D63;
+    color: aliceblue;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+  
+h2{
+    text-align: center;
+    background: #F97224;
+    color: aliceblue;
+    margin-top: 0px;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;  
+}
+  
+h3{
+    font-size: x-large;
+}
+  
+section{
+    margin-right: 3%;
+    margin-left: 3%;
+    margin-top: 5%;
+}
+  
+p{
+    font-size: large;
+}
+  
+img{
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+  
