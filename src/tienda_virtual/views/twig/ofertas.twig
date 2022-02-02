@@ -2,7 +2,7 @@
 
 {% block head %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="css/categorias.css" />
+    <link rel="stylesheet" type="text/css" href="css/ofertas.css" />
 {% endblock %}
 
 
@@ -10,11 +10,20 @@
 <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" border="0" onclick="history.back();">
 <h1 id="ofertas">¡OFERTAS!</h1>
 
-      {% for producto in data.productos %} 
-       
-        <a href="#" title="{{producto.descripcion}}">{{producto.descripcion}}</a>
+    {% for oferta in data.ofertas %}
+        <article>
+            <h2>{{ oferta.producto.nombre }}</h2>
+            <p>${{ oferta.producto.publicacion.precio_unidad }}</p>
+            <p>${{ oferta.precio_oferta}}</p>
+            <th><a href="src/tienda_virtual/views/twig/detalle.producto.oferta.twig" id="verMas">Ver en Detalle</a></th><br>
+            {% for foto in publicacion.fotografias %}
+            <picture>
+                <img src="{{ foto.url }}" alt="{{ publicacion.producto.descripcion }}">
+            </picture>
+            {% endfor %}
+        </article>
+   
     {% else %}
-
         <span>No hay resultados en la busqueda</span>
     {% endfor %}
     

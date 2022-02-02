@@ -82,7 +82,7 @@ $routerService->get('/categorias','categoria\\CategoriaController@mostrarCategor
 $routerService->get('/subcategoria','subcategoria\\SubCategoriaController@mostrarSubCategorias');
 $routerService->get('/ofertas','oferta\\OfertaController@mostrarOfertas');
 $routerService->get('/detalleproducto','detalleProducto\\DetalleProductoController@mostrarDetalles');
-$routerService->get('/informes','informe\\InformesController@mostrarInformes');
+$routerService->get('/informes','informe\\InformesController@informes');
 
 //Errores
 $routerService->get('/not_found', 'error\\ErroresController@notFound');
