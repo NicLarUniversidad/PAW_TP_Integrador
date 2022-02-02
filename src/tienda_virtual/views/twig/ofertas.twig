@@ -3,6 +3,7 @@
 {% block head %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/ofertas.css" />
+    <link rel="stylesheet" type="text/css" href="css/menu.css" />
 {% endblock %}
 
 
@@ -15,7 +16,7 @@
             <h2>{{ oferta.producto.nombre }}</h2>
             <p>${{ oferta.producto.publicacion.precio_unidad }}</p>
             <p>${{ oferta.precio_oferta}}</p>
-            <th><a href="src/tienda_virtual/views/twig/detalle.producto.oferta.twig" id="verMas">Ver en Detalle</a></th><br>
+            <th><a href="/detalleoferta" id="verMas">Ver en Detalle</a></th><br>
             {% for foto in publicacion.fotografias %}
             <picture>
                 <img src="{{ foto.url }}" alt="{{ publicacion.producto.descripcion }}">

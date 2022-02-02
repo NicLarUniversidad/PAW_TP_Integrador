@@ -85,5 +85,5 @@ $routerService->get('/ofertas','oferta\\OfertaController@mostrarOfertas');
 $routerService->get('/detalleproducto','detalleProducto\\DetalleProductoController@mostrarDetalles');
 
 //Errores
-$routerService->get('/not_found', 'error\\ErroresController@notFound');
-$routerService->get('/internal_error', 'error\\ErroresController@internalError');
+$routerService->get('/not_found', 'PageNotFoundException@get');
+$routerService->get('/server_error', 'IndexNotFoundException@get');
