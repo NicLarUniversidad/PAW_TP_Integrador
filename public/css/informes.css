@@ -36,3 +36,19 @@ img{
     margin-bottom: 3%;
 }
   
+.flecha-back{ 
+    height: 2em;
+    margin: initial;
+    position: absolute;
+    background: currentColor;
+    border: ridge;
+    background: #F97224;
+}
+
+#flecha:hover{
+    cursor: pointer;
+    transform: transla;
+    box-shadow: 4px 30px 6px 0px rgba(50, 50, 50, 0.45);
+    border: dotted;  
+    border: solid;
+}

@@ -58,6 +58,7 @@ $routerService->setRequest($request);
 $routerService->setSession($session);
 $routerService->get('/','IndexController@get');
 $routerService->get('/backoffice','BackofficeIndexController@get');
+$routerService->get('/backoffice-informes','InformeController@get');
 $routerService->abm('/backoffice-grupo-categoria','backoffice\\categories\\GrupoCategoriaController');
 $routerService->abm('/backoffice-categoria','backoffice\\categories\\CategoriaController');
 $routerService->abm('/backoffice-producto','backoffice\\products\\ProductoController');
@@ -82,7 +83,6 @@ $routerService->get('/categorias','categoria\\CategoriaController@mostrarCategor
 $routerService->get('/subcategoria','subcategoria\\SubCategoriaController@mostrarSubCategorias');
 $routerService->get('/ofertas','oferta\\OfertaController@mostrarOfertas');
 $routerService->get('/detalleproducto','detalleProducto\\DetalleProductoController@mostrarDetalles');
-$routerService->get('/informes','informe\\InformesController@informes');
 
 //Errores
 $routerService->get('/not_found', 'error\\ErroresController@notFound');
