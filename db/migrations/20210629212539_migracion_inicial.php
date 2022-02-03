@@ -12,7 +12,8 @@ final class MigracionInicial extends AbstractMigration
             ->addColumn('activo', 'string')
             ->create();
         $table = $this->table('categoria');
-        $table->addColumn('descripcion', 'string')
+        $table->addColumn('url', 'string')
+            ->addColumn('descripcion', 'string')
             ->addColumn('activo', 'string')
             ->addColumn('id_grupo_categoria', 'integer')
             ->addForeignKey('id_grupo_categoria', 'grupo_categoria', 'id', ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'])
