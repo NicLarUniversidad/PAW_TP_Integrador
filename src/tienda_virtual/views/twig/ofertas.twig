@@ -13,9 +13,9 @@
 
     {% for oferta in data.ofertas %}
         <article>
-            <h2>{{ oferta.producto.nombre }}</h2>
-            <p>${{ oferta.producto.publicacion.precio_unidad }}</p>
-            <p>${{ oferta.precio_oferta}}</p>
+            <h2>{{oferta.publicacion.producto.nombre}}</h2>
+            <p>${{oferta.publicacion.producto.precio_unidad}}</p>
+            <p>${{oferta.precio_oferta}}</p>
             <th><a href="/detalleoferta" id="verMas">Ver en Detalle</a></th><br>
             {% for foto in publicacion.fotografias %}
             <picture>
@@ -28,4 +28,7 @@
         <span>No hay resultados en la busqueda</span>
     {% endfor %}
     
+{% endblock %}
+{% block footer %}
+
 {% endblock %}
