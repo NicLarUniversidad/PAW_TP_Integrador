@@ -3,7 +3,6 @@
 {% block head %}
     <script src="https://www.mercadopago.com/v2/security.js" view="item"></script>
     <link rel="stylesheet" type="text/css" href="css/.css" />
-
 {% endblock %}
 
 {% block main %}
@@ -20,7 +19,7 @@
             </picture>
             <h2>{{ publicacion.nombre }}</h2>
             <p>${{ publicacion.precio_unidad }}</p>
-            <button id="eliminar-{{ attribute(attribute(tuple, "id"),"value") }}" class="button-delete">Eliminar</button>
+            <button class="button-delete">Eliminar</button>
         </article>
     </section>
     {% else %}
@@ -31,7 +30,6 @@
     {% endfor %}
     
 {% endblock %}
-
 
 {% block footer %}
 
