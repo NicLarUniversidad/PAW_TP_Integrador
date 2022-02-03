@@ -2,6 +2,8 @@
 
 {% block head %}
     <script src="https://www.mercadopago.com/v2/security.js" view="item"></script>
+    <link rel="stylesheet" type="text/css" href="css/.css" />
+
 {% endblock %}
 
 {% block main %}
@@ -12,15 +14,25 @@
         <a href="{{ attribute(data.preference, "sandbox_init_point") }}" class="btn-pagar"> Pagar </a>
         <h1>Carrito</h1>
         {% for publicacion in data.publicaciones %}
-        <article>
+        <article class="productos">
+            <picture>
+                <img class="imgArticulo" alt="{{ publicacion.nombre }}" src="{{ publicacion.foto }}">
+            </picture>
             <h2>{{ publicacion.nombre }}</h2>
             <p>${{ publicacion.precio_unidad }}</p>
-            <picture>
-                <img alt="{{ publicacion.nombre }}" src="{{ publicacion.foto }}">
-            </picture>
+            <button id="eliminar-{{ attribute(attribute(tuple, "id"),"value") }}" class="button-delete">Eliminar</button>
         </article>
-        {% endfor %}
-
     </section>
+    {% else %}
+        <span class="carritoVacio">Su carrito está vacio</span>
+        
+        <span class="seguirCompra">Para seguir comprando, navegue por las categorías en el sitio, o busque su producto.</span>
+        <a href="/" class="inicio">Seguir comprando</a>
+    {% endfor %}
+    
+{% endblock %}
+
+
+{% block footer %}
 
 {% endblock %}

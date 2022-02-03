@@ -1,15 +1,10 @@
-section {
+/*section {
     background-color: lightgray;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-}
-
-article {
-    flex-shrink: 0;
-    flex-basis: 45%;
-}
+}*/
 
 section>a {
     position: absolute;
@@ -17,13 +12,110 @@ section>a {
 
 .btn-cancelar {
     left: 0;
-    width: 10%;
+    width: 15%;
     height: 50px;
+    margin-left: 5%;
 }
 
 .btn-pagar {
     right: 0;
     width: 10%;
     height: 50px;
+    margin-right: 5%;
 }
 
+.cuerpo{
+    visibility: collapse;
+}
+
+
+h2{
+    font-size: larger;
+    height: inherit;
+    color: black;
+}
+
+
+h3{
+    font-weight: normal;
+    text-align: left;
+}
+
+.productos {
+    display: inline-table;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2%;
+    padding-bottom: 0px;
+    padding-left: 1%;
+    padding-right: 1%;
+    margin-right: 1%;
+    margin-left: 4%;
+    margin-bottom: 2%;
+    border: solid;
+    width: 22%;
+    height: 36%;
+    border-radius: 10px;
+    color: black;
+}
+
+.imgArticulo{
+    width: auto;
+    position: initial;
+}
+
+.button-delete {
+    font-size: 0;
+    width: 24px;
+    height: 24px;
+    background-image: url(../img/trash.png);
+    background-size: 20px;
+}
+
+.carritoVacio{
+    font-size: xxx-large;
+    display: block;
+    color: black;
+    margin-left: 4%;
+    margin-top: 6%;
+}
+
+
+.seguirCompra{
+    font-size: large;
+    color: black;
+    margin-left: 4%;
+    font-size: larger;
+    display: block;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.inicio{
+    color: black;
+    position: initial;
+    margin: 4%;
+    display: inline-table;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 2%;
+    font-size: x-large;
+    border: solid;
+    font-family: "Roboto-Light" !important;
+    border-radius: 10px;
+    width: 22%;
+    text-transform: capitalize;
+    color: aliceblue;
+    background: #212D63;
+    text-decoration: none;
+}
+
+.inicio:hover{
+    cursor: pointer;
+    transform: transla;
+    box-shadow: 4px 30px 6px 0px rgba(50, 50, 50, 0.45);
+    border: dotted;  
+    border: solid;
+}
