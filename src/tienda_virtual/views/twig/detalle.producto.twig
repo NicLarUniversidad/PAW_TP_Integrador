@@ -7,13 +7,13 @@
 
 {% block main %}
 <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" border="0" onclick="history.back();">
-<h1>Detalles del producto</h1>
+<h1 class="detalle">Detalles del producto</h1>
         <section>
             {% for publicacion in data.publicaciones %}
                 <article>
                     <h2>{{ publicacion.producto.nombre }}</h2>
                     <p>{{ publicacion.producto.descripcion }}</p>
-                    <p>$ {{ publicacion.precio_unidad }}</p>
+                    <p>$ {{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p>
                     <a class="agregar">Agregar</a>
                 </article>
             {% endfor %}
@@ -22,7 +22,13 @@
 {% endblock %}
 
 {% block footer %}
-        <p class="footer">Envío GRATIS a Capital Federal</p>
-        <p class="footer">Entrega estimada 8 días hábiles</p>
+    <section  class="footer">
+        <img src="img/camion.png"  class="camion">
+        <p>Envío GRATIS a Capital Federal</p>
+    </section>
+    <section class="footer">
+        <img src="img/tienda.png"  class="tienda">
+        <p>Entrega estimada 8 días hábiles</p>
+    </section>
 {% endblock %}
 
