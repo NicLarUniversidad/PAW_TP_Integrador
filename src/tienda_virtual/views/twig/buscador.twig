@@ -4,15 +4,15 @@
 {% endblock %}
 
 {% block main %}
-
+  
     <section>
     <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" border="0" onclick="history.back();">
         <h1>Resultados de la búsqueda</h1>
     {% for publicacion in data.publicaciones %}
         <article>
             <h2>{{ publicacion.producto.nombre }}</h2>
-            <p>${{ publicacion.precio_unidad }}</p>
-            <th><a href="/detalleproducto" id="verMas">Ver en Detalle</a></th><br>
+            <p>{{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p>
+            <th><a href="/detalleproducto?paso={{ data.actual.id }}&producto={{ producto.id }}" id="verMas">Ver en Detalle</a></th><br>
             {% for foto in publicacion.fotografias %}
             <picture>
                 <img src="{{ foto.url }}" alt="{{ publicacion.producto.descripcion }}">

@@ -65,7 +65,7 @@ article{
 
 #verMas{
     display: flex;
-    height: inherit;
+    height: auto;
     position: absolute;
 }
 
