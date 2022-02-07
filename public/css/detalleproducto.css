@@ -13,26 +13,6 @@ body{
     background-color: rgb(234, 242, 242);
 }
 
-.categorias{    
-    display: inline-table;
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-    padding: 2%;
-    font-size: xx-large;
-    margin-top: 4%;
-    margin-bottom: 4.5%;
-    margin-right: 2%;
-    margin-left: 3%;
-    border: solid;
-    font-family: "Roboto-Light" !important;
-    border-radius: 10px;
-    width: 22%;
-    text-transform: capitalize;
-    color: aliceblue;
-    background: #212D63;
-    text-decoration: none;
-}
 
 
 .flecha-back{ 
@@ -41,7 +21,7 @@ body{
     position: absolute;
 }
 
-.categorias:hover, #flecha:hover{
+#flecha:hover{
     cursor: pointer;
     transform: transla;
     box-shadow: 4px 30px 6px 0px rgba(50, 50, 50, 0.45);
@@ -49,13 +29,6 @@ body{
     border: solid;
 }
 
-span{
-    text-align: center;
-    font-size: xxx-large;
-    display: block;
-    color: black;
-    margin: 5%;
-}
 
 .cuerpo{
     visibility: collapse;
@@ -71,19 +44,26 @@ section{
     color: black;
 }
 
+.camion, .tienda{
+    width: 50px;
+  
+}
+
+p{
+    margin: auto;
+}
 
 /*-------------------RESPONSIVE---------------------*/
 
 @media (max-width: 768px){
 
-h1{
-    font-size:x-large;
+.detalle{
+    font-size: larger;
 }
 
-section {
-    display: contents;
-    padding-top: 5%;
-    padding-left: 6%;
+
+.flecha-back{ 
+    height: 1em;
 }
 
 }
