@@ -14,7 +14,7 @@
     {% for oferta in data.ofertas %}
         <article>
             <h2>{{oferta.publicacion.producto.nombre}}</h2>
-            <p>${{oferta.publicacion.producto.precio_unidad}}</p>
+            <p>${{oferta.publicacion.precio_unidad}}</p>
             <p>${{oferta.precio_oferta}}</p>
             <th><a href="/detalleoferta" id="verMas">Ver en Detalle</a></th><br>
             {% for foto in publicacion.fotografias %}

@@ -22,7 +22,7 @@
                     <article>
                         <h2>{{ producto.producto.descripcion }}</h2>
                         <p>$ {{ producto.precio_unidad }}</p>
-                        <a href="/arma-tu-pc?paso={{ data.actual.id }}&producto={{ producto.id }}">Seleccionar</a>
+                        <a class="agregar" href="/arma-tu-pc?paso={{ data.actual.id }}&producto={{ producto.id }}">Agregar</a>
                     </article>
                 {% endfor %}
             </section>
