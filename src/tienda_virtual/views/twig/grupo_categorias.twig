@@ -7,13 +7,14 @@
 
 {% block main %}
 <h1>Categorias Generales</h1>
-
+           
       {% for grupo_categoria in data.grupo_categorias %} 
-       
-        <a class="categorias" href="/categorias" title="{{grupo_categoria.descripcion}}">{{grupo_categoria.descripcion}}</a>
+
+        <a class="categorias" href="/categorias?grupo_categoria={{ grupo_categoria.id }}" title="{{grupo_categoria.descripcion}}">{{grupo_categoria.descripcion}}</a>
     {% else %}
 
         <span>No hay resultados en la busqueda</span>
     {% endfor %}
+    
     
 {% endblock %}
