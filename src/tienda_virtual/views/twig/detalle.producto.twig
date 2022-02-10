@@ -8,17 +8,17 @@
 {% block main %}
 <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" border="0" onclick="history.back();">
 <h1 class="detalle">Detalles del producto</h1>
-        <section>
+        <section class="detalleDescrip">
+        <p>dasdasdas1<p/>
             {% for publicacion in data.publicaciones %}
                 <article>
                     <h2>{{ publicacion.producto.nombre }}</h2>
                     <p>{{ publicacion.producto.descripcion }}</p>
-                    <p>$ {{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p>
+                    <p>{{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p>
                     <a class="agregar">Agregar</a>
                 </article>
             {% endfor %}
         </section>         
-
 {% endblock %}
 
 {% block footer %}

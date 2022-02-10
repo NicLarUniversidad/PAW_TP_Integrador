@@ -15,6 +15,17 @@
 
         <span>No hay resultados en la busqueda</span>
     {% endfor %}
+
+
+    <!--
+    {% for grupo_categoria in data.grupo_categorias %}
     
+        {% if grupo_categoria.id != data.actual.id %}
+         <a href="/categoria">{{ grupo_categoria.descripcion }}</a>
+               {% else %}
+         <p>{{ categoria.descripcion }}</p>
+        {% endif %}
+    {% endfor %}
+    -->
     
 {% endblock %}
