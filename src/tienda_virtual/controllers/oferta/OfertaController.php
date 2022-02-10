@@ -8,6 +8,8 @@ use Exception;
 use MercadoPago\Preference;
 use src\tienda_virtual\controllers\Controller;
 use src\tienda_virtual\database\services\carrito\CarritoService;
+use src\tienda_virtual\database\services\products\FotografiaProductoService;
+use src\tienda_virtual\database\services\products\ProductoService;
 use src\tienda_virtual\services\TwigPageFinderService;
 use src\tienda_virtual\services\OfertasService;
 
@@ -15,6 +17,8 @@ class OfertaController extends Controller
 {
     protected OfertasService $ofertaService;
     protected Preference $preference;
+    protected ProductoService $productoService;
+    protected FotografiaProductoService $fotografiaProductoService;
 
     public function init()
     {
@@ -22,6 +26,8 @@ class OfertaController extends Controller
         $this->pageFinderService = new TwigPageFinderService();
         $this->pageFinderService->session = $this->session;
         $this->ofertaService = new OfertasService($this->connection, $this->logger);
+        $this->productoService = new ProductoService($this->connection, $this->logger);
+        $this->fotografiaProductoService = new FotografiaProductoService($this->connection, $this->logger);
         //$this->preference = new Preference();
     }
 
@@ -35,8 +41,11 @@ class OfertaController extends Controller
         $jsImports = [];
         $jsImports[]="paw";
         $jsImports[]="app";
-        $data = ["ofertas"=>$this->ofertaService->RecuperarOfertas ()];
+        $idPublicacion = ["id"=>"1", "id_producto" => 14];
+        $data = ["ofertas"=>$this->ofertaService->RecuperarOfertas()];
         //$this->preference->save();
+        $data["producto"] = $this->productoService->find($idPublicacion["id_producto"]);
+        $data["foto"] = $this->fotografiaProductoService->find($data["producto"]["id_fotografia"]);
         $data["preference"] = $this->preference ?? [];
         $this->pageFinderService->findFileRute("ofertas","twig","twig", $cssImports,
             $data,$titulo, $jsImports);
