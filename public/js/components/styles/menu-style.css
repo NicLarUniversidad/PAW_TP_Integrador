@@ -30,7 +30,6 @@
 }
 
 .PAW-Menu ul {
-	background-color: var(--rojo-secundario);
 	padding-left: 2rem;
 	cursor: pointer;
 	clear: both;
@@ -157,15 +156,22 @@ form{
 }
 
 header button.PAW-Button-Menu {
-	margin-top: 17%;
     float: right;
-    margin-right: 2%;
     padding-top: 0.5%;
+	display: block;
+	margin-bottom: 0px;
+    margin-top: 3%;
+	margin-left: 2%;
 }
 
 
 .PAW-Menu ul li {
     padding: 0.1rem;
 }
+
+h1{
+	font-size: inherit;
+}
+
 
 }

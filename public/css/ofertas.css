@@ -44,14 +44,13 @@ span{
 
 @media (max-width: 768px){
 
-h1{
-    font-size:x-large;
+.flecha-back {
+    height: 1em;
 }
 
-section {
-    display: contents;
-    padding-top: 5%;
-    padding-left: 6%;
+span{
+    font-size: inherit;
 }
+
 
 }

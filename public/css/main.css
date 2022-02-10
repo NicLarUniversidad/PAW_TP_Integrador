@@ -428,10 +428,12 @@ body {
     margin: 0;
     font-family: "Roboto-Light" !important;
     font-size: x-large;
+    display: grid;
 }
 
 header>form {
-    margin-top: 2.5%;
+    margin-top: 1.5%;
+    display: contents;
 }
 
 header>form>button{
@@ -442,7 +444,13 @@ header>form>button{
 
 
 body>header {
-    display: table;
+    width: 100%;
+    background: #212D63;
+    position: inherit;
+    display: block;
+    z-index: 99999;
+    padding-bottom: 3vh;
+    padding-top: 2%;
 }
 
 body>footer {
@@ -579,9 +587,8 @@ h3{
 }
 
 .icon-cart {
-    margin-top: 17%;
     float: left;
-    margin-left: 2%;
+    margin-left: 1%;
     padding-top: 0.5%;
 }
 
@@ -593,7 +600,7 @@ label{
 .buscadorMenu {
     width: 25vw;
     margin: initial;
-    font-size: x-large;
+    font-size: inherit;
 }
 
 .nombrePagina {
