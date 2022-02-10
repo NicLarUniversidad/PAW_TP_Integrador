@@ -117,3 +117,30 @@ h3{
     border: dotted;  
     border: solid;
 }
+
+/*-------------------RESPONSIVE---------------------*/
+
+@media (max-width: 768px){
+
+.btn-cancelar {
+    font-size: inherit;
+    position: inherit;
+
+}
+
+.carritoVacio{
+    font-size: inherit;
+}
+
+.btn-pagar {
+    right: 0;
+    margin-right: 5%;
+    width: auto;
+}
+
+.seguirCompra{
+    font-size: inherit;
+}
+
+
+}

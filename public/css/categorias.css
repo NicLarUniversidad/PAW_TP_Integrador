@@ -65,14 +65,9 @@ span{
 
 @media (max-width: 768px){
 
-h1{
-    font-size:x-large;
-}
 
-section {
-    display: contents;
-    padding-top: 5%;
-    padding-left: 6%;
+.categorias{
+    font-size: inherit;
 }
 
 }
