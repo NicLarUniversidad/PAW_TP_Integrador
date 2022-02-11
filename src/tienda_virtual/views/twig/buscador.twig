@@ -12,7 +12,7 @@
         <article>
             <h2>{{ publicacion.producto.nombre }}</h2>
             <p>{{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p>
-            <th><a href="/detalleproducto?producto={{ publicacion.producto.id }}" id="verMas">Ver en Detalle</a></th><br>
+            <a href="/detalleproducto?publicacion={{ publicacion.id }}" id="verMas">Ver en Detalle</a><br>
             {% for foto in publicacion.fotografias %}
             <picture>
                 <img src="{{ foto.url }}" alt="{{ publicacion.producto.descripcion }}">

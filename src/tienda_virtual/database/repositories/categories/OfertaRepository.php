@@ -11,6 +11,6 @@ class OfertaRepository extends Repository
 {
     public function __construct(Logger $logger, PDO $connection)
     {
-        parent::__construct($logger, $connection, "ofertas", "categories\\CategoriaModel");
+        parent::__construct($logger, $connection, "oferta", "ofertas\\OfertasModel");
     }
 }
