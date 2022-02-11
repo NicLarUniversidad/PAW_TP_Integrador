@@ -13,9 +13,9 @@
     {% for oferta in data.ofertas %}
         <article>
             <h2>{{oferta.publicacion.producto.nombre}}</h2>
-            <p>${{oferta.publicacion.precio_unidad}}</p>
-            <p>${{oferta.precio_oferta}}</p>
-            <th><a href="/detalleoferta" id="verMas">Ver en Detalle</a></th><br>
+            <p>{{oferta.publicacion.precio_unidad}} {{oferta.publicacion.moneda.nombre}}</p>
+            <p>{{oferta.precio_oferta}} {{oferta.publicacion.moneda.nombre}}</p>
+            <a href="/detalleproducto?publicacion={{ oferta.publicacion.id }}" id="verMas">Ver en Detalle</a><br>
             {% for foto in publicacion.fotografias %}
             <picture>
                 <img src="{{ foto.url }}" alt="{{ publicacion.producto.descripcion }}">
@@ -24,7 +24,7 @@
         </article>
    
     {% else %}
-        <span>Por el momento no contamos con ninguna oferta</span>
+        <span>No se ha encontrado detalles de la oferta</span>
     {% endfor %}
     
 {% endblock %}

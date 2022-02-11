@@ -10,11 +10,13 @@ use src\tienda_virtual\controllers\Controller;
 use src\tienda_virtual\database\services\carrito\CarritoService;
 use src\tienda_virtual\services\TwigPageFinderService;
 use src\tienda_virtual\services\DetallesProductosService;
+use src\tienda_virtual\database\services\products\PublicacionService;
 
 class DetalleProductoController extends Controller
 {
     protected DetallesProductosService $detallesService;
     protected Preference $preference;
+    protected PublicacionService $publicacion;
 
     public function init()
     {
@@ -22,6 +24,7 @@ class DetalleProductoController extends Controller
         $this->pageFinderService = new TwigPageFinderService();
         $this->pageFinderService->session = $this->session;
         $this->detallesService = new DetallesProductosService($this->connection, $this->logger);
+        $this->publicacion=new PublicacionService($this->connection, $this->logger);
         //$this->preference = new Preference();
     }
 
@@ -35,8 +38,10 @@ class DetalleProductoController extends Controller
         $jsImports = [];
         $jsImports[]="paw";
         $jsImports[]="app";
-        $data = ["detalleproducto"=>$this->detallesService->RecuperarDetalles ()];
+        $idpublicacion=$this->request->get("publicacion");
+        //$data = ["publicaciones"=>$this->detallesService->RecuperarDetalles ()];
         //$this->preference->save();
+        $data["publicacion"] = $this->publicacion -> find($idpublicacion) ?? [];
         $data["preference"] = $this->preference ?? [];
         $this->pageFinderService->findFileRute("detalle.producto","twig","twig", $cssImports,
             $data,$titulo, $jsImports);
