@@ -3,3 +3,5 @@
 /vendor
 /log/app.log
 /public/documentos
+.buildpath
+.project

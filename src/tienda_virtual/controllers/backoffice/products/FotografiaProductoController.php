@@ -5,7 +5,6 @@ namespace src\tienda_virtual\controllers\backoffice\products;
 
 
 use src\tienda_virtual\controllers\backoffice\ABMController;
-use src\tienda_virtual\database\services\products\FotografiaProductoService;
 use src\tienda_virtual\services\FileService;
 
 class FotografiaProductoController extends ABMController
