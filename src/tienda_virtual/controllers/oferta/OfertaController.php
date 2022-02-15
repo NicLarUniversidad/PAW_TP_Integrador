@@ -37,6 +37,8 @@ class OfertaController extends Controller
         $jsImports[]="app";
         $data = ["ofertas"=>$this->ofertaService->RecuperarOfertas ()];
         //$this->preference->save();
+        //$data["producto"] = $this->productoService->find($idPublicacion["id_producto"]);
+        //$data["foto"] = $this->fotografiaProductoService->find($data["producto"]["id_fotografia"]);
         $data["preference"] = $this->preference ?? [];
         $this->pageFinderService->findFileRute("ofertas","twig","twig", $cssImports,
             $data,$titulo, $jsImports);
