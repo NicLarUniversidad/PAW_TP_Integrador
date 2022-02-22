@@ -57,4 +57,20 @@ class OfertasService
         return $ofertas;
     }
 
+
+    public function RecuperarOfertaEspecifica (String $id_publicacion){
+        if ($id_publicacion != "") {
+            $publicacion = $this->PublicacionService->addItem($id_publicacion);
+            $moneda = $this->monedaService->find($publicacion["id_moneda"])[0];
+            $oferta["producto"] = $this->productoService->find($publicacion["id_producto"])[0];
+            $oferta["publicacion"] = $publicacion;
+            $oferta["foto"] = $this->fotografiaProductoService->findByProductoId($oferta["producto"]["id"])[0] ??[];
+            $oferta["moneda"] = $moneda;
+            $ofertas=[];
+        }
+        return $ofertas;
+    }
+
+
+
 }
