@@ -13,8 +13,8 @@
     {% for oferta in data.ofertas %}
         <article>
             <h2>{{oferta.producto.nombre}}</h2>
-            <p>{{oferta.publicacion.precio_unidad}} {{oferta.moneda.nombre}}</p>
-            <p>{{oferta.precio_oferta}} {{oferta.moneda.nombre}}</p>
+            <p class="antes">ANTES  {{oferta.publicacion.precio_unidad}} {{oferta.moneda.nombre}}</p>
+            <p>AHORA  {{oferta.precio_oferta}} {{oferta.moneda.nombre}}</p>
             <a href="/detalleproducto?publicacion={{ oferta.publicacion.id }}" id="verMas">Ver en Detalle</a><br>
             {% for foto in publicacion.fotografias %}
             <picture>

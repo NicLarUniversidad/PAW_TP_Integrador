@@ -22,8 +22,9 @@ h3{
 p{
     display: inline-flex;
     text-align: end;
-    font-size: x-large;
+    font-size: inherit;
     font-style: oblique;
+    margin-top: 0px;
 }
 
 body{
@@ -81,6 +82,11 @@ article{
     height: auto;
 }
 
+.antes{
+    text-decoration:line-through;
+    color: red;
+}
+
 /*-------------------RESPONSIVE---------------------*/
 
 @media (max-width: 768px){
@@ -89,9 +95,27 @@ article{
     height: 1em;
 }
 
+h2{
+    font-size: inherit;
+}
+
 span{
     font-size: inherit;
 }
 
+article{
+    margin-left: 2%;
+    margin-top: 3%;
+    width: auto;
+    height: auto;
+}
+
+p{
+    display: block;
+}
+
+#verMas{
+   margin-top: inherit;
+}
 
 }
