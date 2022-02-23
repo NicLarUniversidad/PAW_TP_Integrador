@@ -31,7 +31,7 @@ class DetallesProductosService
         }
 
 
-    public function RecuperarDetalles (){
+    public function RecuperarDetalles (String $id_publicacion){
      return $this->ProductosRepository->findAll();
     }
 
