@@ -134,6 +134,7 @@ iframe{
     width: 38vw;
     margin: initial;
     font-size: x-large;
+    padding-left: 5px;
 }
 
 .lupa{
@@ -302,7 +303,7 @@ iframe{
 
     header>form>button:hover{
         cursor: pointer;
-        transform: transla;
+        /*transform: transla;*/
         box-shadow: 4px 10px 6px 0px rgb(223, 220, 220);
     }
 
@@ -317,7 +318,7 @@ iframe{
 #progress-bar{
 	height: 100%;
 	background-color:#F97224;
-	transition: width 0.8;
+	transition: width 0.8s;
 }
 
 #slideshow{
@@ -387,6 +388,7 @@ iframe{
     text-align: center;
     place-content: space-evenly;  
     font-size: smaller;
+    flex-direction: column;
 }
 
 .columnas{
@@ -416,7 +418,8 @@ iframe{
 }
 
 .redes{
-display: inline-block;
+    display: inline-block;
+    margin: inherit;
 }
 
 /*-------------------RESPONSIVE---------------------*/
@@ -471,7 +474,7 @@ body>footer {
 #progress-bar{
 	height: 100%;
 	background-color: #212D63;
-	transition: width 0.8;
+	transition: width 0.8s;
 }
 
 #slideshow{
