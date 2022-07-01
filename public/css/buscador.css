@@ -12,7 +12,8 @@ h1 {
 
 h2{
     font-size: larger;
-    height: inherit;
+    /*height: inherit;*/
+    height: 5em;
 }
 
 
@@ -36,9 +37,9 @@ p{
 
 #flecha:hover{
     cursor: pointer;
-    transform: transla;
-    box-shadow: 4px 30px 6px 0px rgba(50, 50, 50, 0.45);
-    border: dotted;  
+    /*transform: transla;*/
+    box-shadow: 4px 30px 6px 1px rgba(50, 50, 50, 0.45);
+    /*border: dotted;*/
     border: solid;
     color: aliceblue;
 }
@@ -57,7 +58,7 @@ article{
     flex-direction: column;
     align-items: center;
     padding-top: 2%;
-    padding-bottom: 0px;
+    padding-bottom: 2%;
     padding-left: 1%;
     padding-right: 1%;
     margin-right: 1%;
@@ -71,9 +72,22 @@ article{
 #verMas{
     display: flex;
     height: auto;
-    position: absolute;
+    /*position: absolute;*/
 }
-
+.agregar {
+    margin: 5%;
+    text-decoration: none;
+    border: solid;
+    border-radius: 10px;
+    padding-right: 7%;
+    padding-left: 7%;
+    padding-top: 1%;
+    padding-bottom: 2%;
+    color: #F97224;
+    display: block;
+    text-align: center;
+    font-size: larger;
+}
 /*-------------------RESPONSIVE---------------------*/
 
 @media (max-width: 768px){
@@ -100,6 +114,10 @@ article{
 
 p{
     display: block;
+}
+
+.agregar{
+    font-size: smaller;
 }
 
 }

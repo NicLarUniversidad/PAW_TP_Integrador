@@ -56,7 +56,7 @@
 .PAW-Menu p {
 	display: block;
 	padding: 0.5rem;
-	border-bottom: 2ps solid black;
+	border-bottom: 2px solid black;
 }
 
 .PAW-Menu > ul > li:hover {
@@ -144,7 +144,7 @@ h1{
 	display: block;
     margin-inline: auto;
     font-size: large;
-    width: -webkit-fill-available;
+    /*width: -webkit-fill-available;*/
 }
 
 /*-------------------RESPONSIVE---------------------*/

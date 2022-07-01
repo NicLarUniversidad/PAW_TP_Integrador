@@ -21,10 +21,10 @@ h3{
 
 p{
     display: inline-flex;
-    text-align: end;
+    text-align: center;
     font-size: inherit;
     font-style: oblique;
-    margin-top: 0px;
+    width: max-content;
 }
 
 body{
@@ -40,7 +40,7 @@ body{
 
 #flecha:hover{
     cursor: pointer;
-    transform: transla;
+    /*transform: transla;*/
     box-shadow: 4px 30px 6px 0px rgba(50, 50, 50, 0.45);
     border: dotted;  
     border: solid;
@@ -85,6 +85,24 @@ article{
 .antes{
     text-decoration:line-through;
     color: red;
+    text-align: center;
+    width: max-content;
+    margin-bottom: 0px;
+}
+
+.agregar {
+    margin: 5%;
+    text-decoration: none;
+    border: solid;
+    border-radius: 10px;
+    padding-right: 7%;
+    padding-left: 7%;
+    padding-top: 1%;
+    padding-bottom: 2%;
+    color: #F97224;
+    display: block;
+    text-align: center;
+    font-size: larger;
 }
 
 /*-------------------RESPONSIVE---------------------*/
@@ -96,7 +114,8 @@ article{
 }
 
 h2{
-    font-size: inherit;
+    font-size: large;
+    text-align: center;
 }
 
 span{
@@ -104,18 +123,32 @@ span{
 }
 
 article{
-    margin-left: 2%;
-    margin-top: 3%;
+    margin: 2%;
+    padding: 2%;
+    border-radius: 10px;
+    border: solid;
+    text-align: -webkit-center;
+    display: block;
     width: auto;
     height: auto;
 }
 
 p{
     display: block;
+    font-size: large;
+    text-align: center;
 }
 
 #verMas{
    margin-top: inherit;
+    font-size: large;
 }
+
+.agregar, .antes{
+    font-size: large;
+
+}
+
+
 
 }
