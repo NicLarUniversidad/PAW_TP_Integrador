@@ -125,6 +125,7 @@ h3{
 .btn-cancelar {
     font-size: inherit;
     position: inherit;
+    display: inline-block;
 
 }
 
