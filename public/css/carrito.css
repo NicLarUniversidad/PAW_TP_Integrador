@@ -104,23 +104,40 @@ h3{
     font-family: "Roboto-Light" !important;
     border-radius: 10px;
     width: 22%;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     color: aliceblue;
-    background: #212D63;
+    background: #F97224;;
     text-decoration: none;
 }
 
 .inicio:hover{
     cursor: pointer;
     transform: transla;
-    box-shadow: 4px 30px 6px 0px rgba(50, 50, 50, 0.45);
+    box-shadow: 4px 10px 6px 0px rgba(50, 50, 50, 0.45);
     border: dotted;  
     border: solid;
+}
+
+.flecha-back{
+    display: block;
+    width: 2em;
+    margin-bottom: 0.5em;
+    border-radius: 10px;
+}
+
+.flecha-back:hover{
+    cursor:pointer;
+    box-shadow: 4px 10px 6px 0px rgba(50, 50, 50, 0.45);
 }
 
 /*-------------------RESPONSIVE---------------------*/
 
 @media (max-width: 768px){
+
+.flecha-back {
+    height: 1em;
+    width: 1em;
+}
 
 .btn-cancelar {
     font-size: inherit;

@@ -24,7 +24,7 @@ body{
     margin-bottom: 4.5%;
     margin-right: 2%;
     margin-left: 3%;
-    border: solid;
+    border: double;
     font-family: "Roboto-Light" !important;
     border-radius: 10px;
     width: 22%;
@@ -59,12 +59,17 @@ span{
 
 .cuerpo{
     visibility: collapse;
+    display:table-row;
 }
 
 /*-------------------RESPONSIVE---------------------*/
 
 @media (max-width: 768px){
 
+.flecha-back {
+     height: 1em;
+     width: 1em;
+}
 
 .categorias{
     font-size: inherit;
