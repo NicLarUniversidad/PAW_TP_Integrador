@@ -112,8 +112,7 @@ article{
 }
 
 .cuerpo{
-    visibility: collapse;
-    display:table-row;
+    display:table-column;
 }
 
 /*-------------------RESPONSIVE---------------------*/
