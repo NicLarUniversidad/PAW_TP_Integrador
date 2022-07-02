@@ -54,9 +54,6 @@ span{
     margin: 5%;
 }
 
-.cuerpo{
-    visibility: collapse;
-}
 
 article{
     display: inline-table;
@@ -75,7 +72,7 @@ article{
     height: 17vh; 
     border-radius: 10px;
     color: black;
-    background-color: lightgray;
+    background-color: transparent;
 }
 
 #verMas{
@@ -100,10 +97,11 @@ article{
     padding-left: 7%;
     padding-top: 1%;
     padding-bottom: 2%;
-    color: #F97224;
+    color: #212D63;
     display: block;
     text-align: center;
     font-size: larger;
+    font-weight: bold;
 }
 
 .imagen{
@@ -111,6 +109,11 @@ article{
     position: inherit;
     margin: auto;
     padding-top: 1em;
+}
+
+.cuerpo{
+    visibility: collapse;
+    display:table-row;
 }
 
 /*-------------------RESPONSIVE---------------------*/
@@ -139,7 +142,7 @@ article{
     display: block;
     width: auto;
     height: auto;
-    background-color: lightgray;
+    background-color: transparent;
 }
 
 p{

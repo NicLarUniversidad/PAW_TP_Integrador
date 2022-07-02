@@ -3,10 +3,8 @@
 }
 
 h1 {
-    text-align: center;
-    font-size: xxx-large;
-    background: #212D63;
-    color: aliceblue;
+    background: #F97224;
+    margin-top: auto;
 }
 
 
@@ -29,6 +27,10 @@ p{
     font-style: oblique;
 }
 
+section{
+    color: black;
+}
+
 .flecha-back{ 
     height: 3vw;
     margin: inherit;
@@ -38,10 +40,11 @@ p{
 #flecha:hover{
     cursor: pointer;
     /*transform: transla;*/
-    box-shadow: 4px 30px 6px 1px rgba(50, 50, 50, 0.45);
+    box-shadow: 4px 10px 6px 1px rgba(50, 50, 50, 0.45);
     /*border: dotted;*/
     border: solid;
     color: aliceblue;
+    border-radius: 10px;
 }
 
 /*article{
@@ -83,11 +86,18 @@ article{
     padding-left: 7%;
     padding-top: 1%;
     padding-bottom: 2%;
-    color: #F97224;
+    color: #212D63;
     display: block;
     text-align: center;
     font-size: larger;
 }
+
+.cuerpo{
+    visibility: collapse;
+    display:table-row;
+}
+
+
 /*-------------------RESPONSIVE---------------------*/
 
 @media (max-width: 768px){
