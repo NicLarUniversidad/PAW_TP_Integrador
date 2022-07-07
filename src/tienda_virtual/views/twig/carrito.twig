@@ -16,11 +16,11 @@
         {% for publicacion in data.publicaciones %}
         <article class="productos" id="productos">
             <picture>
-                <img class="imgArticulo" alt="{{ publicacion.nombre }}" src="{{ publicacion.foto }}">
+                <img src="foto.url" class="imgArticulo" alt="{{ publicacion.nombre }}" >
             </picture>
             <h2>{{ publicacion.nombre }}</h2>
-            <p>${{ publicacion.precio_unidad }}</p>
-            <button class="button-delete" onclick="funcionEliminar()">Eliminar</button>
+            <p>Precio: ${{ publicacion.precio_unidad }}</p>
+            <button class="button-delete" onclick="funcionEliminar()">Eliminar artículo</button>
 
         </article>
     </section>

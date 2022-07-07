@@ -55,6 +55,6 @@ class DetalleProductoController extends Controller
         $idCarrito = $this->session->get("carrito");
         $this->carritoService->setInactice($idCarrito);
         $this->session->delete("carrito");
-        $this->mostrarTemplate($notificacion, $data, $titulo);
+        $this->mostrarDetalles($notificacion, $data, $titulo);
     }
 }

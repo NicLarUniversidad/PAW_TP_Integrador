@@ -1,4 +1,4 @@
-h1, .footer{
+h1, .footer, .footer1{
     text-align: center;
     margin:auto;
     font-size: xxx-large;
@@ -13,7 +13,6 @@ body{
     background-color: rgb(234, 242, 242);
 }
 
-
 .flecha-back{ 
     height: 2em;
     margin: inherit;
@@ -22,30 +21,28 @@ body{
 
 #flecha:hover{
     cursor: pointer;
-    transform: transla;
     box-shadow: 4px 30px 6px 0px rgba(50, 50, 50, 0.45);
-    border: dotted;  
     border: solid;
+    border-color: aliceblue;
 }
 
-
-.cuerpo{
-    visibility: collapse;
-}
-
-.footer{
+.footer, .footer1{
     font-size: larger;
     color: black;
     margin-top: 1%;
 }
 
+.footer1{
+    margin-top: 40%;
+}
+
 section{
     color: black;
+    margin-top: 4%;
 }
 
 .camion, .tienda{
     width: 50px;
-  
 }
 
 p{
@@ -72,6 +69,11 @@ article{
 
 main{
     color: black;
+}
+
+
+.cuerpo{
+    visibility: collapse;
 }
 
 /*-------------------RESPONSIVE---------------------*/

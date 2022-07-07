@@ -107,6 +107,7 @@ article{
 }
 
 .cuerpo{
+    visibility: collapse;
     display:table-column;
 }
 
