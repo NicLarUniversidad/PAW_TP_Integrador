@@ -6,22 +6,19 @@
 {% endblock %}
 
 {% block main %}
+<img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" onclick="history.back();">
 <h1>Categorias</h1>
 
-    {% for categoria in data.categorias %}  
+    {% for categoria in data.categorias %}
 
-    <!--
-    {% if grupo_categoria.id != data.actual.id %}
-        <a href="/categoria?categoria={{ categoria.id}}">{{ categoria.descripcion }}</a>
+        {% if grupo_categoria.id == data.actual.id_grupo_categoria %}
+            <a class="categorias" href="/subcategoria?categoria={{categoria.id_grupo_categoria}}" title="{{categoria.descripcion}}">{{categoria.descripcion}}</a>
             {% else %}
          <p>{{ categoria.descripcion }}</p>
      {% endif %}
-    -->
-
-        <a class="categorias" href="/subcategoria" title="{{categoria.descripcion}}">{{categoria.descripcion}}</a>
     {% else %}
 
-        <span>No hay resultados en la busqueda</span>
+        <span>No hay resultados en la búsqueda</span>
     {% endfor %}
     
 {% endblock %}

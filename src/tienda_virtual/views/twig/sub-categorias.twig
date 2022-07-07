@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block main %}
-<img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" border="0" onclick="history.back();">
+<img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" onclick="history.back();">
 <h1>Sub-Categorias</h1>
 
       {% for sub_categoria in data.subcategorias %} 
@@ -14,7 +14,7 @@
         <a href="#" title="{{sub_categoria.descripcion}}">{{sub_categoria.descripcion}}</a>
     {% else %}
 
-        <span>No hay resultados en la busqueda</span>
+        <span>No hay resultados en la búsqueda</span>
     {% endfor %}
     
 {% endblock %}
