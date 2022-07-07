@@ -10,10 +10,10 @@
 <h1 class="detalle">Detalles del producto</h1>
         <section class="detalleDescrip">
 
-            {% for publicacion in data.publicaciones %}
+            {% for publicacion in data.publicacion %}
 
-                {% for producto in data.productos %}
-                    <p>{{ publicacion.producto.nombre}}</p>
+                {% for producto in publicacion.productos %}
+                    <p>{{ producto.nombre}}</p>
                     <p>{{ producto.descripcion}}</p>
                     <p>{{ producto.precio}}</p>
                 {% else %}

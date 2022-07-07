@@ -88,4 +88,15 @@ class PublicacionService extends DatabaseService
         }
         return $publicacion;
     }
+
+    public function find($id) : array {
+        $publicacion = parent::find($id);
+        $this->logger->debug(json_encode($publicacion));
+        if (array_key_exists("id_producto", $publicacion[0])) {
+            $publicacion[0]["productos"] = $this->productoService->find($publicacion[0]["id_producto"]);
+            $this->logger->debug(json_encode($publicacion));
+        }
+        $this->logger->debug(json_encode($publicacion));
+        return $publicacion;
+    }
 }

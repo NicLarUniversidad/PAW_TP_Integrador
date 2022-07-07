@@ -48,6 +48,7 @@ final class MigracionInicial extends AbstractMigration
             ->create();
         $table = $this->table('producto');
         $table->addColumn('descripcion', 'string')
+            ->addColumn('nombre', 'string')
             ->addColumn('activo', 'string')
             ->addColumn('precio_tentativo', 'float')
             ->addColumn('carpeta', 'string')
