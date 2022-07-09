@@ -1,0 +1,27 @@
+{% extends "parts/commons.twig" %}
+{% block head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/miscompras.css" />
+{% endblock %}
+
+{% block main %}
+
+    <section>
+        <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" onclick="history.back();">
+        <h1>Historial de compras</h1>
+        {% for publicacion in data.publicaciones %}
+            <article>
+                <h2>{{ publicacion.producto.nombre }}</h2>
+                <p>{{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p>
+                <a href="/detalleproducto?publicacion={{ publicacion.id }}" id="verMas">Ver en Detalle</a><br>
+                <a class="estado" href="producto={{ producto.id }}" id="estado">Agregar</a>
+                {% for foto in publicacion.fotografias %}
+                    <picture>
+                        <img src="{{ foto.url }}" alt="{{ publicacion.producto.descripcion }}">
+                    </picture>
+                {% endfor %}
+            </article>
+        {% endfor %}
+    </section>
+
+{% endblock %}
