@@ -12,7 +12,7 @@
     {% for categoria in data.categorias %}
 
         {% if grupo_categoria.id == data.actual.id_grupo_categoria %}
-            <a class="categorias" href="/subcategoria?categoria={{categoria.id_grupo_categoria}}" title="{{categoria.descripcion}}">{{categoria.descripcion}}</a>
+            <a class="categorias" href="/subcategoria?grupo_categoria={{categoria.id_grupo_categoria}}" title="{{categoria.descripcion}}">{{categoria.descripcion}}</a>
             {% else %}
          <p>{{ categoria.descripcion }}</p>
      {% endif %}

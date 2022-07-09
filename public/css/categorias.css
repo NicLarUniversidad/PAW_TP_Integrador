@@ -59,7 +59,6 @@ span{
 
 .cuerpo{
     visibility: collapse;
-    display:table-column;
 }
 
 /*-------------------RESPONSIVE---------------------*/
