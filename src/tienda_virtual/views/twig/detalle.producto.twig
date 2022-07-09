@@ -13,21 +13,24 @@
             {% for publicacion in data.publicacion %}
 
                 {% for producto in publicacion.productos %}
-                    <p>{{ producto.nombre}}</p>
-                    <p>{{ producto.descripcion}}</p>
-                    <p>{{ producto.precio}}</p>
-                {% else %}
-                    <p>{{ categoria.descripcion }}</p>
+                    <p class="nombre">{{ producto.nombre}}</p>
+                    <img class="imgproducto" src="documentos/computadoras/1.jpg" alt="{{ publicacion.producto.descripcion }}">
+                    <p class="descripTitulo" >Descripción</p>
+                    <p class="descripcion">{{ producto.descripcion}}</p>
+                    <p class="precio">Precio {{ publicacion.precio_unidad}}</p>
+
+                    {% for oferta in data.ofertas %}
+                        <p>AHORA  {{oferta.precio_oferta}} {{oferta.moneda.nombre}}</p>
+                    {% else %}
+
+                    {% endfor %}
                 {% endfor %}
                 </section>
-
                 <a class="categorias" href="/subcategoria?categoria={{categoria.id_grupo_categoria}}" title="{{categoria.descripcion}}">{{categoria.descripcion}}</a>
             {% else %}
                 <p>{{ categoria.descripcion }}</p>
             {% endfor %}
-        </section>  
-
-        {{dump(data.publicacion)}}
+        </section>
 
 {% endblock %}
 
