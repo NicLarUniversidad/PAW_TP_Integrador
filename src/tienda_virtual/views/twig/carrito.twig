@@ -21,8 +21,13 @@
             <h2>{{ publicacion.nombre }}</h2>
             <p>Precio: ${{ publicacion.precio_unidad }}</p>
             <button class="button-delete" onclick="funcionEliminar()">Eliminar artículo</button>
-
         </article>
+
+    {% for carrito in data.carrito %}
+        <p>{{ carrito.precio_total}}</p>
+    {% else %}
+    {% endfor %}
+
     </section>
             
     {% else %}
@@ -31,6 +36,7 @@
         <span class="seguirCompra">Para seguir comprando, navegue por las categorías en el sitio, o busque su producto.</span>
         <a href="/grupocategorias" class="inicio">Seguir comprando</a>
     {% endfor %}
+
     
 {% endblock %}
 
