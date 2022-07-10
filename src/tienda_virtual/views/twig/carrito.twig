@@ -16,11 +16,11 @@
         {% for publicacion in data.publicaciones %}
         <article class="productos" id="productos">
             <picture>
-                <img src="foto.url" class="imgArticulo" alt="{{ publicacion.nombre }}" >
+                <img src="fotografia_producto.url" class="imgArticulo" alt="{{ publicacion.nombre }}" >
             </picture>
             <h2>{{ publicacion.nombre }}</h2>
             <p>Precio: ${{ publicacion.precio_unidad }}</p>
-            <button class="button-delete" onclick="funcionEliminar()">Eliminar artículo</button>
+            <button class="button-delete" id="eliminar-{{ attribute(attribute(publicacion, "id"),"value") }}">Eliminar artículo</button>
         </article>
 
     {% for carrito in data.carrito %}
