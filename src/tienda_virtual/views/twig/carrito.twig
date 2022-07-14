@@ -19,7 +19,7 @@
                 <img src="fotografia_producto.url" class="imgArticulo" alt="{{ publicacion.nombre }}" >
             </picture>
             <h2>{{ publicacion.nombre }}</h2>
-            <p>Precio: ${{ publicacion.precio_unidad }}</p>
+            <p>Precio: {{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p>
             <button class="button-delete" id="eliminar-{{ attribute(attribute(publicacion, "id"),"value") }}">Eliminar artículo</button>
         </article>
 
