@@ -13,8 +13,10 @@
             <article>
                 <h2>{{ publicacion.producto.nombre }}</h2>
                 <p>{{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p>
+                <p class="estado" id="estado_impaga">{{ compra_impaga.estado }}</p>
+                <p class="estado" id="estado_pagada">{{ compra_impaga.compra_pagado.estado }}</p>
+                <p class="estado" id="estado_enviada">{{ compra_impaga.compra_pagado.compra_enviada.estado }}</p>
                 <a href="/detalleproducto?publicacion={{ publicacion.id }}" id="verMas">Ver en Detalle</a><br>
-                <a class="estado" href="producto={{ producto.id }}" id="estado">Agregar</a>
                 {% for foto in publicacion.fotografias %}
                     <picture>
                         <img src="{{ foto.url }}" alt="{{ publicacion.producto.descripcion }}">
