@@ -9,9 +9,13 @@
 <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" onclick="history.back();">
 <h1>Sub-Categorias</h1>
 
-      {% for sub_categoria in data.subcategorias %} 
-       
-        <a href="#" title="{{sub_categoria.descripcion}}">{{sub_categoria.descripcion}}</a>
+      {% for sub_categoria in data.subcategorias %}
+            <a href="#" title="{{sub_categoria.descripcion}}">{{sub_categoria.descripcion}}</a>
+          {% if sub_categoria.id_categoria == data.actual.categoria.id %}
+              <a class="categorias" href="/subcategoria?categoria={{categoria.id}}" title="{{sub_categoria.descripcion}}">{{sub_categoria.descripcion}}</a>
+          {% else %}
+              <p>{{ sub_categoria.descripcion }}</p>
+          {% endif %}
     {% else %}
 
         <span>No hay resultados en la búsqueda</span>
