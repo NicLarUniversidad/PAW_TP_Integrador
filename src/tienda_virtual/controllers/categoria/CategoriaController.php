@@ -14,7 +14,6 @@ use src\tienda_virtual\services\CategoriasService;
 class CategoriaController extends Controller
 {
     protected CategoriasService $categoriaService;
-    protected Preference $preference;
 
     public function init()
     {
@@ -22,7 +21,6 @@ class CategoriaController extends Controller
         $this->pageFinderService = new TwigPageFinderService();
         $this->pageFinderService->session = $this->session;
         $this->categoriaService = new CategoriasService($this->connection, $this->logger);
-        //$this->preference = new Preference();
     }
 
     /**
@@ -35,9 +33,8 @@ class CategoriaController extends Controller
         $jsImports = [];
         $jsImports[]="paw";
         $jsImports[]="app";
-        $data = ["categorias"=>$this->categoriaService->RecuperarCategorias ()];
-        //$this->preference->save();
-        $data["preference"] = $this->preference ?? [];
+        $grupoId = $this->request->get("grupo_categoria");
+        $data["categorias"]= $this->categoriaService->RecuperarCategorias($grupoId);
         $this->pageFinderService->findFileRute("categorias","twig","twig", $cssImports,
             $data,$titulo, $jsImports);
     }

@@ -31,8 +31,8 @@ class SubCategoriasService
         }
 
 
-    public function RecuperarSubCategorias (){
-     return $this->SubCategoriaRepository->findAll();
+    public function RecuperarSubCategorias($category){
+     return $this->SubCategoriaRepository->getByCategoryId($category);
     }
 
 }
