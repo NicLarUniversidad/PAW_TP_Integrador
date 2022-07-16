@@ -14,4 +14,13 @@ class SubCategoriaRepository extends Repository
     {
         parent::__construct($logger, $connection, "sub_categoria", "categories\\SubCategoriaModel");
     }
+
+    public function getByCategoryId($categoryId) : array
+    {
+        $model = new $this->modelo();
+        return $this->queryBuilder->select($model->getTableFields())
+            ->from($this->tabla)
+            ->where(["id_categoria"=>$categoryId])
+            ->execute();
+    }
 }

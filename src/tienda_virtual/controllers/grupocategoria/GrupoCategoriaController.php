@@ -22,7 +22,6 @@ class GrupoCategoriaController extends Controller
         $this->pageFinderService = new TwigPageFinderService();
         $this->pageFinderService->session = $this->session;
         $this->grupocategoriaService = new GrupoCategoriasService($this->connection, $this->logger);
-        //$this->preference = new Preference();
     }
 
     /**
@@ -35,8 +34,7 @@ class GrupoCategoriaController extends Controller
         $jsImports = [];
         $jsImports[]="paw";
         $jsImports[]="app";
-        $data = ["grupo_categorias"=>$this->grupocategoriaService->RecuperarGrupoCategorias ()];
-        //$this->preference->save();
+        $data["grupo_categorias"] = $this->grupocategoriaService->RecuperarGrupoCategorias();
         $data["preference"] = $this->preference ?? [];
         $this->pageFinderService->findFileRute("grupo_categorias","twig","twig", $cssImports,
             $data,$titulo, $jsImports);
