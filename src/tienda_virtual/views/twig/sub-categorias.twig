@@ -10,9 +10,8 @@
 <h1>Sub-Categorias</h1>
 
       {% for sub_categoria in data.subcategorias %}
-            <a href="#" title="{{sub_categoria.descripcion}}">{{sub_categoria.descripcion}}</a>
-          {% if sub_categoria.id_categoria == data.actual.categoria.id %}
-              <a class="categorias" href="/subcategoria?categoria={{categoria.id}}" title="{{sub_categoria.descripcion}}">{{sub_categoria.descripcion}}</a>
+          {% if producto_sub_categoria.id_sub_categoria == data.actual.id %}
+              <a class="categorias" href="/productos?sub_categoria={{sub_categoria.id}}" title="{{sub_categoria.descripcion}}">{{sub_categoria.descripcion}}</a>
           {% else %}
               <p>{{ sub_categoria.descripcion }}</p>
           {% endif %}
