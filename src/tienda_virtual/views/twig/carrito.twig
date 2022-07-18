@@ -9,7 +9,7 @@
 {% block main %}
 
     <section>
-    <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" border="0" onclick="history.back();">
+    <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" onclick="history.back();">
         <a href="/carrito-cancelar" class="btn-cancelar">Cancelar compra</a>
         <a href="{{ attribute(data.preference, "sandbox_init_point") }}" class="btn-pagar"> Pagar </a>
         <h1>Carrito</h1>

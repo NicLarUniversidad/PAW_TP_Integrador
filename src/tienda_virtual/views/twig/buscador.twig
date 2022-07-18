@@ -14,7 +14,7 @@
             <h2>{{ publicacion.producto.nombre }}</h2>
             <p>{{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p>
             <a href="/detalleproducto?publicacion={{ publicacion.id }}" id="verMas">Ver en Detalle</a><br>
-            <a class="agregar" href="producto={{ producto.id }}" id="agregar">Agregar</a>
+            <a class="agregar" href="/carrito?}&producto={{ producto.id }}">Agregar</a>
             {% for foto in publicacion.fotografias %}
             <picture>
                 <img src="{{ foto.url }}" alt="{{ publicacion.producto.descripcion }}">
