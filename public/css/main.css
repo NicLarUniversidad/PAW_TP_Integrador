@@ -458,7 +458,7 @@ body>header {
 
 body>footer {
     position: relative;
-    display: table;
+    margin-top: auto;
 }
 
 /*---------------------IMAGENES DE PORTADA-----------------*/

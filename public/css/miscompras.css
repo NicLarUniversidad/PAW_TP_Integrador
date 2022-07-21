@@ -24,9 +24,16 @@ h1 {
     border-radius: 10px;
 }
 
+.cuerpo{
+    visibility: collapse;
+}
+
 /*-------------------RESPONSIVE---------------------*/
 
 @media (max-width: 768px) {
 
+.flecha-back {
+    height: 1em;
+}
 
 }
