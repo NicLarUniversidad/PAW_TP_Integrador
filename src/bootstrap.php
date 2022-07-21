@@ -89,7 +89,7 @@ $routerService->get('/categorias','categoria\\CategoriaController@mostrarCategor
 $routerService->get('/subcategoria','subcategoria\\SubCategoriaController@mostrarSubCategorias');
 $routerService->get('/ofertas','oferta\\OfertaController@mostrarOfertas');
 $routerService->get('/detalleproducto','detalleProducto\\DetalleProductoController@mostrarDetalles');
-$routerService->get('/miscompras','misCompras\\MisComprasController@mostrarOfertas');
+$routerService->get('/miscompras','misCompras\\MisComprasController@mostrarMisCompras');
 
 //Errores
 $routerService->get('/not_found', 'PageNotFoundException@get');

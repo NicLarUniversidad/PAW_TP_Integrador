@@ -42,6 +42,5 @@ class MisComprasController extends Controller
         $idCarrito = $this->session->get("carrito");
         $this->carritoService->setInactice($idCarrito);
         $this->session->delete("carrito");
-        $this->mostrarDetalles($notificacion, $data, $titulo);
     }
 }
