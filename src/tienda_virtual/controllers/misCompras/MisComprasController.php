@@ -2,8 +2,10 @@
 
 namespace src\tienda_virtual\controllers\misCompras;
 
+use Exception;
 use src\tienda_virtual\controllers\Controller;
 use src\tienda_virtual\services\MisComprasService;
+use src\tienda_virtual\services\TwigPageFinderService;
 
 class MisComprasController extends Controller
 {
@@ -28,7 +30,6 @@ class MisComprasController extends Controller
         $jsImports[]="paw";
         $jsImports[]="app";
         $idpublicacion=$this->request->get("publicacion");
-        $data["publicacion"] = $this->publicacion -> find($idpublicacion) ?? [];
         $data["preference"] = $this->preference ?? [];
         $this->pageFinderService->findFileRute("miscompras","twig","twig", $cssImports,
             $data,$titulo, $jsImports);
