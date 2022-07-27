@@ -8,6 +8,7 @@ use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 use Twig\Loader\FilesystemLoader;
+use src\tienda_virtual\services\UserService;
 
 class TwigPageFinderService extends PageFinderService
 {
@@ -23,7 +24,9 @@ class TwigPageFinderService extends PageFinderService
         $loader = new FilesystemLoader( __DIR__ . '/../views/twig');
         $twig = new Environment($loader, ['auto_reload' => true, 'debug' => true]);
         $twig->addExtension(new \Twig\Extension\DebugExtension());
+
+        $user = $this->session->get(UserService::$USER_SESSION_NAME);        
         echo $twig->render($name . ".twig", compact("data", "cssImports",
-            "jsImports", "title"));
+            "jsImports", "title","user"));
     }
 }

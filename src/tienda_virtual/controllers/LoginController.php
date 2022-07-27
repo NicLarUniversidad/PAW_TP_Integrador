@@ -37,7 +37,12 @@ class LoginController extends Controller
     {
         $cssImports = array();
         $cssImports[] = "login";
-        $this->pageFinderService->findFileRute("login", "php", "php", $cssImports);
+        $user = $this->session->get(UserService::$USER_SESSION_NAME);
+        if (is_null($user)) {
+            $this->pageFinderService->findFileRute("login", "twig", "twig", $cssImports);
+        } else {
+            $this->pageFinderService->findFileRute("loggeado", "twig", "twig", $cssImports);
+        }
     }
 
     /**
@@ -60,7 +65,7 @@ class LoginController extends Controller
     {
         $cssImports = array();
         $cssImports[] = "login";
-        $this->pageFinderService->findFileRute("registrarse", "php", "php", $cssImports);
+        $this->pageFinderService->findFileRute("registrarse", "twig", "twig", $cssImports, [], "registrarse");
     }
 
     public function postRegistrarse(): void

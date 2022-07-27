@@ -8,8 +8,11 @@
 
 {% block main %}
 
-  <section>
-        <h2>Login</h2>
+  <section> 
+    {% if data %}
+
+        <h2>Login {{attribute(data,"usuario")}}</h2>
+      {% endif %}
         <form method="post" action="/registrarse">
             <label for="username">Usuario:</label>
             <input type="text" name="username" id="username" required>
