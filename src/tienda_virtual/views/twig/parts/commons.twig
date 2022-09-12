@@ -21,20 +21,12 @@
 <body>
 <header>
     <form action="/buscar">
-        <label class="nombrePagina">TiendaVirtual</label>
-        <input class="buscadorMenu" name="buscador" type="text">
+        <label class="nombrePagina" id="AnimacionTitulo">TiendaVirtual</label>
+        <input class="buscadorMenu" type="text">
         <button type="submit"><img class="lupa" src="img/lupa.png"/></button>
     </form>
     <!--Agregar comprobación para mostrar sólo si el usuario está logeado, o si no mostrar botón de login-->
     <button id="button-menu" class="PAW-Menu-Abrir"></button> 
-    {% if user %}
-        <h3> Usuario {{attribute(user,"username")}} </h3>
-    {% else %}
-        <a href="#">
-            Iniciar sesion
-        </a>  
-    {% endif %}
-    
     <a class="icon-cart" href="/carrito">
         <div class="cart-line-1" style="background-color: #E5E9EA"></div>
         <div class="cart-line-2" style="background-color: #E5E9EA"></div>

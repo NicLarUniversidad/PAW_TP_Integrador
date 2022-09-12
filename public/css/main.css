@@ -422,6 +422,22 @@ iframe{
     margin: inherit;
 }
 
+#AnimacionTitulo{
+    animation-name: tituloAni;
+    animation-duration: 4s;
+    position: relative;
+    transition: none;
+}
+
+@keyframes tituloAni{
+    0%  {background-color:#212D63; color:#212D63;  left:100%; }
+    25%  {background-color:#212D63; color:#212D63; left:100%; }
+    50%  {background-color:#212D63; left:0px; top:0px; }
+    75%  {background-color:#212D63; right:0px; top:0px; }
+    100% {background-color:#212D63;  right:0px; top:0px;}
+
+}
+
 /*-------------------RESPONSIVE---------------------*/
 
 @media (max-width: 768px){
