@@ -80,13 +80,21 @@ aside>p {
     margin: 5%;
     text-decoration: none;
     border: solid;
+    border: double;
     border-radius: 10px;
     padding-right: 7%;
     padding-left: 7%;
     padding-top: 1%;
     padding-bottom: 3%;
-    color: #212D63;
     font-weight: bold;
+    color: aliceblue;
+    background: #212D63;
+}
+
+.agregar:hover{
+    background-color: #F97224;
+    color: black;
+    border: solid;
 }
 
 .flecha-back {
@@ -94,6 +102,7 @@ aside>p {
     margin: inherit;
     position: absolute;
     border-radius: 10px;
+    z-index: 50;
 }
 
 .flecha-back:hover{
@@ -104,6 +113,22 @@ aside>p {
 
 article{
     background-color: transparent;
+}
+
+#AnimTitulo{
+    animation-name: tituloAni;
+    animation-duration: 2.5s;
+    position: relative;
+    transition: none;
+}
+
+@keyframes tituloAni{
+    0%  {background-color: rgb(234, 242, 242); border:none; right:100%; }
+    25%  {background-color: rgb(234, 242, 242); border:none; right:100%; }
+    50%  {background-color:#F97224; border:none; color: black; right:0px; top:0px; }
+    75%  {background-color:#F97224; color: black; right:0px; top:0px; }
+    100% {background-color:#F97224; color: black; ri:0px; top:0px;}
+
 }
 
 .cuerpo{
