@@ -7,7 +7,7 @@
 
 {% block main %}
 <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" onclick="history.back();">
-<h1>Sub-Categorias</h1>
+<h1 id="AnimTitulo">Sub-Categorias</h1>
 
       {% for sub_categoria in data.subcategorias %}
           {% if producto_sub_categoria.id_sub_categoria == data.actual.id %}
