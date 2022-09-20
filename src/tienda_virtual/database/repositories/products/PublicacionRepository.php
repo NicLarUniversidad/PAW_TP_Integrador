@@ -46,13 +46,23 @@ class PublicacionRepository extends \src\tienda_virtual\database\repositories\Re
             array_push($publicaciones, $p);
         }
         return $publicaciones;*/
+        $this->logger->info("method buscar() PublicacionRepository");
         $publicaciones = $this->findAll();
         $result = [];
+        $busqueda = "SSD";
         foreach ($publicaciones as $publicacion) {
-            $publicacion["producto"] = $productoService->find($publicacion["id_producto"])[0];
-            $publicacion["fotografias"] = $fotografiaProductoService->findByProductoId($publicacion["id_producto"]);
-            $result[] = $publicacion;
+            $texto=strtolower($productoService->find($publicacion["id_producto"])[0]["descripcion"]);
+            $this->logger->info("BUSQUEDA: ". $parametros." - TEXTO : ". $texto);
+            if (str_contains($texto, strtolower($parametros))){
+                $this->logger->info("PRODUCTO#: ".$productoService->find($publicacion["id_producto"])[0]["descripcion"]);
+                $publicacion["producto"] = $productoService->find($publicacion["id_producto"])[0];
+                $publicacion["fotografias"] = $fotografiaProductoService->findByProductoId($publicacion["id_producto"]);
+                $result[] = $publicacion;
+            }else{
+                $this->logger->info("Cero coincidencias");
+            }           
         }
+        $this->logger->info("Publicaciones: ".json_encode($publicaciones));
         return $result;
     }
 }
