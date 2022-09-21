@@ -28,8 +28,8 @@ class BuscadorController extends Controller
         $publicaciones = $this->publicacionService->buscar($this->request->get("buscador") ?? "");
         $data = ["publicaciones" => $publicaciones];
         $this->logger->info("DATA  " . json_encode($data));
-        echo json_encode($data);
-        /*$this->pageFinderService->findFileRute("buscador","twig","twig", $cssImports,
-            $data,"ABM Sub Categorías", $jsImports);*/
+        //echo json_encode($data);
+        $this->pageFinderService->findFileRute("buscador","twig","twig", $cssImports,
+            $data,"ABM Sub Categorías", $jsImports);
     }
 }
