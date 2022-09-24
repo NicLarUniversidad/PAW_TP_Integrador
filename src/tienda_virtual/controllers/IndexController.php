@@ -6,6 +6,7 @@ use src\tienda_virtual\services\TwigPageFinderService;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
+use src\tienda_virtual\services\UserService;
 
 class IndexController extends Controller
 {
@@ -25,7 +26,9 @@ class IndexController extends Controller
         $cssImports[] = "main";
         $jsImports[]="app";
         array_push($jsImports, "paw");
-        $this->pageFinderService->findFileRute("index","html","html", $cssImports,[],"tienda virtual",$jsImports);
+       // $data=["usuario" => "fede"];
+        //$this->pageFinderService->findFileRute("index","html","html", $cssImports,[],"tienda virtual",$jsImports);
         //$this->pageFinderService->findFileRute("index");
+        $this->pageFinderService->findFileRute("index","twig","twig", $cssImports,[],"tienda virtual",$jsImports);
     }
 }
