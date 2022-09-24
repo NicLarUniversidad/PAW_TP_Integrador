@@ -204,6 +204,7 @@ final class MigracionInicial extends AbstractMigration
         $table = $this->table('fotografia_producto');
         $table->addColumn('id_producto', 'integer')
             ->addColumn('url', 'string')
+            ->addColumn('activo', 'string')
             ->addForeignKey('id_producto', 'producto', 'id', ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'])
             ->create();
     }

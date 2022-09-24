@@ -74,6 +74,11 @@ $routerService->abm('/backoffice-moneda','backoffice\\categories\\MonedaControll
 $routerService->abm('/backoffice-armar-pc-flujo','backoffice\\categories\\ArmarPCFlujoController');
 $routerService->abm('/backoffice-restriccion','backoffice\\categories\\RestriccionController');
 
+$routerService->get('/login','LoginController@get');
+$routerService->post('/login','LoginController@post');
+$routerService->get('/registrarse','LoginController@getRegistrarse');
+$routerService->post('/registrarse','LoginController@postRegistrarse');
+
 //Buscador
 $routerService->get('/buscar','buscador\\BuscadorController@buscar');
 $routerService->get('/arma-tu-pc','armartupc\\ArmarTuPcController@mostrarTemplate');
