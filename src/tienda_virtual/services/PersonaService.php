@@ -29,7 +29,8 @@ class PersonaService
         $newPersona->setNombre($nombre);
         $newPersona->setEmail($mail);
         $newPersona->setApellido($apellido);
-        $newPersona->setIdDireccion(1);
+        //Cambiar este random
+        $newPersona->setIdDireccion(random_int(1,8));
         $newPersona->setActivo('SI');
         $this->personaRepository->save($newPersona);
         return $newPersona;
