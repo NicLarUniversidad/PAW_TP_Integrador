@@ -33,6 +33,7 @@ h2{
     font-size: larger;
     height: inherit;
     color: black;
+    margin: auto;
 }
 
 
@@ -42,7 +43,6 @@ h3{
 }
 
 .productos {
-    display: block;
     text-align: center;
     flex-direction: column;
     align-items: center;
@@ -56,6 +56,7 @@ h3{
     border: solid;
     border-radius: 10px;
     color: black;
+    display: -webkit-box;;
 }
 
 .imgArticulo{
@@ -64,11 +65,17 @@ h3{
 }
 
 .button-delete {
-    font-size: 0;
-    width: 24px;
-    height: 24px;
-    background-image: url(../img/trash.png);
-    background-size: 20px;
+    display: block;
+    margin-bottom: 2%;
+    margin-left: auto;
+    font-weight: bold;
+    background-color: #F97224;
+    border-radius: 10px;
+}
+
+.button-delete:hover {
+    cursor:pointer;
+    background-color: chocolate;
 }
 
 .carritoVacio{
@@ -130,6 +137,14 @@ h3{
     box-shadow: 4px 10px 6px 0px rgba(50, 50, 50, 0.45);
 }
 
+p{
+    margin: auto;
+}
+
+.cuerpo{
+    visibility: collapse;
+    display:table-column;
+}
 /*-------------------RESPONSIVE---------------------*/
 
 @media (max-width: 768px){
@@ -160,5 +175,8 @@ h3{
     font-size: inherit;
 }
 
+.productos{
+    display: block;
+}
 
 }

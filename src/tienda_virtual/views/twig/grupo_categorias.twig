@@ -7,14 +7,17 @@
 
 {% block main %}
 <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" onclick="history.back();">
-<h1>Categorias generales</h1>
+<h1 id="AnimTitulo">Categorias generales</h1>
            
       {% for grupo_categoria in data.grupo_categorias %} 
 
-        <a class="categorias" href="/categorias?grupo_categoria={{ grupo_categoria.descripcion }}" title="{{grupo_categoria.descripcion}}">{{grupo_categoria.descripcion}}</a>
+        <a class="categorias" href="/categorias?grupo_categoria={{ grupo_categoria.id }}" title="{{grupo_categoria.descripcion}}">{{grupo_categoria.descripcion}}</a>
     {% else %}
 
-        <span>No hay resultados en la busqueda</span>
+        <span>No hay resultados en la búsqueda</span>
     {% endfor %}
     
+{% endblock %}
+{% block footer %}
+
 {% endblock %}

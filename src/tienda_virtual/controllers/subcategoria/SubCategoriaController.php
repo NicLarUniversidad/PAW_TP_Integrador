@@ -35,7 +35,8 @@ class SubCategoriaController extends Controller
         $jsImports = [];
         $jsImports[]="paw";
         $jsImports[]="app";
-        $data = ["sub-categorias"=>$this->subcategoriaService->RecuperarSubCategorias ()];
+        $categoria = $this->request->get("categoria");
+        $data["subcategorias"] =$this->subcategoriaService->RecuperarSubCategorias($categoria);
         //$this->preference->save();
         $data["preference"] = $this->preference ?? [];
         $this->pageFinderService->findFileRute("sub-categorias","twig","twig", $cssImports,

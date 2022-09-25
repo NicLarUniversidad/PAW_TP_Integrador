@@ -7,14 +7,14 @@
 {% block main %}
   
     <section>
-    <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" border="0" onclick="history.back();">
+    <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" onclick="history.back();">
         <h1>Resultados de la búsqueda</h1>
     {% for publicacion in data.publicaciones %}
         <article>
             <h2>{{ publicacion.producto.nombre }}</h2>
             <p>{{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p>
             <a href="/detalleproducto?publicacion={{ publicacion.id }}" id="verMas">Ver en Detalle</a><br>
-            <a class="agregar" href="producto={{ producto.id }}" id="agregar">Agregar</a>
+            <a class="agregar" href="/carrito?}&producto={{ producto.id }}">Agregar</a>
             {% for foto in publicacion.fotografias %}
             <picture>
                 <img src="{{ foto.url }}" alt="{{ publicacion.producto.descripcion }}">
@@ -23,5 +23,8 @@
         </article>
     {% endfor %}
     </section>
+
+{% endblock %}
+{% block footer %}
 
 {% endblock %}

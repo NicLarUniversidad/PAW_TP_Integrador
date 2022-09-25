@@ -1,42 +1,37 @@
 <?php
 
-
-namespace src\tienda_virtual\controllers\grupocategoria;
-
+namespace src\tienda_virtual\controllers\misCompras;
 
 use Exception;
-use MercadoPago\Preference;
 use src\tienda_virtual\controllers\Controller;
-use src\tienda_virtual\database\services\carrito\CarritoService;
+use src\tienda_virtual\services\MisComprasService;
 use src\tienda_virtual\services\TwigPageFinderService;
-use src\tienda_virtual\services\GrupoCategoriasService;
 
-class GrupoCategoriaController extends Controller
+class MisComprasController extends Controller
 {
-    protected GrupoCategoriasService $grupocategoriaService;
-    protected Preference $preference;
+    protected MisComprasService $miscomprasService;
 
     public function init()
     {
         parent::init();
         $this->pageFinderService = new TwigPageFinderService();
         $this->pageFinderService->session = $this->session;
-        $this->grupocategoriaService = new GrupoCategoriasService($this->connection, $this->logger);
+        $this->miscomprasService = new MisComprasService($this->connection, $this->logger);
     }
 
     /**
      * @throws Exception
      */
-    public function mostrarGrupoCategorias(String $notificacion = "", array $data = [], String $titulo = "Carrito") {
+    public function mostrarMisCompras(String $notificacion = "", array $data = [], String $titulo = "Carrito") {
         $cssImports = [];
         $cssImports[] = "main";
         $cssImports[] = "carrito";
         $jsImports = [];
         $jsImports[]="paw";
         $jsImports[]="app";
-        $data["grupo_categorias"] = $this->grupocategoriaService->RecuperarGrupoCategorias();
+        $idpublicacion=$this->request->get("publicacion");
         $data["preference"] = $this->preference ?? [];
-        $this->pageFinderService->findFileRute("grupo_categorias","twig","twig", $cssImports,
+        $this->pageFinderService->findFileRute("miscompras","twig","twig", $cssImports,
             $data,$titulo, $jsImports);
     }
 
@@ -48,6 +43,5 @@ class GrupoCategoriaController extends Controller
         $idCarrito = $this->session->get("carrito");
         $this->carritoService->setInactice($idCarrito);
         $this->session->delete("carrito");
-        $this->mostrarTemplate($notificacion, $data, $titulo);
     }
 }

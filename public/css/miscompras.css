@@ -1,0 +1,56 @@
+.body{
+    background-color: aliceblue;
+}
+
+h1 {
+    background: #F97224;
+    margin-top: auto;
+    border: double;
+}
+
+.flecha-back{
+    height: 3vw;
+    margin: inherit;
+    position: absolute;
+    z-index: 50;
+}
+
+#flecha:hover{
+    cursor: pointer;
+    /*transform: transla;*/
+    box-shadow: 4px 10px 6px 1px rgba(50, 50, 50, 0.45);
+    /*border: dotted;*/
+    border: solid;
+    color: aliceblue;
+    border-radius: 10px;
+}
+
+#AnimTitulo{
+    animation-name: tituloAni;
+    animation-duration: 2.5s;
+    position: relative;
+    transition: none;
+}
+
+@keyframes tituloAni{
+    0%  {background-color: rgb(234, 242, 242); border:none; right:100%; }
+    25%  {background-color: rgb(234, 242, 242); border:none; right:100%; }
+    50%  {background-color:#F97224; border:none; color: black; right:0px; top:0px; }
+    75%  {background-color:#F97224; color: black; right:0px; top:0px; }
+    100% {background-color:#F97224; color: black; ri:0px; top:0px;}
+
+}
+
+.cuerpo{
+    visibility: collapse;
+}
+
+/*-------------------RESPONSIVE---------------------*/
+
+@media (max-width: 768px) {
+
+.flecha-back {
+    height: 1em;
+}
+
+}

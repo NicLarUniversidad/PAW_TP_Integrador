@@ -1,6 +1,7 @@
 h1{
     text-align: center;
     margin:auto;
+    margin-top: 0px;
     font-size: xxx-large;
     background: #F97224;
     color: aliceblue;
@@ -39,14 +40,16 @@ body{
     height: 2em;
     margin: inherit;
     position: absolute;
+    z-index: 50;
 }
 
 .categorias:hover, #flecha:hover{
     cursor: pointer;
     transform: transla;
+    background-color: #F97224;
     box-shadow: 4px 30px 6px 0px rgba(50, 50, 50, 0.45);
-    border: dotted;  
     border: solid;
+    color: black;
 }
 
 span{
@@ -58,7 +61,23 @@ span{
 }
 
 .cuerpo{
-    display:table-column;
+    visibility: collapse;
+}
+
+#AnimTitulo{
+    animation-name: tituloAni;
+    animation-duration: 2.5s;
+    position: relative;
+    transition: none;
+}
+
+@keyframes tituloAni{
+    0%  {background-color: rgb(234, 242, 242); border:none; right:100%; }
+    25%  {background-color: rgb(234, 242, 242); border:none; right:100%; }
+    50%  {background-color:#F97224; border:none; color: black; right:0px; top:0px; }
+    75%  {background-color:#F97224; color: black; right:0px; top:0px; }
+    100% {background-color:#F97224; color: black; ri:0px; top:0px;}
+
 }
 
 /*-------------------RESPONSIVE---------------------*/

@@ -31,8 +31,8 @@ class GrupoCategoriasService
         }
 
 
-    public function RecuperarGrupoCategorias (){
-     return $this->GrupoCategoriaRepository->findAll();
+    public function RecuperarGrupoCategorias(){
+        return $this->GrupoCategoriaRepository->findAll();
     }
 
 }

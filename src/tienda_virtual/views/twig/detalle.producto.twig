@@ -6,25 +6,36 @@
 {% endblock %}
 
 {% block main %}
-<img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" border="0" onclick="history.back();">
+<img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" onclick="history.back();">
 <h1 class="detalle">Detalles del producto</h1>
         <section class="detalleDescrip">
-            {% for publicacion in data.publicaciones %}
-                <article>
-                    <h2>{{ publicacion.producto.nombre }}</h2>
-                    <p>{{ publicacion.producto.descripcion }}</p>
-                    <p>{{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p>
-                    <a class="agregar">Agregar</a>
-                </article>
-            {% endfor %}
-        </section>  
 
-        {{dump(data.publicacion)}}
+            {% for publicacion in data.publicacion %}
+
+                {% for producto in publicacion.productos %}
+                    <p class="nombre">{{ producto.nombre}}</p>
+                    <img class="imgproducto" src="documentos/computadoras/1.jpg" alt="{{ publicacion.producto.descripcion }}">
+                    <p class="descripTitulo" >Descripción</p>
+                    <p class="descripcion">{{ producto.descripcion}}</p>
+                    <p class="precio">Precio {{ publicacion.precio_unidad}}</p>
+
+                    {% for oferta in data.ofertas %}
+                        <p>AHORA  {{oferta.precio_oferta}} {{oferta.moneda.nombre}}</p>
+                    {% else %}
+
+                    {% endfor %}
+                {% endfor %}
+                </section>
+                <a class="categorias" href="/subcategoria?categoria={{categoria.id_grupo_categoria}}" title="{{categoria.descripcion}}">{{categoria.descripcion}}</a>
+            {% else %}
+                <p>{{ categoria.descripcion }}</p>
+            {% endfor %}
+        </section>
 
 {% endblock %}
 
 {% block footer %}
-    <section  class="footer">
+    <section  class="footer1">
         <img src="img/camion.png"  class="camion">
         <p>Envío GRATIS a Capital Federal</p>
     </section>
