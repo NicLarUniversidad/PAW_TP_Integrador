@@ -78,6 +78,7 @@ $routerService->get('/login','LoginController@get');
 $routerService->post('/login','LoginController@post');
 $routerService->get('/registrarse','LoginController@getRegistrarse');
 $routerService->post('/registrarse','LoginController@postRegistrarse');
+$routerService->get('/logout','LoginController@getLogout');
 
 //Buscador
 $routerService->get('/buscar','buscador\\BuscadorController@buscar');
