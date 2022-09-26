@@ -275,7 +275,7 @@ iframe{
         height: var(--navegation-widh);
         position: inherit;
         padding-top: 1%;
-        padding-bottom: 1%;
+        padding-bottom: 3%;
     }
 
     body>header>a {
@@ -422,6 +422,14 @@ iframe{
     margin: inherit;
 }
 
+.InicioSesion{
+    color: aliceblue;
+    margin-top: 4em;
+    margin-left: 1em;
+    font-size: initial;
+    float: right;
+    width: max-content;
+}
 
 /*-------------------RESPONSIVE---------------------*/
 
