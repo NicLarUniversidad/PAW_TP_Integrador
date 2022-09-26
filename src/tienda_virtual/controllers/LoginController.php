@@ -93,4 +93,12 @@ class LoginController extends Controller
             echo "No se ingresó usuario o contraseña";
         }
     }
+
+    public function getLogout()
+    {
+        session_destroy();
+        session_unset();
+        header("Location: /");
+        die();
+    }
 }
