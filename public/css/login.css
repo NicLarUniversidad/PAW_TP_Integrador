@@ -1,0 +1,128 @@
+h1{
+    text-align: center;
+    margin:auto;
+    margin-top: 0px;
+    margin-bottom: 1em;
+    font-size: xxx-large;
+    background: #F97224;
+    color: aliceblue;
+    border: double;
+    padding: 0.5%;
+}
+
+
+body{
+    background-color: rgb(234, 242, 242);
+}
+
+.flecha-back{
+    height: 2em;
+    margin: inherit;
+    position: absolute;
+    z-index: 50;
+    top: 0.5em;
+}
+
+#flecha:hover{
+    cursor: pointer;
+    transform: transla;
+    background-color: #F97224;
+    box-shadow: 4px 30px 6px 0px rgba(50, 50, 50, 0.45);
+    border: solid;
+    color: black;
+}
+
+
+div{
+    display: flex;
+    margin-left: 40%;
+}
+
+input{
+    margin-bottom: 1.5em;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+label{
+    width: 25%;
+    font-size: medium;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+a{
+    display: block;
+    text-align: center;
+    margin-top: 1em;
+    font-size: larger;
+}
+
+button{
+
+    font-size: xx-large;
+    margin-top: 4%;
+    margin-bottom: 4.5%;
+    margin-right: 2%;
+    margin-left: 40%;
+    border: double;
+    font-family: "Roboto-Light" !important;
+    border-radius: 10px;
+    width: 22%;
+    text-transform: capitalize;
+    color: aliceblue;
+    background: #212D63;
+    text-decoration: none;
+
+}
+
+/*-------------------RESPONSIVE---------------------*/
+
+@media (max-width: 768px){
+
+    h1{
+        font-size: x-large;
+    }
+
+    .flecha-back {
+        height: 1em;
+        width: 1em;
+    }
+
+
+    div{
+        display: grid;
+        margin-left: 5%;
+    }
+
+    input{
+        margin-bottom: 1.5em;
+        border-radius: 5px;
+    }
+
+    label{
+        width: 25%;
+        font-size: larger;
+        width: 100%;
+    }
+
+
+    a{
+        display: block;
+        text-align: center;
+        margin-top: 1em;
+        font-size: larger;
+    }
+
+    button{
+        border-radius: 5px;
+        font-size: initial;
+        margin-top: 1em;
+        margin-left: 0px;
+        width: 100%;
+
+    }
+
+}
