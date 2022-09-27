@@ -1,0 +1,108 @@
+h1 {
+    text-align: center;
+    font-size: xxx-large;
+    color: aliceblue;
+    background: #F97224;
+    margin: inherit;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+h2{
+    text-align: center;
+}
+
+.seguirCompra {
+    font-size: large;
+    color: black;
+    margin-left: 4%;
+    font-size: larger;
+    display: block;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.inicio {
+    color: black;
+    position: initial;
+    margin: 4%;
+    display: inline-table;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 2%;
+    font-size: x-large;
+    border: solid;
+    font-family: "Roboto-Light" !important;
+    border-radius: 10px;
+    width: 22%;
+    /* text-transform: capitalize; */
+    color: aliceblue;
+    background: #212D63;
+    text-decoration: none;
+}
+
+img{
+    height: 65%;
+    width: 65%;
+    margin-left: 15%;
+}
+
+
+/*-------------------RESPONSIVE---------------------*/
+
+@media (max-width: 768px){
+
+    h1{
+        font-size: x-large;
+    }
+
+    h2{
+        font-size: smaller;
+    }
+
+    .flecha-back {
+        height: 1em;
+        width: 1em;
+    }
+
+
+    div{
+        display: grid;
+        margin-left: 5%;
+    }
+
+    input{
+        margin-bottom: 1.5em;
+        border-radius: 5px;
+    }
+
+    label{
+        width: 25%;
+        font-size: larger;
+        width: 100%;
+    }
+
+
+    a{
+        display: block;
+        text-align: center;
+        margin-top: 1em;
+        font-size: larger;
+    }
+
+    .inicio{
+        border-radius: 5px;
+        font-size: initial;
+        margin-top: 1em;
+        margin-left: 0px;
+        width: 94%;
+
+    }
+    img{
+        height: 20%;
+        width: 45%;
+        margin-left: 10%;
+    }
+
+}
