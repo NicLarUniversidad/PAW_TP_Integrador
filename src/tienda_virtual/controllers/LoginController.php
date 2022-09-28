@@ -88,7 +88,7 @@ class LoginController extends Controller
             $userService = new UserService($this->connection, $this->logger);
 
             $userService->createUser($username, $password, $mail, $persona->getField("id"), $activo);
-            echo "OK";
+            $this->pageFinderService->findFileRute("login-OK", "twig", "twig");
         } else {
             echo "No se ingresó usuario o contraseña";
         }
