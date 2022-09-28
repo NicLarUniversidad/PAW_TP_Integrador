@@ -70,6 +70,18 @@ form {
     flex-direction: column;
     background-color: #6E7BCF;
     color: black;
+    border-radius: 8Px;
+    padding: inherit;
+}
+
+button{
+    height: 2em;
+    width: 9em;
+    margin: auto;
+}
+
+input{
+    border-radius: 6px
 }
 
 #abm-id_producto{
@@ -84,7 +96,9 @@ form {
 #abm-activo{
     width: 8%;
     position: absolute;
+    border-radius: 6px
 }
+
 
 header{
     display: none;
