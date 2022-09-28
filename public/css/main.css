@@ -431,6 +431,16 @@ iframe{
     width: max-content;
 }
 
+.usuario{
+    color: aliceblue;
+    margin-top: 4em;
+    margin-left: 1em;
+    font-size: initial;
+    /* float: right; */
+    width: max-content;
+    display: inline-block;
+}
+
 /*-------------------RESPONSIVE---------------------*/
 
 @media (max-width: 768px){
@@ -618,6 +628,15 @@ label{
 .nombrePagina {
     font-size: x-large;
     text-transform: capitalize;
+}
+
+.usuario {
+    display: block;
+    color: aliceblue;
+    margin-top: 2em;
+    margin-left: 1em;
+    font-size: medium;
+    float: right;
 }
 
 }

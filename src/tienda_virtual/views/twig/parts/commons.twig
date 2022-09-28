@@ -28,7 +28,7 @@
     <!--Agregar comprobación para mostrar sólo si el usuario está logeado, o si no mostrar botón de login-->
     <button id="button-menu" class="PAW-Menu-Abrir"></button> 
     {% if user %}
-        <h3> Usuario {{attribute(user,"username")}} </h3>
+        <h3 class="usuario"> Usuario {{attribute(user,"username")}} </h3>
     {% else %}
         <a href="/login" class="InicioSesion">
             Iniciar sesion
