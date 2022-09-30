@@ -19,7 +19,7 @@ body{
     text-align: center;
     flex-direction: column;
     align-items: center;
-    padding: 2%;
+    padding: 1%;
     font-size: larger;
     margin-top: 4%;
     margin-bottom: 0.5%;
@@ -33,6 +33,7 @@ body{
     color: aliceblue;
     background: #212D63;
     text-decoration: none;
+    height: 2em;
 }
 
 
@@ -92,6 +93,7 @@ span{
 .categorias{
     font-size: inherit;
     width: 8em;
+    height: 2em;
 }
 
 }
