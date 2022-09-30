@@ -81,7 +81,7 @@ final class MigracionInicial extends AbstractMigration
             ->addForeignKey('id_valor_caracteristica', 'valor_caracteristica', 'id', ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'])
             ->create();
         $table = $this->table('publicacion');
-        $table->addColumn('fecha_entrada', 'date')
+        $table/*->addColumn('fecha_entrada', 'date')*/
             ->addColumn('cantidad_inicial', 'integer')
             ->addColumn('id_producto', 'integer')
             ->addColumn('precio_unidad', 'float')
