@@ -98,6 +98,13 @@ article{
     display:table-column;
 }
 
+.noEncontrado{
+    text-align: center;
+    font-size: xxx-large;
+    display: block;
+    color: black;
+    margin: 5%;
+}
 
 /*-------------------RESPONSIVE---------------------*/
 
