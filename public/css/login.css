@@ -30,6 +30,7 @@ body{
     box-shadow: 4px 30px 6px 0px rgba(50, 50, 50, 0.45);
     border: solid;
     color: black;
+    border-radius: 10px;
 }
 
 
