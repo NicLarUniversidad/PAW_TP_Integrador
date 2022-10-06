@@ -249,7 +249,7 @@ final class NewCargaProductos extends AbstractMigration
             //Segundo producto[]
         ];
         $table->insert($rows)->saveData();
-/*
+
         $table = $this->table('oferta');
         $rows = [
             [
@@ -261,7 +261,7 @@ final class NewCargaProductos extends AbstractMigration
             //Segundo producto[]
         ];
         $table->insert($rows)->saveData();
-*/
+
 
     }
 }

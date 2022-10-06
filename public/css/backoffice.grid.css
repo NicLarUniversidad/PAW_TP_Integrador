@@ -75,8 +75,8 @@ form {
 }
 
 button{
-    height: 2em;
-    width: 9em;
+    height: 100%;
+    width: 100%;
     margin: auto;
 }
 
@@ -111,5 +111,43 @@ header{
 
 #flecha:hover{
     cursor: pointer;
+
+}
+
+label{
+    margin-top: inherit;
+}
+
+
+/*-------------------RESPONSIVE---------------------*/
+
+@media (max-width: 768px) {
+
+    form {
+        padding: 4%;
+        font-size: large;
+
+    }
+
+    h3{
+        margin-block: 2%;
+    }
+
+    #abm-activo {
+        width: 50%;
+    }
+
+    input{
+        width: 50%;
+    }
+
+    button{
+        margin-top: 4%;
+    }
+
+    a .VolverAInicio{
+        float: right;
+        margin-right: 10%;
+    }
 
 }
