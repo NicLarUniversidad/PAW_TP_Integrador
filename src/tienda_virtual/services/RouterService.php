@@ -92,9 +92,9 @@ class RouterService{
                 );
             $this->call($controller,$method);
         } catch (PageNotFoundException $e) {
-            $this->call("ProblemsController","pageNotFound");
+            $this->call("PageNotFoundException","get");
         } catch (Exception $ex) {
-            $this->call("ProblemsController","serverInternalError");
+            $this->call("IndexNotFoundException","get");
         }
     }
 }
