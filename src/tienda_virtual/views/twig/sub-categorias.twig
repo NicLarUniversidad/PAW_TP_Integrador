@@ -11,9 +11,8 @@
 
       {% for sub_categoria in data.subcategorias %}
           {% if producto_sub_categoria.id_sub_categoria == data.actual.id %}
-              <a class="categorias" href="/productos?sub_categoria={{sub_categoria.id}}" title="{{sub_categoria.descripcion}}">{{sub_categoria.descripcion}}</a>
-          {% else %}
-              <p>{{ sub_categoria.descripcion }}</p>
+              <a class="categorias" href="/buscar?sub_categoria={{sub_categoria.id}}" title="{{sub_categoria.descripcion}}">{{sub_categoria.descripcion}}</a>
+
           {% endif %}
     {% else %}
 

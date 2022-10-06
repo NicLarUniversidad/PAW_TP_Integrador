@@ -80,7 +80,7 @@ class RouterService{
 
     public function  direct() {
         list($path, $http_method) = $this->request->route();
-        //try {
+        try {
             list($controller, $method) = $this->getController($path, $http_method);
             $this->logger
                 ->info(
@@ -91,10 +91,10 @@ class RouterService{
                     ]
                 );
             $this->call($controller,$method);
-        /*} catch (PageNotFoundException $e) {
+        } catch (PageNotFoundException $e) {
             $this->call("ProblemsController","pageNotFound");
         } catch (Exception $ex) {
             $this->call("ProblemsController","serverInternalError");
-        }*/
+        }
     }
 }
