@@ -1,23 +1,78 @@
+h1{
+    color: #212D63;
+    font-family: "Roboto-Light" !important;
+    position: absolute;
+    font-size: 4em;
+    margin-left: 7%;
+    margin-top: 7%;
+    display: contents;
+}
+
+
+
 h2{
-    text-align: center;
-    margin: 5%;
     font-size: xxx-large;
+    margin-left: 7%;
+    margin-bottom: 0px;
+}
+
+p{
+    font-size: larger;
+    margin-top: 1%;
+    margin-left: 7%;
 }
 
 img{
     background-repeat: no-repeat;
+    height: 40%;
+    float: right;
+    margin-right: 15%;
 
 }
 
 section{
-    display: flex;
-    position: fixed;
-    padding-top: 5%;
+    padding-top: 3%;
     padding-left: 6%;
 }
 
 body{
     background-color: rgb(234, 242, 242);
+    height: 100%;
+    margin-left: 1%;
+    margin-top: 0px;
+    margin-right: 1%;
+    margin-bottom: 0px;
+}
+
+.inicio {
+    color: black;
+    position: initial;
+    margin: 4%;
+    display: inline-table;
+    text-align: center;
+    align-items: center;
+    padding: 2%;
+    font-size: x-large;
+    border: solid;
+    font-family: "Roboto-Light" !important;
+    border-radius: 10px;
+    width: 22%;
+    /* text-transform: capitalize; */
+    color: aliceblue;
+    background: #212D63;
+    text-decoration: none;
+    margin-left: 7%;
+}
+
+.telefonos{
+    font-size: xx-large;
+    margin: 0px;
+    text-decoration: underline;
+}
+
+.numeros{
+    display: list-item;
+    font-size: larger;
 }
 
 /*-------------------RESPONSIVE---------------------*/
