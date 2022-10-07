@@ -131,7 +131,7 @@ iframe{
 }
 
 .buscadorMenu{
-    width: 38vw;
+    width: 30vw;
     margin: initial;
     font-size: x-large;
     padding-left: 5px;
@@ -254,6 +254,11 @@ iframe{
     bottom: 0;
 }
 
+#logo{
+    height: 3vw;
+    width: 3vw;
+    top: 1vw;
+}
 
 /*-----------------------------------------------------*/
 
@@ -459,8 +464,9 @@ header>form {
 }
 
 header>form>button{
-    height: 2.5em;
-    width: 3em;
+    height: 1.5em;
+    width: 1.5em;
+    padding: 0px;
 }
 
 
@@ -609,9 +615,11 @@ h3{
 }
 
 .icon-cart {
-    float: left;
+    /*float: left;*/
     margin-left: 1%;
     padding-top: 0.5%;
+    height: 2em;
+    width: 2em;
 }
 
 
@@ -620,13 +628,13 @@ label{
 }
 
 .buscadorMenu {
-    width: 25vw;
+    width: 35vw;
     margin: initial;
-    font-size: inherit;
+    font-size: small;
 }
 
 .nombrePagina {
-    font-size: x-large;
+    font-size: smaller;
     text-transform: capitalize;
 }
 
@@ -639,4 +647,25 @@ label{
     float: right;
 }
 
+.InicioSesion {
+    color: aliceblue;
+    margin-top: 2em;
+    margin-left: 1em;
+    font-size: initial;
+    /* float: right; */
+    /* width: max-content; */
+    display: grid;
+}
+
+#logo{
+    height: 15px;
+    width:15px;
+}
+
+.lupa {
+   width: 1em;
+   height: 1em;
+    padding-right: 0px;
+    padding-left: 0px;
+}
 }
