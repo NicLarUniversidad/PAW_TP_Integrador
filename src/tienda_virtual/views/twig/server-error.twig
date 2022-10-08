@@ -1,12 +1,21 @@
 {% block head %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="css/error.css" />
+    <link rel="stylesheet" type="text/css" href="css/error.css" />
 {% endblock %}
 
 {% block main %}
-	<section >
-        <h2>500 - Internal Server Error</h2>
-        <img src="img/error-server.png">
+    <section><h1>Tienda Virtual</h1></section>
+    <h2>505 Internal Server Error</h2>
+    <p>Se produjo un error al recuperar la URL solicitada en el servidor</p>
+    <img src="img/error-server.png">
+    <section>
+        <p class="telefonos">Teléfonos de contacto</p>
+        <p class="numeros">1124563258</p>
+        <p class="numeros">1132654297</p>
     </section>
 
+{% endblock %}
+
+{% block footer %}
+    <a href="/" class="inicio">Volver al Inicio</a>
 {% endblock %}

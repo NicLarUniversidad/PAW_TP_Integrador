@@ -45,23 +45,16 @@ body{
 }
 
 .inicio {
-    color: black;
-    position: initial;
-    margin: 4%;
-    display: inline-table;
-    text-align: center;
-    align-items: center;
     padding: 2%;
     font-size: x-large;
     border: solid;
     font-family: "Roboto-Light" !important;
     border-radius: 10px;
-    width: 22%;
-    /* text-transform: capitalize; */
     color: aliceblue;
     background: #212D63;
     text-decoration: none;
-    margin-left: 7%;
+    position: absolute;
+    margin: 4%;
 }
 
 .telefonos{
@@ -78,14 +71,25 @@ body{
 /*-------------------RESPONSIVE---------------------*/
 
 @media (max-width: 768px){
-    img{
-    width: -webkit-fill-available;
+img{
+   width: auto;
+   height: 25%;
+   float: left;
+   margin: 0px;
 }
 
 section {
     display: contents;
     padding-top: 5%;
     padding-left: 6%;
+}
+
+.numeros{
+   display: block;
+}
+
+.inicio{
+    text-align: center;
 }
 
 }
