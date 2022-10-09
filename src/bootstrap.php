@@ -71,6 +71,7 @@ $routerService->abm('/backoffice-caracteristica','backoffice\\categories\\Caract
 $routerService->abm('/backoffice-sub-categoria-caracteristica','backoffice\\categories\\SubCategoriaCaracteristicaController');
 $routerService->abm('/backoffice-valor-caracteristica','backoffice\\categories\\ValorCaracteristicaController');
 $routerService->abm('/backoffice-moneda','backoffice\\categories\\MonedaController');
+$routerService->abm('/backoffice-ofertas','backoffice\\categories\\OfertaController');
 $routerService->abm('/backoffice-armar-pc-flujo','backoffice\\categories\\ArmarPCFlujoController');
 $routerService->abm('/backoffice-restriccion','backoffice\\categories\\RestriccionController');
 
