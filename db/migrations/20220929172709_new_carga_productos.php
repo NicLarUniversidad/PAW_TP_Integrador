@@ -24,7 +24,7 @@ final class NewCargaProductos extends AbstractMigration
                 'descripcion' => "Socket: AM4 Ryzen 3th Gen,AM4 APU 3th Gen,AM4 Ryzen 4th Gen,AM4 APU 50",
                 'nombre' => 'Mother ASUS PRIME A520M-K AM4',
                 'activo' => 'SI',
-                'precio_tentativo' => 15.100,
+                'precio_tentativo' => 15100,
                 'carpeta' => 'mothearboard',
                 'id_moneda' => 1
             ],
@@ -32,7 +32,7 @@ final class NewCargaProductos extends AbstractMigration
                 'descripcion' => "El freezer Sigma FH2600BP tiene un diseño tradicional horizontal en color blanco. Para organizar mejor los productos almacenados, cuenta con un canasto plástico de colgar.El volumen total del freezer es de 223 litros.",
                 'nombre' => 'Freezer Sigma FH2600BPa 223Lt',
                 'activo' => 'SI',
-                'precio_tentativo' => 70.000,
+                'precio_tentativo' => 70000,
                 'carpeta' => 'freezers',
                 'id_moneda' => 1
             ]
@@ -46,8 +46,9 @@ final class NewCargaProductos extends AbstractMigration
             [
                 'cantidad_inicial'  =>  6,
                 'id_producto'  =>  2,
-                'precio_unidad' => 81.999,
+                'precio_unidad' => 81999,
                 'id_moneda'  =>  1
+
             ]
 
             //Segundo producto[]
@@ -253,7 +254,7 @@ final class NewCargaProductos extends AbstractMigration
         $table = $this->table('oferta');
         $rows = [
             [
-                'precio_oferta'  =>  50.000,
+                'precio_oferta'  =>  50000,
                 'activa'  =>  'SI',
                 'id_publicacion'  =>  1
             ]
