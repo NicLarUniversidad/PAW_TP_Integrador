@@ -74,17 +74,29 @@ article{
     /*position: absolute;*/
 }
 .agregar {
+    margin: 5%;
     text-decoration: none;
     border: solid;
+    border: double;
     border-radius: 10px;
     padding-right: 7%;
     padding-left: 7%;
     padding-top: 1%;
     padding-bottom: 2%;
-    color: #212D63;
     display: block;
     text-align: center;
     font-size: larger;
+    font-weight: bold;
+    font-family: "Roboto-Light" !important;
+    border-radius: 10px;
+    color: aliceblue;
+    background: #212D63;
+}
+
+.agregar:hover{
+    background-color: #F97224;
+    color: black;
+    border: solid;
 }
 
 .cuerpo{
