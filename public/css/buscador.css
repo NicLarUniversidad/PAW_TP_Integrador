@@ -10,9 +10,9 @@ h1 {
 
 
 h2{
-    font-size: larger;
-    /*height: inherit;*/
-    height: 5em;
+    font-size: large;
+    padding: 2%;
+    height: 2.2em;
 }
 
 
@@ -22,10 +22,9 @@ h3{
 }
 
 p{
-    display: inline-flex;
-    text-align: end;
+    text-align: center;
     font-size: x-large;
-    font-style: oblique;
+
 }
 
 section{
@@ -57,13 +56,10 @@ section{
 }*/
 
 article{
-    display: inline-table;
+    float: left;
     text-align: center;
-    flex-direction: column;
     align-items: center;
-    padding-bottom: 1%;
-    padding-left: 1%;
-    padding-right: 1%;
+    padding: 1%;
     margin-right: 1%;
     margin-left: 4%;
     border: solid;
@@ -104,6 +100,12 @@ article{
     margin: 5%;
 }
 
+.imagenes{
+    width: auto;
+    height: 7em;
+    padding: 1%;
+}
+
 /*-------------------RESPONSIVE---------------------*/
 
 @media (max-width: 768px){
@@ -113,7 +115,7 @@ h1{
 }
 
 h2 {
-    font-size: larger;
+    font-size: large;
     height: auto;
 }
 
@@ -122,10 +124,10 @@ article{
     padding: 2%;
     border-radius: 10px;
     border: solid;
-    text-align: right;
-    display: block;
-    width: auto;
+    /* display: contents; */
     height: auto;
+    float: left;
+    width: 90%;
 }
 
 p{
@@ -136,4 +138,13 @@ p{
     font-size: smaller;
 }
 
+.imagenes{
+    height: 4em;
+}
+
+ #verMas{
+    display: table;
+    font-size: medium;
+
+}
 }

@@ -13,7 +13,7 @@
         <article>
             {% for foto in publicacion.fotografias %}
                 <picture>
-                    <img src="{{ foto.url }}" alt="{{ publicacion.producto.descripcion }}">
+                    <img class="imagenes" src="{{ foto.url }}" alt="{{ publicacion.producto.descripcion }}">
                 </picture>
             {% endfor %}
             <h2>{{ publicacion.producto.nombre }}</h2>
