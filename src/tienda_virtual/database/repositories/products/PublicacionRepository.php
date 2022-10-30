@@ -9,6 +9,7 @@ use PDO;
 use src\tienda_virtual\database\models\Model;
 use src\tienda_virtual\database\services\products\FotografiaProductoService;
 use src\tienda_virtual\database\services\products\ProductoService;
+use src\tienda_virtual\database\services\categories\MonedaService;
 
 class PublicacionRepository extends \src\tienda_virtual\database\repositories\Repository
 {
@@ -35,6 +36,7 @@ class PublicacionRepository extends \src\tienda_virtual\database\repositories\Re
         //TODO: agregar lógica del buscador
         $productoService = new ProductoService($this->connection, $this->logger);
         $fotografiaProductoService = new FotografiaProductoService($this->connection, $this->logger);
+        $monedaService = new MonedaService($this->connection, $this->logger);
         /*$productos = $productoService->findByName($parametros);
         $publicaciones = [];
         foreach ($productos as $producto) {
@@ -57,6 +59,7 @@ class PublicacionRepository extends \src\tienda_virtual\database\repositories\Re
                 $this->logger->info("PRODUCTO#: ".$productoService->find($publicacion["id_producto"])[0]["descripcion"]);
                 $publicacion["producto"] = $productoService->find($publicacion["id_producto"])[0];
                 $publicacion["fotografias"] = $fotografiaProductoService->findByProductoId($publicacion["id_producto"]);
+                $publicacion["moneda"] = $monedaService->find($publicacion["id_moneda"])[0];
                 $result[] = $publicacion;
             }else{
                 $this->logger->info("Cero coincidencias");

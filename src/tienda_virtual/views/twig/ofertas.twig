@@ -12,17 +12,20 @@
 
     {% for oferta in data.ofertas %}
         <article>
-            <h2>{{oferta.producto.nombre}}</h2>
             {% for foto in publicacion.fotografias %}
                 <picture>
-                    <img src="{{ foto.url }}" class="imagen" alt="{{ publicacion.producto.descripcion }}">
+                    <img src="{{ foto.url }}" class="imagenes" alt="{{ publicacion.producto.descripcion }}">
+                </picture>
+            {% else %}
+                <picture>
+                    <img class="imagenes" src="img/no-picture.svg" alt="Imagen no encontrada">
                 </picture>
             {% endfor %}
-            <p class="antes">ANTES  {{oferta.publicacion.precio_unidad}} {{oferta.moneda.nombre}}</p>
+            <h2>{{oferta.producto.nombre}}</h2>
+            <p class="antes">ANTES {{oferta.publicacion.precio_unidad}} {{oferta.moneda.nombre}}</p>
             <p>AHORA  {{oferta.precio_oferta}} {{oferta.moneda.nombre}}</p>
             <a href="/detalleproducto?publicacion={{ oferta.publicacion.id }}" id="verMas">Ver en Detalle</a><br>
             <a class="agregar" href="/carrito?}&producto={{ oferta.producto.id }}">Agregar</a>
-            <!--cuando agregamos la oferta hay que agregar {{oferta.precio_oferta}} -->
         </article>
    
     {% else %}
