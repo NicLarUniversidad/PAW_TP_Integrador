@@ -13,6 +13,7 @@
 
         <h2>Login {{attribute(data,"usuario")}}</h2>
       {% endif %}
+      <img src="img/new-users.svg" class="newUsers">
         <form method="post" action="/registrarse">
             <div>
             <label for="username">Usuario:</label>
@@ -38,9 +39,9 @@
             <label for="apellido">Apellido:</label>
             <input type="text" name="apellido" id="apellido">
             </div>
-            <button type="submit">Registrarse</button>
+            <button type="submit" class="botonRegistro">Registrarse</button>
         </form>
-        <a href="/login">Login</a>
+        <a href="/login" class="botonRegistro">Login</a>
     </section>
     
 {% endblock %}

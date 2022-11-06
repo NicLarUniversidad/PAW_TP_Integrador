@@ -35,15 +35,18 @@ body{
 
 
 div{
-    display: flex;
-    margin-left: 40%;
+    display: block;
+    margin: auto;
+    text-align: center;
 }
 
 input{
-    margin-bottom: 1.5em;
     border-radius: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
+    margin: auto;
+    display: block;
+    margin-bottom: 2%;
 }
 
 label{
@@ -61,22 +64,34 @@ a{
     font-size: larger;
 }
 
-button{
-
+.botonIngreso{
     font-size: xx-large;
-    margin-top: 4%;
-    margin-bottom: 4.5%;
-    margin-right: 2%;
-    margin-left: 40%;
     border: double;
     font-family: "Roboto-Light" !important;
     border-radius: 10px;
-    width: 22%;
+    width: 40%;
     text-transform: capitalize;
     color: aliceblue;
     background: #212D63;
     text-decoration: none;
+    margin: auto;
+    display: block;
+    margin-top: 2%;
 
+}
+
+.botonIngreso:hover{
+    cursor: pointer;
+    background-color: #F97224;
+    box-shadow: 4px 30px 6px 0px rgba(50, 50, 50, 0.45);
+    border: solid;
+    color: black;
+}
+
+img {
+    margin: auto;
+    margin-bottom: 2%;
+    display: block;
 }
 
 /*-------------------RESPONSIVE---------------------*/
@@ -104,7 +119,6 @@ button{
     }
 
     label{
-        width: 25%;
         font-size: larger;
         width: 100%;
     }
@@ -117,7 +131,7 @@ button{
         font-size: larger;
     }
 
-    button{
+    .botonIngreso{
         border-radius: 5px;
         font-size: initial;
         margin-top: 1em;

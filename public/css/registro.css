@@ -34,15 +34,17 @@ body{
 
 
 div{
-    display: flex;
-    margin-left: 40%;
+    display: block;
+    margin: auto;
 }
 
 input{
-    margin-bottom: 1.5em;
     border-radius: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
+    display: block;
+    margin: auto;
+    margin-bottom: 1em;
 }
 
 label{
@@ -50,6 +52,8 @@ label{
     font-size: medium;
     text-align: center;
     text-transform: uppercase;
+    display: block;
+    margin: auto;
 }
 
 
@@ -60,13 +64,8 @@ a{
     font-size: larger;
 }
 
-button{
-
+.botonRegistro{
     font-size: xx-large;
-    margin-top: 4%;
-    margin-bottom: 4.5%;
-    margin-right: 2%;
-    margin-left: 40%;
     border: double;
     font-family: "Roboto-Light" !important;
     border-radius: 10px;
@@ -75,7 +74,23 @@ button{
     color: aliceblue;
     background: #212D63;
     text-decoration: none;
+    margin: auto;
+    display: block;
+    margin-top: 2%;
+}
 
+.botonRegistro:hover{
+    cursor: pointer;
+    background-color: #F97224;
+    box-shadow: 4px 30px 6px 0px rgba(50, 50, 50, 0.45);
+    border: solid;
+    color: black;
+}
+
+.newUsers{
+    position: fixed;
+    margin: 6%;
+    width: 20%;
 }
 
 /*-------------------RESPONSIVE---------------------*/
@@ -103,7 +118,6 @@ button{
     }
 
     label{
-        width: 25%;
         font-size: larger;
         width: 100%;
     }
@@ -116,7 +130,7 @@ button{
         font-size: larger;
     }
 
-    button{
+    .botonRegistro{
         border-radius: 5px;
         font-size: initial;
         margin-top: 1em;
