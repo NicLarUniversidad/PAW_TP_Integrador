@@ -77,27 +77,70 @@
 
 <section class="financiaro">
 
-    <div class="ventana" id="vent">
-        <div id="cerrar"><a href="javascript:cerrar()"><img src="img/cerrar.svg"></a> </div>
-        Promociones bancarias
+    <div class="ventana" id="ventPromocionesBancarias">
+        <div id="cerrar"><a href="javascript:cerrarPromocionesBancarias()"><img src="img/cerrar.svg"></a> </div>
+
+        <p class="Tpromociones">Promociones bancarias</p>
+        <section class="seccionPromo">
+            <p class="Tpromo">Ahora 30 con interés</p>
+            <p class="promo">En productos seleccionados con Visa y Mastercard bancarias.</p>
+        </section>
+        <section class="seccionPromo">
+            <p class="Tpromo">Ahora 12, 6 y 3 sin interés</p>
+            <p class="promo">En productos seleccionados con Visa, American Express, Cabal, Tarjeta Shopping, Cordobesa y Mastercard bancarias.</p>
+        </section>
     </div>
 
     <div class="pagos">
         <img src="img/credit-card.svg"  id="iconosPagos" title="Tarjetas de crédito">
         <p>Tarjeta de crédito</p>
-        <a href="javascript:abrir()">Ver promociones bancarias</a>
+        <a href="javascript:abrirPromocionesBancarias()">Ver promociones bancarias</a>
+    </div>
+
+    <div class="ventana" id="ventMediosDePago">
+        <div id="cerrar"><a href="javascript:cerrarMediosDePago()"><img src="img/cerrar.svg"></a> </div>
+
+        <p class="Tpromociones">Medios de pago</p>
+        <section class="seccionPromo">
+            <p class="Tpromo">Podés pagar tus compras con cualquiera de estos medios. Es rápido y seguro, siempre</p>
+            <p class="Tpromo">Cuotas sin tarjeta de crédito</p>
+            <p class="promo">Elegí a Mercado Crédito al comprar. Luego pagás las cuotas mes a mes en efectivo, con débito o con el dinero en tu cuenta de Mercado Pago.</p>
+        </section>
+        <section class="seccionPromo">
+            <p class="Tpromo">Tarjetas de crédito en hasta 24 cuotas</p>
+            <p class="promo">Acreditación instantánea.</p>
+        </section>
+        <section class="seccionPromo">
+            <p class="Tpromo">Tarjetas de débito</p>
+            <p class="promo">Acreditación instantánea.</p>
+        </section>
     </div>
 
     <div class="pagos">
         <img src="img/debit-card.svg"  id="iconosPagos" title="Tarjetas de débito">
         <p>Tarjeta de débito</p>
-        <a href="#">Ver más</a>
+        <a href="javascript:abrirMediosDePago()">Ver más</a>
     </div>
+
+    <div class="ventana" id="ventEfectivo">
+        <div id="cerrar"><a href="javascript:cerrarEfectivo()"><img src="img/cerrar.svg"></a> </div>
+
+        <p class="Tpromociones">Medios de pago</p>
+        <section class="seccionPromo">
+            <p class="Tpromo">Efectivo</p>
+            <p class="promo">Es muy simple: cuando termines tu compra, te daremos las instrucciones para que sepas cómo y dónde pagarla.</p>
+        </section>
+        <section class="seccionPromo">
+            <p class="Tpromo">Dinero en tu cuenta de Mercado Pago</p>
+            <p class="promo">Al finalizar tu compra, pagás con el dinero disponible en tu cuenta. Podés ingresar dinero a Mercado Pago con tu tarjeta de débito, en efectivo o por transferencia bancaria.</p>
+        </section>
+    </div>
+
 
     <div class="pagos">
         <img src="img/money-cash.svg"  id="iconosPagos" title="Pagos en efectivo">
         <p>Efectivo</p>
-        <a href="#">Ver más</a>
+        <a href="javascript:abrirEfectivo()">Ver más</a>
     </div>
 
 </section>
