@@ -55,6 +55,22 @@ class QueryBuilder
         return $this;
     }
 
+    public function whereLike(array $values = []) : QueryBuilder {
+        $this->query .= " WHERE ";
+        $this->values = $values;
+        $primero = true;
+        foreach ($this->values as $field => $value) {
+            if (! $primero) {
+                $this->query .= " AND ";
+            } else {
+                $primero = false;
+            }
+            $this->query .= "$field LIKE :$field";
+        }
+        $this->logger->info("whereLike query:[" . $this->query . "]");
+        return $this;
+    }
+
     public function between(String $campo, String $turno, int $minutos = 30) : QueryBuilder {
         if (!isset($this->values)) {
             $this->values = Array();

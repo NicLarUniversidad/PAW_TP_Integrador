@@ -13,11 +13,13 @@ class PublicacionService extends DatabaseService
 {
     private MonedaService $monedaService;
     private ProductoService $productoService;
+    private FotografiaProductoService $fotografiaProductoService;
     public function __construct(PDO $PDO, Logger $logger)
     {
         parent::__construct($PDO, $logger, "products\\PublicacionRepository");
         $this->monedaService = new MonedaService($PDO, $logger);
         $this->productoService = new ProductoService($PDO, $logger);
+        $this->fotografiaProductoService = new FotografiaProductoService($PDO, $logger);
     }
 
     public function attachData(array $data = []): array
@@ -73,10 +75,10 @@ class PublicacionService extends DatabaseService
         return $options;
     }
 
-    public function buscar($parametros):array
-    {
-        return $this->repository->buscar($parametros);      
-    }
+//    public function buscar($parametros):array
+//    {
+//        return $this->repository->buscar($parametros);
+//    }
 
     public function findByProduct($producto) : array
     {
@@ -98,5 +100,51 @@ class PublicacionService extends DatabaseService
         }
         $this->logger->debug(json_encode($publicacion));
         return $publicacion;
+    }
+
+    public function buscar(String $parametros) : array
+    {
+        $fotografiaProductoService = new FotografiaProductoService($this->connection, $this->logger);
+        $productos = $this->productoService->search($parametros);
+        $publicaciones = $this->cargarPublicaciones($productos);
+        /*$productos = $productoService->findByName($parametros);
+        $publicaciones = [];
+        foreach ($productos as $producto) {
+            $model = $productoService->getModelInstance();
+            $p = $this->queryBuilder->select($model->getTableFields())
+                ->from($this->tabla)
+                ->where(["id_producto"=>$producto["id"]])
+                ->execute();
+            array_push($publicaciones, $p);
+        }
+        return $publicaciones;*/
+//        $publicaciones = $this->findAll();
+//        $result = [];
+//        $busqueda = "SSD";
+//        foreach ($publicaciones as $publicacion) {
+//            $texto=strtolower($productoService->find($publicacion["id_producto"])[0]["descripcion"]);
+//            $this->logger->info("BUSQUEDA: ". $parametros." - TEXTO : ". $texto);
+//            if (str_contains($texto, strtolower($parametros))){
+//                $this->logger->info("PRODUCTO#: ".$productoService->find($publicacion["id_producto"])[0]["descripcion"]);
+//                $publicacion["producto"] = $productoService->find($publicacion["id_producto"])[0];
+//                $publicacion["fotografias"] = $fotografiaProductoService->findByProductoId($publicacion["id_producto"]);
+//                $result[] = $publicacion;
+//            }else{
+//                $this->logger->info("Cero coincidencias");
+//            }
+//        }
+//        $this->logger->info("Publicaciones: ".json_encode($publicaciones));
+        return $publicaciones;
+    }
+
+    public function cargarPublicaciones(array $productos) : array
+    {
+        $publicaciones = array();
+        foreach ($productos as $producto) {
+            $publicacionesDeProducto = $this->findByProduct($producto);
+            $publicacionesDeProducto["fotografias"] = $this->fotografiaProductoService->findByProductoId($producto["id"]);
+            array_push($publicaciones, $publicacionesDeProducto);
+        }
+        return $publicaciones;
     }
 }
