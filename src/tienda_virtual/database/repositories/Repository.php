@@ -92,4 +92,13 @@ class Repository
     {
         return new $this->modelo();
     }
+
+    public function query($field, $value) : array
+    {
+        $model = new $this->modelo();
+        return $this->queryBuilder->select($model->getTableFields())
+            ->from($this->tabla)
+            ->whereLike([$field=>"%" . $value . "%"])
+            ->execute();
+    }
 }

@@ -18,7 +18,7 @@ class PublicacionRepository extends \src\tienda_virtual\database\repositories\Re
     }
 
     public function save(Model $model) : void {
-        $model->setField("fecha_entrada", date("Y-m-d"));
+        //$model->setField("fecha_entrada", date("Y-m-d"));
         parent::save($model);
     }
     public function findByProductId($id_producto) : array
@@ -35,6 +35,8 @@ class PublicacionRepository extends \src\tienda_virtual\database\repositories\Re
         //TODO: agregar lógica del buscador
         $productoService = new ProductoService($this->connection, $this->logger);
         $fotografiaProductoService = new FotografiaProductoService($this->connection, $this->logger);
+        $productos = $productoService->search($parametros);
+        $publicaciones = $this->cargarPublicaciones($productos);
         /*$productos = $productoService->findByName($parametros);
         $publicaciones = [];
         foreach ($productos as $producto) {
@@ -46,23 +48,33 @@ class PublicacionRepository extends \src\tienda_virtual\database\repositories\Re
             array_push($publicaciones, $p);
         }
         return $publicaciones;*/
-        $this->logger->info("method buscar() PublicacionRepository");
-        $publicaciones = $this->findAll();
-        $result = [];
-        $busqueda = "SSD";
-        foreach ($publicaciones as $publicacion) {
-            $texto=strtolower($productoService->find($publicacion["id_producto"])[0]["descripcion"]);
-            $this->logger->info("BUSQUEDA: ". $parametros." - TEXTO : ". $texto);
-            if (str_contains($texto, strtolower($parametros))){
-                $this->logger->info("PRODUCTO#: ".$productoService->find($publicacion["id_producto"])[0]["descripcion"]);
-                $publicacion["producto"] = $productoService->find($publicacion["id_producto"])[0];
-                $publicacion["fotografias"] = $fotografiaProductoService->findByProductoId($publicacion["id_producto"]);
-                $result[] = $publicacion;
-            }else{
-                $this->logger->info("Cero coincidencias");
-            }           
-        }
+//        $this->logger->info("method buscar() PublicacionRepository");
+//        $publicaciones = $this->findAll();
+//        $result = [];
+//        $busqueda = "SSD";
+//        foreach ($publicaciones as $publicacion) {
+//            $texto=strtolower($productoService->find($publicacion["id_producto"])[0]["descripcion"]);
+//            $this->logger->info("BUSQUEDA: ". $parametros." - TEXTO : ". $texto);
+//            if (str_contains($texto, strtolower($parametros))){
+//                $this->logger->info("PRODUCTO#: ".$productoService->find($publicacion["id_producto"])[0]["descripcion"]);
+//                $publicacion["producto"] = $productoService->find($publicacion["id_producto"])[0];
+//                $publicacion["fotografias"] = $fotografiaProductoService->findByProductoId($publicacion["id_producto"]);
+//                $result[] = $publicacion;
+//            }else{
+//                $this->logger->info("Cero coincidencias");
+//            }
+//        }
         $this->logger->info("Publicaciones: ".json_encode($publicaciones));
-        return $result;
+        return $publicaciones;
+    }
+
+    public function cargarPublicaciones(array $productos) : array
+    {
+        $publicaciones = array();
+        foreach ($productos as $producto) {
+            $publicacionesDeProducto = $this->findByProduct($producto);
+            array_push($publicaciones, $publicacionesDeProducto);
+        }
+        return $publicaciones;
     }
 }
