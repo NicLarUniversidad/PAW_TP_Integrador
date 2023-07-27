@@ -9,9 +9,8 @@ h1{
 }
 
 h2{
-    font-size: large;
-    padding: 2%;
-    height: 2.5em;
+    font-size: larger;
+    height: inherit;
 }
 
 
@@ -117,10 +116,11 @@ article{
     border: solid;
 }
 
-.imagenes{
-    width: auto;
-    height: 7em;
-    padding: 1%;
+.imagen{
+    display: block;
+    position: inherit;
+    margin: auto;
+    padding-top: 1em;
 }
 
 .AnimTitulo{
@@ -154,7 +154,7 @@ article{
 
 h2{
     font-size: large;
-    height: auto;
+    text-align: center;
 }
 
 span{
@@ -186,10 +186,9 @@ p{
 
 .agregar, .antes{
     font-size: large;
+
 }
 
-.imagenes{
-    height: 4em;
-}
+
 
 }

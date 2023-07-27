@@ -66,4 +66,10 @@ class ProductoService extends DatabaseService
         }
         return $productos;
     }
+
+    public function search(String $param) : array
+    {
+        $resultados = $this->repository->query("descripcion", $param);
+        return $resultados;
+    }
 }

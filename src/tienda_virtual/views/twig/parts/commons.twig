@@ -28,21 +28,36 @@
         <button type="submit"><img class="lupa" src="img/lupa.png"/></button>
     </form>
     <!--Agregar comprobación para mostrar sólo si el usuario está logeado, o si no mostrar botón de login-->
-    <button id="button-menu" class="PAW-Menu-Abrir"></button> 
+    <button id="button-menu" class="PAW-Menu-Abrir"></button>
     {% if user %}
-        <h3 class="usuario"> ¡Hola {{attribute(user,"username")}} !</h3>
+        <h3 class="usuario"> Usuario {{attribute(user,"username")}} </h3>
     {% else %}
         <a href="/login" class="InicioSesion">
             Iniciar sesion
-        </a>  
+        </a>
     {% endif %}
-    
+
     <a class="icon-cart" href="/carrito">
         <div class="cart-line-1" style="background-color: #E5E9EA"></div>
         <div class="cart-line-2" style="background-color: #E5E9EA"></div>
         <div class="cart-line-3" style="background-color: #E5E9EA"></div>
         <div class="cart-wheel" style="background-color: #E5E9EA"></div>
-    </a>  
+    </a>
+    <button id="button-menu" class="PAW-Menu-Abrir"></button>
+    {% if user %}
+        <h3 class="usuario"> ¡Hola {{attribute(user,"username")}} !</h3>
+    {% else %}
+        <a href="/login" class="InicioSesion">
+            Iniciar sesion
+        </a>
+    {% endif %}
+
+    <a class="icon-cart" href="/carrito">
+        <div class="cart-line-1" style="background-color: #E5E9EA"></div>
+        <div class="cart-line-2" style="background-color: #E5E9EA"></div>
+        <div class="cart-line-3" style="background-color: #E5E9EA"></div>
+        <div class="cart-wheel" style="background-color: #E5E9EA"></div>
+    </a>
     <nav>
         <ul>
             <li><a href="/">Inicio</a></li>
@@ -58,9 +73,54 @@
 <main>
     {% block main %}
 
-    {% endblock %}    
+    {% endblock %}
 
 </main>
+<div class="cuerpo">
+<div id="slideshow-principal">
+        <div id="progress-bar-container">
+            <div id="progress-bar"></div>
+        </div>
+        <div id="slideshow">
+            <img src="" alt="" id="img1" class="imgportada">
+            <img src="" alt="" id="img2" class="imgportada">
+        </div>
+
+
+        <div id="indicadores"></div>
+    </div>
+
+<section class="informacion">
+    <div class="columnas">
+    <img src="img/ubicacion.png"  id="iconosPortada" title="Ubicación">
+        <h3>Ubicación</h3>
+        <p>Av. Mitre 1600</p>
+    </div>
+    <div class="columnas">
+    <img src="img/phone-call.png" id="iconosPortada" title="Números de contacto">
+        <h3>Teléfonos de contacto</h3>
+        <p>1124563258</p>
+        <p>1132654297</p>
+    </div>
+    <div class="columnas">
+        <h3>Redes Sociales</h3>
+            <div class="redes">
+                <img src="img/facebook.png"  id="iconosPortada" title="Facebook">
+                <p id="redes">Tiendavirtual</p>
+            </div>
+            <div class="redes">
+                <img src="img/instagram.png"  id="iconosPortada" title="Instagram">
+                <p id="redes">Tiendavirtual</p>
+            </div>
+            <div class="redes">
+                <img src="img/twitter.png"  id="iconosPortada" title="Twitter">
+                <p id="redes">TiendaVirtual</p>
+            </div>
+    </div>
+</section>
+</div>
+
+    {% block footer %}
 <div class="cuerpo">
 <div id="slideshow-principal">
         <div id="progress-bar-container">
@@ -175,7 +235,6 @@
             </div>
     </div>
 </section>
-</body>
 </div>
 
     {% block footer %}
@@ -184,7 +243,6 @@
     <small>Copyright</small>
     <address>Dirección: Ruta 5</address>
 </footer>
-
+</body>
 </html>
 {% endblock %}
-

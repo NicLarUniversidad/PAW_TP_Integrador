@@ -10,9 +10,9 @@ h1 {
 
 
 h2{
-    font-size: large;
-    padding: 2%;
-    height: 2.2em;
+    font-size: larger;
+    /*height: inherit;*/
+    height: 5em;
 }
 
 
@@ -22,9 +22,10 @@ h3{
 }
 
 p{
-    text-align: center;
+    display: inline-flex;
+    text-align: end;
     font-size: x-large;
-    text-transform: lowercase;
+    font-style: oblique;
 }
 
 section{
@@ -56,10 +57,13 @@ section{
 }*/
 
 article{
-    float: left;
+    display: inline-table;
     text-align: center;
+    flex-direction: column;
     align-items: center;
-    padding: 1%;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
     margin-right: 1%;
     margin-left: 4%;
     border: solid;
@@ -74,29 +78,17 @@ article{
     /*position: absolute;*/
 }
 .agregar {
-    margin: 5%;
     text-decoration: none;
     border: solid;
-    border: double;
     border-radius: 10px;
     padding-right: 7%;
     padding-left: 7%;
     padding-top: 1%;
     padding-bottom: 2%;
+    color: #212D63;
     display: block;
     text-align: center;
     font-size: larger;
-    font-weight: bold;
-    font-family: "Roboto-Light" !important;
-    border-radius: 10px;
-    color: aliceblue;
-    background: #212D63;
-}
-
-.agregar:hover{
-    background-color: #F97224;
-    color: black;
-    border: solid;
 }
 
 .cuerpo{
@@ -112,12 +104,6 @@ article{
     margin: 5%;
 }
 
-.imagenes{
-    width: auto;
-    height: 7em;
-    padding: 1%;
-}
-
 /*-------------------RESPONSIVE---------------------*/
 
 @media (max-width: 768px){
@@ -127,7 +113,7 @@ h1{
 }
 
 h2 {
-    font-size: large;
+    font-size: larger;
     height: auto;
 }
 
@@ -136,10 +122,10 @@ article{
     padding: 2%;
     border-radius: 10px;
     border: solid;
-    /* display: contents; */
+    text-align: right;
+    display: block;
+    width: auto;
     height: auto;
-    float: left;
-    width: 90%;
 }
 
 p{
@@ -150,13 +136,4 @@ p{
     font-size: smaller;
 }
 
-.imagenes{
-    height: 4em;
-}
-
- #verMas{
-    display: table;
-    font-size: medium;
-
-}
 }

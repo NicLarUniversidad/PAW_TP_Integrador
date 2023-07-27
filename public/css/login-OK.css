@@ -32,7 +32,7 @@ h2{
     align-items: center;
     padding: 2%;
     font-size: x-large;
-    border: double;
+    border: solid;
     font-family: "Roboto-Light" !important;
     border-radius: 10px;
     width: 22%;
@@ -40,14 +40,6 @@ h2{
     color: aliceblue;
     background: #212D63;
     text-decoration: none;
-}
-
-.inicio:hover{
-    cursor: pointer;
-    background-color: #F97224;
-    box-shadow: 4px 30px 6px 0px rgba(50, 50, 50, 0.45);
-    border: solid;
-    color: black;
 }
 
 img{
@@ -86,6 +78,7 @@ img{
     }
 
     label{
+        width: 25%;
         font-size: larger;
         width: 100%;
     }
@@ -110,8 +103,6 @@ img{
         height: 20%;
         width: 45%;
         margin-left: 10%;
-        margin: auto;
-        display: block;
     }
 
 }

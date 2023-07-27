@@ -147,81 +147,6 @@ h1{
     /*width: -webkit-fill-available;*/
 }
 
-.financiaro{
-	display: flex;
-	padding: 2%;
-	border: 15px solid #212D63;
-	border-radius: 10px;
-}
-
-.pagos{
-	color: black;
-	display: block;
-	margin: auto;
-	text-align: center;
-}
-
-#iconosPagos{
-	display: inline;
-	height: 3vw;
-	width: 3vw;
-	top: 1vw;
-	position: relative;
-}
-
-.ventana{
-	color: black;
-	width: 50%;
-	font-size: large;
-	text-align: center;
-	padding: 2%;
-	min-height: 20%;
-	border-radius: 22px;
-	position: absolute;
-	left: 25%;
-	top: 15%;
-	background-color: aliceblue;
-	z-index: 1000;
-	display: none;
-	text-transform: capitalize;
-	border: 4mm ridge rgba(33, 45, 99, .6);
-}
-
-#cerrar{
-	position: absolute;
-	right: 3%;
-	top:1%;
-
-}
-
-.seccionPromo{
-	border-bottom: groove;
-	font-family: sans-serif;
-}
-
-.Tpromociones{
-	font-weight: bold;
-	font-size: x-large;
-	font-family: sans-serif;
-	text-decoration: underline;
-}
-
-.Tpromo{
-	text-align: left;
-	text-transform: initial;
-	font-weight: bold;
-	margin-bottom: 0px;
-	font-family: sans-serif;
-}
-
-
-.promo{
-	text-align: left;
-	text-transform: initial;
-	margin-top: 0px;
-	font-family: sans-serif;
-}
-
 /*-------------------RESPONSIVE---------------------*/
 
 @media (max-width: 768px){
@@ -248,17 +173,5 @@ h1{
 	font-size: inherit;
 }
 
-.pagos{
-	font-size: small;
-}
 
-.financiaro{
-	display: block;
-	border: 9px solid #212D63;
-}
-
-#iconosPagos{
-	height: 14vw;
-	width: 13vw;
-}
 }
