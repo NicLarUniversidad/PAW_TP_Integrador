@@ -43,6 +43,7 @@ class CarritoController extends Controller
                 //= %3D
                 $url .= "%3Fpublicacion_id%3D".$publicationId;
             }
+            //Se pasa URL para que después de logear se pueda redireccionar de nuevo aquí
             header("Location: login?redirect%=$url");
         }
         else {
