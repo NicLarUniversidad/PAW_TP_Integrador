@@ -2,6 +2,7 @@
 
 namespace src\tienda_virtual\database\repositories;
 
+use Exception;
 use Monolog\Logger;
 use PDO;
 use src\tienda_virtual\database\models\Model;
@@ -49,8 +50,13 @@ class Repository
     }
 
     public function save(Model $model) : void {
-        $this->queryBuilder->insert($this->tabla,$model->getTableFields())
+        $result = $this->queryBuilder->insert($this->tabla,$model->getTableFields())
             ->execute();
+        try {
+            $model->setField("id", $this->queryBuilder->getLastInsertId());
+        }catch (Exception $e) {
+            //ignore
+        }
     }
 
     public function update(Model $model) : void {

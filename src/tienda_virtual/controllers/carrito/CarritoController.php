@@ -54,7 +54,9 @@ class CarritoController extends Controller
             $jsImports[]="paw";
             $jsImports[]="app";
             $data = $this->carritoService->findItems($data);
-            $this->carritoService->addItem($publicationId);
+            if (!is_null($publicationId)) {
+                $this->carritoService->addItem($publicationId);
+            }
             //$this->preference->save();
             $data["preference"] = $this->preference ?? [];
             $this->pageFinderService->findFileRute("carrito","twig","twig", $cssImports,

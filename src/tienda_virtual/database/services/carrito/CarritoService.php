@@ -58,18 +58,19 @@ class CarritoService extends DatabaseService
 
     public function addItem(String $id_publicacion) {
         $id = $this->session->get("carrito");
-        if (!isset($id)) {
+        if (!isset($id) || $id=="") {
             $carrito = $this->repository->getModelInstance();
             //TODO: quitar mock
             $carrito->setField("id_usuario", LogginService::getUserId());
             $carrito->setField("activo", "SI");
             $carrito->setField("precio_total", "1");
             $carrito->setField("id_moneda", "1");
+            $carrito->setField("id_direccion", "1");
             $this->repository->save($carrito);
-            $instance = $this->repository->findActiveByUserId(LogginService::$userId)[0];
-            $id = $instance["id"];
+            $instance = $this->repository->findActiveByUserId(LogginService::$userId);
+            $id = $carrito->getField("id");
+            $this->session->put("carrito", $id);
         }
-        $this->session->put("carrito", $id);
         $publicaciones = $this->publicacionService->find($id_publicacion);
         if (count($publicaciones)>0) {
             $publicacion = $publicaciones[0];

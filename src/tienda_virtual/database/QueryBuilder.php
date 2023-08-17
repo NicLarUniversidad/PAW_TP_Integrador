@@ -14,6 +14,8 @@ class QueryBuilder
     private array $values = [];
     private array $updateValues = [];
 
+    private string $type = "";
+
     public function __construct(PDO $pdo, Logger $logger)
     {
         $this->pdo = $pdo;
@@ -32,6 +34,7 @@ class QueryBuilder
             }
             $this->query .= " $field";
         }
+        $this->type = "select";
         return $this;
     }
 
@@ -79,6 +82,7 @@ class QueryBuilder
         $this->values[$campo] = $turno;
         $this->query .= "$campo <= :$campo AND";
         $this->query .= " DATE_ADD($campo, INTERVAL $minutos MINUTE) >= :$campo";
+        $this->type = "between";
         return $this;
     }
 
@@ -106,6 +110,7 @@ class QueryBuilder
         }
         $this->logger->info("Prepared: $this->query) VALUES  $dummy)");
         $this->query .= ") VALUES " . $postQuery . ")";
+        $this->type = "insert";
         return $this;
     }
 
@@ -121,11 +126,13 @@ class QueryBuilder
             }
             $this->query .= " $field=:$field";
         }
+        $this->type = "update";
         return $this;
     }
 
     public function delete(string $table) : QueryBuilder {
         $this->query = "DELETE FROM `" . QueryBuilder::$DATABASE_NAME . "`.`$table`";
+        $this->type = "delete";
         return $this;
     }
 
@@ -146,5 +153,9 @@ class QueryBuilder
         $sentencia->setFetchMode(PDO::FETCH_ASSOC);
         $sentencia->execute();
         return $sentencia->fetchAll();
+    }
+
+    public function getLastInsertId() : string {
+        return $this->pdo->lastInsertId();
     }
 }
