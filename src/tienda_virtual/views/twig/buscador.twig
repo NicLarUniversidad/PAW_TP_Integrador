@@ -25,11 +25,6 @@
             <h2>{{ publicacion.producto.nombre }}</h2>
             <p>{{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p>
             <a href="/detalleproducto?publicacion={{ publicacion.id }}" id="verMas">Ver en Detalle</a><br>
-            {#
-                Investigar si es correcto pasar el ID del producto por parámetro,
-                podría ser una falla de seguridad, ya que se podría hacer que el
-                usuario agregue al carrito algún producto haciendolo ingresar a un link.
-            #}
             <a class="agregar" href="/carrito?publicacion_id={{ publicacion.id }}">Agregar</a>
 
         </article>

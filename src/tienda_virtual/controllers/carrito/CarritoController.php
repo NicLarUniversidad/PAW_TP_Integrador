@@ -74,4 +74,20 @@ class CarritoController extends Controller
         $this->session->delete("carrito");
         $this->mostrarTemplate($notificacion, $data, $titulo);
     }
+
+    /**
+     * @throws Exception
+     */
+    public function pagar(String $notificacion = "", array $data = [], String $titulo = "Carrito") {
+        $idCarrito = $this->session->get("carrito");
+        $data["preference"] = $this->carritoService->getPreference();
+        $cssImports = [];
+        $cssImports[] = "main";
+        $cssImports[] = "carrito";
+        $jsImports = [];
+        $jsImports[]="paw";
+        $jsImports[]="app";
+        $this->pageFinderService->findFileRute("pagar","twig","twig", $cssImports,
+            $data,$titulo, $jsImports);
+    }
 }

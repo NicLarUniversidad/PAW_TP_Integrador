@@ -9,6 +9,7 @@ use src\tienda_virtual\database\services\products\FotografiaProductoService;
 use src\tienda_virtual\database\services\products\ProductoService;
 use src\tienda_virtual\database\services\products\PublicacionService;
 use src\tienda_virtual\services\LogginService;
+use src\tienda_virtual\services\PagoService;
 use src\tienda_virtual\traits\TConnection;
 use src\tienda_virtual\traits\TLogger;
 use src\tienda_virtual\traits\TSession;
@@ -20,6 +21,7 @@ class CarritoService extends DatabaseService
     protected PublicacionService $publicacionService;
     protected ProductoService $productoService;
     protected FotografiaProductoService $fotografiaProductoService;
+    protected PagoService $pagoService;
 
     public function __construct(PDO $PDO, Logger $logger)
     {
@@ -28,6 +30,7 @@ class CarritoService extends DatabaseService
         $this->publicacionService = new PublicacionService($PDO, $logger);
         $this->productoService = new ProductoService($PDO, $logger);
         $this->fotografiaProductoService = new FotografiaProductoService($PDO, $logger);
+        $this->pagoService = new PagoService();
     }
 
     public function init() {
@@ -90,5 +93,10 @@ class CarritoService extends DatabaseService
             $carrrito->setField("activo", "NO");
         }
         $this->repository->update($carrrito);
+    }
+
+    public function getPreference()
+    {
+        return $this->pagoService->getPreference();
     }
 }

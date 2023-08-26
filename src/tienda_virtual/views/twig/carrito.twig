@@ -11,7 +11,7 @@
     <section>
     <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" onclick="history.back();">
         <a href="/carrito-cancelar" class="btn-cancelar">Cancelar compra</a>
-        <a href="{{ attribute(data.preference, "sandbox_init_point") }}" class="btn-pagar"> Pagar </a>
+        <a href="/pagar" class="btn-pagar"> Pagar </a>
         <h1>Carrito</h1>
         {% for publicacion in data.publicaciones %}
         <article class="productos" id="productos">

@@ -1,0 +1,32 @@
+{% extends "parts/commons.twig" %}
+
+{% block head %}
+    <script src="https://www.mercadopago.com/v2/security.js" view="item"></script>
+    <link rel="stylesheet" type="text/css" href="css/carrito.css" />
+    <script src="/js/scripts/carrito.js" ></script>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+{% endblock %}
+
+{% block main %}
+
+    <section>
+    <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" onclick="history.back();">
+    <a href="/carrito" class="btn-cancelar">Volver a carrito</a>
+    <h1>Pagar</h1>
+
+    <div id="wallet_container"></div>
+
+    <script>
+
+
+        const mp = new MercadoPago('APP_USR-ff96fe80-6866-4888-847e-c69250754d38');
+        const bricksBuilder = mp.bricks();
+        mp.bricks().create("wallet", "wallet_container", {
+            initialization: {
+                preferenceId: "{{ data.preference.id }}",
+            },
+        });
+
+    </script>
+
+{% endblock %}

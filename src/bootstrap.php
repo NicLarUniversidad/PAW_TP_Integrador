@@ -38,6 +38,9 @@ try {
     //ignore
 }
 
+// Agrega credenciales
+//MercadoPago\SDK::setAccessToken($config->get("MERCADO_PAGO_ACCESS_TOKEN")?? "");
+
 
 $connectionBuilder = new ConnectionBuilder();
 $connectionBuilder->setLogger($log);
@@ -86,6 +89,7 @@ $routerService->get('/buscar','buscador\\BuscadorController@buscar');
 $routerService->get('/arma-tu-pc','armartupc\\ArmarTuPcController@mostrarTemplate');
 $routerService->get('/carrito','carrito\\CarritoController@mostrarTemplate');
 $routerService->get('/carrito-cancelar','carrito\\CarritoController@cancelar');
+$routerService->get('/pagar','carrito\\CarritoController@pagar');
 $routerService->get('/grupocategorias','grupocategoria\\GrupoCategoriaController@mostrarGrupoCategorias');
 $routerService->get('/categorias','categoria\\CategoriaController@mostrarCategorias');
 $routerService->get('/subcategoria','subcategoria\\SubCategoriaController@mostrarSubCategorias');

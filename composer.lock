@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5441bfdba02fb18b1bf8a6d824aadabc",
+    "content-hash": "bfb991cc49c146f2c20616e9c50e079b",
     "packages": [
         {
             "name": "cakephp/core",
@@ -1231,30 +1231,29 @@
         },
         {
             "name": "mercadopago/dx-php",
-            "version": "2.3.0",
+            "version": "2.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mercadopago/sdk-php.git",
-                "reference": "8f71ba1515105b8a5acd167f7546edadf9e0c531"
+                "reference": "be9cf1cb29f1a78f9dc15f5548f47af6a9a897e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mercadopago/sdk-php/zipball/8f71ba1515105b8a5acd167f7546edadf9e0c531",
-                "reference": "8f71ba1515105b8a5acd167f7546edadf9e0c531",
+                "url": "https://api.github.com/repos/mercadopago/sdk-php/zipball/be9cf1cb29f1a78f9dc15f5548f47af6a9a897e4",
+                "reference": "be9cf1cb29f1a78f9dc15f5548f47af6a9a897e4",
                 "shasum": ""
             },
             "require": {
                 "doctrine/annotations": "^1.8",
-                "doctrine/common": "^2.6",
+                "doctrine/common": "^2.6 || ^3.0",
                 "php": ">=7.1.0"
             },
             "require-dev": {
-                "doctrine/orm": "~2.3",
-                "phpdocumentor/phpdocumentor": "^2.0",
+                "doctrine/orm": "^2.3",
                 "phpmd/phpmd": "@stable",
-                "phpunit/phpunit": "^5",
+                "phpunit/phpunit": "^7",
                 "sebastian/phpcpd": "*",
-                "squizlabs/php_codesniffer": "2.3.*",
+                "squizlabs/php_codesniffer": "2.8.1",
                 "symfony/yaml": "~2.5",
                 "vlucas/phpdotenv": "^2.5"
             },
@@ -1277,9 +1276,9 @@
             "description": "Mercado Pago PHP SDK",
             "homepage": "https://github.com/mercadopago/sdk-php",
             "support": {
-                "source": "https://github.com/mercadopago/sdk-php/tree/2.3.0"
+                "source": "https://github.com/mercadopago/sdk-php/tree/2.6.0"
             },
-            "time": "2021-05-19T21:01:47+00:00"
+            "time": "2023-08-03T17:33:17+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2501,5 +2500,5 @@
         "ext-json": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.2.0"
 }
