@@ -30,7 +30,7 @@ class CarritoService extends DatabaseService
         $this->publicacionService = new PublicacionService($PDO, $logger);
         $this->productoService = new ProductoService($PDO, $logger);
         $this->fotografiaProductoService = new FotografiaProductoService($PDO, $logger);
-        $this->pagoService = new PagoService();
+        //$this->pagoService = new PagoService();
     }
 
     public function init() {
@@ -97,6 +97,7 @@ class CarritoService extends DatabaseService
 
     public function getPreference()
     {
-        return $this->pagoService->getPreference();
+        //return $this->pagoService->getPreference();
+        return "1";
     }
 }

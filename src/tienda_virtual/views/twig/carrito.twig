@@ -14,14 +14,14 @@
         <a href="/pagar" class="btn-pagar"> Pagar </a>
         <h1>Carrito</h1>
         {% for publicacion in data.publicaciones %}
-        <article class="productos" id="productos">
-            <picture>
-                <img src="fotografia_producto.url" class="imgArticulo" alt="{{ publicacion.nombre }}" >
-            </picture>
-            <h2>{{ publicacion.nombre }}</h2>  <!-- <h2>{{ publicacion.producto.nombre }}</h2>-->
-            <p>Precio: {{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p>
-            <button class="button-delete" id="eliminar-{{ attribute(attribute(publicacion, "id"),"value") }}">Eliminar artículo</button>
-        </article>
+            <article class="productos" id="productos">
+                <picture>
+                    <img src="fotografia_producto.url" class="imgArticulo" alt="{{ publicacion.producto.nombre }}" >
+                </picture>
+                <h2>{{ publicacion.productos[0].nombre }}</h2>  <!-- <h2>{{ publicacion.productos[0].nombre }}</h2>-->
+                <p>Precio: {{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p>
+                <button class="button-delete" id="eliminar-{{ attribute(attribute(publicacion, "id"),"value") }}">Eliminar artículo</button>
+            </article>
 
     {% for carrito in data.carrito %}
         <p>{{ carrito.precio_total}}</p>  <!--Mostrar la suma de los precios de los productos-->

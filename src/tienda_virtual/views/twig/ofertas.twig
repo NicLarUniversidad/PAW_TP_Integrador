@@ -25,7 +25,7 @@
             <p class="antes">ANTES {{oferta.publicacion.precio_unidad}} {{oferta.moneda.nombre}}</p>
             <p>AHORA  {{oferta.precio_oferta}} {{oferta.moneda.nombre}}</p>
             <a href="/detalleproducto?publicacion={{ oferta.publicacion.id }}" id="verMas">Ver en Detalle</a><br>
-            <a class="agregar" href="/carrito?}&producto={{ oferta.producto.id }}">Agregar</a>
+            <a class="agregar" href="/carrito?publicacion_id={{ oferta.publicacion.id }}">Agregar</a>
         </article>
    
     {% else %}
