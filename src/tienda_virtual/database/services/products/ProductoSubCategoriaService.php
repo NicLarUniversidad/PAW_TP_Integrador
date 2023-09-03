@@ -72,4 +72,9 @@ class ProductoSubCategoriaService extends DatabaseService
     {
         return $this->repository->findBySubCategoriaId($id_sub_categoria);
     }
+
+    public function findByProductId($productId)
+    {
+        return $this->repository->query("id_producto", $productId);
+    }
 }

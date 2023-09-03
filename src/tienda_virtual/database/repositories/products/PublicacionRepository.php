@@ -10,6 +10,7 @@ use src\tienda_virtual\database\models\Model;
 use src\tienda_virtual\database\services\products\FotografiaProductoService;
 use src\tienda_virtual\database\services\products\ProductoService;
 use src\tienda_virtual\database\services\categories\MonedaService;
+use src\tienda_virtual\database\services\products\ProductoSubCategoriaService;
 
 class PublicacionRepository extends \src\tienda_virtual\database\repositories\Repository
 {
@@ -31,10 +32,11 @@ class PublicacionRepository extends \src\tienda_virtual\database\repositories\Re
             ->execute();
     }
 
-    public function buscar(String $parametros) : array
+    public function buscar(String $parametros, $sub_categoria) : array
     {
         //TODO: agregar lógica del buscador
         $productoService = new ProductoService($this->connection, $this->logger);
+        $productoSubCategoriaService = new ProductoSubCategoriaService($this->connection, $this->logger);
         $fotografiaProductoService = new FotografiaProductoService($this->connection, $this->logger);
         $monedaService = new MonedaService($this->connection, $this->logger);
         /*$productos = $productoService->findByName($parametros);
@@ -60,7 +62,16 @@ class PublicacionRepository extends \src\tienda_virtual\database\repositories\Re
                 $publicacion["producto"] = $productoService->find($publicacion["id_producto"])[0];
                 $publicacion["fotografias"] = $fotografiaProductoService->findByProductoId($publicacion["id_producto"]);
                 $publicacion["moneda"] = $monedaService->find($publicacion["id_moneda"])[0];
-                $result[] = $publicacion;
+                if (is_null($sub_categoria))
+                    $result[] = $publicacion;
+                else {
+                    $subCategoria = $productoSubCategoriaService->findByProductId($publicacion["producto"]["id"]);
+                    if ($subCategoria[0]["id_sub_categoria"] == $sub_categoria) {
+                        $result[] = $publicacion;
+                    } else {
+                        $this->logger->info("Cero coincidencias");
+                    }
+                }
             }else{
                 $this->logger->info("Cero coincidencias");
             }           

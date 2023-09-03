@@ -73,9 +73,9 @@ class PublicacionService extends DatabaseService
         return $options;
     }
 
-    public function buscar($parametros):array
+    public function buscar($parametros, $sub_categoria):array
     {
-        return $this->repository->buscar($parametros);      
+        return $this->repository->buscar($parametros, $sub_categoria);
     }
 
     public function findByProduct($producto) : array
