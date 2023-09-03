@@ -2,14 +2,17 @@
 
 {% block head %}
     <script src="https://www.mercadopago.com/v2/security.js" view="item"></script>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
     <link rel="stylesheet" type="text/css" href="css/carrito.css" />
     <script src="/js/scripts/carrito.js" ></script>
+    <script src="/js/scripts/botonMercadoPago.js" ></script>
+    <script src="/js/constants/constantsMercadoPago.js" ></script>
 {% endblock %}
 
 {% block main %}
 
     <section>
-    <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" onclick="history.back();">
+        <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" onclick="history.back();">
         <a href="/carrito-cancelar" class="btn-cancelar">Cancelar compra</a>
         <a href="/pagar" class="btn-pagar"> Pagar </a>
         <h1>Carrito</h1>
@@ -36,8 +39,16 @@
         <span class="seguirCompra">Para seguir comprando, navegue por las categorías en el sitio, o busque su producto.</span>
         <a href="/grupocategorias" class="inicio">Seguir comprando</a>
     {% endfor %}
+    <button class="btn btn-primary btn-lg btn-block" id="checkout-btn">Checkout</button>
 
-    
+    <script>
+        // Add SDK credentials
+        // REPLACE WITH YOUR PUBLIC KEY AVAILABLE IN: https://developers.mercadopago.com/panel
+        const mercadopago = new MercadoPago(publicKey, {
+            locale: locale // The most common are: 'pt-BR', 'es-AR' and 'en-US'
+        });
+        button.init(mercadopago);
+    </script>
 {% endblock %}
 
 
