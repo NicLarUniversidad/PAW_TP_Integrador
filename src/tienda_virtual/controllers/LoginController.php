@@ -76,22 +76,50 @@ class LoginController extends Controller
         $nombre = $this->request->get("nombre") ?? "";
         $apellido = $this->request->get("apellido") ?? "";
         $activo = "SI";
-        if (isset($username) and isset($password)) {
-            $personaService = new PersonaService($this->connection, $this->logger);
-            $newPersona = $personaService->createPersona($mail, $nombre, $apellido);
-            //Solicitar datos de direccion
-            $persona = $personaService->findByEmail($mail);
-            if ($persona) {
-                $this->logger->info("NUEVA PERSONA " . $persona->getField("id"));
-            }
-
-            $userService = new UserService($this->connection, $this->logger);
-
-            $userService->createUser($username, $password, $mail, $persona->getField("id"), $activo);
-            $this->pageFinderService->findFileRute("login-OK", "twig", "twig");
-        } else {
-            echo "No se ingresó usuario o contraseña";
+        $error = false;
+        $mensajeError = "";
+        if (isset($username)) {
+            $error = true;
+            $mensajeError = "No se ingresó usuario";
         }
+        if (!preg_match('/[^A-Za-z0-9]/', $username)) 
+        {
+            //String tiene sólo numeros y letras
+        }
+        if (isset($password)) {
+            $error = true;
+            $mensajeError = "No se ingresó contraseña";
+        }
+        $regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/'; 
+        if (preg_match($regex, $mail)) {
+            //Email válido
+        } else { 
+            //Email no válido
+        }  
+        if (!preg_match('/[^A-Za-z]/', $nombre)) 
+        {
+            //String tiene sólo letras
+        }
+        if (!preg_match('/[^A-Za-z]/', $apellido)) 
+        {
+            //String tiene sólo letras
+        }
+        // if (isset($username) and isset($password)) {
+        //     $personaService = new PersonaService($this->connection, $this->logger);
+        //     $newPersona = $personaService->createPersona($mail, $nombre, $apellido);
+        //     Solicitar datos de direccion
+        //     $persona = $personaService->findByEmail($mail);
+        //     if ($persona) {
+        //         $this->logger->info("NUEVA PERSONA " . $persona->getField("id"));
+        //     }
+
+        //     $userService = new UserService($this->connection, $this->logger);
+
+        //     $userService->createUser($username, $password, $mail, $persona->getField("id"), $activo);
+        //     $this->pageFinderService->findFileRute("login-OK", "twig", "twig");
+        // } else {
+        //     echo "No se ingresó usuario o contraseña";
+        // }
     }
 
     public function getLogout()
