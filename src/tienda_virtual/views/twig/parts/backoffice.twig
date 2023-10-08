@@ -15,6 +15,7 @@
     {% if jsImports %}
         {% for import in jsImports %}
             <script src="/js/scripts/{{ import }}.js" ></script>
+            <script src="/js/scripts/backoffice.js" ></script>
         {% endfor %}
     {% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,8 +35,8 @@
                     <li><a href="/backoffice-categoria">ABM Categorías</a></li>
                     <li><a href="/backoffice-sub-categoria">ABM Sub-Categorías</a></li>
                     <li><a href="/backoffice-caracteristica">ABM Características</a></li>
-                    <li><a href="/backoffice-valor-caracteristica">ABM Valor Características</a></li>
-                    <li><a href="/backoffice-sub-categoria-caracteristica">Relaciones Sub Categorías - Características</a></li>
+                    <!-- <li><a href="/backoffice-valor-caracteristica">ABM Valor Características</a></li> -->
+                    <!-- <li><a href="/backoffice-sub-categoria-caracteristica">Relaciones Sub Categorías - Características</a></li> -->
                 </ul>
             </li>
             <li> Productos
@@ -48,14 +49,8 @@
                 </ul></li>
             <li><a href="/backoffice-moneda">Moneda</a></li>
             <li><a href="/backoffice-ofertas">Admin. Ofertas</a></li>
-            <li>Admin. Armá tu PC
-                <ul>
-                    <li><a href="/backoffice-armar-pc-flujo">Flujos</a></li>
-                    <li><a href="/backoffice-restriccion">Restricciones</a></li>
-                </ul>
-            </li>
             <!-- <li><a href="/backoffice-envíos">Envíos</a></li> -->
-            <li><a href="/backoffice-informes">Informes</a></li>
+            <!-- <li><a href="/backoffice-informes">Informes</a></li> -->
             <li><a href="/backoffice-logout">Cerrar sesión</a></li>
         </ul>
     </nav>

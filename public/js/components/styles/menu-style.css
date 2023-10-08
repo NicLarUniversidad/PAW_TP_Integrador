@@ -141,10 +141,24 @@ h1{
 } 
 
 .botonInicioSesion{
-	display: block;
-    margin-inline: auto;
-    font-size: large;
-    /*width: -webkit-fill-available;*/
+		color: black;
+		position: initial;
+		margin: 4%;
+		display: block;
+		text-align: center;
+		flex-direction: column;
+		align-items: center;
+		padding: 2%;
+		font-size: x-large;
+		border: solid;
+		font-family: "Roboto-Light" !important;
+		border-radius: 10px;
+		width: 22%;
+		/* text-transform: capitalize; */
+		color: aliceblue;
+		background: #212D63;
+		text-decoration: none;
+		margin-inline: auto;
 }
 
 .ventana{
