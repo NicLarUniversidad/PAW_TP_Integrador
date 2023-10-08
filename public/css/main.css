@@ -479,7 +479,7 @@ body>header {
     position: inherit;
     display: block;
     z-index: 99999;
-    padding-bottom: 3vh;
+    padding-bottom: 4vh;
     padding-top: 2%;
 }
 
@@ -594,8 +594,8 @@ body>footer {
 
 #iconosPortada{
     display: inline;
-    height: 10%;
-    width: 10%;
+    height: 1em;
+    width: 1em;
     top: 1vw;
 	position: relative;
     margin-right: 3%;
@@ -603,7 +603,7 @@ body>footer {
 }
 
 .redes{
-    display: flex;
+    display: inline-table;
     text-align: left;
 }
 
@@ -617,11 +617,11 @@ h3{
 }
 
 .icon-cart {
-    /*float: left;*/
+    float: left;
     margin-left: 1%;
     padding-top: 0.5%;
-    height: 2em;
-    width: 2em;
+    height: 1.2em;
+    width: 1.2em;
 }
 
 
@@ -651,8 +651,8 @@ label{
 
 .InicioSesion {
     color: aliceblue;
-    margin-top: 2em;
-    margin-left: 1em;
+    margin-top: 2.5em;
+    margin-left: 0.5em;
     font-size: initial;
     /* float: right; */
     /* width: max-content; */
