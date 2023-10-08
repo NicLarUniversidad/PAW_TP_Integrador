@@ -51,6 +51,7 @@ label{
     font-size: medium;
     text-align: center;
     text-transform: uppercase;
+    font-weight: bold;
 }
 
 
@@ -62,10 +63,10 @@ a{
 }
 
 button{
-
+    cursor: pointer;
     font-size: xx-large;
     margin-top: 4%;
-    margin-bottom: 4.5%;
+    margin-bottom: 0.5%;
     margin-right: 2%;
     margin-left: 40%;
     border: double;
@@ -77,6 +78,12 @@ button{
     background: #212D63;
     text-decoration: none;
 
+}
+
+img{
+    margin-left: 48%;
+    padding: 1%;
+    margin-bottom: 3%;
 }
 
 /*-------------------RESPONSIVE---------------------*/

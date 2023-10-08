@@ -6,6 +6,7 @@ h1 {
     margin: inherit;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
+    border: double;
 }
 
 h2{

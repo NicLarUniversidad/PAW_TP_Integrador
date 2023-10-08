@@ -30,6 +30,7 @@ body{
     box-shadow: 4px 30px 6px 0px rgba(50, 50, 50, 0.45);
     border: solid;
     color: black;
+    border-radius: 10px;
 }
 
 
@@ -50,6 +51,7 @@ label{
     font-size: medium;
     text-align: center;
     text-transform: uppercase;
+    font-weight: bold;
 }
 
 
@@ -61,10 +63,10 @@ a{
 }
 
 button{
-
+    cursor: pointer;
     font-size: xx-large;
     margin-top: 4%;
-    margin-bottom: 4.5%;
+    margin-bottom: 0.5%;
     margin-right: 2%;
     margin-left: 40%;
     border: double;
@@ -78,6 +80,11 @@ button{
 
 }
 
+img{
+    margin-left: 48%;
+    padding: 1%;
+    margin-bottom: 3%;
+}
 /*-------------------RESPONSIVE---------------------*/
 
 @media (max-width: 768px){
@@ -103,9 +110,12 @@ button{
     }
 
     label{
-        width: 25%;
-        font-size: larger;
-        width: 100%;
+        width: 43%;
+        font-size: x-large;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-top: auto;
     }
 
 

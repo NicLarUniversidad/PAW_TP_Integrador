@@ -147,6 +147,62 @@ h1{
     /*width: -webkit-fill-available;*/
 }
 
+.ventana{
+    color: black;
+    width: 50%;
+    font-size: large;
+    text-align: center;
+    padding: 2%;
+    min-height: 20%;
+    border-radius: 22px;
+	left: 25%;
+	display: none;
+	position: absolute;
+	top: 15%;
+	background-color: aliceblue;
+	z-index: 1000;
+	text-transform: inherit;
+	border: 15px solid #212D63;
+}
+
+#iconosPagos{
+    width: 15%;
+}
+
+.financiero{
+	display: flex;
+    padding: 2%;
+    border: 15px solid #212D63;
+    border-radius: 10px;
+	margin: 1%;
+}
+
+#cerrar{
+	float: right;
+	width: 5%;
+}
+
+p{
+color: black;
+}
+
+.Tpromo{
+	text-transform: inherit;
+	font-weight: bold;
+	font-size: larger;
+}
+
+.Tpromociones{
+	font-size: xx-large;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+div .pagos{
+	display: block;
+    margin: auto;
+    text-align: center;
+}
 /*-------------------RESPONSIVE---------------------*/
 
 @media (max-width: 768px){
@@ -173,5 +229,29 @@ h1{
 	font-size: inherit;
 }
 
+.financiero{
+	display: inline-flex;
+    padding: none;
+	order: 5px solid #212D63;
+    border-radius: 10px;
+    margin: 1%;
+
+}
+
+div .pagos {
+    font-size: small;
+}
+
+.Tpromociones {
+    font-size: larger;
+}
+
+.Tpromo {
+    font-size: large;
+}
+
+p{
+	font-size: small;
+}
 
 }

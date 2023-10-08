@@ -3,9 +3,9 @@ h1 {
     font-size: xxx-large;
     color: aliceblue;
     background: #F97224;
-    margin: inherit;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
+    border: double;
 }
 
 h2{
@@ -50,6 +50,7 @@ img{
 
 
 /*-------------------RESPONSIVE---------------------*/
+
 
 @media (max-width: 768px){
 
