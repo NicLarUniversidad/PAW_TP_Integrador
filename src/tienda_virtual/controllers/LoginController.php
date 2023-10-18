@@ -80,17 +80,17 @@ class LoginController extends Controller
         $mensajeError = "";
         if (!isset($username)) {
             $error = true;
-            $mensajeError .= "No se ingresó usuario\n";
+            $mensajeError .= "No se ingresó usuario <br>";
         }
         if (preg_match('/[^A-Za-z0-9]/', $username)) 
         {
             //String NO tiene sólo numeros y letras
             $error = true;
-            $mensajeError .= "Se ingresó un nombre de usuario con caracteres inválidos\n";
+            $mensajeError .= "Se ingresó un nombre de usuario con caracteres inválidos <br>";
         }
         if (!isset($password)) {
             $error = true;
-            $mensajeError = "No se ingresó contraseña\n";
+            $mensajeError = "No se ingresó contraseña <br>";
         }
         $regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/'; 
         if (preg_match($regex, $mail)) {
@@ -98,19 +98,19 @@ class LoginController extends Controller
         } else { 
             //Email no válido
             $error = true;
-            $mensajeError .= "Se ingresó un email inválido\n";
+            $mensajeError .= "Se ingresó un email inválido <br>";
         }  
         if (preg_match('/[^A-Za-z]/', $nombre)) 
         {
             //String NO tiene sólo letras
             $error = true;
-            $mensajeError .= "Se ingresó un nombre inválido\n";
+            $mensajeError .= "Se ingresó un nombre inválido <br>";
         }
         if (preg_match('/[^A-Za-z]/', $apellido)) 
         {
             //String NO tiene sólo letras
             $error = true;
-            $mensajeError .= "Se ingresó un apellido inválido\n";
+            $mensajeError .= "Se ingresó un apellido inválido <br>";
         }
         if (!$error) {
             $personaService = new PersonaService($this->connection, $this->logger);
