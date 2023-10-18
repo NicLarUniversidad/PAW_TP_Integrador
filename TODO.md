@@ -1,7 +1,6 @@
 # Cosas por hacer
 
 - Agregar imágenes a detalle de producto
-http://localhost:12000/detalleproducto?publicacion=2
 
 - Documentación API Mercado pago
 

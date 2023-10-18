@@ -78,48 +78,56 @@ class LoginController extends Controller
         $activo = "SI";
         $error = false;
         $mensajeError = "";
-        if (isset($username)) {
+        if (!isset($username)) {
             $error = true;
-            $mensajeError = "No se ingresó usuario";
+            $mensajeError .= "No se ingresó usuario\n";
         }
-        if (!preg_match('/[^A-Za-z0-9]/', $username)) 
+        if (preg_match('/[^A-Za-z0-9]/', $username)) 
         {
-            //String tiene sólo numeros y letras
-        }
-        if (isset($password)) {
+            //String NO tiene sólo numeros y letras
             $error = true;
-            $mensajeError = "No se ingresó contraseña";
+            $mensajeError .= "Se ingresó un nombre de usuario con caracteres inválidos\n";
+        }
+        if (!isset($password)) {
+            $error = true;
+            $mensajeError = "No se ingresó contraseña\n";
         }
         $regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/'; 
         if (preg_match($regex, $mail)) {
             //Email válido
         } else { 
             //Email no válido
+            $error = true;
+            $mensajeError .= "Se ingresó un email inválido\n";
         }  
-        if (!preg_match('/[^A-Za-z]/', $nombre)) 
+        if (preg_match('/[^A-Za-z]/', $nombre)) 
         {
-            //String tiene sólo letras
+            //String NO tiene sólo letras
+            $error = true;
+            $mensajeError .= "Se ingresó un nombre inválido\n";
         }
-        if (!preg_match('/[^A-Za-z]/', $apellido)) 
+        if (preg_match('/[^A-Za-z]/', $apellido)) 
         {
-            //String tiene sólo letras
+            //String NO tiene sólo letras
+            $error = true;
+            $mensajeError .= "Se ingresó un apellido inválido\n";
         }
-        // if (isset($username) and isset($password)) {
-        //     $personaService = new PersonaService($this->connection, $this->logger);
-        //     $newPersona = $personaService->createPersona($mail, $nombre, $apellido);
-        //     Solicitar datos de direccion
-        //     $persona = $personaService->findByEmail($mail);
-        //     if ($persona) {
-        //         $this->logger->info("NUEVA PERSONA " . $persona->getField("id"));
-        //     }
+        if (!$error) {
+            $personaService = new PersonaService($this->connection, $this->logger);
+            $newPersona = $personaService->createPersona($mail, $nombre, $apellido);
+            //Solicitar datos de direccion
+            $persona = $personaService->findByEmail($mail);
+            if ($persona) {
+                $this->logger->info("NUEVA PERSONA " . $persona->getField("id"));
+            }
 
-        //     $userService = new UserService($this->connection, $this->logger);
+            $userService = new UserService($this->connection, $this->logger);
 
-        //     $userService->createUser($username, $password, $mail, $persona->getField("id"), $activo);
-        //     $this->pageFinderService->findFileRute("login-OK", "twig", "twig");
-        // } else {
-        //     echo "No se ingresó usuario o contraseña";
-        // }
+            $userService->createUser($username, $password, $mail, $persona->getField("id"), $activo);
+            $this->pageFinderService->findFileRute("login-OK", "twig", "twig");
+        } else {
+            echo $mensajeError;
+        }
     }
 
     public function getLogout()
