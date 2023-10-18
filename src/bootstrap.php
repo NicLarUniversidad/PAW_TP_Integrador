@@ -88,6 +88,7 @@ $routerService->get('/logout','LoginController@getLogout');
 $routerService->get('/buscar','buscador\\BuscadorController@buscar');
 $routerService->get('/arma-tu-pc','armartupc\\ArmarTuPcController@mostrarTemplate');
 $routerService->get('/carrito','carrito\\CarritoController@mostrarTemplate');
+$routerService->post('/addItem','carrito\\CarritoController@addItem');
 $routerService->get('/carrito-cancelar','carrito\\CarritoController@cancelar');
 $routerService->get('/pagar','carrito\\CarritoController@pagar');
 $routerService->get('/grupocategorias','grupocategoria\\GrupoCategoriaController@mostrarGrupoCategorias');

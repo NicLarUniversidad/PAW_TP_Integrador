@@ -5,7 +5,27 @@
 {% endblock %}
 
 {% block main %}
+
+
   
+    <script>
+        function addItem(id) {
+            fetch(
+                "/addItem?publicationId=" + id,
+                {
+                    method: "POST"//,
+                    // headers: {
+                    //     "Content-Type": "application/json"
+                    // },
+                    // body: JSON.stringify({
+                    //     publicationId : id
+                    // })
+                }
+            ).then(
+                window.location.replace("/carrito")
+            )
+        }
+    </script>
     <section>
     <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" onclick="history.back();">
         <h1>Resultados de la búsqueda</h1>
@@ -25,7 +45,7 @@
             <h2>{{ publicacion.producto.nombre }}</h2>
             <p>{{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p>
             <a href="/detalleproducto?publicacion={{ publicacion.id }}" id="verMas">Ver en Detalle</a><br>
-            <a class="agregar" href="/carrito?publicacion_id={{ publicacion.id }}">Agregar</a>
+            <a class="agregar" href="javascript:addItem({{publicacion.id}})">Agregar</a>
 
         </article>
     {% else %}
@@ -35,5 +55,4 @@
 
 {% endblock %}
 {% block footer %}
-
 {% endblock %}

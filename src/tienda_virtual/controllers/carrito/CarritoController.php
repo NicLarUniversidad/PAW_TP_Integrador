@@ -54,7 +54,7 @@ class CarritoController extends Controller
             $jsImports[]="paw";
             $jsImports[]="app";
             if (!is_null($publicationId)) {
-                $this->carritoService->addItem($publicationId);
+                //$this->carritoService->addItem($publicationId);
             }
             $data = $this->carritoService->findItems($data);
             //$this->preference->save();
@@ -89,5 +89,14 @@ class CarritoController extends Controller
         $jsImports[]="app";
         $this->pageFinderService->findFileRute("pagar","twig","twig", $cssImports,
             $data,$titulo, $jsImports);
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function addItem() {
+        $publicationId = $this->request->get("publicationId");
+        $this->logger->info("Id publicacion: " . $publicationId);
+        $this->carritoService->addItem($publicationId);
     }
 }
