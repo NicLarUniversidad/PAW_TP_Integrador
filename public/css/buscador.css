@@ -25,7 +25,7 @@ p{
     display: inline-flex;
     text-align: end;
     font-size: x-large;
-    font-style: oblique;
+    font-style: inherit;
 }
 
 section{
@@ -104,6 +104,11 @@ article{
     margin: 5%;
 }
 
+.imagenes{
+    height: 15vh;
+    width: 15vh;
+}
+
 /*-------------------RESPONSIVE---------------------*/
 
 @media (max-width: 768px){
@@ -113,8 +118,9 @@ h1{
 }
 
 h2 {
-    font-size: larger;
+    font-size: inherit;
     height: auto;
+    display: block;
 }
 
 article{
@@ -130,10 +136,19 @@ article{
 
 p{
     display: block;
+    font-size: large;
 }
 
 .agregar{
     font-size: smaller;
 }
 
+.imagenes{
+    float: left;
+}
+
+#verMas{
+    display: block;
+    margin: inherit;
+}
 }

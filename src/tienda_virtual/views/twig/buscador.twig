@@ -34,7 +34,7 @@
             <figure>
                 {% for foto in publicacion.fotografias %}
                     <picture>
-                        <img src="{{ foto.url }}" alt="{{ publicacion.producto.descripcion }}" width="250" height="100">
+                        <img class="imagenes" src="{{ foto.url }}" alt="{{ publicacion.producto.descripcion }}">
                     </picture>
                 {% else %}
                     <picture>
