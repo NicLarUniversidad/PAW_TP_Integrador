@@ -5,7 +5,7 @@ h1{
     margin-bottom: 1em;
     font-size: xxx-large;
     background: #F97224;
-    color: aliceblue;
+    color: black;
     border: double;
     padding: 0.5%;
 }
@@ -66,10 +66,8 @@ a{
 button{
     cursor: pointer;
     font-size: xx-large;
-    margin-top: 4%;
-    margin-bottom: 0.5%;
-    margin-right: 2%;
-    margin-left: 40%;
+    margin: auto;
+    display: block;
     border: double;
     font-family: "Roboto-Light" !important;
     border-radius: 10px;

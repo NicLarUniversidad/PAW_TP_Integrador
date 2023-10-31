@@ -28,14 +28,11 @@ body{
 }
 
 .footer, .footer1{
-    font-size: larger;
+    font-size: medium;
     color: black;
     margin-top: 1%;
 }
 
-.footer1{
-    margin-top: 40%;
-}
 
 section{
     color: black;
@@ -44,7 +41,7 @@ section{
 }
 
 .camion, .tienda{
-    width: 50px;
+    width: 3%;
 }
 
 .nombre{
