@@ -6,6 +6,7 @@ http://localhost:12000/detalleproducto?publicacion=2
 - Documentación API Mercado pago
 
 https://www.mercadopago.com.ar/developers/es/developer-program/checkout-pro
+https://github.com/mercadopago/checkout-payment-sample
 
 API Mapas
 

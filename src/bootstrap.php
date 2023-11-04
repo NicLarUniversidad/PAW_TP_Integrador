@@ -27,8 +27,8 @@ $dotenv = Dotenv::createUnsafeImmutable(__DIR__.'/../');
 $dotenv->load();
 
 $config = new Config();
-//MercadoPago\SDK::setAccessToken($config->get("MP_ACCESS_TOKEN"));
-//MercadoPago\SDK::setIntegratorId($config->get("MP_INTEGRATOR_ID"));
+// MercadoPago\SDK::setAccessToken($config->get("APP_USR-8709825494258279-092911-227a84b3ec8d8b30fff364888abeb67a-1160706432"));
+// MercadoPago\SDK::setIntegratorId($config->get("dev_24c65fb163bf11ea96500242ac130004"));
 $log = new Logger('Clinical');
 try {
     $handler = new StreamHandler($config->get("LOG_PATH"));
@@ -89,6 +89,7 @@ $routerService->get('/buscar','buscador\\BuscadorController@buscar');
 $routerService->get('/arma-tu-pc','armartupc\\ArmarTuPcController@mostrarTemplate');
 $routerService->get('/carrito','carrito\\CarritoController@mostrarTemplate');
 $routerService->post('/addItem','carrito\\CarritoController@addItem');
+$routerService->post('/deleteItem','carrito\\CarritoController@deleteItem');
 $routerService->get('/carrito-cancelar','carrito\\CarritoController@cancelar');
 $routerService->get('/pagar','carrito\\CarritoController@pagar');
 $routerService->get('/grupocategorias','grupocategoria\\GrupoCategoriaController@mostrarGrupoCategorias');

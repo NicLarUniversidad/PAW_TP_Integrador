@@ -21,9 +21,22 @@
                     //     publicationId : id
                     // })
                 }
-            ).then(
+            ).then(data => {
+                //data.json()                
                 window.location.replace("/carrito")
+                return false;
+            }
             )
+            /*.then((response)=> {
+                        alert("entró");
+                    if (response.status==200) {
+                        windows.location.href = "/carrito";
+                    }
+                    else {
+                        alert("error");
+                    }
+                }
+            )*/
         }
     </script>
     <section>

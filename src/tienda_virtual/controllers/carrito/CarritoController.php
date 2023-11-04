@@ -47,6 +47,25 @@ class CarritoController extends Controller
             header("Location: login?redirect%=$url");
         }
         else {
+            // $preference = new MercadoPago\Preference();
+    
+            // //Se agregan los productos al mensaje que se le manda a la API de mercado pago
+            // $item = new MercadoPago\Item();
+            // $item->title = $data->description;
+            // $item->quantity = $data->quantity;
+            // $item->unit_price = $data->price;
+    
+            // $preference->items = array($item);
+    
+            // //Configuración, dónde se indicás a dónde querés que te avise mercado pago sobre el estado del pago
+            // $preference->back_urls = array(
+            //     "success" => $url + "/success",//Si aprueba el pago
+            //     "failure" => $url + "/failure",//Si se rechaza
+            //     "pending" => $url + "/pending"//Si queda pendiente
+            // );
+            // $preference->auto_return = "approved"; 
+            // //Guardás para que te genere un ID en el servidor de Mercado Pago
+            // $preference->save();
             $cssImports = [];
             $cssImports[] = "main";
             $cssImports[] = "carrito";
@@ -58,7 +77,7 @@ class CarritoController extends Controller
             }
             $data = $this->carritoService->findItems($data);
             //$this->preference->save();
-            $data["preference"] = $this->preference ?? [];
+            $data["preference"] = $preference ?? [];
             $this->pageFinderService->findFileRute("carrito","twig","twig", $cssImports,
                 $data,$titulo, $jsImports);
         }
@@ -98,5 +117,14 @@ class CarritoController extends Controller
         $publicationId = $this->request->get("publicationId");
         $this->logger->info("Id publicacion: " . $publicationId);
         $this->carritoService->addItem($publicationId);
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function deleteItem() {
+        $publicationId = $this->request->get("publicationId");
+        $this->logger->info("Id publicacion: " . $publicationId);
+        $this->carritoService->deleteItem($publicationId);
     }
 }

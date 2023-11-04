@@ -77,6 +77,8 @@ class CarritoService extends DatabaseService
         $publicaciones = $this->publicacionService->find($id_publicacion);
         if (count($publicaciones)>0) {
             $publicacion = $publicaciones[0];
+            $itemsGuardados = $this->itemCarritoService->findByCarritoId($id);
+            
             $itemCarrito = $this->itemCarritoService->create($id, $id_publicacion, $publicacion["precio_unidad"], $publicacion["id_moneda"]);
             $this->itemCarritoService->save($itemCarrito);
         } else {
