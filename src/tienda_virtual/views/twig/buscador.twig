@@ -36,7 +36,12 @@
                 {% endfor %}
             </figure>
             <h2>{{ publicacion.producto.nombre }}</h2>
-            <p>{{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p>
+            {% if publicacion.oferta is empty %}
+                <p>{{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p>
+            {% else %}
+                <p class="antes">ANTES {{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p><br>
+                <p>AHORA  {{ publicacion.oferta.precio_oferta }} {{ publicacion.moneda.nombre }}</p>
+            {% endif %}
             <a href="/detalleproducto?publicacion={{ publicacion.id }}" id="verMas">Ver en Detalle</a><br>
             <a class="agregar" href="javascript:addItem({{publicacion.id}})">Agregar</a>
 

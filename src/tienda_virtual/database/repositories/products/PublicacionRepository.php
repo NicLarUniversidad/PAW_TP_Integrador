@@ -7,6 +7,7 @@ namespace src\tienda_virtual\database\repositories\products;
 use Monolog\Logger;
 use PDO;
 use src\tienda_virtual\database\models\Model;
+use src\tienda_virtual\database\services\categories\OfertaService;
 use src\tienda_virtual\database\services\products\FotografiaProductoService;
 use src\tienda_virtual\database\services\products\ProductoService;
 use src\tienda_virtual\database\services\categories\MonedaService;
@@ -38,6 +39,7 @@ class PublicacionRepository extends \src\tienda_virtual\database\repositories\Re
         $productoService = new ProductoService($this->connection, $this->logger);
         $productoSubCategoriaService = new ProductoSubCategoriaService($this->connection, $this->logger);
         $fotografiaProductoService = new FotografiaProductoService($this->connection, $this->logger);
+        $ofertaService = new OfertaService($this->connection, $this->logger);
         $monedaService = new MonedaService($this->connection, $this->logger);
         /*$productos = $productoService->findByName($parametros);
         $publicaciones = [];
@@ -62,6 +64,11 @@ class PublicacionRepository extends \src\tienda_virtual\database\repositories\Re
                 $publicacion["producto"] = $productoService->find($publicacion["id_producto"])[0];
                 $publicacion["fotografias"] = $fotografiaProductoService->findByProductoId($publicacion["id_producto"]);
                 $publicacion["moneda"] = $monedaService->find($publicacion["id_moneda"])[0];
+                $publicacion["oferta"] = $ofertaService->findByPublicacion($publicacion["id"]);
+                if (count($publicacion["oferta"])>0) {
+                    $publicacion["oferta"] = $publicacion["oferta"][0];
+                    $this->logger->error(serialize($publicacion["oferta"]));
+                }
                 if (is_null($sub_categoria))
                     $result[] = $publicacion;
                 else {
