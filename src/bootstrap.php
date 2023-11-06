@@ -27,8 +27,10 @@ $dotenv = Dotenv::createUnsafeImmutable(__DIR__.'/../');
 $dotenv->load();
 
 $config = new Config();
-// MercadoPago\SDK::setAccessToken($config->get("APP_USR-8709825494258279-092911-227a84b3ec8d8b30fff364888abeb67a-1160706432"));
-// MercadoPago\SDK::setIntegratorId($config->get("dev_24c65fb163bf11ea96500242ac130004"));
+if ($config->get("MERCADO_PAGO_ACCESS_TOKEN")!='') {
+    MercadoPago\SDK::setAccessToken($config->get("MERCADO_PAGO_ACCESS_TOKEN"));
+}
+//MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
 $log = new Logger('Clinical');
 try {
     $handler = new StreamHandler($config->get("LOG_PATH"));
@@ -99,6 +101,11 @@ $routerService->get('/ofertas','oferta\\OfertaController@mostrarOfertas');
 $routerService->get('/detalleproducto','detalleProducto\\DetalleProductoController@mostrarDetalles');
 $routerService->get('/miscompras','misCompras\\MisComprasController@mostrarMisCompras');
 
+$routerService->post('/create_preference','MercadoPagoHandlerController@post');
+$routerService->get('/create_preference','MercadoPagoHandlerController@post');
+$routerService->get('/success','MercadoPagoHandlerController@success');
+$routerService->get('/failure','MercadoPagoHandlerController@failure');
+$routerService->get('/pending','MercadoPagoHandlerController@pending');
 //Errores
 $routerService->get('/not_found', 'PageNotFoundException@get');
 $routerService->get('/server_error', 'IndexNotFoundException@get');

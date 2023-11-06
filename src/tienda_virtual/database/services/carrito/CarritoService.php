@@ -10,8 +10,6 @@ use src\tienda_virtual\database\services\products\ProductoService;
 use src\tienda_virtual\database\services\products\PublicacionService;
 use src\tienda_virtual\services\LogginService;
 use src\tienda_virtual\services\PagoService;
-use src\tienda_virtual\traits\TConnection;
-use src\tienda_virtual\traits\TLogger;
 use src\tienda_virtual\traits\TSession;
 
 class CarritoService extends DatabaseService
@@ -101,5 +99,9 @@ class CarritoService extends DatabaseService
     {
         //return $this->pagoService->getPreference();
         return "1";
+    }
+
+    public function getCarrito() {
+
     }
 }
