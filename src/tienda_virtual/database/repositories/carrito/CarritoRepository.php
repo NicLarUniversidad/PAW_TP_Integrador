@@ -24,4 +24,14 @@ class CarritoRepository extends Repository
                 "activo"=>"SI"])
             ->execute();
     }
+
+    public function findByPreferenceId(String $preferenceId) : array {
+        $model = new $this->modelo();
+        return $this->queryBuilder->select($model->getTableFields())
+            ->from($this->tabla)
+            ->where([
+                "idPago"=>$preferenceId,
+                ])
+            ->execute();
+    }
 }

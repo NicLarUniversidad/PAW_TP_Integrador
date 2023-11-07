@@ -14,6 +14,8 @@ class CarritoModel extends Model
         $this->setField("precio_total", "");
         $this->setField("id_usuario", "");
         $this->setField("id_moneda", "");
+        $this->setField("pagado", "");
+        $this->setField("idPago", "");
         $this->setField("activo", "");
     }
 }

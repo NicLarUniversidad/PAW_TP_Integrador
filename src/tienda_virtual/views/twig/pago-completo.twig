@@ -1,0 +1,17 @@
+{% extends "parts/commons.twig" %}
+
+
+{% block head %}
+    <script src="https://www.mercadopago.com/v2/security.js" view="item"></script>
+    <link rel="stylesheet" type="text/css" href="css/pago-completo.css" />
+    <script src="/js/scripts/pago-completo.js" ></script>
+{% endblock %}
+
+{% block main %}
+
+    <section>
+        <h2>Pago completo</h2>
+        <p>Se ha completado el pago</p>
+        <img src="img/green-check.png">
+    </section>
+{% endblock %}

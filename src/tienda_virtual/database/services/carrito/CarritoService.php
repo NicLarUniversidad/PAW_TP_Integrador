@@ -4,6 +4,7 @@ namespace src\tienda_virtual\database\services\carrito;
 
 use Monolog\Logger;
 use PDO;
+use src\tienda_virtual\database\models\carrito\CarritoModel;
 use src\tienda_virtual\database\services\DatabaseService;
 use src\tienda_virtual\database\services\products\FotografiaProductoService;
 use src\tienda_virtual\database\services\products\ProductoService;
@@ -44,6 +45,7 @@ class CarritoService extends DatabaseService
             foreach ($items as $item) {
                 $publicacion = $this->publicacionService->find($item["id_publicacion"])[0];
                 $publicacion["nombre"] = $this->productoService->find($publicacion["id_producto"])[0]["descripcion"];
+                $publicacion["cantidad"] = $item["cantidad"];
                 $fotos = $this->fotografiaProductoService->findByProductoId($publicacion["id_producto"]);
                 if (count($fotos) > 0) {
                     $publicacion["foto"] = $fotos[0]["url"];
@@ -73,12 +75,28 @@ class CarritoService extends DatabaseService
             $this->session->put("carrito", $id);
         }
         $publicaciones = $this->publicacionService->find($id_publicacion);
-        if (count($publicaciones)>0) {
+        if (!empty($publicaciones)) {
             $publicacion = $publicaciones[0];
             $itemsGuardados = $this->itemCarritoService->findByCarritoId($id);
-            
-            $itemCarrito = $this->itemCarritoService->create($id, $id_publicacion, $publicacion["precio_unidad"], $publicacion["id_moneda"]);
-            $this->itemCarritoService->save($itemCarrito);
+            $yaEstaGuardado = false;
+            $item = null;
+            foreach ($itemsGuardados as $itemGuardado) {
+                if ($itemGuardado["id_publicacion"]==$id_publicacion) {
+                    $item = $itemGuardado;
+                    $yaEstaGuardado = true;
+                }
+            }
+            if ($yaEstaGuardado) {
+                $this->logger->info("Se agrega cantidad al item con id=" . $id_publicacion);
+                $item["cantidad"] = $item["cantidad"]  + 1;
+                $itemCarrito = new CarritoModel();
+                $itemCarrito->setFields($item);
+                $this->logger->info("Cantidad=" . $item["cantidad"] );
+                $this->itemCarritoService->update($itemCarrito);
+            } else {
+                $itemCarrito = $this->itemCarritoService->create($id, $id_publicacion, $publicacion["precio_unidad"], $publicacion["id_moneda"]);
+                $this->itemCarritoService->save($itemCarrito);
+            }
         } else {
             $this->logger->error("Se ingresó un ID de Publicación inválido: $id_publicacion");
         }
@@ -101,7 +119,54 @@ class CarritoService extends DatabaseService
         return "1";
     }
 
-    public function getCarrito() {
+    public function deleteItem($idPublication) {
+        $id = $this->session->get("carrito");
+        if (!isset($id) || $id=="") {$itemsGuardados = $this->itemCarritoService->findByCarritoId($id);
+            $encontrado = false;
+            $item = null;
+            foreach ($itemsGuardados as $itemGuardado) {
+                if ($itemGuardado["id_publicacion"]==$idPublication) {
+                    $item = $itemGuardado;
+                    $encontrado = true;
+                }
+            }
+            if ($encontrado) {
+                $itemCarrito = new CarritoModel();
+                $itemCarrito->setFields($item);
+                $this->itemCarritoService->delete($itemCarrito);
+            }
+        }
+    }
 
+    /*
+     * Función para persistir el pago con todos los items.
+     * Se asocia al preference ID de mercado pago
+     * que se genera en el backend y se devuelve desde la back-url.
+     */
+    public function registerPayment($preferenceId) {
+        $idCarrito = $this->session->get("carrito");
+        $carrrito = $this->repository->createInstance();
+        $campos = $this->repository->find($idCarrito);
+        if (count($campos)>0) {
+            $carrrito->setFields($campos[0]);
+            $carrrito->setField("pagado", "PENDIENTE");
+            $carrrito->setField("idPago", $preferenceId);
+        }
+        $this->repository->update($carrrito);
+    }
+
+    /*
+     * Función para completar un pago
+     */
+    public function pay($preferenceId) {
+        $carrrito = $this->repository->createInstance();
+        $campos = $this->repository->findByPreferenceId($preferenceId);
+        if (count($campos)>0) {
+            $carrrito->setFields($campos[0]);
+            $carrrito->setField("pagado", "PAGADO");
+            $carrrito->setField("activo", "NO");
+        }
+        $this->repository->update($carrrito);
+        $this->session->delete("carrito");
     }
 }

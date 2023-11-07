@@ -19,8 +19,10 @@
                 {
                     method: "POST"
                 }
-            ).then(
-                //location.reload("");
+            ).then(() => {
+                    window.location.replace("/carrito")
+                    return false;
+            }
             )
         }
     </script>
@@ -40,8 +42,9 @@
                 </picture>
                 <h2>{{ publicacion.productos[0].nombre }}</h2>  <!-- <h2>{{ publicacion.productos[0].nombre }}</h2>-->
                 <p>Precio: {{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p>
+                <p>Cantidad: {{ publicacion.cantidad }}</p>
                 <button class="button-delete" id="eliminar-{{ attribute(attribute(publicacion, "id"),"value") }}"
-                    onclick="deleteItem({{publicacion.id}})"
+                    onclick='deleteItem({{publicacion.id}})'
                 >Eliminar artículo</button>
             </article>
 
@@ -61,7 +64,7 @@
     <script>
         // Add SDK credentials
         // REPLACE WITH YOUR PUBLIC KEY AVAILABLE IN: https://developers.mercadopago.com/panel
-        const mercadopago = new MercadoPago("TEST-f56f02f5-73fc-44cc-9fcc-aad3bb74c83a", {
+        const mercadopago = new MercadoPago("TEST-26dbdae3-8029-4cee-9ceb-70fe8181cc95", {
             locale: locale // The most common are: 'pt-BR', 'es-AR' and 'en-US'
         });
         button.init(mercadopago);
@@ -69,63 +72,33 @@
         // Handle call to backend and generate preference.
         $('#checkout-btn').attr("disabled", true);
 
-        fetch("http://localhost:12000/create_preference", {
+        fetch("/create_preference", {
             method: "POST",
             headers: {
             "Content-Type": "application/json",
             }
         })
             .then(function (response) {
-            return response.json();
+                return response.json();
             })
             .then(function (preference) {
-            createCheckoutButton(preference.id);
-
-            $(".shopping-cart").fadeOut(500);
-            setTimeout(() => {
-                $(".container_payment").show(500).fadeIn();
-            }, 500);
-            })
-            .catch(function () {
-            alert("Unexpected error");
-            $('#checkout-btn').attr("disabled", false);
+                createCheckoutButton(preference.id);
             });
 
         function createCheckoutButton(preferenceId) {
-        // Initialize the checkout
-        const bricksBuilder = mercadopago.bricks();
 
-        const renderComponent = async (bricksBuilder) => {
-            if (window.checkoutButton) window.checkoutButton.unmount();
-            await bricksBuilder.create(
-            'wallet',
-            'checkout-btn', // class/id where the payment button will be displayed
-            {
+            mercadopago.bricks().create("wallet", "checkout-btn", {
                 initialization: {
-                preferenceId: preferenceId
+                    preferenceId: preferenceId,
+                    redirectMode: "modal"
                 },
                 callbacks: {
-                onError: (error) => console.error(error),
-                onReady: () => {}
+                    onError: (error) => console.error(error),
+                    onReady: () => {}
                 }
-            }
-            );
-        };
-        window.checkoutButton =  renderComponent(bricksBuilder);
+            });
         }
 
-
-    </script>
-    <script>
-
-
-        // const mp = new MercadoPago('APP_USR-ff96fe80-6866-4888-847e-c69250754d38');
-        // const bricksBuilder = mp.bricks();
-        // mp.bricks().create("wallet", "wallet_container", {
-        //     initialization: {
-        //         preferenceId: "{{ data.preference.id }}",
-        //     },
-        // });
 
     </script>
 {% endblock %}

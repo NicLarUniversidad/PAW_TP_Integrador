@@ -37,11 +37,13 @@ class DatabaseService
 
     public function save(Model $model): void
     {
+        $this->logger->info("Save: " . serialize($model));
         $this->repository->save($model);
     }
 
     public function update(Model $model): void
     {
+        $this->logger->info("Update: " . serialize($model));
         $this->repository->update($model);
     }
 

@@ -5,17 +5,21 @@ namespace src\tienda_virtual\controllers;
 use MercadoPago\Preference;
 use MercadoPago\Item;
 use src\tienda_virtual\database\services\carrito\CarritoService;
+use src\tienda_virtual\services\TwigPageFinderService;
 use src\tienda_virtual\services\UserService;
 
 class MercadoPagoHandlerController extends Controller
 {
     protected CarritoService $carritoService;
     protected UserService $userService;
-    private string $url = "http://localhost:12000";
+    //private string $url = "http://localhost:12000";
+    private string $url = "https://8184-149-102-233-227.ngrok-free.app";
 
     public function init()
     {
         parent::init();
+        $this->pageFinderService = new TwigPageFinderService();
+        $this->pageFinderService->session = $this->session;
         $this->carritoService = new CarritoService($this->connection, $this->logger);
         $this->carritoService->setSession($this->session);
         $this->carritoService->init();
@@ -53,6 +57,8 @@ class MercadoPagoHandlerController extends Controller
 
         $preference->save();
 
+        $this->carritoService->registerPayment($preference->id);
+
         $response = array(
             'id' => $preference->id,
         ); 
@@ -61,10 +67,16 @@ class MercadoPagoHandlerController extends Controller
 
     public function success() {
         //TODO: Pago completo, restar stock
-        $post = file_get_contents('php://input');
-        $myfile = fopen("testfile.txt", "w");
-        fwrite($myfile, $post);
-        fclose($myfile);
+        $id = $this->request->get("preference_id");
+        $this->carritoService->pay($id);
+        $cssImports = [];
+        $cssImports[] = "main";
+        $cssImports[] = "carrito";
+        $jsImports = [];
+        $jsImports[]="paw";
+        $jsImports[]="app";
+        $this->pageFinderService->findFileRute("pago-completo","twig","twig", $cssImports,
+            [],"", $jsImports);
     }
 
     public function failure() {
