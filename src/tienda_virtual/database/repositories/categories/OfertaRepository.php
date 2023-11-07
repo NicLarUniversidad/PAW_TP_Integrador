@@ -13,4 +13,12 @@ class OfertaRepository extends Repository
     {
         parent::__construct($logger, $connection, "oferta", "ofertas\\OfertasModel");
     }
+
+    public function findByPublicacion($idPublicacion) {
+        $model = new $this->modelo();
+        return $this->queryBuilder->select($model->getTableFields())
+            ->from($this->tabla)
+            ->where(["id_publicacion" => $idPublicacion])
+            ->execute();
+    }
 }

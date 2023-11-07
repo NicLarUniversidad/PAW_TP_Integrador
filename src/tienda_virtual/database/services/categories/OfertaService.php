@@ -34,4 +34,8 @@ class OfertaService extends DatabaseService
         ]);
     }
 
+    public function findByPublicacion($idPublicacion) {
+        return $this->repository->findByPublicacion($idPublicacion);
+    }
+
 }

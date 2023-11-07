@@ -1,7 +1,9 @@
 {% extends "parts/commons.twig" %}
 
 {% block head %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://www.mercadopago.com/v2/security.js" view="item"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://sdk.mercadopago.com/js/v2"></script>
     <link rel="stylesheet" type="text/css" href="css/carrito.css" />
     <script src="/js/scripts/carrito.js" ></script>
@@ -10,11 +12,28 @@
 {% endblock %}
 
 {% block main %}
+    <script>
+        function deleteItem(id) {
+            fetch(
+                "/deleteItem?publicationId=" + id,
+                {
+                    method: "POST"
+                }
+            ).then(() => {
+                    window.location.replace("/carrito")
+                    return false;
+            }
+            )
+        }
+    </script>
 
     <section>
         <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" onclick="history.back();">
+        <div class="btn-pagar">
+            <div id="checkout-btn"></div>
+            <div id="wallet_container"></div>
+        </div>
         <a href="/carrito-cancelar" class="btn-cancelar">Cancelar compra</a>
-        <a href="/pagar" class="btn-pagar"> Pagar </a>
         <h1>Carrito</h1>
         {% for publicacion in data.publicaciones %}
             <article class="productos" id="productos">
@@ -23,7 +42,10 @@
                 </picture>
                 <h2>{{ publicacion.productos[0].nombre }}</h2>  <!-- <h2>{{ publicacion.productos[0].nombre }}</h2>-->
                 <p>Precio: {{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p>
-                <button class="button-delete" id="eliminar-{{ attribute(attribute(publicacion, "id"),"value") }}">Eliminar artículo</button>
+                <p>Cantidad: {{ publicacion.cantidad }}</p>
+                <button class="button-delete" id="eliminar-{{ attribute(attribute(publicacion, "id"),"value") }}"
+                    onclick='deleteItem({{publicacion.id}})'
+                >Eliminar artículo</button>
             </article>
 
     {% for carrito in data.carrito %}
@@ -39,15 +61,45 @@
         <span class="seguirCompra">Para seguir comprando, navegue por las categorías en el sitio, o busque su producto.</span>
         <a href="/grupocategorias" class="inicio">Seguir comprando</a>
     {% endfor %}
-    <button class="btn btn-primary btn-lg btn-block" id="checkout-btn">Checkout</button>
-
     <script>
         // Add SDK credentials
         // REPLACE WITH YOUR PUBLIC KEY AVAILABLE IN: https://developers.mercadopago.com/panel
-        const mercadopago = new MercadoPago(publicKey, {
+        const mercadopago = new MercadoPago("TEST-26dbdae3-8029-4cee-9ceb-70fe8181cc95", {
             locale: locale // The most common are: 'pt-BR', 'es-AR' and 'en-US'
         });
         button.init(mercadopago);
+        
+        // Handle call to backend and generate preference.
+        $('#checkout-btn').attr("disabled", true);
+
+        fetch("/create_preference", {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json",
+            }
+        })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (preference) {
+                createCheckoutButton(preference.id);
+            });
+
+        function createCheckoutButton(preferenceId) {
+
+            mercadopago.bricks().create("wallet", "checkout-btn", {
+                initialization: {
+                    preferenceId: preferenceId,
+                    redirectMode: "modal"
+                },
+                callbacks: {
+                    onError: (error) => console.error(error),
+                    onReady: () => {}
+                }
+            });
+        }
+
+
     </script>
 {% endblock %}
 

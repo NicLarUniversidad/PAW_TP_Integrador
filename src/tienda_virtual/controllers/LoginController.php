@@ -72,6 +72,7 @@ class LoginController extends Controller
     {
         $username = $this->request->get("username");
         $password = $this->request->get("password");
+        $rePassword = $this->request->get("re-password");
         $mail = $this->request->get("mail") ?? "";
         $nombre = $this->request->get("nombre") ?? "";
         $apellido = $this->request->get("apellido") ?? "";
@@ -92,7 +93,7 @@ class LoginController extends Controller
             $error = true;
             $mensajeError = "No se ingresó contraseña <br>";
         }
-        $regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/'; 
+        $regex = '/^[a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/'; 
         if (preg_match($regex, $mail)) {
             //Email válido
         } else { 
@@ -111,6 +112,12 @@ class LoginController extends Controller
             //String NO tiene sólo letras
             $error = true;
             $mensajeError .= "Se ingresó un apellido inválido <br>";
+        }
+        if (strcmp($password, $rePassword)) 
+        {
+            //Contraseñas diferentes
+            $error = true;
+            $mensajeError .= "Se ingresaron dos contraseñas distintas <br>";
         }
         if (!$error) {
             $personaService = new PersonaService($this->connection, $this->logger);

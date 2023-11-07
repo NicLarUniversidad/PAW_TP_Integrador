@@ -27,8 +27,10 @@ $dotenv = Dotenv::createUnsafeImmutable(__DIR__.'/../');
 $dotenv->load();
 
 $config = new Config();
-//MercadoPago\SDK::setAccessToken($config->get("MP_ACCESS_TOKEN"));
-//MercadoPago\SDK::setIntegratorId($config->get("MP_INTEGRATOR_ID"));
+if ($config->get("MERCADO_PAGO_ACCESS_TOKEN")!='') {
+    MercadoPago\SDK::setAccessToken($config->get("MERCADO_PAGO_ACCESS_TOKEN"));
+}
+//MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
 $log = new Logger('Clinical');
 try {
     $handler = new StreamHandler($config->get("LOG_PATH"));
@@ -89,6 +91,7 @@ $routerService->get('/buscar','buscador\\BuscadorController@buscar');
 $routerService->get('/arma-tu-pc','armartupc\\ArmarTuPcController@mostrarTemplate');
 $routerService->get('/carrito','carrito\\CarritoController@mostrarTemplate');
 $routerService->post('/addItem','carrito\\CarritoController@addItem');
+$routerService->post('/deleteItem','carrito\\CarritoController@deleteItem');
 $routerService->get('/carrito-cancelar','carrito\\CarritoController@cancelar');
 $routerService->get('/pagar','carrito\\CarritoController@pagar');
 $routerService->get('/grupocategorias','grupocategoria\\GrupoCategoriaController@mostrarGrupoCategorias');
@@ -98,6 +101,11 @@ $routerService->get('/ofertas','oferta\\OfertaController@mostrarOfertas');
 $routerService->get('/detalleproducto','detalleProducto\\DetalleProductoController@mostrarDetalles');
 $routerService->get('/miscompras','misCompras\\MisComprasController@mostrarMisCompras');
 
+$routerService->post('/create_preference','MercadoPagoHandlerController@post');
+$routerService->get('/create_preference','MercadoPagoHandlerController@post');
+$routerService->get('/success','MercadoPagoHandlerController@success');
+$routerService->get('/failure','MercadoPagoHandlerController@failure');
+$routerService->get('/pending','MercadoPagoHandlerController@pending');
 //Errores
 $routerService->get('/not_found', 'PageNotFoundException@get');
 $routerService->get('/server_error', 'IndexNotFoundException@get');

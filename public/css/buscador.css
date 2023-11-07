@@ -152,3 +152,10 @@ p{
     margin: inherit;
 }
 }
+.antes{
+    text-decoration:line-through;
+    color: red;
+    text-align: center;
+    width: max-content;
+    margin-bottom: 0px;
+}
