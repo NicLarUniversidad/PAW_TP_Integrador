@@ -9,8 +9,10 @@ use src\tienda_virtual\database\services\DatabaseService;
 use src\tienda_virtual\database\services\products\FotografiaProductoService;
 use src\tienda_virtual\database\services\products\ProductoService;
 use src\tienda_virtual\database\services\products\PublicacionService;
+use src\tienda_virtual\database\services\ventas\VentasService;
 use src\tienda_virtual\services\LogginService;
 use src\tienda_virtual\services\PagoService;
+use src\tienda_virtual\services\UserService;
 use src\tienda_virtual\traits\TSession;
 
 class CarritoService extends DatabaseService
@@ -21,6 +23,7 @@ class CarritoService extends DatabaseService
     protected ProductoService $productoService;
     protected FotografiaProductoService $fotografiaProductoService;
     protected PagoService $pagoService;
+    protected VentasService $ventasService;
 
     public function __construct(PDO $PDO, Logger $logger)
     {
@@ -29,6 +32,7 @@ class CarritoService extends DatabaseService
         $this->publicacionService = new PublicacionService($PDO, $logger);
         $this->productoService = new ProductoService($PDO, $logger);
         $this->fotografiaProductoService = new FotografiaProductoService($PDO, $logger);
+        $this->ventasService = new VentasService($PDO, $logger);
         //$this->pagoService = new PagoService();
     }
 
@@ -36,9 +40,14 @@ class CarritoService extends DatabaseService
 
     }
 
+    public function getCarritoId() {
+        $usuario = $this->session->get(UserService::$USER_SESSION_NAME);
+        return $this->findByUsername($usuario["id"]);
+    }
+
     public function findItems(array $data = []) : array
     {
-        $carrito = $this->session->get("carrito") ?? "";
+        $carrito = $this->getCarritoId();
         if ($carrito != "") {
             $items = $this->itemCarritoService->findByCarritoId($carrito);
             $publicaciones = [];
@@ -60,7 +69,7 @@ class CarritoService extends DatabaseService
     }
 
     public function addItem(String $id_publicacion) {
-        $id = $this->session->get("carrito");
+        $id = $this->getCarritoId();
         if (!isset($id) || $id=="") {
             $carrito = $this->repository->getModelInstance();
             //TODO: quitar mock
@@ -102,8 +111,9 @@ class CarritoService extends DatabaseService
         }
     }
 
-    public function setInactice($idCarrito)
+    public function setInactice()
     {
+        $idCarrito = $this->getCarritoId();
         $carrrito = $this->repository->createInstance();
         $campos = $this->repository->find($idCarrito);
         if (count($campos)>0) {
@@ -144,12 +154,13 @@ class CarritoService extends DatabaseService
      * que se genera en el backend y se devuelve desde la back-url.
      */
     public function registerPayment($preferenceId) {
-        $idCarrito = $this->session->get("carrito");
+        $idCarrito = $this->getCarritoId();
+        $this->logger->info("Se crea ID de pago: id: " . $preferenceId . " | id carrito: " . $idCarrito);
         $carrrito = $this->repository->createInstance();
         $campos = $this->repository->find($idCarrito);
         if (count($campos)>0) {
             $carrrito->setFields($campos[0]);
-            $carrrito->setField("pagado", "PENDIENTE");
+            $carrrito->setField("pagado", "PAGO_SOLICITADO");
             $carrrito->setField("idPago", $preferenceId);
         }
         $this->repository->update($carrrito);
@@ -159,14 +170,31 @@ class CarritoService extends DatabaseService
      * Función para completar un pago
      */
     public function pay($preferenceId) {
+        $this->logger->info("Se completa el pago con ID = " . $preferenceId);
         $carrrito = $this->repository->createInstance();
         $campos = $this->repository->findByPreferenceId($preferenceId);
+        $this->logger->info("Campos del carrito: = " . serialize($campos));
         if (count($campos)>0) {
             $carrrito->setFields($campos[0]);
             $carrrito->setField("pagado", "PAGADO");
             $carrrito->setField("activo", "NO");
+            $this->repository->update($carrrito);
+            $items = $this->itemCarritoService->findByCarritoId($campos[0]["id"]);
+            $this->ventasService->addSale($campos[0], $items);
         }
-        $this->repository->update($carrrito);
-        $this->session->delete("carrito");
+    }
+
+    /*
+     * Devuelve el último carrito activo del usuario
+     */
+    private function findByUsername($username)
+    {
+        $carrito =  $this->repository->findByUsername($username);
+        if (count($carrito)>0) {
+            return $carrito[0]["id"];
+        }
+        else {
+            return "";
+        }
     }
 }

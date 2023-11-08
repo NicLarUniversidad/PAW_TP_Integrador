@@ -25,13 +25,12 @@ class Buscador
     addAddToCartEvent() {
         let items = document.querySelectorAll("article > a");
         items.forEach((item) => {
-            console.log("lel")
             const originalId = item.id.split("-");
             if (originalId[0]==="addToCart") {
                 const id = originalId[1];
                 item.addEventListener("click", () => {
                     fetch(
-                        "/deleteItem?publicationId=" + id,
+                        "/addItem?publicationId=" + id,
                         {
                             method: "POST"
                         }

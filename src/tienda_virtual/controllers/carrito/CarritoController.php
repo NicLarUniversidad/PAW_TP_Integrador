@@ -89,7 +89,7 @@ class CarritoController extends Controller
     public function cancelar(String $notificacion = "", array $data = [], String $titulo = "Carrito") {
         $this->session->delete("procesado");
         $idCarrito = $this->session->get("carrito");
-        $this->carritoService->setInactice($idCarrito);
+        $this->carritoService->setInactice();
         $this->session->delete("carrito");
         $this->mostrarTemplate($notificacion, $data, $titulo);
     }

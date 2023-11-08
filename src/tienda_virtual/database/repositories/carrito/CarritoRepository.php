@@ -34,4 +34,19 @@ class CarritoRepository extends Repository
                 ])
             ->execute();
     }
+
+    /*
+     * Devuelve el último carrito activo del usuario
+     */
+    public function findByUsername($userId)
+    {
+        $model = new $this->modelo();
+        return $this->queryBuilder->select($model->getTableFields())
+            ->from($this->tabla)
+            ->where([
+                "id_usuario"=>$userId,
+                "activo"=>"SI"
+            ])
+            ->execute();
+    }
 }
