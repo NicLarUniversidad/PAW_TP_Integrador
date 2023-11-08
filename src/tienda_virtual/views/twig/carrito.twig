@@ -1,7 +1,6 @@
 {% extends "parts/commons.twig" %}
 
 {% block head %}
-    <script src="https://www.mercadopago.com/v2/security.js" view="item"></script>
     <script src="https://sdk.mercadopago.com/js/v2"></script>
     <link rel="stylesheet" type="text/css" href="css/carrito.css" />
     <script src="/js/scripts/carrito.js" ></script>
@@ -60,20 +59,16 @@
             .then(function (response) {
                 return response.json();
             })
-            .then(function (preference) {
-                createCheckoutButton(preference.id);
+            .then(async function (preference) {
+                await createCheckoutButton(preference.id);
             });
 
-        function createCheckoutButton(preferenceId) {
+        async function createCheckoutButton(preferenceId) {
 
-            mercadopago.bricks().create("wallet", "checkout-btn", {
+            await mercadopago.bricks().create("wallet", "checkout-btn", {
                 initialization: {
                     preferenceId: preferenceId,
                     redirectMode: "modal"
-                },
-                callbacks: {
-                    onError: (error) => console.error(error),
-                    onReady: () => {}
                 }
             });
         }

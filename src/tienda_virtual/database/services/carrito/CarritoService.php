@@ -9,6 +9,7 @@ use src\tienda_virtual\database\services\DatabaseService;
 use src\tienda_virtual\database\services\products\FotografiaProductoService;
 use src\tienda_virtual\database\services\products\ProductoService;
 use src\tienda_virtual\database\services\products\PublicacionService;
+use src\tienda_virtual\database\services\ventas\SolicitudVentaService;
 use src\tienda_virtual\database\services\ventas\VentasService;
 use src\tienda_virtual\services\LogginService;
 use src\tienda_virtual\services\PagoService;
@@ -24,6 +25,7 @@ class CarritoService extends DatabaseService
     protected FotografiaProductoService $fotografiaProductoService;
     protected PagoService $pagoService;
     protected VentasService $ventasService;
+    protected SolicitudVentaService $solicitudVentaService;
 
     public function __construct(PDO $PDO, Logger $logger)
     {
@@ -33,6 +35,7 @@ class CarritoService extends DatabaseService
         $this->productoService = new ProductoService($PDO, $logger);
         $this->fotografiaProductoService = new FotografiaProductoService($PDO, $logger);
         $this->ventasService = new VentasService($PDO, $logger);
+        $this->solicitudVentaService = new SolicitudVentaService($PDO, $logger);
         //$this->pagoService = new PagoService();
     }
 
@@ -162,6 +165,7 @@ class CarritoService extends DatabaseService
             $carrrito->setFields($campos[0]);
             $carrrito->setField("pagado", "PAGO_SOLICITADO");
             $carrrito->setField("idPago", $preferenceId);
+            $this->solicitudVentaService->createpaymentRequest($idCarrito, $preferenceId);
         }
         $this->repository->update($carrrito);
     }
@@ -170,17 +174,24 @@ class CarritoService extends DatabaseService
      * Función para completar un pago
      */
     public function pay($preferenceId) {
-        $this->logger->info("Se completa el pago con ID = " . $preferenceId);
-        $carrrito = $this->repository->createInstance();
-        $campos = $this->repository->findByPreferenceId($preferenceId);
-        $this->logger->info("Campos del carrito: = " . serialize($campos));
-        if (count($campos)>0) {
-            $carrrito->setFields($campos[0]);
-            $carrrito->setField("pagado", "PAGADO");
-            $carrrito->setField("activo", "NO");
-            $this->repository->update($carrrito);
-            $items = $this->itemCarritoService->findByCarritoId($campos[0]["id"]);
-            $this->ventasService->addSale($campos[0], $items);
+        $paymentRequest = $this->solicitudVentaService->findPendingPaymentByExternalId($preferenceId);
+        $this->logger->info("Se completa el pago con ID = " . $preferenceId . " | solicitud: " . serialize($paymentRequest));
+        if (count($paymentRequest)==0) {
+            $this->logger->error("Se quiso actualizar un id de pago inválido: " . $preferenceId);
+        }
+        else {
+            $carrrito = $this->repository->createInstance();
+            $campos = $this->repository->find($paymentRequest[0]["id_carrito"]);
+            $this->logger->info("Campos del carrito: = " . serialize($campos));
+            if (count($campos)>0) {
+                $carrrito->setFields($campos[0]);
+                $carrrito->setField("pagado", "PAGADO");
+                $carrrito->setField("activo", "NO");
+                $this->repository->update($carrrito);
+                $items = $this->itemCarritoService->findByCarritoId($campos[0]["id"]);
+                $this->ventasService->addSale($campos[0], $items);
+                $this->solicitudVentaService->pay($paymentRequest[0]);
+            }
         }
     }
 

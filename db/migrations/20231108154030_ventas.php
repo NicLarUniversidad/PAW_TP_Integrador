@@ -18,6 +18,14 @@ final class Ventas extends AbstractMigration
      */
     public function change(): void
     {
+        $table = $this->table('solicitud-venta');
+        $table->addColumn('id_carrito', 'integer')
+            ->addForeignKey('id_carrito', 'carrito', 'id', ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'])
+            ->addColumn('idPago', 'string')
+            ->addColumn('estado', 'string')
+            ->addColumn('activo', 'string')
+            ->create();
+
         $table = $this->table('venta');
         $table->addColumn('id_carrito', 'integer')
             ->addForeignKey('id_carrito', 'carrito', 'id', ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'])

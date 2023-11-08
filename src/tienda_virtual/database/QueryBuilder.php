@@ -115,7 +115,7 @@ class QueryBuilder
     }
 
     public function update(string $table, array $values) : QueryBuilder {
-        $this->query = "UPDATE  " . QueryBuilder::$DATABASE_NAME . ".$table SET ";
+        $this->query = "UPDATE  `" . QueryBuilder::$DATABASE_NAME . "`.`$table` SET ";
         $this->updateValues = $values;
         $primero = true;
         foreach ($this->updateValues as $field => $value) {
