@@ -9,9 +9,11 @@ use src\tienda_virtual\database\services\DatabaseService;
 
 class VentasService extends DatabaseService
 {
+    protected DetalleVentaService $detalleVentaService;
     public function __construct(PDO $PDO, Logger $logger)
     {
         parent::__construct($PDO, $logger, "ventas\\VentasRepository");
+        $this->detalleVentaService = new DetalleVentaService($PDO, $logger);
     }
 
     public function addSale($cart, $items)
@@ -26,7 +28,7 @@ class VentasService extends DatabaseService
         $newSale->setField("monto", "0.00");
         $this->repository->save($newSale);
         foreach ($items as $item) {
-
+            $this->detalleVentaService->createAndSaveSaleItem($item, $newSale->getField("id"));
         }
     }
 }

@@ -57,6 +57,8 @@ class MercadoPagoHandlerController extends Controller
 
         $preference->save();
 
+        $this->logger->info("Preferencias: " . serialize($preference));
+
         $this->carritoService->registerPayment($preference->id);
 
         $response = array(

@@ -28,5 +28,14 @@ final class Ventas extends AbstractMigration
             ->addColumn('fechaPago', 'datetime')
             ->addColumn('activo', 'string')
             ->create();
+
+        $table = $this->table('detalleVenta');
+        $table->addColumn('id_venta', 'integer')
+            ->addForeignKey('id_venta', 'venta', 'id', ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'])
+            ->addColumn('id_publicacion', 'integer')
+            ->addForeignKey('id_publicacion', 'publicacion', 'id', ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'])
+            ->addColumn('monto', 'float', [ 'length' => 10, 'precision' => 2])
+            ->addColumn('activo', 'string')
+            ->create();
     }
 }
