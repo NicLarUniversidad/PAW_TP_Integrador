@@ -12,8 +12,8 @@ class MercadoPagoHandlerController extends Controller
 {
     protected CarritoService $carritoService;
     protected UserService $userService;
-    //private string $url = "http://localhost:12000";
-    private string $url = "https://8184-149-102-233-227.ngrok-free.app";
+    private string $url = "http://localhost:12000";
+    //private string $url = "public-url";
 
     public function init()
     {

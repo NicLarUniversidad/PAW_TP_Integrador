@@ -2,23 +2,10 @@
 {% block head %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/buscador.css" />
+    <script src="/js/scripts/buscador.js" ></script>
 {% endblock %}
 
 {% block main %}
-    <script>
-        function addItem(id) {
-            fetch(
-                "/addItem?publicationId=" + id,
-                {
-                    method: "POST"
-                }
-            ).then(data => {           
-                window.location.replace("/carrito")
-                return false;
-            }
-            )
-        }
-    </script>
     <section>
     <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" onclick="history.back();">
         <h1>Resultados de la búsqueda</h1>
@@ -43,7 +30,7 @@
                 <p>AHORA  {{ publicacion.oferta.precio_oferta }} {{ publicacion.moneda.nombre }}</p>
             {% endif %}
             <a href="/detalleproducto?publicacion={{ publicacion.id }}" id="verMas">Ver en Detalle</a><br>
-            <a class="agregar" href="javascript:addItem({{publicacion.id}})">Agregar</a>
+            <a class="agregar" id="addToCart-{{ publicacion.id }}">Agregar</a>
 
         </article>
     {% else %}

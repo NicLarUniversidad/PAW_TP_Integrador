@@ -89,6 +89,7 @@ article{
     display: block;
     text-align: center;
     font-size: larger;
+    cursor: pointer;
 }
 
 .cuerpo{
