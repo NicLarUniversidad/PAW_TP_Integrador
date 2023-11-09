@@ -21,17 +21,13 @@
                 <h2>{{ publicacion.productos[0].nombre }}</h2>
                 <p>Precio: {{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p>
                 <p>Cantidad: {{ publicacion.cantidad }}</p>
-                <button class="button-delete" id="eliminar-{{ attribute(attribute(publicacion, "id"),"value") }}">Eliminar artículo</button>
+                <button class="button-delete" id="eliminar-{{ publicacion.id }}">Eliminar artículo</button>
             </article>
 
     {% for carrito in data.carrito %}
         <p>{{ carrito.precio_total}}</p>  <!--Mostrar la suma de los precios de los productos-->
     {% else %}
     {% endfor %}
-        <p>Total compra: {{ data.monto_total }}</p>
-        <div class="btn-pagar">
-            <div id="checkout-btn"></div>
-        </div>
     </section>
             
     {% else %}
@@ -40,6 +36,10 @@
         <span class="seguirCompra">Para seguir comprando, navegue por las categorías en el sitio, o busque su producto.</span>
         <a href="/grupocategorias" class="inicio">Seguir comprando</a>
     {% endfor %}
+    <p>Total compra: {{ data.monto_total }}</p>
+    <div class="btn-pagar">
+        <div id="checkout-btn"></div>
+    </div>
 
     <script>
         // Add SDK credentials

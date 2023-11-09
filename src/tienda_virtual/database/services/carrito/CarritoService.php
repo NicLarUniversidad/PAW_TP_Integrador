@@ -136,11 +136,16 @@ class CarritoService extends DatabaseService
     }
 
     public function deleteItem($idPublication) {
-        $id = $this->session->get("carrito");
-        if (!isset($id) || $id=="") {$itemsGuardados = $this->itemCarritoService->findByCarritoId($id);
+        $id = $this->getCarritoId();
+        $this->logger->info("Buscando item con id publicacion=" . $idPublication . " carrito=" . $id);
+        if ($id != "") {
+            $this->logger->info("   Pasó el if");
+            $itemsGuardados = $this->itemCarritoService->findByCarritoId($id);
+            $this->logger->info("   Busca items");
             $encontrado = false;
             $item = null;
             foreach ($itemsGuardados as $itemGuardado) {
+                $this->logger->info("        Comparando con =" . $itemGuardado["id_publicacion"]);
                 if ($itemGuardado["id_publicacion"]==$idPublication) {
                     $item = $itemGuardado;
                     $encontrado = true;
@@ -149,6 +154,7 @@ class CarritoService extends DatabaseService
             if ($encontrado) {
                 $itemCarrito = new CarritoModel();
                 $itemCarrito->setFields($item);
+                $this->logger->info("        Dando de baja item con id =" . $item["id_publicacion"]);
                 $this->itemCarritoService->delete($itemCarrito);
             }
         }

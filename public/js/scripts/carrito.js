@@ -9,18 +9,16 @@ class Carrito {
             const originalId = item.id;
             const id = originalId.split("-")[1];
             item.addEventListener("click", () => {
-                function addItem(id) {
-                    fetch(
-                        "/addItem?publicationId=" + id,
-                        {
-                            method: "POST"
-                        }
-                    ).then(data => {
-                            window.location.replace("/carrito")
-                            return false;
-                        }
-                    )
-                }
+                fetch(
+                    "/deleteItem?publicationId=" + id,
+                    {
+                        method: "POST"
+                    }
+                ).then(data => {
+                        window.location.replace("/carrito")
+                        return false;
+                    }
+                )
             })
         });
     }

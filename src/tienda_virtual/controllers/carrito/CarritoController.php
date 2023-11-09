@@ -124,7 +124,7 @@ class CarritoController extends Controller
      */
     public function deleteItem() {
         $publicationId = $this->request->get("publicationId");
-        $this->logger->info("Id publicacion: " . $publicationId);
+        $this->logger->info("Se intenta borrar item con id publicacion: " . $publicationId);
         $this->carritoService->deleteItem($publicationId);
     }
 }
