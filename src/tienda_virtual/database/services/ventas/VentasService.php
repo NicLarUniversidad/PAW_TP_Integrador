@@ -25,7 +25,11 @@ class VentasService extends DatabaseService
         $newSale->setField("estado", "PENDIENTE_DE_ENVÍO");
         $newSale->setField("fechaPago", date('Y-m-d H:i:s'));
         $newSale->setField("activo", "SI");
-        $newSale->setField("monto", "0.00");
+        $monto = 0.0;
+        foreach ($items as $item) {
+            $monto += floatval($item["precio_unidad"]);
+        }
+        $newSale->setField("monto", $monto);
         $this->repository->save($newSale);
         foreach ($items as $item) {
             $this->detalleVentaService->createAndSaveSaleItem($item, $newSale->getField("id"));

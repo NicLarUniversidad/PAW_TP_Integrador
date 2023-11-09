@@ -54,6 +54,7 @@ class CarritoService extends DatabaseService
         if ($carrito != "") {
             $items = $this->itemCarritoService->findByCarritoId($carrito);
             $publicaciones = [];
+            $montoTotal = 0.0;
             foreach ($items as $item) {
                 $publicacion = $this->publicacionService->find($item["id_publicacion"])[0];
                 $publicacion["nombre"] = $this->productoService->find($publicacion["id_producto"])[0]["descripcion"];
@@ -64,9 +65,11 @@ class CarritoService extends DatabaseService
                 } else {
                     $publicacion["foto"] = "";
                 }
+                $montoTotal += floatval($publicacion["precio_unidad"]);
                 $publicaciones[] = $publicacion;
             }
             $data["publicaciones"] = $publicaciones;
+            $data["monto_total"] = $montoTotal;
         }
         return $data;
     }
