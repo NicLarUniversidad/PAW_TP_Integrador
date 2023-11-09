@@ -12,4 +12,13 @@ class VentasRepository extends Repository
     {
         parent::__construct($logger, $connection, "venta", "ventas\\VentaModel");
     }
+
+    public function findByUser($userId) : array
+    {
+        $model = $this->getModelInstance();
+        return $this->queryBuilder->select($model->getTableFields())
+            ->from($this->tabla)
+            ->where(["id_usuario"=> $userId])
+            ->execute();
+    }
 }

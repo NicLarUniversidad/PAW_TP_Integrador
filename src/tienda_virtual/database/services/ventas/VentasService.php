@@ -35,4 +35,10 @@ class VentasService extends DatabaseService
             $this->detalleVentaService->createAndSaveSaleItem($item, $newSale->getField("id"));
         }
     }
+
+    public function getUserPurchases($userId)
+    {
+        $this->logger->info("Buscando compras de usuario con id = " . $userId);
+        return $this->repository->findByUser($userId);
+    }
 }

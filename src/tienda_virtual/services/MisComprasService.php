@@ -7,6 +7,7 @@ use src\tienda_virtual\database\services\categories\ArmarPCFlujoService;
 use src\tienda_virtual\database\services\products\ProductoService;
 use src\tienda_virtual\database\services\products\PublicacionService;
 use src\tienda_virtual\database\services\categories\MonedaService;
+use src\tienda_virtual\database\services\ventas\VentasService;
 use src\tienda_virtual\traits\TConnection;
 use src\tienda_virtual\traits\TLogger;
 use src\tienda_virtual\traits\TSession;
@@ -24,6 +25,7 @@ class MisComprasService
     protected PublicacionService $PublicacionService;
     protected ProductoService $productoService;
     protected MonedaService $monedaService;
+    protected VentasService $ventasService;
 
     public function __construct(PDO $pdo, Logger $logger)
     {
@@ -33,6 +35,7 @@ class MisComprasService
         $this->PublicacionService = new PublicacionService($pdo, $logger);
         $this->productoService = new ProductoService($pdo, $logger);
         $this->monedaService = new MonedaService($pdo, $logger);
+        $this->ventasService = new VentasService($pdo, $logger);
     }
 
     public function RecuperarCarritoEspecifico (String $id_carrito){
@@ -45,5 +48,14 @@ class MisComprasService
             $miscompras=[];
         }
         return $miscompras;
+    }
+
+    /*
+     * Se recuperan las compras del usuario
+     */
+    public function getUserPurchases()
+    {
+        $user = $this->session->get(UserService::$USER_SESSION_NAME);
+        return $this->ventasService->getUserPurchases($user["id"]);
     }
 }

@@ -1,0 +1,25 @@
+{% extends "parts/commons.twig" %}
+
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="css/mis-compras.css" />
+    <script src="/js/scripts/mis-compras.js" ></script>
+{% endblock %}
+
+{% block main %}
+
+    <section>
+        <h2>Mis compras</h2>
+        {% for compra in data.compras %}
+            <article class="compra" id="compra-{{ compra.id }}">
+                <h2> </h2>
+                <p>Gastaste: {{ compra.monto }} {{ publicacion.moneda.nombre }}</p>
+                <p>Fecha: {{ compra.fechaPago }}</p>
+                <button class="button-details" id="detalles-{{ compra.id }}">Ver detalles</button>
+            </article>
+
+        {% else %}
+            <span class="sin-compras">No ha realizado ninguna compra</span>
+        {% endfor %}
+    </section>
+{% endblock %}

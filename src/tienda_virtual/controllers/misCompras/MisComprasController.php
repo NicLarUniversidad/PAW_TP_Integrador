@@ -17,6 +17,7 @@ class MisComprasController extends Controller
         $this->pageFinderService = new TwigPageFinderService();
         $this->pageFinderService->session = $this->session;
         $this->miscomprasService = new MisComprasService($this->connection, $this->logger);
+        $this->miscomprasService->setSession($this->session);
     }
 
     /**
@@ -29,9 +30,8 @@ class MisComprasController extends Controller
         $jsImports = [];
         $jsImports[]="paw";
         $jsImports[]="app";
-        $idpublicacion=$this->request->get("publicacion");
-        $data["preference"] = $this->preference ?? [];
-        $this->pageFinderService->findFileRute("miscompras","twig","twig", $cssImports,
+        $data["compras"] = $this->miscomprasService->getUserPurchases();
+        $this->pageFinderService->findFileRute("mis-compras","twig","twig", $cssImports,
             $data,$titulo, $jsImports);
     }
 
