@@ -6,14 +6,17 @@ use Monolog\Logger;
 use PDO;
 use src\tienda_virtual\database\models\carrito\CarritoModel;
 use src\tienda_virtual\database\services\DatabaseService;
+use src\tienda_virtual\database\services\products\PublicacionService;
 
 class VentasService extends DatabaseService
 {
     protected DetalleVentaService $detalleVentaService;
+    protected PublicacionService $publicacionService;
     public function __construct(PDO $PDO, Logger $logger)
     {
         parent::__construct($PDO, $logger, "ventas\\VentasRepository");
         $this->detalleVentaService = new DetalleVentaService($PDO, $logger);
+        $this->publicacionService = new PublicacionService($PDO, $logger);
     }
 
     public function addSale($cart, $items)
@@ -40,5 +43,16 @@ class VentasService extends DatabaseService
     {
         $this->logger->info("Buscando compras de usuario con id = " . $userId);
         return $this->repository->findByUser($userId);
+    }
+
+    public function findItemsBySaleId($saleId)
+    {
+        $ventas = $this->detalleVentaService->findBySaleId($saleId);
+        $result = [];
+        foreach ($ventas as $venta) {
+            $venta["publicacion"] = $this->publicacionService->findWithData($venta["id_publicacion"]);
+            $result[] = $venta;
+        }
+        return $result;
     }
 }

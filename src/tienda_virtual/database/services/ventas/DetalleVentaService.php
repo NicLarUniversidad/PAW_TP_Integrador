@@ -23,4 +23,9 @@ class DetalleVentaService  extends DatabaseService
         $this->repository->save($newSaleItem);
     }
 
+    public function findBySaleId($saleId)
+    {
+        return $this->repository->findBySaleId($saleId);
+    }
+
 }

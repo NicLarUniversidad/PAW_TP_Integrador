@@ -23,7 +23,7 @@ class MisComprasController extends Controller
     /**
      * @throws Exception
      */
-    public function mostrarMisCompras(String $notificacion = "", array $data = [], String $titulo = "Carrito") {
+    public function mostrarMisCompras(String $notificacion = "", array $data = [], String $titulo = "Mis compras") {
         $cssImports = [];
         $cssImports[] = "main";
         $cssImports[] = "carrito";
@@ -43,5 +43,25 @@ class MisComprasController extends Controller
         $idCarrito = $this->session->get("carrito");
         $this->carritoService->setInactice($idCarrito);
         $this->session->delete("carrito");
+    }
+
+    public function detalleCompra() {
+        $purchaseId = $this->request->get("id_compra");
+        $isValidUser = $this->miscomprasService->verifyAuthorizedUser($purchaseId);
+        if ($isValidUser) {
+            $cssImports = [];
+            $cssImports[] = "main";
+            $cssImports[] = "carrito";
+            $jsImports = [];
+            $jsImports[]="paw";
+            $jsImports[]="app";
+            $data["compras"] = $this->miscomprasService->getItemsFromPurchase($purchaseId);
+            $this->pageFinderService->findFileRute("detalle-compra","twig","twig", $cssImports,
+                $data,"", $jsImports);
+        }
+        else {
+            //TODO: Redirigir
+            echo "no autorizado";
+        }
     }
 }

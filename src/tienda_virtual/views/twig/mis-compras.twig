@@ -15,6 +15,11 @@
                 <h2> </h2>
                 <p>Gastaste: {{ compra.monto }} {{ publicacion.moneda.nombre }}</p>
                 <p>Fecha: {{ compra.fechaPago }}</p>
+                {% if compra.estado == 'PENDIENTE_DE_ENVÍO' %}
+                        <p>Su paquete está pendiente de envío</p>
+                {% else %}
+                        <p>Ha ocurrido un error en el estado del paquete</p>
+                {% endif %}
                 <button class="button-details" id="detalles-{{ compra.id }}">Ver detalles</button>
             </article>
 

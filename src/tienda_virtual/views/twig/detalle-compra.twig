@@ -1,0 +1,24 @@
+{% extends "parts/commons.twig" %}
+
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="css/detalle-compra.css" />
+    <script src="/js/scripts/detalle-compra.js" ></script>
+{% endblock %}
+
+{% block main %}
+
+    <section>
+        <h2>Detalle compra</h2>
+        {% for item in data.compras %}
+            <h3>  {{ item.publicacion.producto.nombre }}</h3>
+            <article class="compra" id="compra-{{ item.id }}">
+                <p>Descripción: {{ item.publicacion.producto.descripcion }}</p>
+                <p>Costo: {{ item.monto }} </p>
+            </article>
+
+        {% else %}
+            <span class="sin-compras">No han encontrado productos asociados a esta compra</span>
+        {% endfor %}
+    </section>
+{% endblock %}

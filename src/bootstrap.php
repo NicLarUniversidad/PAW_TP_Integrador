@@ -100,6 +100,7 @@ $routerService->get('/subcategoria','subcategoria\\SubCategoriaController@mostra
 $routerService->get('/ofertas','oferta\\OfertaController@mostrarOfertas');
 $routerService->get('/detalleproducto','detalleProducto\\DetalleProductoController@mostrarDetalles');
 $routerService->get('/miscompras','misCompras\\MisComprasController@mostrarMisCompras');
+$routerService->get('/detalle-compra','misCompras\\MisComprasController@detalleCompra');
 
 $routerService->post('/create_preference','MercadoPagoHandlerController@post');
 $routerService->get('/create_preference','MercadoPagoHandlerController@post');

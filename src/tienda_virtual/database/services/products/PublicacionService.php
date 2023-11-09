@@ -99,4 +99,11 @@ class PublicacionService extends DatabaseService
         $this->logger->debug(json_encode($publicacion));
         return $publicacion;
     }
+
+    public function findWithData($id)
+    {
+        $publicacion = $this->find($id)[0];
+        $publicacion["producto"] = $this->productoService->find($publicacion["id_producto"])[0];
+        return $publicacion;
+    }
 }

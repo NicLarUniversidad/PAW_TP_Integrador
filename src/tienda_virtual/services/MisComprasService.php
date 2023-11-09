@@ -58,4 +58,16 @@ class MisComprasService
         $user = $this->session->get(UserService::$USER_SESSION_NAME);
         return $this->ventasService->getUserPurchases($user["id"]);
     }
+
+    public function verifyAuthorizedUser($purchaseId): bool
+    {
+        $purchase = $this->ventasService->find($purchaseId);
+        $user = $this->session->get(UserService::$USER_SESSION_NAME);
+        return $purchase[0]["id_usuario"] == $user["id"];
+    }
+
+    public function getItemsFromPurchase($purchaseId): array
+    {
+        return $this->ventasService->findItemsBySaleId($purchaseId);
+    }
 }
