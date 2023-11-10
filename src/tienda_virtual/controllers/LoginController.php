@@ -144,4 +144,13 @@ class LoginController extends Controller
         header("Location: /");
         die();
     }
+
+    public function unauthorized() {
+        $cssImports = [];
+        $jsImports = [];
+        $cssImports[] = "main";
+        $jsImports[] = "app";
+        $jsImports[] = "paw";
+        $this->pageFinderService->findFileRute("no-autorizado", "twig", "twig", $cssImports,[],"", $jsImports);
+    }
 }

@@ -6,6 +6,7 @@ use Exception;
 use src\tienda_virtual\controllers\Controller;
 use src\tienda_virtual\services\MisComprasService;
 use src\tienda_virtual\services\TwigPageFinderService;
+use src\tienda_virtual\services\UserService;
 
 class MisComprasController extends Controller
 {
@@ -18,6 +19,18 @@ class MisComprasController extends Controller
         $this->pageFinderService->session = $this->session;
         $this->miscomprasService = new MisComprasService($this->connection, $this->logger);
         $this->miscomprasService->setSession($this->session);
+    }
+
+    public function isAuthorizedUser($method) : bool {
+        $isAuthorized = false;
+        switch ($method) {
+            case "mostrarMisCompras":
+            case "cancelar":
+            case "detalleCompra":
+                $isAuthorized = $this->isLoggedUser();
+                break;
+        }
+        return $isAuthorized;
     }
 
     /**

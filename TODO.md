@@ -6,8 +6,8 @@ http://localhost:12000/detalleproducto?publicacion=2
 ### Backoffice
 
 - Cambios en backoffice según esté el usuario logeado
-    - Que no se pueda entrar a las vistas cuando no está logeado
-    - Agregar rol para que no entre cualquier usuario al backoffice
+    - ~~Que no se pueda entrar a las vistas cuando no está logeado~~
+    - ~~Agregar rol para que no entre cualquier usuario al backoffice~~
     - Agregar alguna vista en el home del backoffice
 
 ### Registro

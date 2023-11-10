@@ -50,6 +50,11 @@ section > article > p {
 }
 
 
+body>main {
+    position: relative;
+    left: 0;
+}
+
 
 /*-------------------RESPONSIVE---------------------*/
 @media (max-width: 1000px) {

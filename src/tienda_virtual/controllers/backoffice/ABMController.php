@@ -20,6 +20,16 @@ class ABMController extends Controller
         $this->url = $url;
     }
 
+    public function isAuthorizedUser($method) : bool {
+        $isAuthorized = false;
+        if ($this->isLoggedUser()) {
+            if ($this->isAdmin()) {
+                $isAuthorized = true;
+            }
+        }
+        return $isAuthorized;
+    }
+
     public function init()
     {
         parent::init();

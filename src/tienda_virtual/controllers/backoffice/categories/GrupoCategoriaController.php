@@ -82,4 +82,14 @@ class GrupoCategoriaController extends Controller
         }
         $this->get();
     }
+
+    public function isAuthorizedUser($method) : bool {
+        $isAuthorized = false;
+        if ($this->isLoggedUser()) {
+            if ($this->isAdmin()) {
+                $isAuthorized = true;
+            }
+        }
+        return $isAuthorized;
+    }
 }
