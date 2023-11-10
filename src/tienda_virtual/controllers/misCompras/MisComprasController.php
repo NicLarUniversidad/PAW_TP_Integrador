@@ -26,7 +26,6 @@ class MisComprasController extends Controller
     public function mostrarMisCompras(String $notificacion = "", array $data = [], String $titulo = "Mis compras") {
         $cssImports = [];
         $cssImports[] = "main";
-        $cssImports[] = "carrito";
         $jsImports = [];
         $jsImports[]="paw";
         $jsImports[]="app";
@@ -51,10 +50,7 @@ class MisComprasController extends Controller
         if ($isValidUser) {
             $cssImports = [];
             $cssImports[] = "main";
-            $cssImports[] = "carrito";
             $jsImports = [];
-            $jsImports[]="paw";
-            $jsImports[]="app";
             $data["compras"] = $this->miscomprasService->getItemsFromPurchase($purchaseId);
             $this->pageFinderService->findFileRute("detalle-compra","twig","twig", $cssImports,
                 $data,"", $jsImports);
