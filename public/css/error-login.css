@@ -2,7 +2,7 @@ h1 {
     text-align: center;
     font-size: xxx-large;
     color: black;
-    background: #F97224;
+    background: red;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     border: double;
@@ -26,7 +26,7 @@ h2{
     color: black;
     position: initial;
     margin: 4%;
-    display: inline-table;
+    display: inline;
     text-align: center;
     flex-direction: column;
     align-items: center;
@@ -44,10 +44,15 @@ h2{
 
 img{
     height: 45%;
-    width: 65%;
+    width: 50%;
     margin-left: 15%;
+    display: block;
+    margin-inline: auto
 }
 
+section{
+    display: flex;
+}
 
 /*-------------------RESPONSIVE---------------------*/
 
@@ -59,7 +64,7 @@ img{
     }
 
     h2{
-        font-size: smaller;
+        font-size: xx-large;
     }
 
     .flecha-back {
@@ -100,10 +105,9 @@ img{
         width: 94%;
 
     }
+
     img{
-        height: 20%;
-        width: 45%;
-        margin-left: 10%;
+        height: 30%;
     }
 
 }

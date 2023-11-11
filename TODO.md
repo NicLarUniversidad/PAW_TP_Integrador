@@ -26,6 +26,10 @@ http://localhost:12000/detalleproducto?publicacion=2
 https://www.mercadopago.com.ar/developers/es/developer-program/checkout-pro
 https://github.com/mercadopago/checkout-payment-sample
 
+## Detalle del producto
+
+- Agregar la moneda al precio del producto
+
 ### ~~Carrito~~
 
 - ~~Corregir carrito, se pasa ID de producto por URL. No funciona al redireccionar~~
@@ -34,7 +38,9 @@ https://github.com/mercadopago/checkout-payment-sample
 
 - ~~Borrar item carrito~~
 
-### ~~Ofertas~~
+### Ofertas
+
+- Mostrar imagen del producto
 
 - ~~Reorganizar cómo se muestran las ofertas, puede ser que sea una categoría~~
   ~~Ver si se puede mostrar que esta en oferta, también, desde la vista buscar~~

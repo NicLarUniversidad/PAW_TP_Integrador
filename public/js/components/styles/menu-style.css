@@ -226,7 +226,7 @@ form{
 }
 
 header button.PAW-Button-Menu {
-    float: right;
+    float: left;
     padding-top: 0.5%;
 	display: block;
 	margin-bottom: 0px;
@@ -266,6 +266,7 @@ div .pagos {
 
 p{
 	font-size: small;
+	display: contents;
 }
 
 }
