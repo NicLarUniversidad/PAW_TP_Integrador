@@ -1,0 +1,33 @@
+.cuerpo {
+    visibility: collapse;
+}
+
+
+h2 {
+    font-size: xx-large;
+    height: inherit;
+    color: black;
+    margin: auto;
+    text-align: center;
+    padding: 50px;
+}
+
+img {
+    width: 20vw;
+    padding: 2vw;
+}
+
+section > article > p {
+    padding: 15px;
+}
+
+
+main > section {
+    text-align: center;
+}
+
+body > footer {
+    /*margin-top: 28.7%;*/
+}
+
+
