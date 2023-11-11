@@ -22,9 +22,12 @@ h3{
 
 p{
     display: inline-flex;
-    text-align: end;
-    font-size: x-large;
+    text-align: left;
+    font-size: smaller;
     font-style: inherit;
+    margin: auto;
+    height: 15%;
+    margin-bottom: 12%;
 }
 
 section{
@@ -119,7 +122,7 @@ h1{
 }
 
 h2 {
-    font-size: inherit;
+    /*font-size: inherit;*/
     height: auto;
     display: block;
 }
