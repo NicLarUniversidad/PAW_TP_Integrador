@@ -7,6 +7,7 @@ use PDO;
 use src\tienda_virtual\database\models\carrito\CarritoModel;
 use src\tienda_virtual\database\services\DatabaseService;
 use src\tienda_virtual\database\services\products\PublicacionService;
+use src\tienda_virtual\traits\TSession;
 
 class VentasService extends DatabaseService
 {
@@ -25,7 +26,7 @@ class VentasService extends DatabaseService
         $newSale = $this->repository->createInstance();
         $newSale->setField("id_carrito", $cart["id"]);
         $newSale->setField("id_usuario", $cart["id_usuario"]);
-        $newSale->setField("estado", "PENDIENTE_DE_ENVÍO");
+        $newSale->setField("estado", "PENDIENTE_DE_ENVIO");
         $newSale->setField("fechaPago", date('Y-m-d H:i:s'));
         $newSale->setField("activo", "SI");
         $monto = 0.0;
@@ -74,5 +75,48 @@ class VentasService extends DatabaseService
     public function getReceivedPurchases()
     {
         return $this->repository->getPurchasesByState("RECIBIDO");
+    }
+
+    public function isValidState($idVenta, string $string) : bool
+    {
+        $this->logger->info("Validando estado de venta número: " . $idVenta);
+        $isValid = false;
+        $venta = $this->repository->find($idVenta);
+        $this->logger->info("  Venta recuperada: " . serialize($venta));
+        if (isset($venta)) {
+            switch ($string) {
+                case "ENVIADO":
+                    $isValid = $venta[0]["estado"] == "PENDIENTE_DE_ENVIO";
+                    break;
+                case "RECIBIDO":
+                    $isValid = $venta[0]["estado"] == "ENVIADO";
+                    break;
+                default:
+                    //ignore
+                    break;
+            }
+        }
+        return $isValid;
+    }
+
+    public function sendPackage($idVenta)
+    {
+        $this->logger->info("  Cambiando estado de PENDIENTE_DE_ENVIO a ENVIADO");
+        $this->changeSaleState($idVenta, "ENVIADO");
+    }
+
+    public function receivePackage($idVenta)
+    {
+        $this->logger->info("  Cambiando estado de ENVIADO a RECIBIDO");
+        $this->changeSaleState($idVenta, "RECIBIDO");
+    }
+
+    private function changeSaleState($idVenta, $state) {
+        $updatedSale = $this->repository->createInstance();
+        $values = $this->repository->find($idVenta);
+        $updatedSale->setFields($values[0]);
+        $updatedSale->setField("estado", $state);
+        $this->logger->info("  Haciendo update");
+        $this->repository->update($updatedSale);
     }
 }

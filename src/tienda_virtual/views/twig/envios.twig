@@ -2,7 +2,7 @@
 
 
 {% block head %}
-
+    <script src="/js/scripts/envios.js" ></script>
 {% endblock %}
 
 {% block main %}
@@ -14,6 +14,15 @@
             <article id="compra-{{ item.id }}">
                 <p>Descripción: {{ item.publicacion.producto.descripcion }}</p>
                 <p>Costo: {{ item.monto }} </p>
+                {% if item.estado == "PENDIENTE_DE_ENVIO" %}
+                    <button id="button-{{ item.estado }}-{{ item.id }}"><span>Enviar</span></button>
+                {% elseif item.estado == "ENVIADO" %}
+                    <button id="button-{{ item.estado }}-{{ item.id }}"><span>Cambiar a recibido</span></button>
+                {% elseif item.estado == "RECIBIDO" %}
+                    <p>Recibido</p>
+                {% else %}
+                    <p>-</p>
+                {% endif %}
             </article>
 
         {% else %}
