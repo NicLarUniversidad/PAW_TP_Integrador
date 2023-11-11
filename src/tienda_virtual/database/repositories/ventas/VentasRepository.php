@@ -21,4 +21,22 @@ class VentasRepository extends Repository
             ->where(["id_usuario"=> $userId])
             ->execute();
     }
+
+    public function getActivePurchases(): array
+    {
+        $model = $this->getModelInstance();
+        return $this->queryBuilder->select($model->getTableFields())
+            ->from($this->tabla)
+            ->where(["activo"=> "si"])
+            ->execute();
+    }
+
+    public function getPurchasesByState($state): array
+    {
+        $model = $this->getModelInstance();
+        return $this->queryBuilder->select($model->getTableFields())
+            ->from($this->tabla)
+            ->where(["estado"=> $state, "activo"=> "si"])
+            ->execute();
+    }
 }

@@ -1,0 +1,23 @@
+{% extends "parts/backoffice.twig" %}
+
+
+{% block head %}
+
+{% endblock %}
+
+{% block main %}
+
+    <section>
+        <h2>Detalle compra</h2>
+        {% for item in data.ventas %}
+            <h3>  {{ item.publicacion.producto.nombre }}</h3>
+            <article id="compra-{{ item.id }}">
+                <p>Descripción: {{ item.publicacion.producto.descripcion }}</p>
+                <p>Costo: {{ item.monto }} </p>
+            </article>
+
+        {% else %}
+            <span class="sin-compras">No han encontrado productos asociados a esta compra</span>
+        {% endfor %}
+    </section>
+{% endblock %}

@@ -2,7 +2,7 @@ class appPAW{
     constructor(){
         //Inicializar la funcionalidad menu
         document.addEventListener("DOMContentLoaded",()=>{
-        PAW.cargarScript("PAW-Menu", "js/components/paw-menu.js", () => {            
+        PAW.cargarScript("PAW-Menu", "/js/components/paw-menu.js", () => {
                 let menu = new PAWMenu("nav");
             });
         });
@@ -40,6 +40,28 @@ class appPAW{
 
         return elemento;
     }
+
+    ajustarFooter() {
+        let windowHeight = window.innerHeight;
+        let header = document.querySelector("header");
+        let main = document.querySelector("main");
+        let footer = document.querySelector("footer");
+        let contentSize = header.offsetHeight + main.offsetWidth;
+        if (contentSize < windowHeight - 300) {
+            footer.style.height = windowHeight - (header.offsetHeight + main.offsetWidth + 100) + "px";
+        }
+        else {
+            footer.style.height = "300px";
+        }
+    }
 }
 
 let app = new appPAW();
+
+document.addEventListener("DOMContentLoaded",()=>{
+    app.ajustarFooter();
+});
+
+window.addEventListener("resize", () => {
+    app.ajustarFooter();
+});

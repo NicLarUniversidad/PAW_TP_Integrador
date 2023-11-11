@@ -55,4 +55,24 @@ class VentasService extends DatabaseService
         }
         return $result;
     }
+
+    public function getActivePurchases() : array
+    {
+        return $this->repository->getActivePurchases();
+    }
+
+    public function getPendingPurchases()
+    {
+        return $this->repository->getPurchasesByState("PENDIENTES_DE_ENVIO");
+    }
+
+    public function getSentPurchases()
+    {
+        return $this->repository->getPurchasesByState("ENVIADO");
+    }
+
+    public function getReceivedPurchases()
+    {
+        return $this->repository->getPurchasesByState("RECIBIDO");
+    }
 }

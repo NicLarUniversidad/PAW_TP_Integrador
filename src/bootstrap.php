@@ -108,6 +108,15 @@ $routerService->get('/create_preference','MercadoPagoHandlerController@post');
 $routerService->get('/success','MercadoPagoHandlerController@success');
 $routerService->get('/failure','MercadoPagoHandlerController@failure');
 $routerService->get('/pending','MercadoPagoHandlerController@pending');
+
+//Gestión envíos
+$routerService->get('/shipments/all','backoffice\\shipments\\ShipmentController@showShipments');
+$routerService->get('/shipments/pending','backoffice\\shipments\\ShipmentController@showPendingShipments');
+$routerService->get('/shipments/sent','backoffice\\shipments\\ShipmentController@showSentShipments');
+$routerService->get('/shipments/received','backoffice\\shipments\\ShipmentController@showReceivedShipments');
+$routerService->post('/shipments/send','backoffice\\shipments\\ShipmentController@sentPackage');
+$routerService->post('/shipments/receive','backoffice\\shipments\\ShipmentController@receivePackage');
+
 //Errores
 $routerService->get('/not_found', 'PageNotFoundException@get');
 $routerService->get('/server_error', 'IndexNotFoundException@get');

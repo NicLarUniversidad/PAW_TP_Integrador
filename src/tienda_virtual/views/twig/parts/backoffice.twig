@@ -7,7 +7,7 @@
 
     {% if cssImports %}
         {% for import in cssImports %}
-            <link rel="stylesheet" type="text/css" href="css/{{ import }}.css" />
+            <link rel="stylesheet" type="text/css" href="/css/{{ import }}.css" />
         {% endfor %}
     {% endif %}
   <!--  <script src="js/app.js" type="application/javascript"></script>
@@ -63,7 +63,12 @@
 </main>
 
 </body>
-</html>
+
 {% block footer %}
-       
+    <footer>
+        <small>Legal</small>
+        <small>Copyright</small>
+        <address>Dirección: Ruta 5</address>
+    </footer>
 {% endblock %}
+</html>

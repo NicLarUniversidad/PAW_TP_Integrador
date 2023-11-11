@@ -9,7 +9,7 @@ class PAWMenu{
             contenedor.classList.add("PAW-Menu");
             contenedor.classList.add("PAW-MenuCerrado");
 
-            document.head.appendChild(PAW.nuevoElemento("link","",{rel:"stylesheet", type: "text/css" ,href: "js/components/styles/menu-style.css"}));
+            document.head.appendChild(PAW.nuevoElemento("link","",{rel:"stylesheet", type: "text/css" ,href: "/js/components/styles/menu-style.css"}));
 
             PAW.nuevoElemento("link",
                 {href: "paw-menu.js"}
