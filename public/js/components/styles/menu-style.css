@@ -180,7 +180,10 @@ h1{
 }
 
 #iconosPagos{
-    width: 15%;
+    padding: 1%;
+    display: block;
+    margin-inline: auto;
+	width: 25%;
 }
 
 .financiero{
@@ -254,6 +257,7 @@ h1{
 
 div .pagos {
     font-size: small;
+	display:inline-grid;
 }
 
 .Tpromociones {

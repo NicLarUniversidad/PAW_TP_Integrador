@@ -47,11 +47,11 @@ class appPAW{
         let main = document.querySelector("main");
         let footer = document.querySelector("footer");
         let contentSize = header.offsetHeight + main.offsetWidth;
-        if (contentSize < windowHeight - 300) {
+        if (contentSize < windowHeight - 70) {
             footer.style.height = windowHeight - (header.offsetHeight + main.offsetWidth + 100) + "px";
         }
         else {
-            footer.style.height = "300px";
+            footer.style.height = "70";
         }
     }
 }
