@@ -185,10 +185,12 @@ p{
 }
 
 .agregar, .antes{
-    font-size: large;
+    font-size: small;
 
 }
 
-
+.antes{
+    display: block;
+}
 
 }
