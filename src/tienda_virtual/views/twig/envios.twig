@@ -2,24 +2,27 @@
 
 
 {% block head %}
+    <link rel="stylesheet" type="text/css" href="/css/envios.css" />
     <script src="/js/scripts/envios.js" ></script>
 {% endblock %}
 
 {% block main %}
 
     <section>
-        <h2>Detalle compra</h2>
+        <h2>Gestión de envíos</h2>
         {% for item in data.ventas %}
             <h3>  {{ item.publicacion.producto.nombre }}</h3>
             <article id="compra-{{ item.id }}">
-                <p>Descripción: {{ item.publicacion.producto.descripcion }}</p>
-                <p>Costo: {{ item.monto }} </p>
+                <p>Compra N°: {{ item.id }}</p>
+                <p>Monto: {{ item.monto }} </p>
                 {% if item.estado == "PENDIENTE_DE_ENVIO" %}
+                    <p>Estado: sin enviar </p>
                     <button id="button-{{ item.estado }}-{{ item.id }}"><span>Enviar</span></button>
                 {% elseif item.estado == "ENVIADO" %}
+                    <p>Estado: en viaje </p>
                     <button id="button-{{ item.estado }}-{{ item.id }}"><span>Cambiar a recibido</span></button>
                 {% elseif item.estado == "RECIBIDO" %}
-                    <p>Recibido</p>
+                    <p>Estado: Recibido</p>
                 {% else %}
                     <p>-</p>
                 {% endif %}

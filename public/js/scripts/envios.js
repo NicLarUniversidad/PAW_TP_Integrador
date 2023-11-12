@@ -21,7 +21,7 @@ class Envios {
                             method: "POST"
                         }
                     ).then(data => {
-                            //window.location.replace("/shipments/all")
+                            window.location.replace("/shipments/all")
                             return false;
                         }
                     )
