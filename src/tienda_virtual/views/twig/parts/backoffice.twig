@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> {{ Title }}</title>
+    <title> Tienda Virtual - {{ title }}</title>
 
     {% if cssImports %}
         {% for import in cssImports %}
@@ -51,6 +51,7 @@
             <li><a href="/backoffice-ofertas">Admin. Ofertas</a></li>
             <!-- <li><a href="/backoffice-envíos">Envíos</a></li> -->
             <!-- <li><a href="/backoffice-informes">Informes</a></li> -->
+            <li><a href="/shipments/all">Gestión de envíos</a></li>
             <li><a href="/backoffice-logout">Cerrar sesión</a></li>
         </ul>
     </nav>

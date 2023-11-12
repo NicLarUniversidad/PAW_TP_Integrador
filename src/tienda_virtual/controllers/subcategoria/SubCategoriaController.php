@@ -28,7 +28,7 @@ class SubCategoriaController extends Controller
     /**
      * @throws Exception
      */
-    public function mostrarSubCategorias(String $notificacion = "", array $data = [], String $titulo = "Carrito") {
+    public function mostrarSubCategorias(String $notificacion = "", array $data = [], String $titulo = "Categorías") {
         $cssImports = [];
         $cssImports[] = "main";
         $cssImports[] = "carrito";
@@ -46,7 +46,7 @@ class SubCategoriaController extends Controller
     /**
      * @throws Exception
      */
-    public function cancelar(String $notificacion = "", array $data = [], String $titulo = "Carrito") {
+    public function cancelar(String $notificacion = "", array $data = [], String $titulo = "Categorías") {
         $this->session->delete("procesado");
         $idCarrito = $this->session->get("carrito");
         $this->carritoService->setInactice($idCarrito);

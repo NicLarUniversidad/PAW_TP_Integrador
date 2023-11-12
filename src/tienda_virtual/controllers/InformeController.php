@@ -25,7 +25,7 @@ class InformeController extends Controller
         $cssImports[] = "main";
         $jsImports[]="app";
         array_push($jsImports, "paw");
-        $this->pageFinderService->findFileRute("informes","html","html", $cssImports,[],"tienda virtual",$jsImports);
+        $this->pageFinderService->findFileRute("informes","html","html", $cssImports,[],"informes",$jsImports);
         
     }
 }

@@ -29,6 +29,7 @@ class PageNotFoundException extends Controller
         // $data=["usuario" => "fede"];
         //$this->pageFinderService->findFileRute("index","html","html", $cssImports,[],"tienda virtual",$jsImports);
         //$this->pageFinderService->findFileRute("index");
-        $this->pageFinderService->findFileRute("server-error","twig","twig", $cssImports,[],"tienda virtual",$jsImports);
+        $this->pageFinderService->findFileRute("server-error","twig","twig", $cssImports,[],
+            "página no encontrada",$jsImports);
     }
 }

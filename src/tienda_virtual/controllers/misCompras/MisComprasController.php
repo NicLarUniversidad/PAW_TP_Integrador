@@ -50,7 +50,7 @@ class MisComprasController extends Controller
     /**
      * @throws Exception
      */
-    public function cancelar(String $notificacion = "", array $data = [], String $titulo = "Carrito") {
+    public function cancelar(String $notificacion = "", array $data = [], String $titulo = "Mis compras") {
         $this->session->delete("procesado");
         $idCarrito = $this->session->get("carrito");
         $this->carritoService->setInactice($idCarrito);

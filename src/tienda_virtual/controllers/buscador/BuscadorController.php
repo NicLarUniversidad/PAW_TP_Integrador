@@ -25,12 +25,13 @@ class BuscadorController extends Controller
         $jsImports = [];
         $jsImports[]="app";
         $jsImports[]="paw";
-        $publicaciones = $this->publicacionService->buscar($this->request->get("buscador") ?? "",
+        $busqueda = $this->request->get("buscador");
+        $publicaciones = $this->publicacionService->buscar($busqueda ?? "",
             $this->request->get("sub_categoria") ?? null);
         $data = ["publicaciones" => $publicaciones];
         $this->logger->info("DATA  " . json_encode($data));
         //echo json_encode($data);
         $this->pageFinderService->findFileRute("buscador","twig","twig", $cssImports,
-            $data,"ABM Sub Categorías", $jsImports);
+            $data,$busqueda, $jsImports);
     }
 }

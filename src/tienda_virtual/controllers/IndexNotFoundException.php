@@ -29,6 +29,6 @@ class IndexNotFoundException extends Controller
         // $data=["usuario" => "fede"];
         //$this->pageFinderService->findFileRute("index","html","html", $cssImports,[],"tienda virtual",$jsImports);
         //$this->pageFinderService->findFileRute("index");
-        $this->pageFinderService->findFileRute("not-found","twig","twig", $cssImports,[],"tienda virtual",$jsImports);
+        $this->pageFinderService->findFileRute("not-found","twig","twig", $cssImports,[],"Página no encontrada",$jsImports);
     }
 }

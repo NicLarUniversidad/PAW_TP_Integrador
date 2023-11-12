@@ -27,7 +27,7 @@ class GrupoCategoriaController extends Controller
     /**
      * @throws Exception
      */
-    public function mostrarGrupoCategorias(String $notificacion = "", array $data = [], String $titulo = "Carrito") {
+    public function mostrarGrupoCategorias(String $notificacion = "", array $data = [], String $titulo = "Categorías") {
         $cssImports = [];
         $cssImports[] = "main";
         $cssImports[] = "carrito";
@@ -43,7 +43,7 @@ class GrupoCategoriaController extends Controller
     /**
      * @throws Exception
      */
-    public function cancelar(String $notificacion = "", array $data = [], String $titulo = "Carrito") {
+    public function cancelar(String $notificacion = "", array $data = [], String $titulo = "Categorías") {
         $this->session->delete("procesado");
         $idCarrito = $this->session->get("carrito");
         $this->carritoService->setInactice($idCarrito);

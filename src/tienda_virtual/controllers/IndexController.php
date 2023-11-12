@@ -29,6 +29,6 @@ class IndexController extends Controller
        // $data=["usuario" => "fede"];
         //$this->pageFinderService->findFileRute("index","html","html", $cssImports,[],"tienda virtual",$jsImports);
         //$this->pageFinderService->findFileRute("index");
-        $this->pageFinderService->findFileRute("index","twig","twig", $cssImports,[],"tienda virtual",$jsImports);
+        $this->pageFinderService->findFileRute("index","twig","twig", $cssImports,[],"Home",$jsImports);
     }
 }

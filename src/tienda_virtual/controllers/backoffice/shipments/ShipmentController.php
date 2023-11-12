@@ -48,7 +48,7 @@ class ShipmentController extends Controller
         $data = [];
         $data["ventas"] = $this->ventasService->getActivePurchases();
         $this->pageFinderService->findFileRute("envios","twig","twig", $cssImports,
-            $data,"", $jsImports);
+            $data,"Gestión de ventas", $jsImports);
     }
 
     public function showPendingShipments() {
@@ -59,7 +59,7 @@ class ShipmentController extends Controller
         $jsImports[]="app";
         $data["ventas"] = $this->ventasService->getPendingPurchases();
         $this->pageFinderService->findFileRute("envios","twig","twig", $cssImports,
-            $data,"", $jsImports);
+            $data,"Gestión de ventas", $jsImports);
     }
 
     public function showSentShipments() {
@@ -70,7 +70,7 @@ class ShipmentController extends Controller
         $jsImports[]="app";
         $data["ventas"] = $this->ventasService->getSentPurchases();
         $this->pageFinderService->findFileRute("envios","twig","twig", $cssImports,
-            $data,"", $jsImports);
+            $data,"Gestión de ventas", $jsImports);
     }
 
     public function showReceivedShipments() {
@@ -81,7 +81,7 @@ class ShipmentController extends Controller
         $jsImports[]="app";
         $data["ventas"] = $this->ventasService->getReceivedPurchases();
         $this->pageFinderService->findFileRute("envios","twig","twig", $cssImports,
-            $data,"", $jsImports);
+            $data,"Gestión de ventas", $jsImports);
     }
 
     public function showShipmentDetails() {
@@ -92,7 +92,7 @@ class ShipmentController extends Controller
         $jsImports[]="app";
         $data["ventas"] = $this->ventasService->getReceivedPurchases();
         $this->pageFinderService->findFileRute("envios","twig","twig", $cssImports,
-            $data,"", $jsImports);
+            $data,"Gestión de ventas", $jsImports);
     }
 
     public function sentPackage() {

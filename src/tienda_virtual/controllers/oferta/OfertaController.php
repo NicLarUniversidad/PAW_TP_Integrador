@@ -28,7 +28,7 @@ class OfertaController extends Controller
     /**
      * @throws Exception
      */
-    public function mostrarOfertas(String $notificacion = "", array $data = [], String $titulo = "Carrito") {
+    public function mostrarOfertas(String $notificacion = "", array $data = [], String $titulo = "Ofertas") {
         $cssImports = [];
         $cssImports[] = "main";
         $cssImports[] = "carrito";
@@ -47,7 +47,7 @@ class OfertaController extends Controller
     /**
      * @throws Exception
      */
-    public function cancelar(String $notificacion = "", array $data = [], String $titulo = "Carrito") {
+    public function cancelar(String $notificacion = "", array $data = [], String $titulo = "Ofertas") {
         $this->session->delete("procesado");
         $idCarrito = $this->session->get("carrito");
         $this->carritoService->setInactice($idCarrito);

@@ -43,6 +43,7 @@ class DetalleProductoController extends Controller
         //$this->preference->save();
         $data["publicacion"] = $this->publicacion -> find($idpublicacion) ?? [];
         $data["preference"] = $this->preference ?? [];
+        $titulo = $data["publicacion"][0]["productos"][0]["nombre"];
         $this->pageFinderService->findFileRute("detalle.producto","twig","twig", $cssImports,
             $data,$titulo, $jsImports);
     }

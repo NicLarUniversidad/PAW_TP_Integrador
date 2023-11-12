@@ -78,7 +78,7 @@ class MercadoPagoHandlerController extends Controller
         $jsImports[]="paw";
         $jsImports[]="app";
         $this->pageFinderService->findFileRute("pago-completo","twig","twig", $cssImports,
-            [],"", $jsImports);
+            [],"pago completo", $jsImports);
     }
 
     public function failure() {

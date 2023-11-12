@@ -28,6 +28,6 @@ class BackofficeIndexController extends Controller
         $cssImports[] = "main";
         $jsImports[]="app";
         array_push($jsImports, "paw");
-        $this->pageFinderService->findFileRute("backoffice.index","html","html", $cssImports,[],"tienda virtual",$jsImports);
+        $this->pageFinderService->findFileRute("backoffice.index","html","html", $cssImports,[],"backoffice",$jsImports);
     }
 }
