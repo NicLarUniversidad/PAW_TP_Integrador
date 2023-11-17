@@ -180,7 +180,10 @@ h1{
 }
 
 #iconosPagos{
-    width: 15%;
+    padding: 1%;
+    display: block;
+    margin-inline: auto;
+	width: 25%;
 }
 
 .financiero{
@@ -230,7 +233,7 @@ header button.PAW-Button-Menu {
     padding-top: 0.5%;
 	display: block;
 	margin-bottom: 0px;
-    margin-top: 3%;
+    margin-top: 0%;
 	margin-left: 2%;
 }
 
@@ -254,6 +257,7 @@ h1{
 
 div .pagos {
     font-size: small;
+	display:inline-grid;
 }
 
 .Tpromociones {
