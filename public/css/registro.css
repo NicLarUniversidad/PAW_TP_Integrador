@@ -84,6 +84,28 @@ img{
     display: block;
     margin-inline: auto
 }
+
+.hidden {
+    visibility: hidden;
+}
+
+.modal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #B7DCE8;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
 /*-------------------RESPONSIVE---------------------*/
 
 @media (max-width: 768px){

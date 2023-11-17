@@ -3,12 +3,14 @@
 namespace src\tienda_virtual\controllers\backoffice\shipments;
 
 use src\tienda_virtual\controllers\Controller;
+use src\tienda_virtual\database\services\carrito\CarritoService;
 use src\tienda_virtual\database\services\ventas\VentasService;
 use src\tienda_virtual\services\TwigPageFinderService;
 
 class ShipmentController extends Controller
 {
     protected VentasService $ventasService;
+    protected CarritoService $carritoService;
 
     public function init()
     {
@@ -16,6 +18,7 @@ class ShipmentController extends Controller
         $this->pageFinderService = new TwigPageFinderService();
         $this->pageFinderService->session = $this->session;
         $this->ventasService = new VentasService($this->connection, $this->logger);
+        $this->carritoService = new CarritoService($this->connection, $this->logger);
     }
 
     public function isAuthorizedUser($method) : bool {
@@ -46,7 +49,7 @@ class ShipmentController extends Controller
         $jsImports[]="paw";
         $jsImports[]="app";
         $data = [];
-        $data["ventas"] = $this->ventasService->getActivePurchases();
+        $data["ventas"] = $this->carritoService->getActivePurchases();
         $this->pageFinderService->findFileRute("envios","twig","twig", $cssImports,
             $data,"Gestión de ventas", $jsImports);
     }
@@ -57,7 +60,7 @@ class ShipmentController extends Controller
         $jsImports = [];
         $jsImports[]="paw";
         $jsImports[]="app";
-        $data["ventas"] = $this->ventasService->getPendingPurchases();
+        $data["ventas"] = $this->carritoService->getPendingPurchases();
         $this->pageFinderService->findFileRute("envios","twig","twig", $cssImports,
             $data,"Gestión de ventas", $jsImports);
     }
@@ -68,7 +71,7 @@ class ShipmentController extends Controller
         $jsImports = [];
         $jsImports[]="paw";
         $jsImports[]="app";
-        $data["ventas"] = $this->ventasService->getSentPurchases();
+        $data["ventas"] = $this->carritoService->getSentPurchases();
         $this->pageFinderService->findFileRute("envios","twig","twig", $cssImports,
             $data,"Gestión de ventas", $jsImports);
     }
@@ -79,7 +82,7 @@ class ShipmentController extends Controller
         $jsImports = [];
         $jsImports[]="paw";
         $jsImports[]="app";
-        $data["ventas"] = $this->ventasService->getReceivedPurchases();
+        $data["ventas"] = $this->carritoService->getReceivedPurchases();
         $this->pageFinderService->findFileRute("envios","twig","twig", $cssImports,
             $data,"Gestión de ventas", $jsImports);
     }
@@ -90,7 +93,7 @@ class ShipmentController extends Controller
         $jsImports = [];
         $jsImports[]="paw";
         $jsImports[]="app";
-        $data["ventas"] = $this->ventasService->getReceivedPurchases();
+        $data["ventas"] = $this->carritoService->getReceivedPurchases();
         $this->pageFinderService->findFileRute("envios","twig","twig", $cssImports,
             $data,"Gestión de ventas", $jsImports);
     }

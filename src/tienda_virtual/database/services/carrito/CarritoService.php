@@ -217,4 +217,52 @@ class CarritoService extends DatabaseService
             return "";
         }
     }
+
+    public function findWithData($id_carrito)
+    {
+        $carrito = $this->find($id_carrito)[0];
+        $items = $this->itemCarritoService->findByCarritoId($carrito["id"]);
+        $publicaciones = [];
+        foreach ($items as $item) {
+            $publicacion = $this->publicacionService->find($item["id_publicacion"])[0];
+            $publicacion["producto"] = $publicacion["productos"][0];
+            $publicaciones[] = $publicacion;
+        }
+        $carrito["publicaciones"] = $publicaciones;
+        return $carrito;
+    }
+
+    public function getActivePurchases() : array
+    {
+        $sales = $this->ventasService->getActivePurchases();
+        return $this->getSalesData($sales);
+    }
+
+    public function getPendingPurchases()
+    {
+        $sales =  $this->ventasService->getPendingPurchases();
+        return $this->getSalesData($sales);
+    }
+
+    public function getSentPurchases()
+    {
+        $sales =  $this->ventasService->getSentPurchases();
+        return $this->getSalesData($sales);
+    }
+
+    public function getReceivedPurchases()
+    {
+        $sales =  $this->ventasService->getReceivedPurchases();
+        return $this->getSalesData($sales);
+    }
+
+    private function getSalesData(array $sales) {
+        $result = [];
+        foreach ($sales as $sale) {
+            $sale["carrito"] = $this->findWithData($sale["id_carrito"]);
+            //$carrito["publicacion"] = $this->publicacionService->find($carrito["id_publicacion"])[0];
+            $result[] = $sale;
+        }
+        return $result;
+    }
 }

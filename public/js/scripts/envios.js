@@ -4,28 +4,42 @@ class Envios {
         items.forEach((item) => {
             const originalId = item.id;
             const id = originalId.split("-");
-            let url = "";
-            if (id[1]==="PENDIENTE_DE_ENVIO") {
-                //Post enviar paquete
-                url = "/shipments/send";
+            if (id[0]==="acciones") {
+                let url = "";
+                if (id[1]==="PENDIENTE_DE_ENVIO") {
+                    //Post enviar paquete
+                    url = "/shipments/send";
+                }
+                else if (id[1]==="ENVIADO") {
+                    //Post recibir paquete
+                    url = "/shipments/receive";
+                }
+                if (url !== "") {
+                    item.addEventListener("click", () => {
+                        fetch(
+                            url + "?id_venta=" + id[2],
+                            {
+                                method: "POST"
+                            }
+                        ).then(data => {
+                                window.location.replace("/shipments/all")
+                                return false;
+                            }
+                        )
+                    })
+                }
             }
-            else if (id[1]==="ENVIADO") {
-                //Post recibir paquete
-                url = "/shipments/receive";
-            }
-            if (url !== "") {
+            else {
+                //Si no comienza con eso, es un botón collapse
                 item.addEventListener("click", () => {
-                    fetch(
-                        url + "?id_venta=" + id[2],
-                        {
-                            method: "POST"
-                        }
-                    ).then(data => {
-                            window.location.replace("/shipments/all")
-                            return false;
-                        }
-                    )
-                })
+                    item.classList.toggle("active");
+                    let content = item.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
             }
         });
     }

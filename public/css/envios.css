@@ -7,10 +7,7 @@ h2 {
     padding: 50px;
 }
 
-section > article {
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
+section > section {
     padding-left: 1%;
     padding-right: 1%;
     margin-right: 1%;
@@ -19,10 +16,16 @@ section > article {
     border: solid;
     border-radius: 10px;
     color: black;
+}
+
+section > section > article {
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
     display: -webkit-box;
 }
 
-section > article > button {
+section > section > article > button {
     display: block;
     margin-top: 2%;
     margin-bottom: 2%;
@@ -39,6 +42,21 @@ section > article > p {
 body>main {
     position: relative;
     left: 0;
+}
+
+.detalle {
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    display: block;
+}
+
+.oculto {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
 }
 
 

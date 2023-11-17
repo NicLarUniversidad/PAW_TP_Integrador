@@ -131,7 +131,8 @@ class LoginController extends Controller
             $userService = new UserService($this->connection, $this->logger);
 
             $userService->createUser($username, $password, $mail, $persona->getField("id"), $activo);
-            $this->pageFinderService->findFileRute("login-OK", "twig", "twig");
+            //$this->pageFinderService->findFileRute("login-OK", "twig", "twig");
+            echo "OK";
         } else {
             echo $mensajeError;
         }

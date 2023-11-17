@@ -11,23 +11,31 @@
     <section>
         <h2>Gestión de envíos</h2>
         {% for item in data.ventas %}
-            <h3>  {{ item.publicacion.producto.nombre }}</h3>
-            <article id="compra-{{ item.id }}">
-                <p>Compra N°: {{ item.id }}</p>
-                <p>Monto: {{ item.monto }} </p>
-                {% if item.estado == "PENDIENTE_DE_ENVIO" %}
-                    <p>Estado: sin enviar </p>
-                    <button id="button-{{ item.estado }}-{{ item.id }}"><span>Enviar</span></button>
-                {% elseif item.estado == "ENVIADO" %}
-                    <p>Estado: en viaje </p>
-                    <button id="button-{{ item.estado }}-{{ item.id }}"><span>Cambiar a recibido</span></button>
-                {% elseif item.estado == "RECIBIDO" %}
-                    <p>Estado: Recibido</p>
-                {% else %}
-                    <p>-</p>
-                {% endif %}
-            </article>
-
+            <section>
+                <h3>  {{ item.publicacion.producto.nombre }}</h3>
+                <article id="compra-{{ item.id }}">
+                    <p>Compra N°: {{ item.id }}</p>
+                    <p>Monto: {{ item.monto }} </p>
+                    {% if item.estado == "PENDIENTE_DE_ENVIO" %}
+                        <p>Estado: sin enviar </p>
+                        <button id="acciones-{{ item.estado }}-{{ item.id }}"><span>Enviar</span></button>
+                    {% elseif item.estado == "ENVIADO" %}
+                        <p>Estado: en viaje </p>
+                        <button id="acciones-{{ item.estado }}-{{ item.id }}"><span>Cambiar a recibido</span></button>
+                    {% elseif item.estado == "RECIBIDO" %}
+                        <p>Estado: Recibido</p>
+                    {% else %}
+                        <p>-</p>
+                    {% endif %}
+                </article>
+                <article class="detalle">
+                    <details id="collapse-content-{{ item.id }}" class="">
+                        {% for publicacion in item.carrito.publicaciones %}
+                            <li> {{ publicacion.producto.nombre }}</li>
+                        {% endfor %}
+                    </details>
+                </article>
+            </section>
         {% else %}
             <span class="sin-compras">No han encontrado productos asociados a esta compra</span>
         {% endfor %}

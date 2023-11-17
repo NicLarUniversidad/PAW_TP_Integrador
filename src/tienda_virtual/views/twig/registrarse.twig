@@ -2,6 +2,7 @@
     <script src="https://www.mercadopago.com/v2/security.js" view="item"></script>
     <link rel="stylesheet" type="text/css" href="css/registro.css" />
     <script src="/js/scripts/carrito.js" ></script>
+    <script src="/js/scripts/registro.js" ></script>
 {% endblock %}
 
 {% block main %}
@@ -14,7 +15,7 @@
         <h2>Login {{attribute(data,"usuario")}}</h2>
       {% endif %}
       <img src="img/new-users.svg" class="newUsers">
-        <form method="post" action="/registrarse">
+        <form>
             <div>
             <label for="username">Usuario:</label>
             <input type="text" name="username" id="username" required>
@@ -42,6 +43,11 @@
             <button type="submit" class="botonRegistro">Registrarse</button>
         </form>
         <a href="/login" class="botonRegistro">Iniciar sesión</a>
+    </section>
+    <section id="modal" class="hidden">
+        <h2>Ha ocurrido un error al intentar registrarse</h2>
+        <p>pepe</p>
+        <button>Regresar</button>
     </section>
     
 {% endblock %}

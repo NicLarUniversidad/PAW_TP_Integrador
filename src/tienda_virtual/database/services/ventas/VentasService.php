@@ -4,10 +4,9 @@ namespace src\tienda_virtual\database\services\ventas;
 
 use Monolog\Logger;
 use PDO;
-use src\tienda_virtual\database\models\carrito\CarritoModel;
+use src\tienda_virtual\database\services\carrito\CarritoService;
 use src\tienda_virtual\database\services\DatabaseService;
 use src\tienda_virtual\database\services\products\PublicacionService;
-use src\tienda_virtual\traits\TSession;
 
 class VentasService extends DatabaseService
 {
@@ -59,22 +58,26 @@ class VentasService extends DatabaseService
 
     public function getActivePurchases() : array
     {
-        return $this->repository->getActivePurchases();
+        $sales = $this->repository->getActivePurchases();
+        return $this->fillPublications($sales);
     }
 
     public function getPendingPurchases()
     {
-        return $this->repository->getPurchasesByState("PENDIENTES_DE_ENVIO");
+        $sales = $this->repository->getPurchasesByState("PENDIENTES_DE_ENVIO");
+        return $this->fillPublications($sales);
     }
 
     public function getSentPurchases()
     {
-        return $this->repository->getPurchasesByState("ENVIADO");
+        $sales =  $this->repository->getPurchasesByState("ENVIADO");
+        return $this->fillPublications($sales);
     }
 
     public function getReceivedPurchases()
     {
-        return $this->repository->getPurchasesByState("RECIBIDO");
+        $sales =  $this->repository->getPurchasesByState("RECIBIDO");
+        return $this->fillPublications($sales);
     }
 
     public function isValidState($idVenta, string $string) : bool
@@ -118,5 +121,13 @@ class VentasService extends DatabaseService
         $updatedSale->setField("estado", $state);
         $this->logger->info("  Haciendo update");
         $this->repository->update($updatedSale);
+    }
+
+    private function fillPublications(array $sales) : array {
+        $result = [];
+        foreach ($sales as $sale) {
+            $result[] = $sale;
+        }
+        return $result;
     }
 }
