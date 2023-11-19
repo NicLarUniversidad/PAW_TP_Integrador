@@ -46,7 +46,7 @@ class Buscador
         let figures = document.querySelectorAll("figure");
         console.log(figures)
         figures.forEach((figure) => {
-            let img = figure.querySelector("img");
+            let img = figure.querySelector("picture");
             console.log(img)
             img.classList.remove("hidden");
         });

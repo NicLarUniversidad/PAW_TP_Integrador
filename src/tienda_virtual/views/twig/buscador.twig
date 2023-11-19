@@ -13,12 +13,12 @@
         <article>
             <figure>
                 {% for foto in publicacion.fotografias %}
-                    <picture>
-                        <img class="imagenes hidden" src="{{ foto.url }}" alt="{{ publicacion.producto.descripcion }}">
+                    <picture class="hidden">
+                        <img class="imagenes" src="{{ foto.url }}" alt="{{ publicacion.producto.descripcion }}">
                     </picture>
                 {% else %}
-                    <picture>
-                        <img class="imagenes hidden" src="img/no-picture.svg" alt="Imagen no encontrada">
+                    <picture class="hidden">
+                        <img class="imagenes" src="img/no-picture.svg" alt="Imagen no encontrada">
                     </picture>
                 {% endfor %}
             </figure>
