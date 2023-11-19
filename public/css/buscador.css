@@ -123,53 +123,58 @@ figure {
     display: flex;
 }
 
-/*-------------------RESPONSIVE---------------------*/
-
-@media (max-width: 768px){
-
-h1{
-    font-size: large;
-}
-
-h2 {
-    /*font-size: inherit;*/
-    height: auto;
-    display: block;
-}
-
-article{
-    margin: 2%;
-    padding: 2%;
-    border-radius: 10px;
-    border: solid;
-    text-align: right;
-    display: block;
-    width: auto;
-    height: auto;
-}
-
-p{
-    display: block;
-    font-size: large;
-}
-
-.agregar{
-    font-size: smaller;
-}
-
-.imagenes{
-    float: left;
-}
-
-#verMas{
-    display: block;
-    margin: inherit;
-}
-}
 .antes{
     text-decoration:line-through;
     color: red;
     text-align: center;
     width: max-content;
     margin-bottom: 0px;
+}
+
+.nombre-producto {
+    overflow: hidden;
+}
+
+/*-------------------RESPONSIVE---------------------*/
+
+@media (max-width: 768px){
+
+    h1{
+        font-size: large;
+    }
+
+    h2 {
+        /*font-size: inherit;*/
+        height: auto;
+        display: block;
+    }
+
+    article{
+        margin: 2%;
+        padding: 2%;
+        border-radius: 10px;
+        border: solid;
+        text-align: right;
+        display: block;
+        width: auto;
+        height: auto;
+    }
+
+    p{
+        display: block;
+        font-size: large;
+    }
+
+    .agregar{
+        font-size: smaller;
+    }
+
+    .imagenes{
+        float: left;
+    }
+
+    #verMas{
+        display: block;
+        margin: inherit;
+    }
 }
