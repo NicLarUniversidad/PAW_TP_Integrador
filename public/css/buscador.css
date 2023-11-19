@@ -113,6 +113,16 @@ article{
     width: 15vh;
 }
 
+.hidden {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+}
+
+figure {
+    display: flex;
+}
+
 /*-------------------RESPONSIVE---------------------*/
 
 @media (max-width: 768px){
