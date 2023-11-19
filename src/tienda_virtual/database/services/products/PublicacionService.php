@@ -97,6 +97,7 @@ class PublicacionService extends DatabaseService
         if (array_key_exists("id_producto", $publicacion[0])) {
             $publicacion[0]["productos"] = $this->productoService->find($publicacion[0]["id_producto"]);
             $publicacion[0]["fotografias"] = $this->fotografiaProductoService->findByProductoId($publicacion[0]["id_producto"]);
+            $publicacion[0]["moneda"] = $this->monedaService->find($publicacion[0]["id_moneda"])[0];
             $this->logger->debug(json_encode($publicacion));
         }
         $this->logger->debug(json_encode($publicacion));

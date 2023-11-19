@@ -1,7 +1,6 @@
 # Cosas por hacer
 
-- Agregar imágenes a detalle de producto
-http://localhost:12000/detalleproducto?publicacion=2
+- ~~Agregar imágenes a detalle de producto~~
 
 ### Backoffice
 
@@ -12,7 +11,7 @@ http://localhost:12000/detalleproducto?publicacion=2
 
 ### Registro
 
-- Agregar mensaje a validaciones del registro
+- ~~Agregar mensaje a validaciones del registro~~
     - Validaciones en js de contraseñas
 
 ### Otros, estilos
@@ -28,7 +27,7 @@ https://github.com/mercadopago/checkout-payment-sample
 
 ## Detalle del producto
 
-- Agregar la moneda al precio del producto
+- ~~Agregar la moneda al precio del producto~~
 
 ### ~~Carrito~~
 
