@@ -39,7 +39,7 @@ https://github.com/mercadopago/checkout-payment-sample
 
 ### Ofertas
 
-- Mostrar imagen del producto
+- ~~Mostrar imagen del producto~~
 
 - ~~Reorganizar cómo se muestran las ofertas, puede ser que sea una categoría~~
   ~~Ver si se puede mostrar que esta en oferta, también, desde la vista buscar~~

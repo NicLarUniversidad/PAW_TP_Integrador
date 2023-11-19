@@ -129,45 +129,61 @@ main{
     height: 0;
 }
 
+.agregar {
+    text-decoration: none;
+    border: solid;
+    border-radius: 10px;
+    padding: 1% 6% 2%;
+    color: #212D63;
+    display: block;
+    text-align: center;
+    font-size: larger;
+    cursor: pointer;
+}
+
 /*-------------------RESPONSIVE---------------------*/
 
 @media (max-width: 768px){
 
-.detalle{
-    font-size: larger;
-}
+    .detalle{
+        font-size: larger;
+    }
 
-.flecha-back{ 
-    height: 1em;
-}
+    .flecha-back{
+        height: 1em;
+    }
 
-.footer, .footer1{
-    font-size: 50%;
-}
+    .footer, .footer1{
+        font-size: 50%;
+    }
 
-.imgproducto{
-    width: 86%;
-    height: 37%;
-    float: inherit;
-}
+    .imgproducto{
+        width: 86%;
+        height: 37%;
+        float: inherit;
+    }
 
-.nombre{
-    font-size: x-large;
-}
+    .nombre{
+        font-size: x-large;
+    }
 
-.descripcion{
-    text-align: justify;
-    font-size: x-large;
-    margin: auto;
-}
+    .descripcion{
+        text-align: justify;
+        font-size: x-large;
+        margin: auto;
+    }
 
-.descripTitulo, .precio{
-    font-size: x-large;
-    margin: inherit;
-}
+    .descripTitulo, .precio{
+        font-size: x-large;
+        margin: inherit;
+    }
 
-.camion, .tienda{
-    width: 15%;
-}
+    .camion, .tienda{
+        width: 15%;
+    }
+
+    .agregar{
+        font-size: smaller;
+    }
 
 }

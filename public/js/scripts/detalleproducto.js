@@ -1,5 +1,5 @@
 class DetalleProducto {
-    addAddToCartEvent() {
+    addPostEvents() {
         let pic = document.querySelector(".hidden");
         pic.classList.remove("hidden");
         pic.classList.add("not-hidden");
@@ -15,10 +15,24 @@ class DetalleProducto {
                 image.classList.add("not-hidden");
             });
         });
+        let item = document.querySelector(".agregar");
+        const id = item.id.split("-")[1];
+        item.addEventListener("click", () => {
+            fetch(
+                "/addItem?publicationId=" + id,
+                {
+                    method: "POST"
+                }
+            ).then(() => {
+                    window.location.replace("/carrito")
+                    return false;
+                }
+            )
+        })
     }
 }
 
 document.addEventListener("DOMContentLoaded",()=>{
     let detalleProducto = new DetalleProducto();
-    detalleProducto.addAddToCartEvent();
+    detalleProducto.addPostEvents();
 });

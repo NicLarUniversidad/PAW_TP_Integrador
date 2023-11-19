@@ -50,7 +50,7 @@
 
                     {% endfor %}
                 {% endfor %}
-                </section>
+                <a class="agregar" id="addToCart-{{ publicacion.id }}">Agregar</a>
                 <a class="categorias" href="/subcategoria?categoria={{categoria.id_grupo_categoria}}" title="{{categoria.descripcion}}">{{categoria.descripcion}}</a>
             {% else %}
                 <p>{{ categoria.descripcion }}</p>
