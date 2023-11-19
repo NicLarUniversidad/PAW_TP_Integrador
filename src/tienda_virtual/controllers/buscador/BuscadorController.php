@@ -34,4 +34,20 @@ class BuscadorController extends Controller
         $this->pageFinderService->findFileRute("buscador","twig","twig", $cssImports,
             $data,$busqueda, $jsImports);
     }
+
+
+    public function buscarOfertas() : void
+    {
+        $cssImports = [];
+        $cssImports[] = "main";
+        $jsImports = [];
+        $jsImports[]="app";
+        $jsImports[]="paw";
+        $busqueda = $this->request->get("buscador");
+        $publicaciones = $this->publicacionService->buscarOfertas($busqueda ?? "",
+            $this->request->get("sub_categoria") ?? null);
+        $data = ["publicaciones" => $publicaciones];
+        $this->pageFinderService->findFileRute("buscador","twig","twig", $cssImports,
+            $data, "Ofertas", $jsImports);
+    }
 }

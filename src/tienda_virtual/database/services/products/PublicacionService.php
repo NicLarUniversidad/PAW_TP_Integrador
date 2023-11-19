@@ -110,4 +110,9 @@ class PublicacionService extends DatabaseService
         $publicacion["producto"] = $this->productoService->find($publicacion["id_producto"])[0];
         return $publicacion;
     }
+
+    public function buscarOfertas($parametros, $sub_categoria)
+    {
+        return $this->repository->buscarOfertas($parametros, $sub_categoria);
+    }
 }
