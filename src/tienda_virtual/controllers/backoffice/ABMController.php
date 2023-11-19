@@ -45,7 +45,6 @@ class ABMController extends Controller
         $jsImports[]="paw";
         $jsImports[]="app";
         $jsImports[]="abm";
-        array_push($jsImports, "paw");
         $data = $this->service->attachData();
         $this->pageFinderService->findFileRute($this->url,"twig","twig", $cssImports,
             $data,"ABM Sub Categorías", $jsImports);

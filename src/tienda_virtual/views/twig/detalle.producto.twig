@@ -3,28 +3,42 @@
 {% block head %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/detalleproducto.css" />
+    <script src="/js/scripts/detalleproducto.js" ></script>
 {% endblock %}
 
 {% block main %}
-<img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" onclick="history.back();">
-<h1 class="detalle">Detalles del producto</h1>
-        <section class="detalleDescrip">
+    {% for publicacion in data.publicacion %}
 
-            {% for publicacion in data.publicacion %}
-
-                {% for producto in publicacion.productos %}
-                    <p class="nombre">{{ producto.nombre}}</p>
-
-                    {% for foto in publicacion.fotografias %}
-                        <picture>
-                            <img src="{{ foto.url }}" class="imgproducto" alt="{{ publicacion.producto.descripcion }}">
-                        </picture>
-                    {% else %}
-                        <picture>
-                            <img class="imgproducto" src="img/no-picture.svg" alt="Imagen no encontrada">
-                        </picture>
-                    {% endfor %}
-
+    {% for producto in publicacion.productos %}
+        <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" onclick="history.back();">
+        <h1 class="detalle">Detalles del producto</h1>
+        <p class="nombre">{{ producto.nombre}}</p>
+        <section class="product-details">
+            <section class="image-section">
+                {% for foto in publicacion.fotografias %}
+                    <picture id="img-{{ foto.id }}" class="hidden">
+                        <img src="{{ foto.url }}" class="imgproducto" alt="{{ publicacion.producto.descripcion }}">
+                    </picture>
+                {% else %}
+                    <picture>
+                        <img  id="img-0" class="imgproducto" src="img/no-picture.svg" alt="Imagen no encontrada">
+                    </picture>
+                {% endfor %}
+                <section>
+                    <picture>
+                        {% for foto in publicacion.fotografias %}
+                            <picture id="preview-{{ foto.id }}" >
+                                <img src="{{ foto.url }}" alt="{{ publicacion.producto.descripcion }}">
+                            </picture>
+                        {% else %}
+                            <picture id="preview-0" >
+                                <img src="img/no-picture.svg" alt="Imagen no encontrada">
+                            </picture>
+                        {% endfor %}
+                    </picture>
+                </section>
+            </section>
+            <section class="detalleDescrip">
                    <!-- <img class="imgproducto" src="documentos/computadoras/1.jpg" alt="{{ publicacion.producto.descripcion }}"> -->
                     <p class="descripTitulo" >Descripción</p>
                     <p class="descripcion">{{ producto.descripcion}}</p>
@@ -41,6 +55,7 @@
             {% else %}
                 <p>{{ categoria.descripcion }}</p>
             {% endfor %}
+            </section>
         </section>
 
 {% endblock %}

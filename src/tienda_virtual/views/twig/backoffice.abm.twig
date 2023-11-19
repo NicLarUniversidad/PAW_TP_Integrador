@@ -9,7 +9,7 @@
         {% if data %}
 {#            {{ dump(data) }}#}
             <h1>{{ attribute(data, "table-title") }}</h1>
-        <a>Agregar</a>
+        <a id="add">Agregar</a>
         <table>
             <thead>
             <tr>
@@ -46,13 +46,9 @@
         {% endif %}
     </section>
 
-{% endblock %}
-
-
-{% block outerHtml %}
     <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        abm.agregarBotonAgregar('{{ attribute(data, "item-url") }}');
-    });
+        document.addEventListener("DOMContentLoaded", () => {
+            abm.agregarBotonAgregar('{{ attribute(data, "item-url") }}');
+        });
     </script>
 {% endblock %}

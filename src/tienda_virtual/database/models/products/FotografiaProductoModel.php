@@ -11,6 +11,7 @@ class FotografiaProductoModel extends Model
     public function __construct()
     {
         parent::__construct();
+        $this->setField("id", "");
         $this->setField("id_producto", "");
         $this->setField("url", "");
         $this->setField("activo", "");

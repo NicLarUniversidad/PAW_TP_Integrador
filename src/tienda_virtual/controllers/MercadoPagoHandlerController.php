@@ -12,8 +12,9 @@ class MercadoPagoHandlerController extends Controller
 {
     protected CarritoService $carritoService;
     protected UserService $userService;
-    private string $url = "http://localhost:12000";
+    //private string $url = "http://localhost:12000";
     //private string $url = "public-url";
+    private string $url = "https://paw-tienda-virtual.azurewebsites.net";
 
     public function init()
     {

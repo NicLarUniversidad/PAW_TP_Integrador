@@ -13,11 +13,13 @@ class PublicacionService extends DatabaseService
 {
     private MonedaService $monedaService;
     private ProductoService $productoService;
+    private FotografiaProductoService $fotografiaProductoService;
     public function __construct(PDO $PDO, Logger $logger)
     {
         parent::__construct($PDO, $logger, "products\\PublicacionRepository");
         $this->monedaService = new MonedaService($PDO, $logger);
         $this->productoService = new ProductoService($PDO, $logger);
+        $this->fotografiaProductoService = new FotografiaProductoService($PDO, $logger);
     }
 
     public function attachData(array $data = []): array
@@ -94,6 +96,7 @@ class PublicacionService extends DatabaseService
         $this->logger->debug(json_encode($publicacion));
         if (array_key_exists("id_producto", $publicacion[0])) {
             $publicacion[0]["productos"] = $this->productoService->find($publicacion[0]["id_producto"]);
+            $publicacion[0]["fotografias"] = $this->fotografiaProductoService->findByProductoId($publicacion[0]["id_producto"]);
             $this->logger->debug(json_encode($publicacion));
         }
         $this->logger->debug(json_encode($publicacion));

@@ -48,10 +48,11 @@ class Amb
         form.appendChild(closeButton)
     }
     agregarBotonAgregar(url) {
-        const anchor = document.querySelector("main>section>a")
+        const anchor = document.querySelector("#add")
         anchor.addEventListener("click", (e) =>{
             e.preventDefault();
             window.location.replace(url);
+            return false;
             /*fetch(url, {method:"POST"}).then((response)=>{
                 return response.text();
             }).then(function (html) {
@@ -115,3 +116,4 @@ class Amb
 }
 
 let abm = new Amb();
+
