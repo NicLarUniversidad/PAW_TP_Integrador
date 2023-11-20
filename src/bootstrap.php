@@ -110,6 +110,10 @@ $routerService->get('/success','MercadoPagoHandlerController@success');
 $routerService->get('/failure','MercadoPagoHandlerController@failure');
 $routerService->get('/pending','MercadoPagoHandlerController@pending');
 
+//Perfil
+$routerService->get('/profile-details','profile\\ProfileController@detailsView');
+$routerService->get('/profile-address','profile\\ProfileController@addressView');
+
 //Gestión envíos
 $routerService->get('/shipments/all','backoffice\\shipments\\ShipmentController@showShipments');
 $routerService->get('/shipments/pending','backoffice\\shipments\\ShipmentController@showPendingShipments');
