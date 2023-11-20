@@ -113,6 +113,7 @@ $routerService->get('/pending','MercadoPagoHandlerController@pending');
 //Perfil
 $routerService->get('/profile-details','profile\\ProfileController@detailsView');
 $routerService->get('/profile-address','profile\\ProfileController@addressView');
+$routerService->get('/location','profile\\ProfileController@postGetLocations');
 
 //Gestión envíos
 $routerService->get('/shipments/all','backoffice\\shipments\\ShipmentController@showShipments');

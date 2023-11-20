@@ -24,8 +24,8 @@ final class Cities extends AbstractMigration
 
         $table = $this->table("localidad");
         $table->addColumn('nombre', 'string')
-            ->addColumn('id_privincia', 'integer')
-            ->addForeignKey('id_privincia', 'provincia', 'id', ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'])
+            ->addColumn('id_provincia', 'integer')
+            ->addForeignKey('id_provincia', 'provincia', 'id', ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'])
             ->create();
 
 
@@ -58,7 +58,7 @@ final class Cities extends AbstractMigration
         (24, 'Tierra del Fuego'),
         (25, 'Tucumán');
         
-        INSERT INTO `localidad` (`id`, `id_privincia`, `nombre`) VALUES
+        INSERT INTO `localidad` (`id`, `id_provincia`, `nombre`) VALUES
         (1, 1, '25 de Mayo'),
         (2, 1, '3 de febrero'),
         (3, 1, 'A. Alsina'),

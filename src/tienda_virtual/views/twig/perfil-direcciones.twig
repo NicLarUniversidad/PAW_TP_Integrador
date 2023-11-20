@@ -22,13 +22,14 @@
             <h2>Dirección</h2>
             <form>
                 <label>Provincia
-                    <select name="provincia">
-
+                    <select id="provincia" name="provincia">
+                        {% for provincia in data.provincias %}
+                            <option id="{{ provincia.id }}">{{ provincia.nombre }}</option>
+                        {% endfor %}
                     </select>
                 </label>
                 <label>Ciudad
-                    <select name="ciudad">
-
+                    <select id="ciudad"  name="ciudad">
                     </select>
                 </label>
                 <label>Calle
@@ -40,6 +41,7 @@
                 <label>Departamento
                     <input name="departamento">
                 </label>
+                <button type="submit">Guardar</button>
             </form>
         </section>
     </section>
