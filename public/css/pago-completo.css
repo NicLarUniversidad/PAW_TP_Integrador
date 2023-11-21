@@ -12,17 +12,17 @@ h2 {
     padding: 50px;
 }
 
-img {
+.payment-section > img {
     width: 20vw;
     padding: 2vw;
 }
 
-section > article > p {
+.payment-section > article > p {
     padding: 15px;
 }
 
 
-main > section {
+.payment-section  {
     text-align: center;
 }
 

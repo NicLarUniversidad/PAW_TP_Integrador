@@ -31,6 +31,7 @@ class UserService
         $newUser->setEmail($mail);
         $newUser->setIdPersona($id_persona);
         $newUser->setActivo($activo);
+        $newUser->setField("id_direccion_default", "1");
         $this->userRepository->save($newUser);
         return $newUser;
     }
