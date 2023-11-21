@@ -15,6 +15,7 @@ class UserModel extends Model
         $this->setField("mail", "");
         $this->setField("id_persona", "");
         $this->setField("activo", "");
+        $this->setField("id_direccion_default", "");
     }
 
     public function setUsername(string $username) : void {

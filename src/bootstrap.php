@@ -114,6 +114,9 @@ $routerService->get('/pending','MercadoPagoHandlerController@pending');
 $routerService->get('/profile-details','profile\\ProfileController@detailsView');
 $routerService->get('/profile-address','profile\\ProfileController@addressView');
 $routerService->get('/location','profile\\ProfileController@postGetLocations');
+$routerService->post('/add-address','profile\\ProfileController@addAddress');
+$routerService->get('/address-list','profile\\ProfileController@addressList');
+$routerService->post('/set-default-address','profile\\ProfileController@postDefaultAddress');
 
 //Gestión envíos
 $routerService->get('/shipments/all','backoffice\\shipments\\ShipmentController@showShipments');

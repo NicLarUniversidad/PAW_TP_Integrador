@@ -1,7 +1,61 @@
 .slide-bar {
-    background-color: #1d6625;
+    background-color: #2A497E;
 }
 
 .details {
-    background-color: #2A497E;
+    background-color: #1d6625;
+}
+
+.details form {
+    display: grid;
+    align-items: baseline;
+    position: relative;
+}
+
+.details form label {
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+}
+
+.details form label input, .details form label select {
+    margin-left: 5rem;
+    width: 10rem;
+}
+
+.details small {
+    width: 15rem;
+}
+
+.details form button {
+    border: solid;
+    border-radius: 10px;
+    width: 25vw;
+    padding: 1% 7% 2%;
+    margin: 5vw;
+    color: #212D63;
+    text-align: center;
+    font-size: larger;
+    cursor: pointer;
+}
+
+.details-list ul li {
+    display: flex;
+}
+
+.details-list ul button {
+    text-decoration: none;
+    border: solid;
+    border-radius: 5px;
+    padding: 1% 7% 2%;
+    color: #212D63;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.details-list ul small {
+    padding: 1% 7% 2%;
+    color: #212D63;
+    display: block;
 }

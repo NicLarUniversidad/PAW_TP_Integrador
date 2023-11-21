@@ -56,4 +56,17 @@ class UserService
         }
         return null;
     }
+
+    public function setDefaultAddress($user, $idAddress)
+    {
+        $user["id_direccion_default"] = $idAddress;
+        $model = $this->userRepository->getModelInstance();
+        $model->setFields($user);
+        $this->userRepository->update($model);
+    }
+
+    public function find($id)
+    {
+        return $this->userRepository->find($id)[0];
+    }
 }

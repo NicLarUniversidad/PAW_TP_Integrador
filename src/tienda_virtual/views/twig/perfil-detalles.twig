@@ -1,0 +1,29 @@
+{% extends "parts/commons2.twig" %}
+
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="/css/perfil-direcciones.css" />
+    <link rel="stylesheet" type="text/css" href="/css/perfil.css" />
+{% endblock %}
+
+{% block main %}
+
+    <section class="profile-section">
+        <section class="slide-bar">
+            <h3>Perfil</h3>
+            <ul>
+                <li><a href="/profile-details"><i class="fas fa-qrcode"></i>Datos personales</a></li>
+                <li><a href="/profile-address"><i class="fas fa-link"></i>Dirección</a></li>
+            </ul>
+        </section>
+        <section class="details">
+            <h2>Datos personales</h2>
+            <form>
+
+            </form>
+        </section>
+        <section id="details-list" class="details-list">
+
+        </section>
+    </section>
+{% endblock %}

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title> Tienda Virtual - {{ title }} </title>
+    {% if cssImports %}
+        {% for import in cssImports %}
+            <link rel="stylesheet" type="text/css" href="/css/{{ import }}.css" />
+        {% endfor %}
+    {% endif %}
+    {% if jsImports %}
+        {% for import in jsImports %}
+            <script src="/js/scripts/{{ import }}.js" ></script>
+        {% endfor %}
+    {% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/img/logo.svg">
+    {% block head %}
+
+    {% endblock %}
+</head>
+<body>
+<header>
+    <form action="/buscar">
+        <img src="/img/logo.svg" id="logo" title="Logo">
+        <label class="nombrePagina" id="AnimacionTitulo">TiendaVirtual</label>
+        <input class="buscadorMenu" name="buscador" type="text" placeholder="Buscar producto">
+        <button type="submit"><img class="lupa" src="/img/lupa.png"/></button>
+    </form>
+    <!--Agregar comprobación para mostrar sólo si el usuario está logeado, o si no mostrar botón de login-->
+
+    {% if user %}
+        <h3 class="usuario"> Usuario {{attribute(user,"username")}} </h3>
+    {% else %}
+        <a href="/login" class="InicioSesion">
+            Iniciar sesion
+        </a>
+    {% endif %}
+
+    <button id="button-menu" class="PAW-Menu-Abrir"></button>
+    {% if user %}
+        <h3 class="usuario"> ¡Hola {{attribute(user,"username")}} !</h3>
+    {% else %}
+        <a href="/login" class="InicioSesion">
+            Iniciar sesion
+        </a>
+    {% endif %}
+
+    <a class="icon-cart" href="/carrito">
+        <div class="cart-line-1" style="background-color: #E5E9EA"></div>
+        <div class="cart-line-2" style="background-color: #E5E9EA"></div>
+        <div class="cart-line-3" style="background-color: #E5E9EA"></div>
+        <div class="cart-wheel" style="background-color: #E5E9EA"></div>
+    </a>
+    <nav>
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/ofertas">Ofertas</a></li>
+            <li><a href="/miscompras">Mis compras</a></li>
+            <!-- <li><a href="/historial">Historial</a></li> -->
+            <li><a href="/grupocategorias">Categorías</a></li>
+            <!--<li><a href="/arma-tu-pc">Armá tu PC</a></li> -->
+            <li><a href="/profile-address">Perfil</a></li>
+            <li><a href="/logout">Cerrar sesión</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    {% block main %}
+
+    {% endblock %}
+
+</main>
+
+{% block footer %}
+<div class="cuerpo">
+    <div id="slideshow-principal">
+        <div id="progress-bar-container">
+            <div id="progress-bar"></div>
+        </div>
+
+
+        <div id="indicadores"></div>
+    </div>
+
+    <section class="financiero">
+
+        <div class="ventana" id="ventPromocionesBancarias">
+            <div id="cerrar"><a href="javascript:cerrarPromocionesBancarias()"><img src="/img/cerrar.svg"></a> </div>
+
+            <p class="Tpromociones">Promociones bancarias</p>
+            <section class="seccionPromo">
+                <p class="Tpromo">Ahora 30 con interés</p>
+                <p class="promo">En productos seleccionados con Visa y Mastercard bancarias.</p>
+            </section>
+            <section class="seccionPromo">
+                <p class="Tpromo">Ahora 12, 6 y 3 sin interés</p>
+                <p class="promo">En productos seleccionados con Visa, American Express, Cabal, Tarjeta Shopping, Cordobesa y Mastercard bancarias.</p>
+            </section>
+        </div>
+
+        <div class="pagos">
+            <img src="/img/credit-card.svg"  id="iconosPagos" title="Tarjetas de crédito">
+            <p>Tarjeta de crédito</p>
+            <a href="javascript:abrirPromocionesBancarias()">Ver promociones bancarias</a>
+        </div>
+
+        <div class="ventana" id="ventMediosDePago">
+            <div id="cerrar"><a href="javascript:cerrarMediosDePago()"><img src="/img/cerrar.svg"></a> </div>
+
+            <p class="Tpromociones">Medios de pago</p>
+            <section class="seccionPromo">
+                <p class="Tpromo">Podés pagar tus compras con cualquiera de estos medios. Es rápido y seguro, siempre</p>
+                <p class="Tpromo">Cuotas sin tarjeta de crédito</p>
+                <p class="promo">Elegí a Mercado Crédito al comprar. Luego pagás las cuotas mes a mes en efectivo, con débito o con el dinero en tu cuenta de Mercado Pago.</p>
+            </section>
+            <section class="seccionPromo">
+                <p class="Tpromo">Tarjetas de crédito en hasta 24 cuotas</p>
+                <p class="promo">Acreditación instantánea.</p>
+            </section>
+            <section class="seccionPromo">
+                <p class="Tpromo">Tarjetas de débito</p>
+                <p class="promo">Acreditación instantánea.</p>
+            </section>
+        </div>
+
+        <div class="pagos">
+            <img src="/img/debit-card.svg"  id="iconosPagos" title="Tarjetas de débito">
+            <p>Tarjeta de débito</p>
+            <a href="javascript:abrirMediosDePago()">Ver más</a>
+        </div>
+
+        <div class="ventana" id="ventEfectivo">
+            <div id="cerrar"><a href="javascript:cerrarEfectivo()"><img src="/img/cerrar.svg"></a> </div>
+
+            <p class="Tpromociones">Medios de pago</p>
+            <section class="seccionPromo">
+                <p class="Tpromo">Efectivo</p>
+                <p class="promo">Es muy simple: cuando termines tu compra, te daremos las instrucciones para que sepas cómo y dónde pagarla.</p>
+            </section>
+            <section class="seccionPromo">
+                <p class="Tpromo">Dinero en tu cuenta de Mercado Pago</p>
+                <p class="promo">Al finalizar tu compra, pagás con el dinero disponible en tu cuenta. Podés ingresar dinero a Mercado Pago con tu tarjeta de débito, en efectivo o por transferencia bancaria.</p>
+            </section>
+        </div>
+
+
+        <div class="pagos">
+            <img src="/img/money-cash.svg"  id="iconosPagos" title="Pagos en efectivo">
+            <p>Efectivo</p>
+            <a href="javascript:abrirEfectivo()">Ver más</a>
+        </div>
+
+    </section>
+
+
+
+    <section class="informacion">
+        <div class="columnas">
+            <img src="/img/ubicacion.png"  id="iconosPortada" title="Ubicación">
+            <h3>Ubicación</h3>
+            <p>Av. Mitre 1600</p>
+        </div>
+        <div class="columnas">
+            <img src="/img/phone-call.png" id="iconosPortada" title="Números de contacto">
+            <h3>Teléfonos de contacto</h3>
+            <p>1124563258</p>
+            <p>1132654297</p>
+        </div>
+        <div class="columnas">
+            <h3>Redes Sociales</h3>
+            <div class="redes">
+                <img src="/img/facebook.png"  id="iconosPortada" title="Facebook">
+                <p id="redes">Tiendavirtual</p>
+            </div>
+            <div class="redes">
+                <img src="/img/instagram.png"  id="iconosPortada" title="Instagram">
+                <p id="redes">Tiendavirtual</p>
+            </div>
+            <div class="redes">
+                <img src="/img/twitter.png"  id="iconosPortada" title="Twitter">
+                <p id="redes">TiendaVirtual</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <small>Legal</small>
+    <small>Copyright</small>
+    <address>Dirección: Ruta 5</address>
+</footer>
+</body>
+{% endblock %}
+</html>

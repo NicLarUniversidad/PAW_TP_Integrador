@@ -1,11 +1,10 @@
-{% extends "parts/commons.twig" %}
+{% extends "parts/commons2.twig" %}
 
 
 {% block head %}
     <link rel="stylesheet" type="text/css" href="/css/perfil-direcciones.css" />
     <link rel="stylesheet" type="text/css" href="/css/perfil.css" />
     <script src="/js/scripts/perfil-direcciones.js" ></script>
-    <script src="/js/scripts/perfil.js" ></script>
 {% endblock %}
 
 {% block main %}
@@ -14,35 +13,43 @@
         <section class="slide-bar">
             <h3>Perfil</h3>
             <ul>
-                <li><a href="/profile-details"><i class="fas fa-qrcode"></i>Datos personales</a></li>
+                {#<li><a href="/profile-details"><i class="fas fa-qrcode"></i>Datos personales</a></li>#}
                 <li><a href="/profile-address"><i class="fas fa-link"></i>Dirección</a></li>
             </ul>
         </section>
         <section class="details">
             <h2>Dirección</h2>
             <form>
-                <label>Provincia
-                    <select id="provincia" name="provincia">
+                <label><small>Código postal</small>
+                    <input name="cod-postal" type="number" required>
+                </label>
+                <label><small>Provincia</small>
+                    <select id="provincia" name="provincia" required>
                         {% for provincia in data.provincias %}
-                            <option id="{{ provincia.id }}">{{ provincia.nombre }}</option>
+                            <option value="{{ provincia.id }}">{{ provincia.nombre }}</option>
                         {% endfor %}
                     </select>
                 </label>
-                <label>Ciudad
-                    <select id="ciudad"  name="ciudad">
+                <label><small>Ciudad</small>
+                    <select id="ciudad"  name="ciudad" required>
                     </select>
                 </label>
-                <label>Calle
-                    <input name="calle">
+                <label><small>Calle</small>
+                    <input name="calle" required>
                 </label>
-                <label>Número
-                    <input name="numero">
+                <label><small>Número</small >
+                    <input name="numero" type="number" required>
                 </label>
-                <label>Departamento
+                <label><small>Departamento</small>
                     <input name="departamento">
                 </label>
-                <button type="submit">Guardar</button>
+                <button type="submit">Agregar</button>
             </form>
+        </section>
+        <section id="details-list" class="details-list">
+            <ul>
+
+            </ul>
         </section>
     </section>
 {% endblock %}
