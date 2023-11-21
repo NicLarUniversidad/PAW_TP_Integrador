@@ -7,8 +7,10 @@
 
 {% block main %}
 
+    <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" onclick="window.location.replace('/miscompras');">
+    <h1>Detalle compra</h1>
     <section>
-        <h2>Detalle compra</h2>
+        <h2>Compra número {{ data.idCompra }} </h2>
         {% for item in data.compras %}
             <h3>  {{ item.publicacion.producto.nombre }}</h3>
             <article class="compra" id="compra-{{ item.id }}">

@@ -67,6 +67,7 @@ class MisComprasController extends Controller
             $jsImports[]="paw";
             $jsImports[]="app";
             $data["compras"] = $this->miscomprasService->getItemsFromPurchase($purchaseId);
+            $data["idCompra"] = $purchaseId;
             $this->pageFinderService->findFileRute("detalle-compra","twig","twig", $cssImports,
                 $data,"", $jsImports);
         }

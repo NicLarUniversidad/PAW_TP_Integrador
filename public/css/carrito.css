@@ -6,6 +6,12 @@
     width: 100%;
 }*/
 
+h1 {
+    background: #F97224;
+    margin-top: auto;
+    border: double;
+}
+
 section>a {
     position: absolute;
 }
@@ -126,15 +132,19 @@ h3{
 }
 
 .flecha-back{
-    display: block;
-    width: 2em;
-    margin-bottom: 0.5em;
-    border-radius: 10px;
+    height: 3vw;
+    margin: inherit;
+    position: absolute;
 }
 
-.flecha-back:hover{
-    cursor:pointer;
-    box-shadow: 4px 10px 6px 0px rgba(50, 50, 50, 0.45);
+#flecha:hover{
+    cursor: pointer;
+    /*transform: transla;*/
+    box-shadow: 4px 10px 6px 1px rgba(50, 50, 50, 0.45);
+    /*border: dotted;*/
+    border: solid;
+    color: black;
+    border-radius: 10px;
 }
 
 p{

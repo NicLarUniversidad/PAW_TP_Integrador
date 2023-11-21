@@ -2,6 +2,12 @@
     visibility: collapse;
 }
 
+h1 {
+    background: #F97224;
+    margin-top: auto;
+    border: double;
+}
+
 
 h2 {
     font-size: xx-large;
@@ -53,6 +59,22 @@ section > article > p {
 body>main {
     position: relative;
     left: 0;
+}
+
+.flecha-back{
+    height: 3vw;
+    margin: inherit;
+    position: absolute;
+}
+
+#flecha:hover{
+    cursor: pointer;
+    /*transform: transla;*/
+    box-shadow: 4px 10px 6px 1px rgba(50, 50, 50, 0.45);
+    /*border: dotted;*/
+    border: solid;
+    color: black;
+    border-radius: 10px;
 }
 
 
