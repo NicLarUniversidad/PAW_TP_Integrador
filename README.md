@@ -16,6 +16,8 @@ Además, se puede hacer búsquedas a través de un sistema de categorías y filt
 También, se diferencia entre usuarios no logeados, usuarios logeados y usuario admin.
 Los usuarios no logeados no pueden acceder a ciertas funcionalidades, y los usuarios admin pueden acceder a funcionalidades de gestión.
 
+Se puede probar en el [servidor publicado](https://paw-tienda-virtual.azurewebsites.net).
+
 ## Figma
 
 [Link a web](https://www.figma.com/files/project/33268174/Team-project?fuid=888522011888423886)
