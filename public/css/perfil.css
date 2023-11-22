@@ -4,7 +4,7 @@
 }
 
 .slide-bar {
-    background-color: #2A497E;
+    background-color: #E5E9EA;
     position: relative;
     width: 25vw;
     height: 100%;
@@ -50,4 +50,39 @@
 
 h4 {
     color: black;
+}
+
+@media (max-width: 1500px) {
+    .slide-bar {
+        display: none;
+    }
+
+    .details {
+        width: 70vw;
+    }
+
+    .details-list {
+        width: 30vw;
+    }
+}
+
+@media (max-width: 950px) {
+    .slide-bar {
+        display: none;
+    }
+
+    .details {
+        width: 100vw;
+    }
+
+    .details-list {
+        width: 100vw;
+    }
+
+    .profile-section {
+        display: grid;
+    }
+
+    form {
+    }
 }

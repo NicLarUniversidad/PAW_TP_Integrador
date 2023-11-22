@@ -86,6 +86,13 @@ class PerfilDirecciones {
                 let newLi = document.createElement("li");
                 let newP = document.createElement("p");
                 newP.textContent = address.calle + ", " + address.nombreProvincia + ", " + address.nombreCiudad;
+                const pSize = 30;
+                if (newP.textContent.length > pSize) {
+                    newP.textContent = newP.textContent.substring(0, pSize);
+                } else {
+                    const offset = pSize - newP.textContent.length;
+                    newP.textContent += " ".repeat(offset);
+                }
                 newLi.appendChild(newP);
                 if (address.default !== "SI") {
                     let button = document.createElement("button");
