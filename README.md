@@ -4,12 +4,9 @@
 
 [Sistema tienda virtual](propuestas/tiendaVritual.md)
 
-## Figma
+## Wireframes
 
-[Link a web](https://www.figma.com/files/project/33268174/Team-project?fuid=888522011888423886)
-
-
-[Link secundario](https://www.figma.com/file/FgawfllMkwyFLRsrzFRfwW/Untitled?node-id=0%3A1)
+[Website wireframes](https://drive.google.com/file/d/1tXy-hiiiXWPhsxC8GGx9olDPqJKver_g/view?usp=drive_link)
 
 ## Modelo de datos
 
