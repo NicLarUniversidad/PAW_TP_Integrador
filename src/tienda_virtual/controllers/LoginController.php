@@ -12,6 +12,7 @@ use src\tienda_virtual\services\PersonaService;
 
 class LoginController extends Controller
 {
+
     public function __construct()
     {
         parent::__construct();
@@ -82,6 +83,13 @@ class LoginController extends Controller
         if (!isset($username)) {
             $error = true;
             $mensajeError .= "No se ingresó usuario <br>";
+        }
+        else {
+            $userService = new UserService($this->connection, $this->logger);
+            if ($userService->userExists($username)) {
+                $error = true;
+                $mensajeError .= "Ya se está usando el nombre de usuario " . $username . " <br>";
+            }
         }
         if (preg_match('/[^A-Za-z0-9]/', $username)) 
         {

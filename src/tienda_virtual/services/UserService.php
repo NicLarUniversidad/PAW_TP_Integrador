@@ -70,4 +70,10 @@ class UserService
     {
         return $this->userRepository->find($id)[0];
     }
+
+    public function userExists($username)
+    {
+        $user = $this->userRepository->findByUsername($username);
+        return count($user) > 0;
+    }
 }

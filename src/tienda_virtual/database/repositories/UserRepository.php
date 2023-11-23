@@ -37,4 +37,15 @@ class UserRepository extends Repository
         }
         return null;
     }
+
+    public function findByUsername($username)
+    {
+        $user = new UserModel();
+        $user->setUsername($username);
+        $queryBuilder = Model::createQueryBuilder();
+        return $queryBuilder->select($user->getTableFields())
+            ->from($this->tabla)
+            ->where(["username"=>$username])
+            ->execute();
+    }
 }
