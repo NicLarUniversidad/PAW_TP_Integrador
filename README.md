@@ -6,7 +6,7 @@ Se requiere elaborar una aplicación web como trabajo final para la asignatura P
 
 Alumnos:
 - Nicolás Larena
-- Delfina Morelo
+- Delfina Morello
 
 
 Se ha desarrollado una tienda virtual, en la cual se pueda buscar productos, agregarlos a un "carrito", poder comprarlos y poder ver las compras realizadas.
@@ -18,9 +18,9 @@ Los usuarios no logeados no pueden acceder a ciertas funcionalidades, y los usua
 
 Se puede probar en el [servidor publicado](https://paw-tienda-virtual.azurewebsites.net).
 
-## Figma
+## Wireframes
 
-[Link a web](https://www.figma.com/files/project/33268174/Team-project?fuid=888522011888423886)
+[Website wireframes](https://drive.google.com/file/d/1tXy-hiiiXWPhsxC8GGx9olDPqJKver_g/view?usp=drive_link)
 
 
 [Link secundario](https://www.figma.com/file/FgawfllMkwyFLRsrzFRfwW/Untitled?node-id=0%3A1)
