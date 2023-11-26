@@ -16,7 +16,7 @@
                 <h2>Compra número {{ compra.id }} </h2>
                 <p>Gastaste: {{ compra.monto }} {{ publicacion.moneda.nombre }}</p>
                 <p>Fecha: {{ compra.fechaPago }}</p>
-                {% if compra.estado == 'PENDIENTE_DE_ENVÍO' %}
+                {% if compra.estado == 'PENDIENTE_DE_ENVIO' %}
                         <p>Su paquete está pendiente de envío</p>
                 {% else %}
                         <p>Ha ocurrido un error en el estado del paquete</p>
