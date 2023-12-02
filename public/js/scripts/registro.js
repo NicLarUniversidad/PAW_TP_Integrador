@@ -5,15 +5,22 @@ class Registro {
             e.preventDefault();
             let values = new FormData(item);
             let response = await fetch(
-                "registrarse?username=" + values.get("username")
-                + "&password=" + values.get("password")
-                + "&re-password=" + values.get("re-password")
-                + "&mail=" + values.get("mail")
-                + "&nombre=" + values.get("nombre")
-                + "&apellido=" + values.get("apellido")
+                "registrarse"
                 ,
                 {
-                    method: "POST"
+                    method: "POST",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: values.get("username"),
+                        password: values.get("password"),
+                        re_password: values.get("re-password"),
+                        mail: values.get("mail"),
+                        nombre: values.get("nombre"),
+                        apellido: values.get("apellido"),
+                    })
                 }
             );
             let message = await response.text();

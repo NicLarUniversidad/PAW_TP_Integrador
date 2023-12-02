@@ -73,7 +73,7 @@ class LoginController extends Controller
     {
         $username = $this->request->get("username");
         $password = $this->request->get("password");
-        $rePassword = $this->request->get("re-password");
+        $rePassword = $this->request->get("re_password");
         $mail = $this->request->get("mail") ?? "";
         $nombre = $this->request->get("nombre") ?? "";
         $apellido = $this->request->get("apellido") ?? "";
