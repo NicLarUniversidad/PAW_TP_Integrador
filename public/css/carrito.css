@@ -155,6 +155,10 @@ p{
     visibility: collapse;
     display:table-column;
 }
+
+.total{
+    text-align: center;
+}
 /*-------------------RESPONSIVE---------------------*/
 
 @media (max-width: 768px){
