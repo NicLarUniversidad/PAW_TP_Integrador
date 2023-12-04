@@ -10,7 +10,7 @@
 
 {% block main %}
     <section>
-        <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" onclick="history.back();">
+        <img src="img/arrow_back-24px.svg"  class="flecha-back" alt="volver a la pantalla anterior" id="flecha" onclick="history.back();">
         <h1>Carrito</h1>
         <a href="/carrito-cancelar" class="btn-cancelar">Cancelar compra</a>
         {% for publicacion in data.publicaciones %}

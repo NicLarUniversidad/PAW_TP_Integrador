@@ -1,13 +1,17 @@
 {% extends "parts/commons.twig" %}
 {% block head %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <meta charset="utf-8">
+    <meta name="author" content="Nicolas Larena, Delfina Morello" />
+    <meta name="description" content="Tienda virtual posee una variedad de productos a precios accesibles y competitivos, que no te podes perder. ">
     <link rel="stylesheet" type="text/css" href="css/buscador.css" />
     <script src="/js/scripts/buscador.js" ></script>
 {% endblock %}
 
 {% block main %}
     <section>
-    <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" onclick="history.back();">
+    <img src="img/arrow_back-24px.svg"  class="flecha-back" alt="volver a la pantalla anterior" id="flecha" onclick="history.back();">
         <h1>Resultados de la búsqueda</h1>
     {% for publicacion in data.publicaciones %}
         <article>

@@ -2,6 +2,9 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <meta name="description" content="Tienda virtual, encontrá lo que buscás en tienda online. Productos de electrónica, computación, hogar, jardín y mucho más">
+    <meta name="author" content="Nicolas Larena, Delfina Morello" />
     <title> Tienda Virtual - {{ title }} </title>
     {% if cssImports %}
         {% for import in cssImports %}
@@ -22,7 +25,7 @@
 <body>
 <header>
     <form action="/buscar">
-        <img src="/img/logo.svg" id="logo" title="Logo">
+        <img src="/img/logo.svg" id="logo" title="Logo" alt="Logo de la tienda">
         <label class="nombrePagina" id="AnimacionTitulo">TiendaVirtual</label>
         <input class="buscadorMenu" name="buscador" type="text" placeholder="Buscar producto">
         <button type="submit"><img class="lupa" src="/img/lupa.png"/></button>
@@ -100,7 +103,7 @@
         </div>
 
         <div class="pagos">
-            <img src="/img/credit-card.svg"  id="iconosPagos" title="Tarjetas de crédito">
+            <img src="/img/credit-card.svg"  id="iconosPagos" title="Tarjetas de crédito" alt="Tarjeta de crédito">
             <p>Tarjeta de crédito</p>
             <a href="javascript:abrirPromocionesBancarias()">Ver promociones bancarias</a>
         </div>
@@ -125,7 +128,7 @@
         </div>
 
         <div class="pagos">
-            <img src="/img/debit-card.svg"  id="iconosPagos" title="Tarjetas de débito">
+            <img src="/img/debit-card.svg"  id="iconosPagos" title="Tarjetas de débito" alt="Tarjeta de débito" >
             <p>Tarjeta de débito</p>
             <a href="javascript:abrirMediosDePago()">Ver más</a>
         </div>
@@ -146,7 +149,7 @@
 
 
         <div class="pagos">
-            <img src="/img/money-cash.svg"  id="iconosPagos" title="Pagos en efectivo">
+            <img src="/img/money-cash.svg"  id="iconosPagos" title="Pagos en efectivo" alt="Pago en efectivo">
             <p>Efectivo</p>
             <a href="javascript:abrirEfectivo()">Ver más</a>
         </div>
@@ -157,12 +160,12 @@
 
     <section class="informacion">
         <div class="columnas">
-            <img src="/img/ubicacion.png"  id="iconosPortada" title="Ubicación">
+            <img src="/img/ubicacion.png"  id="iconosPortada" title="Ubicación" alt="Ubicación">
             <h3>Ubicación</h3>
             <p>Av. Mitre 1600</p>
         </div>
         <div class="columnas">
-            <img src="/img/phone-call.png" id="iconosPortada" title="Números de contacto">
+            <img src="/img/phone-call.png" id="iconosPortada" title="Números de contacto" alt="Números de contacto">
             <h3>Teléfonos de contacto</h3>
             <p>1124563258</p>
             <p>1132654297</p>
@@ -170,15 +173,15 @@
         <div class="columnas">
             <h3>Redes Sociales</h3>
             <div class="redes">
-                <img src="/img/facebook.png"  id="iconosPortada" title="Facebook">
+                <img src="/img/facebook.png"  id="iconosPortada" title="Facebook" alt="Facebook">
                 <p id="redes">Tiendavirtual</p>
             </div>
             <div class="redes">
-                <img src="/img/instagram.png"  id="iconosPortada" title="Instagram">
+                <img src="/img/instagram.png"  id="iconosPortada" title="Instagram" alt="Instagram">
                 <p id="redes">Tiendavirtual</p>
             </div>
             <div class="redes">
-                <img src="/img/twitter.png"  id="iconosPortada" title="Twitter">
+                <img src="/img/twitter.png"  id="iconosPortada" title="Twitter" alt="Twitter">
                 <p id="redes">TiendaVirtual</p>
             </div>
         </div>
