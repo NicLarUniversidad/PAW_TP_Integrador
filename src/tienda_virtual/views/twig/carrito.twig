@@ -12,7 +12,6 @@
     <section>
         <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" onclick="history.back();">
         <h1>Carrito</h1>
-        <a href="/carrito-cancelar" class="btn-cancelar">Cancelar compra</a>
         {% for publicacion in data.publicaciones %}
             <article class="productos" id="productos">
                 <picture>
@@ -36,10 +35,12 @@
         <span class="seguirCompra">Para seguir comprando, navegue por las categorías en el sitio, o busque su producto.</span>
         <a href="/grupocategorias" class="inicio">Seguir comprando</a>
     {% endfor %}
-    <p class="total">Total compra: {{ data.monto_total }}</p>
-    <div class="btn-pagar">
-        <div id="checkout-btn"></div>
-    </div>
+    {% if data.publicaciones|length > 0 %}
+        <p class="total">Total compra: {{ data.monto_total }}</p>
+        <div class="btn-pagar">
+            <div id="checkout-btn"></div>
+        </div>
+    {% endif %}
 
     <script>
         // Add SDK credentials
