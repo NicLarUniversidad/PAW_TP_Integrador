@@ -28,11 +28,11 @@
             </figure>
             <h2 class="nombre-producto">{{ publicacion.producto.nombre }}</h2>
             {% if publicacion.oferta is empty %}
-                <div class="precio">
+                <div>
                 <p>{{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p>
                 </div>
             {% else %}
-                <div class="precio">
+                <div>
                 <p class="antes">ANTES {{publicacion.precio_unidad}} {{oferta.moneda.nombre}}</p>
                 <p>AHORA {{ publicacion.oferta.precio_oferta }} {{ publicacion.moneda.nombre }}</p>
                 </div>
