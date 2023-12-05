@@ -28,10 +28,14 @@
             </figure>
             <h2 class="nombre-producto">{{ publicacion.producto.nombre }}</h2>
             {% if publicacion.oferta is empty %}
+                <div class="precio">
                 <p>{{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p>
+                </div>
             {% else %}
+                <div class="precio">
                 <p class="antes">ANTES {{publicacion.precio_unidad}} {{oferta.moneda.nombre}}</p>
                 <p>AHORA {{ publicacion.oferta.precio_oferta }} {{ publicacion.moneda.nombre }}</p>
+                </div>
             {% endif %}
             <a href="/detalleproducto?publicacion={{ publicacion.id }}" id="verMas">Ver en Detalle</a><br>
             <a class="agregar" id="addToCart-{{ publicacion.id }}">Agregar</a>
