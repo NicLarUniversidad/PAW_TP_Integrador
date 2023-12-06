@@ -11,16 +11,20 @@ class QueryBuilder
     private PDO $pdo;
     private Logger $logger;
     private string $query;
+    private string $querySecondPart;
+    private string $tableName;
     private array $values = [];
     private array $updateValues = [];
 
     private string $type = "";
 
-    public function __construct(PDO $pdo, Logger $logger)
+    public function __construct(PDO $pdo, Logger $logger, $tableName = "")
     {
         $this->pdo = $pdo;
         $this->logger = $logger;
         $this->query = "";
+        $this->querySecondPart = "";
+        $this->tableName = $tableName;
     }
 
     public function select(Array $fields = []) : QueryBuilder {
@@ -38,8 +42,36 @@ class QueryBuilder
         return $this;
     }
 
+    public function selectTopSkippable(Array $fields = [], int $top = 1, int $skip = 0) : QueryBuilder {
+        $this->query = "SELECT ";
+        $this->querySecondPart = " LIMIT $top OFFSET $skip;";
+        $primero = true;
+        foreach ($fields as $field => $value) {
+            if (! $primero) {
+                $this->query .= ",";
+            } else {
+                $primero = false;
+            }
+            $this->query .= " A.$field";
+        }
+        $this->type = "selectSkippable";
+        return $this;
+    }
+
+    public function count() : QueryBuilder {
+        $this->query = "SELECT COUNT(A.id) AS C ";
+        $this->type = "count";
+        return $this;
+    }
+
     public function from(string $table) : QueryBuilder {
-    $this->query .= " FROM `" . QueryBuilder::$DATABASE_NAME . "`.`$table`";
+    $this->query .= " FROM `" . QueryBuilder::$DATABASE_NAME . "`.`$table` A";
+        return $this;
+    }
+
+    public function join(string $table, string $alias, string $fk, string $field) : QueryBuilder {
+        $this->query .= " INNER JOIN `" . QueryBuilder::$DATABASE_NAME . "`.`$table` $alias";
+        $this->query .= " ON $alias.$field=A.$fk ";
         return $this;
     }
 
@@ -55,6 +87,22 @@ class QueryBuilder
             }
             $this->query .= "$field = :$field";
         }
+        return $this;
+    }
+
+    public function whereLike2(array $values = [], $alias = "A") : QueryBuilder {
+        $this->query .= " WHERE ";
+        $this->values = $values;
+        $primero = true;
+        foreach ($this->values as $field => $value) {
+            if (! $primero) {
+                $this->query .= " AND ";
+            } else {
+                $primero = false;
+            }
+            $this->query .= "$alias.$field LIKE :$field";
+        }
+        $this->logger->info("whereLike query:[" . $this->query . "]");
         return $this;
     }
 
@@ -140,6 +188,9 @@ class QueryBuilder
     {
         if (count($values) > 0) {
             $this->values = $values;
+        }
+        if ($this->type == "selectSkippable") {
+            $this->query .= $this->querySecondPart;
         }
         $this->logger->info("Query: ".  $this->query);
         $sentencia = $this->pdo->prepare($this->query);

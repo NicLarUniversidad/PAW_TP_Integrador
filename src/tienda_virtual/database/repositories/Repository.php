@@ -28,7 +28,7 @@ class Repository
     {
         $this->setLogger($logger);
         $this->setConnection($connection);
-        $this->queryBuilder = new QueryBuilder($connection, $logger);
+        $this->queryBuilder = new QueryBuilder($connection, $logger, $tabla);
         $this->tabla = $tabla;
         $this->modelo = "src\\tienda_virtual\\database\\models\\" . $modelo;
         $this->setRequest(new RequestService());
@@ -103,6 +103,15 @@ class Repository
     {
         $model = new $this->modelo();
         return $this->queryBuilder->select($model->getTableFields())
+            ->from($this->tabla)
+            ->whereLike([$field=>"%" . $value . "%"])
+            ->execute();
+    }
+
+    public function querySkippable($field, $value, $top = 100, $skip = 0) : array
+    {
+        $model = new $this->modelo();
+        return $this->queryBuilder->selectTopSkippable($model->getTableFields(), $top, $skip)
             ->from($this->tabla)
             ->whereLike([$field=>"%" . $value . "%"])
             ->execute();

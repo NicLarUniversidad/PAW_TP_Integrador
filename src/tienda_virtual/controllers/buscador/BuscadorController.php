@@ -26,9 +26,14 @@ class BuscadorController extends Controller
         $jsImports[]="app";
         $jsImports[]="paw";
         $busqueda = $this->request->get("buscador");
+        $top = $this->request->get("page-size") ?? 6;
+        $skip = ($this->request->get("skip") ?? 0) * $top;
         $publicaciones = $this->publicacionService->buscar($busqueda ?? "",
-            $this->request->get("sub_categoria") ?? null);
+            $this->request->get("sub_categoria") ?? null, $top, $skip);
         $data = ["publicaciones" => $publicaciones];
+        $data["total"] = $this->publicacionService->count($busqueda ?? "");
+        $data["paginatam"] = $top;
+        $data["pagina"] = ($this->request->get("skip") ?? 0) + 1;
         $this->logger->info("DATA  " . json_encode($data));
         //echo json_encode($data);
         $this->pageFinderService->findFileRute("buscador","twig","twig", $cssImports,

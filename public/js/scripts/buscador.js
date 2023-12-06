@@ -51,9 +51,37 @@ class Buscador
             img.classList.remove("hidden");
         });
     }
+
+    AddPageEvents() {
+        const pageSize = document.querySelector("#page-size").textContent;
+        const querySize = document.querySelector("#query-size").textContent;
+        const firstSection = document.querySelector("main > section");
+        let buttonSection = document.createElement("section");
+        buttonSection.classList.add("button-section");
+
+        let pageNumber = Math.floor(querySize / pageSize);
+        if ((querySize % pageSize) > 0) {
+            pageNumber++;
+        }
+        const actualUrl = window.location.href;
+        const url = new URL(actualUrl);
+        const query = url.searchParams.get("busqueda") ?? "";
+        for(let i = 0; i < pageNumber; i++) {
+            let newButton = document.createElement("button");
+            newButton.textContent = (i + 1);
+            newButton.addEventListener("click", () => {
+                window.location.search = "?buscador=" + query + "&page-size=" + pageSize + "&skip=" + i;
+                return false;
+            });
+            buttonSection.appendChild(newButton);
+        }
+
+        firstSection.appendChild(buttonSection);
+    }
 }
 
 document.addEventListener("DOMContentLoaded",()=>{
     let buscador = new Buscador();
     buscador.addAddToCartEvent();
+    buscador.AddPageEvents();
 });
