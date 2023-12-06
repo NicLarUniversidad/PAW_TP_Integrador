@@ -1,6 +1,10 @@
 {% extends "parts/commons.twig" %}
 {% block head %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <meta charset="utf-8">
+    <meta name="author" content="Nicolas Larena, Delfina Morello" />
+    <meta name="description" content="Tienda virtual posee una variedad de productos a precios accesibles y competitivos, que no te podes perder. ">
     <link rel="stylesheet" type="text/css" href="css/buscador.css" />
     <script src="/js/scripts/buscador.js" ></script>
 {% endblock %}
@@ -8,8 +12,8 @@
 {% block main %}
     <section>
         <section class="section1">
-            <img src="img/arrow_back-24px.svg"  class="flecha-back" id="flecha" onclick="history.back();">
-            <h1>Resultados de la búsqueda</h1>
+			<img src="img/arrow_back-24px.svg"  class="flecha-back" alt="volver a la pantalla anterior" id="flecha" onclick="history.back();">
+			<h1>Resultados de la búsqueda</h1>
             <small>Mostrando <b id="page-size">{{ data.paginatam }}</b> de <b id="query-size">{{ data.total }}</b> - Página <b id="page-number">{{ data.pagina }}</b></small>
         </section>
     {% for publicacion in data.publicaciones %}
@@ -27,10 +31,14 @@
             </figure>
             <h2 class="nombre-producto">{{ publicacion.producto.nombre }}</h2>
             {% if publicacion.oferta is empty %}
+                <div>
                 <p>{{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p>
+                </div>
             {% else %}
-                <p class="antes">ANTES {{publicacion.precio_unidad}} {{oferta.moneda.nombre}}</p>
+                <div>
+                <p class="antes">ANTES {{publicacion.precio_unidad}} {{oferta.moneda.nombre}}</p><br>
                 <p>AHORA {{ publicacion.oferta.precio_oferta }} {{ publicacion.moneda.nombre }}</p>
+                </div>
             {% endif %}
             <a href="/detalleproducto?publicacion={{ publicacion.id }}" id="verMas">Ver en Detalle</a><br>
             <a class="agregar" id="addToCart-{{ publicacion.id }}">Agregar</a>

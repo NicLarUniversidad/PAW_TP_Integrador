@@ -157,6 +157,9 @@ figure {
     padding-bottom: 1rem;
 }
 
+div{
+    height: 8.5vh;
+}
 /*-------------------RESPONSIVE---------------------*/
 
 @media (max-width: 768px){
