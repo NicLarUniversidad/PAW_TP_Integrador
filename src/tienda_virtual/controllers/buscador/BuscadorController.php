@@ -25,7 +25,7 @@ class BuscadorController extends Controller
         $jsImports = [];
         $jsImports[]="app";
         $jsImports[]="paw";
-        $busqueda = $this->request->get("buscador");
+        $busqueda = $this->request->get("buscador")??"";
         $top = $this->request->get("page-size") ?? 6;
         $skip = ($this->request->get("skip") ?? 0) * $top;
         $publicaciones = $this->publicacionService->buscar($busqueda ?? "",
@@ -48,7 +48,7 @@ class BuscadorController extends Controller
         $jsImports = [];
         $jsImports[]="app";
         $jsImports[]="paw";
-        $busqueda = $this->request->get("buscador");
+        $busqueda = $this->request->get("buscador")??"";
         $publicaciones = $this->publicacionService->buscarOfertas($busqueda ?? "",
             $this->request->get("sub_categoria") ?? null);
         $data = ["publicaciones" => $publicaciones];

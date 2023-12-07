@@ -32,11 +32,11 @@
             <figure>
                 {% for foto in publicacion.fotografias %}
                     <picture class="hidden">
-                        <img class="imagenes" src="{{ foto.url }}" alt="{{ publicacion.producto.descripcion }}">
+                        <img class="imagenes" src="/{{ foto.url }}" alt="{{ publicacion.producto.descripcion }}">
                     </picture>
                 {% else %}
                     <picture class="hidden">
-                        <img class="imagenes" src="img/no-picture.svg" alt="Imagen no encontrada">
+                        <img class="imagenes" src="/img/no-picture.svg" alt="Imagen no encontrada">
                     </picture>
                 {% endfor %}
             </figure>
