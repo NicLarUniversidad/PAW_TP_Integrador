@@ -14,7 +14,18 @@
         <section class="section1">
 			<img src="img/arrow_back-24px.svg"  class="flecha-back" alt="volver a la pantalla anterior" id="flecha" onclick="history.back();">
 			<h1>Resultados de la búsqueda</h1>
-            <small>Mostrando <b id="page-size">{{ data.paginatam }}</b> de <b id="query-size">{{ data.total }}</b> - Página <b id="page-number">{{ data.pagina }}</b></small>
+            <section>
+                <small>Mostrando <b id="page-size">{{ data.paginatam }}</b> de <b id="query-size">{{ data.total }}</b> - Página <b id="page-number">{{ data.pagina }}</b></small>
+                <section>
+                    <small>Ver de a: </small>
+                    <select>
+                        <option value="6" selected>6</option>
+                        <option value="12">12</option>
+                        <option value="24">24</option>
+                    </select>
+                    <small> publicaciones</small>
+                </section>
+            </section>
         </section>
     {% for publicacion in data.publicaciones %}
         <article>

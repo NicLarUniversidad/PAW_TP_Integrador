@@ -156,6 +156,15 @@ figure {
 .section1 {
     padding-bottom: 1rem;
 }
+.section1 section {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.section1 section small, .section1 section section {
+    width: 45%;
+}
 
 div{
     height: 8.5vh;
