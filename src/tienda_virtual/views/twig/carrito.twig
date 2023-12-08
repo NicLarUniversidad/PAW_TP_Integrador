@@ -18,8 +18,8 @@
                     <img src="fotografia_producto.url" class="imgArticulo" alt="{{ publicacion.producto.nombre }}" >
                 </picture>
                 <h2>{{ publicacion.productos[0].nombre }}</h2>
-                <p>Precio: {{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p>
-                <p>Cantidad: {{ publicacion.cantidad }}</p>
+                <p class="Precio_producto">Precio: {{ publicacion.precio_unidad }} {{ publicacion.moneda.nombre }}</p>
+                <p class="Cantidad_unidades">Cantidad de unidades: {{ publicacion.cantidad }}</p>
                 <button class="button-delete" id="eliminar-{{ publicacion.id }}">Eliminar artículo</button>
             </article>
 
@@ -36,7 +36,7 @@
         <a href="/grupocategorias" class="inicio">Seguir comprando</a>
     {% endfor %}
     {% if data.publicaciones|length > 0 %}
-        <p class="total">Total compra: {{ data.monto_total }}</p>
+        <p class="total">TOTAL DE LA COMPRA: <b> ${{ data.monto_total }} <b></p>
         <div class="btn-pagar">
             <div id="checkout-btn"></div>
         </div>

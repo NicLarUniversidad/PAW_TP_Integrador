@@ -63,7 +63,7 @@ body>main {
 
 body>footer {
     position: inherit;
-    /*margin-top: 40%;*/
+    margin-top: 7rem;
     background-color: #212D63;
     width: 100%;
     height: auto;
@@ -283,7 +283,7 @@ iframe{
         height: var(--navegation-widh);
         position: inherit;
         padding-top: 1%;
-        padding-bottom: 3%;
+        padding-bottom: 6%;
     }
 
     body>header>a {
@@ -296,11 +296,13 @@ iframe{
         font-size: 0;
     } 
     header>form{
+        display: block;
         position: absolute;
-        margin-left: 0.5em;
-        height: 1.8em;
+        margin-left: 2vh;
+        height: 4vh;
         margin-top: 0px;
     }
+
     header>form>label>input{
         height: 1.8em;
     }
@@ -490,6 +492,7 @@ body>header {
 body>footer {
     position: relative;
     margin-top: auto;
+    margin-top: 6vh;
 }
 
 /*---------------------IMAGENES DE PORTADA-----------------*/
@@ -511,7 +514,7 @@ body>footer {
 #slideshow{
 	position: relative;
 	z-index: 998;
-	height: 42vw;
+	height: 41vw;
 }
 
 
@@ -622,10 +625,11 @@ h3{
 
 .icon-cart {
     float: left;
-    margin-left: 1%;
+    margin-left: 3%;
     padding-top: 0.5%;
     height: 1.2em;
     width: 1.2em;
+    display: block;
 }
 
 
@@ -647,7 +651,7 @@ label{
 .usuario {
     display: contents;
     color: aliceblue;
-    margin-top: 2em;
+    margin-top: 1vh;
     margin-left: 1em;
     font-size: medium;
     float: right;

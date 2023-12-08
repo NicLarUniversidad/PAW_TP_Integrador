@@ -62,7 +62,7 @@ h3{
     border: solid;
     border-radius: 10px;
     color: black;
-    display: -webkit-box;;
+    display: inherit;
 }
 
 .imgArticulo{
@@ -76,7 +76,7 @@ h3{
     margin-left: auto;
     font-weight: bold;
     background-color: #F97224;
-    border-radius: 10px;
+    border-radius: 1vh;
 }
 
 .button-delete:hover {
@@ -158,12 +158,30 @@ p{
 
 .total{
     text-align: center;
+    text-decoration: underline;
+    font-size: x-large;
+    padding: 2vh;
+}
+
+.Precio_producto{
+    margin-top: 1%;
+}
+
+footer{
+    display: block;
+    position: relative;
+    background: #212D63;
+
 }
 /*-------------------RESPONSIVE---------------------*/
 
 @media (max-width: 768px){
 
-.flecha-back {
+h2{
+    font-size: smaller;
+}
+
+    .flecha-back {
     height: 1em;
     width: 1em;
 }
@@ -192,5 +210,23 @@ p{
 .productos{
     display: block;
 }
+
+.Precio_producto{
+    display: block;
+    font-size: large;
+}
+
+.button-delete {
+    width: -webkit-fill-available;
+    margin-top: 3%;
+}
+
+.total{
+    font-size: large;
+}
+.Cantidad_unidades{
+    font-size: large;
+}
+
 
 }

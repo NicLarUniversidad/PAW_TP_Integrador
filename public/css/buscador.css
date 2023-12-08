@@ -195,7 +195,7 @@ div{
     }
 
     p{
-        display: block;
+        display: contents;
         font-size: large;
     }
 
