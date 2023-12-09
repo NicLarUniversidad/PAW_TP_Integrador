@@ -52,8 +52,11 @@ h1 {
 }
 
 .details-list ul li {
+    border: groove;
     display: flex;
     position: relative;
+    width: 87%;
+    margin-top: 3%;
 }
 
 .details-list ul button {
@@ -70,6 +73,7 @@ h1 {
 
 .details-list ul li p {
     width: 70%;
+    margin-left: 2%;
 }
 
 .details-list ul small {
@@ -117,7 +121,7 @@ footer{
     }
 
     .details-list ul button {
-        margin-right: 2rem;
+        width: 50%;
     }
 
     .details-list p {
@@ -146,6 +150,10 @@ footer{
     .details-list ul li p {
         width: 50%;
         display: block;
+    }
+
+    ul{
+        padding-left: 5%;
     }
 
 }
