@@ -32,8 +32,12 @@ class BuscadorController extends Controller
         } else if ($top < 6) {
             $top = 6;
         }
-        $skip = ($this->request->get("skip") ?? 0) * $top;
-        $pagina = ($this->request->get("skip") ?? 0) + 1;
+        $skip = ($this->request->get("skip") ?? 0);
+        if ($skip < 0) {
+            $skip = 0;
+        }
+        $skip*= $top;
+        $pagina = $skip;
         $totalPublicaciones = $this->publicacionService->count($busqueda ?? "");
         $totalPaginas = intdiv($totalPublicaciones, $top);
         if ($totalPaginas < $pagina) {
