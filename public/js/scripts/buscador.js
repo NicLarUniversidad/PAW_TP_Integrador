@@ -53,7 +53,7 @@ class Buscador
     }
 
     AddPageEvents() {
-        const pageSize = document.querySelector("#page-size").textContent;
+        const pageSize = document.querySelector("#select-page-size").value;
         const querySize = document.querySelector("#query-size").textContent;
         const firstSection = document.querySelector("main > section");
         let buttonSection = document.createElement("section");
