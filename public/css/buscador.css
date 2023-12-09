@@ -138,6 +138,7 @@ figure {
 .button-section {
     text-align: center;
     padding-bottom: 3rem;
+    background-color: #212D63;
 }
 
 .button-section button {
@@ -158,17 +159,30 @@ figure {
 }
 .section1 section {
     align-items: center;
-    display: flex;
+    display: initial;
     justify-content: center;
 }
 
 .section1 section small, .section1 section section {
-    width: 45%;
+    width: auto;
 }
 
 div{
     height: 8.5vh;
 }
+
+.ordenarPor{
+    display: block;
+    float: right;
+    position: inherit;
+    margin: auto;
+    margin-right: 10%;
+}
+
+select{
+    border: inset;
+}
+
 /*-------------------RESPONSIVE---------------------*/
 
 @media (max-width: 768px){
@@ -217,4 +231,13 @@ div{
         text-align: left;
         overflow: none;
     }
+
+    .section1 {
+        display:grid;
+    }
+
+    .section1 section {
+        float: inline-start;
+    }
+    
 }

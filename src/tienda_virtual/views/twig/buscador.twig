@@ -26,7 +26,17 @@
                     <small> publicaciones</small>
                 </section>
             </section>
+            <section>
+                <section  class="ordenarPor">
+                    <small>Ordenar por </small>
+                    <select>
+                        <option value="1" selected>Menor precio</option>
+                        <option value="2">Mayor precio</option>
+                    </select>
+                </section>
+            </section>
         </section>
+            
     {% for publicacion in data.publicaciones %}
         <article>
             <figure>
