@@ -156,10 +156,18 @@ figure {
 .section1 {
     padding-bottom: 1rem;
 }
+
 .section1 section {
-    align-items: center;
+    align-items: right;
     display: flex;
-    justify-content: center;
+    justify-content: right;
+}
+.section1 section section {
+    display: block;
+}
+
+.section1 > section > small {
+    margin-right: 25rem;
 }
 
 .section1 section small, .section1 section section {
@@ -210,5 +218,18 @@ div{
     #verMas{
         display: block;
         margin: inherit;
+    }
+}
+@media (max-width: 900px) { 
+
+    .section1 > section > small {
+        margin-right: 15rem;
+    }
+}
+
+@media (max-width: 500px) { 
+
+    .section1 > section > small {
+        margin-right: 5rem;
     }
 }

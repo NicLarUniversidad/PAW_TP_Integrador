@@ -77,6 +77,12 @@ class Buscador
         }
 
         firstSection.appendChild(buttonSection);
+
+        const selectSize = document.querySelector("#select-page-size");
+        selectSize.addEventListener("change", () => {
+            const selectedValue = selectSize.value;
+            window.location.search = "?buscador=" + query + "&page-size=" + selectedValue + "&skip=0";
+        });
     }
 }
 
