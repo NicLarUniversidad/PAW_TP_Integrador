@@ -67,6 +67,7 @@ h4 {
 
     .details-list {
         width: 30vw;
+        position: relative;
     }
 }
 

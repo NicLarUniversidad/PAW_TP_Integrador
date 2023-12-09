@@ -21,9 +21,12 @@
         <section class="details">
             <h2>Dirección</h2>
             <form>
+                <div>
                 <label><small>Código postal</small>
                     <input name="cod-postal" type="number" required>
                 </label>
+                </div>
+                <div>
                 <label><small>Provincia</small>
                     <select id="provincia" name="provincia" required>
                         {% for provincia in data.provincias %}
@@ -31,19 +34,28 @@
                         {% endfor %}
                     </select>
                 </label>
+                </div>
+                <div>
                 <label><small>Ciudad</small>
                     <select id="ciudad"  name="ciudad" required>
                     </select>
                 </label>
+                </div>
+                <div>
                 <label><small>Calle</small>
                     <input name="calle" required>
                 </label>
+                </div>
+                <div>
                 <label><small>Número</small >
                     <input name="numero" type="number" required>
                 </label>
+                </div>
+                <div>
                 <label><small>Departamento</small>
                     <input name="departamento">
                 </label>
+                </div>
                 <button type="submit">Agregar</button>
             </form>
         </section>
