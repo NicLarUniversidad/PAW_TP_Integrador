@@ -184,18 +184,16 @@ div{
     }
 
     article{
-        margin: 2%;
         padding: 2%;
         border-radius: 10px;
         border: solid;
-        text-align: right;
+        text-align: left;
         display: block;
         width: auto;
         height: auto;
     }
 
     p{
-        display: contents;
         font-size: large;
     }
 
@@ -205,10 +203,18 @@ div{
 
     .imagenes{
         float: left;
+        height: 94%;
+        width: 83%;
     }
 
     #verMas{
         display: block;
-        margin: inherit;
+        margin-top: 2%;
+    }
+
+    .nombre-producto{
+        display: inline-block;
+        text-align: left;
+        overflow: none;
     }
 }
