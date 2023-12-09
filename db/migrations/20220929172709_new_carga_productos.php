@@ -142,42 +142,6 @@ final class NewCargaProductos extends AbstractMigration
                 'url' => '',
                 'activo' => 'SI',
                 'id_grupo_categoria' => 6
-            ],
-            [
-                'descripcion' => 'Herramientas eléctricas',
-                'url' => '',
-                'activo' => 'SI',
-                'id_grupo_categoria' => 7
-            ],
-            [
-                'descripcion' => 'Herramientas manuales',
-                'url' => '',
-                'activo' => 'SI',
-                'id_grupo_categoria' => 7
-            ],
-            [
-                'descripcion' => 'Muebles de jardín',
-                'url' => '',
-                'activo' => 'SI',
-                'id_grupo_categoria' => 7
-            ],
-            [
-                'descripcion' => 'Decoración',
-                'url' => '',
-                'activo' => 'SI',
-                'id_grupo_categoria' => 8
-            ],
-            [
-                'descripcion' => 'Muebles',
-                'url' => '',
-                'activo' => 'SI',
-                'id_grupo_categoria' => 8
-            ],
-            [
-                'descripcion' => 'Iluminación',
-                'url' => '',
-                'activo' => 'SI',
-                'id_grupo_categoria' => 8
             ]
         ];
         $table->insert($rows)->saveData();
