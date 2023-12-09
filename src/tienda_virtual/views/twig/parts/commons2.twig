@@ -32,14 +32,6 @@
     </form>
     <!--Agregar comprobación para mostrar sólo si el usuario está logeado, o si no mostrar botón de login-->
 
-    {% if user %}
-        <h3 class="usuario"> Usuario {{attribute(user,"username")}} </h3>
-    {% else %}
-        <a href="/login" class="InicioSesion">
-            Iniciar sesion
-        </a>
-    {% endif %}
-
     <button id="button-menu" class="PAW-Menu-Abrir"></button>
     {% if user %}
         <h3 class="usuario"> ¡Hola {{attribute(user,"username")}} !</h3>
