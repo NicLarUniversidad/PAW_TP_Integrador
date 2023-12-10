@@ -69,9 +69,9 @@ class QueryBuilder
         return $this;
     }
 
-    public function join(string $table, string $alias, string $fk, string $field) : QueryBuilder {
+    public function join(string $table, string $alias, string $fk, string $field, string $aliasFk = "A") : QueryBuilder {
         $this->query .= " INNER JOIN `" . QueryBuilder::$DATABASE_NAME . "`.`$table` $alias";
-        $this->query .= " ON $alias.$field=A.$fk ";
+        $this->query .= " ON $alias.$field=$aliasFk.$fk ";
         return $this;
     }
 
@@ -90,7 +90,7 @@ class QueryBuilder
         return $this;
     }
 
-    public function whereLike2(array $values = [], $alias = "A") : QueryBuilder {
+    public function whereLike2(array $values = [], $alias = "") : QueryBuilder {
         $this->query .= " WHERE ";
         $this->values = $values;
         $primero = true;
@@ -100,9 +100,27 @@ class QueryBuilder
             } else {
                 $primero = false;
             }
-            $this->query .= "$alias.$field LIKE :$field";
+            if ($alias != "") {
+                $this->query .= "$alias.$field LIKE :$field";
+            } else {
+                $this->query .= "$field LIKE :$field";
+            }
         }
         $this->logger->info("whereLike query:[" . $this->query . "]");
+        return $this;
+    }
+
+    public function whereAnd(array $values = [], $alias = "") : QueryBuilder {
+        foreach ($values as $field => $value) {
+            $this->query .= " AND ";
+            if ($alias == "") {
+                $this->query .= "$field = :$field";
+            } else {
+                $this->query .= "$alias.$field = :$field";
+            }
+            $this->values[$field] = $value;
+        }
+        $this->logger->info("add to where an and query:[" . $this->query . "]");
         return $this;
     }
 
@@ -195,12 +213,14 @@ class QueryBuilder
         $this->logger->info("Query: ".  $this->query);
         $sentencia = $this->pdo->prepare($this->query);
         foreach ($this->values as $field => $value) {
+            $this->logger->info("Binding values: $field => $value");
             $sentencia->bindValue(":$field",$value);
         }
         foreach ($this->updateValues as $field => $value) {
             $sentencia->bindValue(":$field",$value);
         }
         $this->updateValues = [];
+        $this->values = [];
         $sentencia->setFetchMode(PDO::FETCH_ASSOC);
         $sentencia->execute();
         return $sentencia->fetchAll();
@@ -228,5 +248,14 @@ class QueryBuilder
         $this->type = "SortPrice";
         return $this;
     }*/
+
+    public function orderBy(String $field, String $order = "ASC") : QueryBuilder {
+        $order = strtoupper($order);
+        if ($order != "ASC" && $order != "DESC") {
+            $order = "ASC";
+        }
+        $this->query .= " ORDER BY $field $order";
+        return $this;
+    }
 
 }

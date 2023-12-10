@@ -63,14 +63,26 @@ class Buscador
         if ((querySize % pageSize) > 0) {
             pageNumber++;
         }
+        const params = new Proxy(new URLSearchParams(window.location.search), {
+            get: (searchParams, prop) => searchParams.get(prop),
+        });
+        // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
+        let category = params.sub_categoria ?? ""; // "some_value"
+        let categorySubQuery = "";
+        if (category !== "") {
+            categorySubQuery = "&sub_categoria=" + category;
+        }
+
         const actualUrl = window.location.href;
         const url = new URL(actualUrl);
         const query = url.searchParams.get("busqueda") ?? "";
+        const selectSize = document.querySelector("#select-page-size");
+        const orderSelect = document.querySelector("#order-select");
         for(let i = 0; i < pageNumber; i++) {
             let newButton = document.createElement("button");
             newButton.textContent = (i + 1);
             newButton.addEventListener("click", () => {
-                window.location.search = "?buscador=" + query + "&page-size=" + pageSize + "&skip=" + i;
+                window.location.search = "?buscador=" + query + "&page-size=" + pageSize + "&skip=" + i + "&order="  + orderSelect.value + categorySubQuery;
                 return false;
             });
             buttonSection.appendChild(newButton);
@@ -78,10 +90,14 @@ class Buscador
 
         firstSection.appendChild(buttonSection);
 
-        const selectSize = document.querySelector("#select-page-size");
         selectSize.addEventListener("change", () => {
             const selectedValue = selectSize.value;
-            window.location.search = "?buscador=" + query + "&page-size=" + selectedValue + "&skip=0";
+            window.location.search = "?buscador=" + query + "&page-size=" + selectedValue + "&skip=0&order="  + orderSelect.value + categorySubQuery;
+        });
+
+        orderSelect.addEventListener("change", () => {
+            const selectedValue = orderSelect.value;
+            window.location.search = "?buscador=" + query + "&page-size=" + selectedValue + "&skip=0&order=" + selectedValue + categorySubQuery;
         });
     }
 }

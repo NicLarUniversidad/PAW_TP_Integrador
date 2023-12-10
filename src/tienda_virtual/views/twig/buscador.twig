@@ -29,9 +29,10 @@
             <section>
                 <section  class="ordenarPor" id="select-order">
                     <small>Ordenar por </small>
-                    <select>
-                        <option value="1" selected>Menor precio</option>
-                        <option value="2">Mayor precio</option>
+                    <select id="order-select">
+                        <option value="0" {% if data.order == 0 %} selected {% endif %}> - </option>
+                        <option value="1" {% if data.order == 1 %} selected {% endif %}>Menor precio</option>
+                        <option value="2" {% if data.order == 2 %} selected {% endif %}>Mayor precio</option>
                     </select>
                 </section>
             </section>

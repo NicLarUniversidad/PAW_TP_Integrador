@@ -33,7 +33,7 @@ class PublicacionRepository extends \src\tienda_virtual\database\repositories\Re
             ->execute();
     }
 
-    public function buscar(String $parametros, $sub_categoria, $page = 100, $skip = 0) : array
+    public function buscar(String $parametros, $sub_categoria = 0, $page = 100, $skip = 0, $order = 0) : array
     {
         $productoService = new ProductoService($this->connection, $this->logger);
         $productoSubCategoriaService = new ProductoSubCategoriaService($this->connection, $this->logger);
@@ -42,8 +42,23 @@ class PublicacionRepository extends \src\tienda_virtual\database\repositories\Re
         $monedaService = new MonedaService($this->connection, $this->logger);
 
 
-        $this->logger->info("method buscar() PublicacionRepository con parámetros: " . $parametros);
-        $publicaciones = $this->publicationQuery($parametros, $page, $skip);
+        $this->logger->info("method buscar() PublicacionRepository con parámetros: " . $parametros
+            . " orden: $order");
+        //$publicaciones = $this->publicationQuery($parametros, $page, $skip);
+
+        $this->preparePublicationQuery($parametros, $page, $skip);
+        $conditions = ["descripcion" => "%" . $parametros . "%"];
+        if ($sub_categoria != 0) {
+            $this->prepareCategoryFilter($sub_categoria);
+        }
+        $this->prepareWhere($conditions);
+        if ($sub_categoria != 0) {
+            $this->whereAddAnd(["id_sub_categoria" => $sub_categoria]);
+        }
+        if ($order != 0) {
+            $this->prepareOrder($order);
+        }
+        $publicaciones = $this->execute();
         $result = [];
         foreach ($publicaciones as $publicacion) {
             $publicacion["producto"] = $productoService->find($publicacion["id_producto"])[0];
@@ -101,13 +116,75 @@ class PublicacionRepository extends \src\tienda_virtual\database\repositories\Re
         return $result;
     }
 
+    public function preparePublicationQuery($query, $top, $skip) : void
+    {
+        $model = $this->getModelInstance();
+        $this->queryBuilder->selectTopSkippable($model->getTableFields(), $top, $skip)
+            ->from($this->tabla)
+            ->join("producto", "P", "id_producto", "id", "A");
+    }
+
+    public function prepareCategoryFilter($subCategory) : void
+    {
+        $this->queryBuilder->join("producto_sub_categoria", "PSC", "id", "id_producto", "P");
+    }
+
+    public function prepareWhere(array $conditions) : void
+    {
+        $this->queryBuilder->whereLike2($conditions, "P");
+    }
+
+    public function whereAddAnd(array $conditions) : void
+    {
+        $this->queryBuilder->whereAnd($conditions, "PSC");
+    }
+
+    public function execute() : array
+    {
+        return $this->queryBuilder->execute();
+    }
+
+    public function prepareOrder($order) : void
+    {
+        $criterion = "";
+        $field = "";
+        if ($order == 1) {
+            $criterion = "ASC";
+            $field = "precio_unidad";
+        } else if ($order == 2) {
+            $criterion = "DESC";
+            $field = "precio_unidad";
+        }
+        $this->queryBuilder->orderBy($field, $criterion);
+    }
+
     public function publicationQuery($query, $top, $skip) : array
     {
         $model = $this->getModelInstance();
         return $this->queryBuilder->selectTopSkippable($model->getTableFields(), $top, $skip)
             ->from($this->tabla)
-            ->join("producto", "P", "id_producto", "id")
+            ->join("producto", "P", "id_producto", "id", "A")
             ->whereLike2(["descripcion" => "%" . $query . "%"], "P")
+            ->execute();
+    }
+
+    public function publicationQueryOrder($query, $top, $skip, $order) : array
+    {
+        $criterion = "";
+        $field = "";
+        if ($order == 1) {
+            $criterion = "ASC";
+            $field = "precio_unidad";
+        } else if ($order == 2) {
+            $criterion = "DESC";
+            $field = "precio_unidad";
+        }
+        $model = $this->getModelInstance();
+        return $this->queryBuilder->selectTopSkippable($model->getTableFields(), $top, $skip)
+            ->from($this->tabla)
+            ->join("producto", "P", "id_producto", "id", "A")
+            ->whereLike2(["descripcion" => "%" . $query . "%"], "P")
+            ->orderBy($field, $criterion)
             ->execute();
     }
 
@@ -115,7 +192,7 @@ class PublicacionRepository extends \src\tienda_virtual\database\repositories\Re
     {
         return $this->queryBuilder->count()
             ->from($this->tabla)
-            ->join("producto", "P", "id_producto", "id")
+            ->join("producto", "P", "id_producto", "id", "A")
             ->whereLike2(["descripcion" => "%" . $query . "%"], "P")
             ->execute();
     }
