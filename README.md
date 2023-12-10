@@ -102,7 +102,7 @@ Una vez creada otra APP desde la cuenta del vendedor, desde el panel lateral se 
 
 ![](Documentación/img/MP-Credenciales-prueba.png)
 
-La public key, se debe ingresar en el archivo [carrrito.twig](src/tienda_virtual/views/twig/carrito.twig).
+La public key, se debe ingresar en el archivo [carrito.twig](src/tienda_virtual/views/twig/carrito.twig).
 Línea 47.
 
 Y el access token debe ingresarse en el archivo .env como valor de la variable
