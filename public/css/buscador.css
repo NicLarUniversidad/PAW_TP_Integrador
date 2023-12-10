@@ -156,6 +156,7 @@ figure {
 
 .section1 {
     padding-bottom: 1rem;
+    display: grid;
 }
 
 .section1 section {
@@ -174,7 +175,7 @@ div{
 
 .ordenarPor{
     display: block;
-    float: right;
+    float: left;
     position: inherit;
     margin: auto;
     margin-right: 10%;
@@ -204,8 +205,10 @@ select{
         border: solid;
         text-align: left;
         display: block;
-        width: auto;
-        height: auto;
+        width: 50%;
+        height: 25%;
+        margin: auto;
+        margin-bottom: 2%;  
     }
 
     p{
@@ -228,7 +231,6 @@ select{
     }
 
     .nombre-producto{
-        display: inline-block;
         text-align: left;
         overflow: none;
     }
