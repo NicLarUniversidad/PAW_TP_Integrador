@@ -157,6 +157,7 @@ figure {
 .section1 {
     padding-bottom: 1rem;
 }
+
 .section1 section {
     align-items: center;
     display: initial;
@@ -239,5 +240,19 @@ select{
     .section1 section {
         float: inline-start;
     }
-    
+
+}
+
+@media (max-width: 900px) {
+
+    .section1 > section > small {
+        margin-right: 15rem;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .section1 > section > small {
+        margin-right: 5rem;
+    }
 }

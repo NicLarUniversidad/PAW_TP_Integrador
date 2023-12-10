@@ -27,13 +27,30 @@ class BuscadorController extends Controller
         $jsImports[]="paw";
         $busqueda = $this->request->get("buscador")??"";
         $top = $this->request->get("page-size") ?? 6;
-        $skip = ($this->request->get("skip") ?? 0) * $top;
+        if ($top > 24) {
+            $top = 24;
+        } else if ($top < 6) {
+            $top = 6;
+        }
+        $skip = ($this->request->get("skip") ?? 0);
+        if ($skip < 0) {
+            $skip = 0;
+        }
+        $skip*= $top;
+        $pagina = $skip;
+        $totalPublicaciones = $this->publicacionService->count($busqueda ?? "");
+        $totalPaginas = intdiv($totalPublicaciones, $top);
+        if ($totalPaginas < $pagina) {
+            $pagina = $totalPaginas;
+            $skip = $pagina * $top;
+        }
         $publicaciones = $this->publicacionService->buscar($busqueda ?? "",
             $this->request->get("sub_categoria") ?? null, $top, $skip);
+        $top = count($publicaciones);
         $data = ["publicaciones" => $publicaciones];
-        $data["total"] = $this->publicacionService->count($busqueda ?? "");
+        $data["total"] = $totalPublicaciones;
         $data["paginatam"] = $top;
-        $data["pagina"] = ($this->request->get("skip") ?? 0) + 1;
+        $data["pagina"] = $pagina + 1;
         $this->logger->info("DATA  " . json_encode($data));
         //echo json_encode($data);
         $this->pageFinderService->findFileRute("buscador","twig","twig", $cssImports,
