@@ -17,7 +17,7 @@
             <section class="image-section">
                 {% for foto in publicacion.fotografias %}
                     <picture id="img-{{ foto.id }}" class="hidden">
-                        <img src="{{ foto.url }}" class="imgproducto" alt="{{ publicacion.producto.descripcion }}">
+                        <img src="{{ foto.url }}" class="imgproducto" id="myimage" alt="{{ publicacion.producto.descripcion }}">
                     </picture>
                 {% else %}
                     <picture>
@@ -40,6 +40,9 @@
             </section>
             <section class="detalleDescrip">
                    <!-- <img class="imgproducto" src="documentos/computadoras/1.jpg" alt="{{ publicacion.producto.descripcion }}"> -->
+                    <p class="zoom">Zoom de image</p>
+                    <div id="myresult" class="img-zoom-result"></div>
+                        <script>imageZoom("myimage", "myresult");</script>
                     <p class="descripTitulo" >Descripción</p>
                     <p class="descripcion">{{ producto.descripcion}}</p>
                     <p class="precio">Precio {{ publicacion.precio_unidad}} {{ publicacion.moneda.nombre }}</p>

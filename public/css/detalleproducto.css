@@ -155,6 +155,21 @@ main{
     margin-top: 2%;
 }
 
+
+.img-zoom-lens {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+  }
+  
+  .img-zoom-result {
+    border: 1px solid #d4d4d4;
+    width: 30%;
+    height: 35%;
+    display: block;
+  }
+
+
 /*-------------------RESPONSIVE---------------------*/
 
 @media (max-width: 768px){
@@ -182,7 +197,7 @@ main{
         font-size: x-large;
     }
 
-    .descripcion{
+    .descripcion, .zoom{
         text-align: justify;
         font-size: x-large;
         margin: 2%;
@@ -211,4 +226,9 @@ main{
     .detalleDescrip{
         margin: 2%;
     }
+
+    #myresult, .zoom {
+        display: none;
+    }
+
 }
