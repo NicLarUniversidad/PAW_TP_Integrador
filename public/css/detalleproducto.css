@@ -158,8 +158,8 @@ main{
 
 .img-zoom-lens {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
   }
   
   .img-zoom-result {
@@ -167,6 +167,7 @@ main{
     width: 30%;
     height: 35%;
     display: block;
+    background: no-repeat;
   }
 
 
