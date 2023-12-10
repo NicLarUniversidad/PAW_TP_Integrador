@@ -72,4 +72,31 @@ class BuscadorController extends Controller
         $this->pageFinderService->findFileRute("buscador","twig","twig", $cssImports,
             $data, "Ofertas", $jsImports);
     }
+
+    /*---------------------------------ordenar por precio---------------------------------- */
+    /*public function ordenarResultados() : void
+    {
+        $cssImports = [];
+        $cssImports[] = "main";
+        $jsImports = [];
+        $jsImports[]="app";
+        $jsImports[]="paw";
+        $busqueda = $this->request->get("buscador")??"";
+        $criterio = $this->request->get("order-by") ?? 1;
+        if ($criterio = 1) {
+            $criterio = "ASC";
+        } else if ($criterio = 2) {
+            $criterio = "DESC";
+        }
+        $publicaciones = $this->publicacionService->buscar($busqueda ?? "",
+            $this->request->get("sub_categoria") ?? null, $criterio);
+        $data = ["publicaciones" => $publicaciones];
+        $data["ordenar"] = $criterio;
+        $data["subcategorias"] =$this->subcategoriaService->RecuperarSubCategorias($categoria);
+        $this->logger->info("DATA  " . json_encode($data));
+        //echo json_encode($data);
+        $this->pageFinderService->findFileRute("buscador","twig","twig", $cssImports,
+            $data,$busqueda, $jsImports);
+    }
+    */
 }

@@ -209,4 +209,24 @@ class QueryBuilder
     public function getLastInsertId() : string {
         return $this->pdo->lastInsertId();
     }
+
+
+
+/*---------------------------------Ordenar resultados de búsqueda--------------------------*/
+  /*  public function SortPrice(Array $fields = [], int $criterio = 1) : QueryBuilder {
+        $this->query = "SELECT ";
+        $this->querySecondPart = " Order by $criterio;";
+        $primero = true;
+        foreach ($fields as $field => $value) {
+            if (! $primero) {
+                $this->query .= ",";
+            } else {
+                $primero = false;
+            }
+            $this->query .= " A.$field";
+        }
+        $this->type = "SortPrice";
+        return $this;
+    }*/
+
 }

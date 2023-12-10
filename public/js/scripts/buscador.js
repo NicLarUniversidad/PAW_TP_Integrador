@@ -86,6 +86,34 @@ class Buscador
     }
 }
 
+
+    /*----------------------------------Ordenar por precio---------------------------- */
+    /*
+    function sortProductsPrice(){
+        let sort = document.querySelector("#select-order").value;
+        let items = document.querySelectorAll("article");
+        let publicacionesNumber = Math.countElements(items);
+        if (id[1]==="1") {
+            for(let i = 0; i < publicacionesNumber; i++) {
+                let newButton = document.createElement("button");
+                newButton.textContent = (i + 1);
+                newButton.addEventListener("click", () => {
+                    window.location.search = "?buscador=" + query + "&page-size=" + pageSize + "&skip=" + i;
+                    return false;
+                });
+            
+
+        firstSection.appendChild(buttonSection);
+
+        const selectOrder = document.querySelector("#select-page-size");
+        selectSOrder.addEventListener("change", () => {
+            const selectedValue = selectOrder.value;
+            window.location.search = "?buscador=" + query + "&sort-by=" + selectedValue;
+        });
+    }
+        }
+    }*/
+
 document.addEventListener("DOMContentLoaded",()=>{
     let buscador = new Buscador();
     buscador.addAddToCartEvent();
